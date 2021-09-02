@@ -1,9 +1,9 @@
 # Meeting Agenda 
 
-Group: shed
-Date: 2021-09-03
-Chair: Samuel Kajava
-Participants: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
+- **Group**: shed
+- **Date**: 2021-09-03
+- **Chair**: Samuel Kajava
+- **Participants**: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
 ## Objectives
 
@@ -14,6 +14,6 @@ Participants: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 ## Outcomes and assignments
 
 ## Wrap up
-* Unresolved issues for next meeting:
+* **Unresolved issues for next meeting**:
 
-* Next meeting: 
+* **Next meeting**: 
