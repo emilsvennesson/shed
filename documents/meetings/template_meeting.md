@@ -1,9 +1,9 @@
 # Meeting Agenda 
 
-Group: shed
-Date: 
-Chair: Samuel Kajava
-Participants: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
+- **Group**:        shed
+- **Date**:
+- **Chair**:        Samuel Kajava
+- **Participants**: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
 ## Objectives
 
@@ -21,7 +21,7 @@ Participants: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 ## Outcomes and assignments
 
 * Outcomes from discussion items. Write down what's decided and why it was desided. Sync with other documentation (att terms to wordbook).
-* (re)Assign to each grouå member which issues to solve.
+* (re)Assign to each group member which issues to solve.
 
 ## Wrap up
 * Unresolved issues for next meeting:
