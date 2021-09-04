@@ -1,4 +1,4 @@
-# Requirements and Analysis Document för shed
+# Requirements and Analysis Document for shed
 
 Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
@@ -6,20 +6,20 @@ Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
 v1.0
 
-## 1 Introduktion
+## 1 Introduction
 
-### 1.1 Ordlista
+### 1.1 Word book
 
-## 2 Krav
+## 2 Requirements
 
 ### 2.1 User Stories
 
 ### 2.2 Definition of Done
 
-### 2.3 Användargränssnitt
+### 2.3 User interfaces
 
-## 3 Domänmodell
+## 3 Domain model
 
-### 3.1 Klasser och dess ansvar
+### 3.1 Class responsibilities
 
-## 4 Referenser
+## 4 References
