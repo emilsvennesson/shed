@@ -7,71 +7,71 @@
 
 ## Objectives
 
-- Fixa grupprum till möten
-- Dagordning till nästa möte
-- Diskutera upplägg för projektet
-- Diskutera ev. plan B
-- Förbered frågor för handledningen
+- Group rooms
+- Meeting agendas
+- Project arrangement
+- Discuss potential plan B
+- Prepare questions for supervisor
 
 ## Reports
 
-- Inget idag
+- Nothing today
 
 ## Discussion items
 
-- Vi behöver ordna dagordning till nästa möte
+- We need to set an agenda before each meeting
 
-- Frågor till handledning i eftermiddag
+- Questions for meeting with supervisor
 
 - Plan B?
   
-- APIer - är projektet möjligt med olika streamingtjänster?
+- API:s
 
 ## Outcomes and assignments
 
-**Dagordning**:
+**Agenda**:
 
-- Dagordningen kommer fastställas innan varje möte, och vi tar upp punkter som kan tänkas diskuteras i slutet av mötet, samt kontaktar Samuel under veckan med saker som man vill ta upp så lägger han till det.
+- The agenda for each meeting will be written before each meeting. If anyone wants to add something, they will either update the document directly or contact Samuel.
 
-**Till handledningen**: 
+**Questions for supervisor**: 
 
-- Är det rimligt att lägga den tiden som krävs för att hitta lösningar till olika streamingtjänster eller bör vi skifta fokus?
+- Is the time invested in system integration for several API:s worth it or should we find alternatives?
 
-- Pitcha våra två idéer, och få feedback
+- Pitch both ideas and ask for feedback.
 
-- Bibliotek för GUI? Android studio, JavaFX, Swing? Vilka är några vanliga bibliotek i den här kursen?
+- What GUI libraries are commonly used by students in this course? Are any recommended?
 
 **Plan B**:
 
-- Tjänst för alkohol. M.h.a Systembolagets API - implementera priser för drinkar, hitta inspiration osv.
-- Vi har all data redan, så här behöver vi inte hitta ny lösningar gällande datahantering
+- Application for drinks and other alcoholic beverages. Using data from Systembolaget - implement price estimates for drinks, inspiration etc.
+- We have this data scraped already, making it less system integration oriented.
 
-**APIer**:
+**APIs**:
 
-- Det verkar luta mot att vi kommer röra oss mot plan B för att slippa implentera lösningar för alla streamingtjänsters APIer med tanke på att fokuset i den här kursen ligger på OOP design och inte hantering av RESTful APIer.
+- We are leaning towards plan B as the course is focused on OOP design and not system integration, this will hopefully lead less painful development.
 
 ### Assignments
 
 - Daniel:
 
-  - Kolla upp googles lösningar för databashantering online
-  - Boka grupprum
+  - Look up Google cloud services to see if it is possible to make a RESTful API in case we need it.
+  - Reserve group rooms
 
 - Samuel:
 
-  - Fixa dagordning
+  - Make agenda for next time
 
 - Emil:
 
-  - Kolla sin scrape för systembolaget
+  - Look over scrape for Systembolaget
 
 - Pouya:
 
-    - Inget den här veckan
+    - Nothing this week.
 
 ## Wrap up
 
 - **Unresolved issues for next meeting**:
-  - Diskutera upplägg för projektet
+  - Discuss project arrangement
 
 - **Next meeting**: 08.00 - 6/9
