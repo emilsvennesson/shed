@@ -9,6 +9,7 @@
 
 * Group agreement for handling problems
 * Basic functionality
+* Discuss Features
 * Project arrangement (from last meeting)
   * UI overview
   * User stories
@@ -21,7 +22,7 @@
 ## Discussion items
   
 * Should we create a group agreement in text form in order to handle problems arising within the group?
-* What will the basic functionality be? We need to get this clear in order to start designing the UI
+* What will the basic functionality be? We need to get this clear in order to start designing the UI (features)
   * -> We need to create user stories for the project
 * What strategy should we use for developing this? Pair programming?
 
