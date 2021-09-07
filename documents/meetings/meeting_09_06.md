@@ -38,7 +38,7 @@ Here are the outcomes and assignments from the objectives
   * Dates:
     * 6 sep 15-17
     * 7 sep 8-12
-    * 9 sep workshop 10.00-11.45
+    * 8 sep workshop 10.00-11.45
     * Fridays are empty
   * Meetup spot:
     * At the main entry
