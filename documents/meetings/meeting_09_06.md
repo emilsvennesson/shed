@@ -18,7 +18,7 @@
 
 ## Reports
 
-* We can scrap google services, since we're in the same language a RESTful API would be overkill and result in unnecessary.
+* We can scrap google services, since we're in the same language a RESTful API would be overkill.
 
 * Emil's scrape is alive!!!
 
@@ -30,11 +30,7 @@
 * What strategy should we use for developing this? Pair programming?
 
 ## Outcomes and assignments
-
-* Outcomes from discussion items. Write down what's decided and why it was desided. Sync with other documentation (att terms to wordbook).
-
-* (re)Assign to each group member which issues to solve.
-
+Here are the outcomes and assignments from the objectives
 ### Outcomes
 
 * How and when should we work this week?
