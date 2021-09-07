@@ -61,6 +61,7 @@
     * maybeeee: add products to cart on systembolaget.se
   * Show quantity
   * Choose preferred store
+  * Continuous scrolling in sortiment
 
 * Dev strategy:
   * In the beginning: Wait with frontend until backend is done
