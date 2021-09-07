@@ -8,6 +8,8 @@ v1.0
 
 ## 1 Introduction
 
+Shed is a project that aims to extend the functionality of Systembolaget's website with additional features in a desktop application.
+
 ### 1.1 Word book
 
 ## 2 Requirements
