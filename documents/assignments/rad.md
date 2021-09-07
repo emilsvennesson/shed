@@ -253,6 +253,7 @@ As a customer, I want to add products to a list, because I want to make a shoppi
 ____
 #### User story 2.1.11
 Story Identifier: US11
+
 Story Name: Drinking games
 
 
@@ -276,6 +277,7 @@ ________________________________________________________________________________
 
 #### User story 2.1.12
 Story Identifier: US12
+
 Story Name: Random beverage/drink
 
 
