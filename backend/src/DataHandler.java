@@ -1,16 +1,17 @@
 import java.util.List;
 
 public class DataHandler {
-    private final IProductParser productParser;
-    private final List<Product> products;
+    private List<Product> products;
 
     public List<Product> getProducts() {
         return products;
     }
 
     DataHandler() {
-        productParser = new ProductJsonFileParser();
-        products = productParser.getProducts();
+        setProducts(new ProductJsonFileParser());
+    }
 
+    private void setProducts(IProductParser parser) {
+        products = parser.getProducts();
     }
 }
