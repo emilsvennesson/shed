@@ -8,7 +8,7 @@ import java.util.List;
 class ProductJsonFileParser implements IProductParser {
     private List<Product> products;
 
-    public ProductJsonFileParser() {
+    ProductJsonFileParser() {
         products = new ArrayList<>();
         setProducts();
     }

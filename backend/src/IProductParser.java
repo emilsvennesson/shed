@@ -1,5 +1,5 @@
 import java.util.List;
 
-public interface IProductParser {
+interface IProductParser {
     List<Product> getProducts();
 }
