@@ -1,6 +1,4 @@
 language: java
 
-addons:
-  apt:
-    packages:
-      - openjdk10-installer
+jdk:
+  - openjdk11
