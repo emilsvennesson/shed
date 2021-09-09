@@ -2,7 +2,7 @@ package backend;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DataHandlerTest {
+public class TestDataHandler {
 
     @Test
     public void testProducts() {
