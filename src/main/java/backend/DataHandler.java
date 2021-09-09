@@ -12,6 +12,10 @@ public class DataHandler {
         setProducts(new ProductJsonFileParser());
     }
 
+    public int getSize() {
+        return this.products.size();
+    }
+
     private void setProducts(IProductParser parser) {
         products = parser.getProducts();
     }
