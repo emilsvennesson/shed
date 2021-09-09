@@ -1,4 +1,6 @@
-import backend.DataHandler;
+package backend;
+
+import main.backend.DataHandler;
 import org.junit.Assert;
 import org.junit.Test;
 
