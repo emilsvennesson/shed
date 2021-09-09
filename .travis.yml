@@ -1,9 +1,9 @@
 language: java
 
 jdk:
-  - oraclejdk8
+  - oraclejdk16
 
 addons:
   apt:
     packages:
-      - oracle-java8-installer
+      - oracle-java16-installer
