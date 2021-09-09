@@ -1,5 +1,6 @@
-package backend;
+package java.backend;
 
+import backend.DataHandler;
 import org.junit.Assert;
 import org.junit.Test;
 
