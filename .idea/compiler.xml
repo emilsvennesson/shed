@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="shed" target="11" />
+      <module name="shed" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
