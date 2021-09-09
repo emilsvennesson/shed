@@ -1,4 +1,4 @@
-import backend.java.DataHandler;
+import backend.DataHandler;
 import org.junit.Assert;
 import org.junit.Test;
 

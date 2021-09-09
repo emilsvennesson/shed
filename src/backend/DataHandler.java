@@ -1,4 +1,4 @@
-package backend.java;
+package backend;
 import java.util.List;
 
 public class DataHandler {
