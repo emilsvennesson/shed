@@ -1,4 +1,4 @@
-package main.backend;
+package backend;
 import java.util.List;
 
 interface IProductParser {
