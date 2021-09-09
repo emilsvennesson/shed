@@ -1,4 +1,4 @@
-package backend;
+package main.backend;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
