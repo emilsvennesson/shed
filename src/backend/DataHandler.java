@@ -8,7 +8,7 @@ public class DataHandler {
         return products;
     }
 
-    DataHandler() {
+    public DataHandler() {
         setProducts(new ProductJsonFileParser());
     }
 
