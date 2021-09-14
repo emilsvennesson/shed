@@ -73,11 +73,6 @@
   * Domain model seminar
   * Travis problem with .iml-file
 
-### Assignments
-
-
-
 ## Wrap up
-* Unresolved issues for next meeting:
 
 * Meetings next week: 13/9 - 10.00, 16/9 - 8.00

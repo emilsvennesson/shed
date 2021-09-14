@@ -50,7 +50,7 @@ Here are the outcomes and assignments from the objectives
   * APK leaderboard
   * Later on:
     * Choose ingredients and show cheapest version
-    * Get random drink
+    * Get random drink (with random name)
     * Drinking games
   * Carousel with product showcase
   * Save products in list/favorites
