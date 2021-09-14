@@ -3,7 +3,7 @@
 - **Group**:        shed
 - **Date**:
 - **Chair**:        Samuel Kajava
-- **Participants**: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
+- **Participants**: Samuel Kajava, Daniel Ericsson, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
 ## Objectives
 
@@ -16,11 +16,11 @@
 
 ## Discussion items
 
-* Discuss the identified issues, and possible new or more general issued (very short notes and/or keywords)
+* Discuss the identified issues, and possible new or more general issues (very short notes and/or keywords)
 
 ## Outcomes and assignments
 
-* Outcomes from discussion items. Write down what's decided and why it was desided. Sync with other documentation (att terms to wordbook).
+* Outcomes from discussion items. Write down what's decided and why it was desided. Sync with other documentation (add terms to wordbook).
 * (re)Assign to each group member which issues to solve.
 
 ## Wrap up
