@@ -22,7 +22,7 @@ The user stories are ordered after priority, going from high to low. The accepta
 
 As a user, I want to select specific beverage types to view so that I can see all beverages within that selection.   
 
-**Acceptance: **   
+**Acceptance:**   
 
 - Can I select a specific type and show all products which share that property?   
 - Can I select several types at once and view all relevant products?   
@@ -58,7 +58,7 @@ As a user, I want to be able to browse all beverages so that I can get an overvi
 
 
 
-**Tasks: **  
+**Tasks:**  
 
 * Show all beverages.   
 * Show the price of each product.   
@@ -183,7 +183,7 @@ As a user, I want to be able to find the products with the highest APK in a lead
 
 
 
-**Priority: **Low.
+**Priority:** Low.
 
 ***
 
