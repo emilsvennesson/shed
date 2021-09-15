@@ -297,8 +297,8 @@ ____
 ### 2.2 Definition of Done
 
 - All acceptance criteria are met.
-- All JUnit tests pass.
 - All Travis checks pass.
+- All public methods has unit tests.
 - Completed Java doc (if applicable)
   - All new files need to have an author.
   - All methods except getters and setters has Javadoc.
