@@ -1,10 +1,10 @@
 # Requirements and Analysis Document for shed
 
-Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
+Samuel Kajava, Daniel Ericsson, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
-2021-09-04
+2021-09-15
 
-v1.0
+v1.1
 
 ## 1 Introduction
 
@@ -16,292 +16,235 @@ Shed is a project that aims to extend the functionality of Systembolaget's websi
 
 ### 2.1 User Stories
 
+The user stories are ordered after priority, going from high to low. The acceptance criteria are part of the definition of done (DoD), and are structured as yes/no questions. If the answer is yes to all questions, the acceptance criteria are met for the user story in question.
 
-#### 2.1.1 User story 
+#### 2.1.0 Show specific products
 
-Story Identifier: US01
+As a user, I want to select specific beverage types to view so that I can see all beverages within that selection.   
 
-Story Name: Cheapest Prices
+**Acceptance: **   
 
-
-##### Description 
-
-As a student, I want to be able to find the products with the highest APK in order to save money.
-
-##### Confirmation
-
-List all acceptance criteria; you should be able to test/confirm these.
-
-###### Functional
-
-- Can I find products with the highest APK in an APK leaderboard?
-- If I click on a product, can I see its APK?
-
-###### Non-functional
-- Can I access the APK leaderboard from all views in the application?
-____
-
-#### 2.1.2 User story 
-
-Story Identifier: US02
-
-Story Name: Categories
+- Can I select a specific type and show all products which share that property?   
+- Can I select several types at once and view all relevant products?   
+- Can I go the other way and exclude products?   
 
 
-##### Description 
 
-As a wine enthusiast, I want to be able to sort out wine products so that I can discover and find new favorites.
+**Tasks:**  
 
-##### Confirmation
-
-List all acceptance criteria; you should be able to test/confirm these.
-
-###### Functional
-
-- Can I filter out other products that are not wine?
-- Can I be more specific and filter out products that are not red wine?
-- Can I combine filters and filter out products that are not red or white wine?
+* Show options for what to select.    
+* Show what property is selected.    
+* Show products within the selection.    
 
 
-###### Non-functional
-- From where in the application can I access the filters?
-____
 
-#### 2.1.3 User story
-
-Story Identifier: US03
-
-Story Name: Product Listing
+**Priority:** High.    
 
 
-##### Description 
 
-As a student, I want to be able to browse the range of products so that I can get an overview of what's available.
-
-##### Confirmation
-
-List all acceptance criteria; you should be able to test/confirm these.
-
-###### Functional
-
-- Can I view products in the application?
-- Can I see an image of the product?
-- Can I show more specific data related to a product?
+***
 
 
-###### Non-functional
-- From where in the application can I find the browsing feature?
-____
 
-#### User story  2.1.4
+#### 2.1.1 Show all beverages.  
 
-Story Identifier: US04
+As a user, I want to be able to browse all beverages so that I can get an overview of what's available.      
 
-Story Name: Search
+**Acceptance:**   
+
+- Can I view all products in the app?   
+- Can I see an image of each product?   
+- Can I see specific information about the product?   
 
 
-##### Description 
 
-As an experienced drinker, I want to be able to search for specific products so that I can access my favorites more easily.
+**Tasks: **  
 
-##### Confirmation
+* Show all beverages.   
+* Show the price of each product.   
+* Show a thumbnail of each beverage.   
 
-List all acceptance criteria; you should be able to test/confirm these.
 
-###### Functional
+
+**Priority:** High.  
+
+
+
+***
+
+
+
+#### 2.1.2 Search for a beverage
+
+As a user, I want to be able to search for a product and find information about it so that I can quickly look up specific beverages.   
+
+**Acceptance:**   
 
 - Can I search for specific products in the range of products?
 - Can I use the search function to filter out products in a specific category?
+- Am I able to search for products anywhere in the application?
 
 
-###### Non-functional
-- Is the search function accessible at all times?
-____
 
-#### User story 2.1.5
+**Tasks:**   
 
-Story Identifier: US05
-
-Story Name: Search
+* Show search box.   
+* Allow the user to enter a search term in the search box.   
+* Show results based on the search term.   
 
 
-##### Description 
 
-As a party host, I want to be able to find drinks based on products I select so that I can improve my bartender abilities.
-
-##### Confirmation
-
-List all acceptance criteria; you should be able to test/confirm these.
-
-###### Functional
-
-- Can I combine different ingredients and get suggestions on drinks I can make?
-- Can I randomize ingredients and get suggestions on drinks I can make?
-____
-
-#### User story 2.1.6 
-
-Story Identifier: US06
-
-Story Name: View products from a specific property
-
-##### Description  
-
-As a customer, I need to be able to search for products from a particular brand/type/price so I can view all products from the manufacturer in question.
-
-##### Confirmation
-
-###### Functional
-
-- Can I load all products from a specific property?
-- Can I view products from two properties at the same time?
-- Can I see which property I am looking at?
-
-###### Non-functional
-
-- Can I view items while I'm offline?
-
-____
-
-#### User story 2.1.7
-
-Story Identifier: US07
-
-Story Name: View popular drinks
-
-##### Description 
-
-As a customer, I need to see popular beverages as soon as I launch the application because I often want to find good drinks when I'm unsure what to order at the bar.
-
-##### Confirmation
-
-###### Functional
-
-- Can I see a picture of the popular beverage and its name when I load the start page?
-- If I click on an interesting item, can I read basic information about it?
-
-###### Non-functional
-
-- Can I view popular products without an internet connection?
-
-____
-
-##### User story 2.1.8
-
-Story Identifier: US08
-
-Story Name: Mark tasted drinks
+**Priority:** Medium.   
 
 
-##### Description 
+
+***
+
+#### 2.1.3 Popular beverages
+
+As a user, I want to see new  beverages as soon as I launch the application because I often want to find drinks when I'm unsure what to order at the bar.   
+
+
+
+**Acceptance:**   
+
+- Can I see images of new beverages without much effort?
+- Can I easily see how much a new beverage costs?
+
+
+
+**Tasks:**   
+
+* Show new beverages.  
+* Show thumbnail image of the popular beverage.  
+* Show price of the popular beverage.  
+
+
+
+**Priority:** Medium.
+
+
+
+***
+
+#### 2.1.4 Detailed beverage information
+
+As a user, I want to see detailed information about a product, so that I can learn more about products that interest me.   
+
+
+
+**Acceptance:**
+
+- Can I view an image of the product?   
+- Can I see:   
+  - How much it costs?   
+  - What its APK is?   
+  - How much alcohol it contains?   
+  - Its volume?   
+  - A detailed description of it?
+- Can I obtain this information from anywhere where there are products?   
+
+
+
+**Tasks:**  
+
+* Show image of the beverage.   
+* Show APK, price, alcohol content and volume.   
+* Show description of the beverage.   
+
+
+
+**Priority:** Medium.   
+
+
+
+***
+
+#### 2.1.5 APK information
+
+As a user, I want to be able to find the products with the highest APK in a leaderboard so that I can see which products are the most cost efficient in terms of alcohol contents.
+
+
+
+**Acceptance:**
+
+- Can I view the products with the highest APK?
+- Can I choose which product types to view when I'm looking at APK values?
+- Can I access an item and get more information about it from the list?
+
+
+
+**Tasks:**
+
+* Show the leaderboard.   
+* Show the products with the highest APK ratio.   
+* Allow the user to choose which type of beverages are shown.   
+* Show which type of beverage each product is as well as its name, alcohol contents, volume, apk and price.   
+
+
+
+**Priority: **Low.
+
+***
+
+#### 2.1.6 Drink generator
+
+As a user, I want to be able to find drinks based on products I select so that I can find new drink recipes to try out.
+
+
+
+**Acceptance:**
+
+- Can I choose some ingredients and get new drinks with added ingredients?
+- If I'm not satisfied with my result, can I retry?
+
+
+
+**Tasks:**
+
+- Allow users to select some known ingredients.   
+- Generate new drinks based on the known ingredients.   
+- Show the generated drinks on screen.  
+
+
+
+**Priority:** Low.
+
+***
+
+#### 2.1.7 Tasted beverages
 
 As a customer, I want to be able to mark some products as tasted because I want to differentiate between drinks I have tried and those which I have not.
 
-##### Confirmation
 
-###### Functional
+
+**Acceptance:**
 
 - Can I mark a beverage as tasted?
-- If I change my mind after marking a drink as atsted, can I easily unmark it?
-____
-
-#### User story 2.1.9
-
-Story Identifier: US09
-
-Story Name: Detailed information
+- If I change my mind, can I unmark untasted beverages?
 
 
-#### Description 
 
-As a customer, I need more detailed information about the product  so that i can learn more about it
+**Tasks:**
 
-#### Confirmation
-
-###### Functional
-
-- Can i click on the product to get more information
-
-###### Non-functional
-- Can i get more detailed information of all the products from all the pages?
-
-____
-
-#### User story 2.1.10
-Story Identifier: US10
-
-Story Name: Shopping list
+- Allow user to mark beverages as tasted.   
+- Allow the user to view all marked beverages.   
+- Allow the user to unmark beverages in case they change their mind.
 
 
-#### Description 
 
-As a customer, I want to add products to a list, because I want to make a shopping list.
+**Priority:** Low.
 
-#### Confirmation
-
-###### Functional
-
-- Can i add a product to the list?
-- Can i remove a product from the list?
-- Can i see the total amount of products that i have added?
-- Can i have multiple lists?
-
-###### Non-functional
-- Can i add a product to the shopping list from all places in the program?
-- Can i look at the shopping list from all places in the program
-
-____
-#### User story 2.1.11
-Story Identifier: US11
-
-Story Name: Drinking games
-
-
-#### Description 
-
-As a party host, i want to play the most popular drinking games
-
-#### Confirmation
-
-###### Functional
-
-- Can i add all of our names to the game
-- Can i quit the game and come back with the game stored
-- Can i browse through multiple games
-- Can i start a game
-
-###### Non-functional
-- Can I browse through games at any point in the program?
-
-______________________________________________________________________________________________________________________
-
-#### User story 2.1.12
-Story Identifier: US12
-
-Story Name: Random beverage/drink
-
-
-#### Description 
-
-As a regular alcohol beverage drinker,  I want to find something random new to drink
-
-#### Confirmation
-
-###### Functional
-
-- Can I get a random product/drink from the list
-- Can constraint the products that are randomly generated
-	- Based on Beer/Drink/Wine/etc
 ____
 
 ### 2.2 Definition of Done
 
-- All acceptance criteria are met.
-- All Travis checks pass.
+- All acceptance criteria are met. (See 2.1 User Stories)
 - All public methods has unit tests.
+- All Travis checks pass.
 - Completed Java doc (if applicable)
   - All new files need to have an author.
-  - All methods except getters and setters has Javadoc.
+  - All public methods except getters and setters has Javadoc.
 - Pull request is accepted by everyone in the group.
 
 ### 2.3 User interfaces
