@@ -36,7 +36,7 @@
   * How much should the design model and domain model depend on each other?
   * What is our status in the project?
   * When are expected to start coding?
-  * Emil can't attend next friday, can we move the meeting to thursday 23/9?
+  * Emil can't attend next friday, can we move the meeting to thursday 23/9? (15.15-16.00)
 
 * In domain model and user story: rename saved products to favorites
 
