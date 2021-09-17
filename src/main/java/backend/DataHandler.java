@@ -1,4 +1,8 @@
 package backend;
+
+import backend.parser.ParserFactory;
+import backend.parser.IProductParser;
+
 import java.util.List;
 
 public class DataHandler {
@@ -9,15 +13,15 @@ public class DataHandler {
     }
 
     public DataHandler() {
-        setProducts(new ProductJsonFileParser());
+        initProducts(ParserFactory.makeJsonParser());
     }
 
 
     public int getSize() {
         return this.products.size();
     }
-  
-    private void setProducts(IProductParser parser) {
+
+    private void initProducts(IProductParser parser) {
         products = parser.getProducts();
     }
 }
