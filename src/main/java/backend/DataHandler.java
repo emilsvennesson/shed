@@ -13,7 +13,7 @@ public class DataHandler {
     }
 
     public DataHandler() {
-        initProducts(ParserFactory.makeJsonParser());
+        populateProducts(ParserFactory.makeJsonParser());
     }
 
 
@@ -21,7 +21,7 @@ public class DataHandler {
         return this.products.size();
     }
 
-    private void initProducts(IProductParser parser) {
+    private void populateProducts(IProductParser parser) {
         products = parser.getProducts();
     }
 }
