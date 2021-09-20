@@ -1,0 +1,43 @@
+/* Define colors */
+* {
+    --black: #110C15;
+    --dark_grey: #5D5860;
+    --grey: #8E8A90;
+    --primary_green: #50858B;
+    --primary_green_variant: #62A8AC;
+}
+
+/* Load fonts */
+@font-face {
+    font-family: Inter-Regular;
+    src: url('fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: Inter-Bold;
+    src: url('fonts/Inter-Bold.ttf');
+}
+
+@font-face {
+    font-family: Inter-Light;
+    src: url('fonts/Inter-Thin.ttf');
+}
+
+* {
+    -fx-color: var(--black);
+    -fx-font-family: Inter-Regular;
+}
+
+/* -------- Navbar start -------- */
+
+.navbar {
+    -fx-background-color: white;
+}
+
+.navbar-button {
+    -fx-fill: white;
+    -fx-border: none;
+    -fx-font-size: 20px;
+}
+
+/* --------- Navbar end --------- */
