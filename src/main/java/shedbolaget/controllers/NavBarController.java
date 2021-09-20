@@ -1,11 +1,11 @@
 package shedbolaget.controllers;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
-public class NavBarController {
-
+public class NavBarController extends BaseController {
     @FXML
     private MenuButton productsButton;
 
@@ -21,5 +21,8 @@ public class NavBarController {
     @FXML
     private TextField searchTextField;
 
+    public NavBarController(String fxmlName) {
+        super(fxmlName);
+    }
 }
 
