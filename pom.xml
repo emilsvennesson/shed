@@ -27,6 +27,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12.0.2</version>
+        </dependency>
+
     </dependencies>
     <build>
         <testSourceDirectory>src/test/</testSourceDirectory>
@@ -38,6 +44,14 @@
                 <configuration>
                     <target>1.8</target>
                     <source>1.8</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.7</version>
+                <configuration>
+                    <mainClass>shedbolaget/Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
