@@ -31,7 +31,7 @@ public class ProductCardController extends BaseController {
 
     private void initProduct() {
         nameBoldLabel.setText(product.getProductNameBold());
-        //productNameThinLabel.setText(product.productNameThin);;
+        nameThinLabel.setText(product.getProductNameThin());
         priceLabel.setText(costFormat.format(product.getPrice()) + " " + "kr");
     }
 }

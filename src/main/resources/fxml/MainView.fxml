@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
@@ -35,11 +35,11 @@
                   <Font size="46.0" />
                </font>
             </Text>
-            <FlowPane fx:id="newProductsFlowPane" prefHeight="94.0" prefWidth="1075.0">
-               <children>
-                  <ScrollBar orientation="VERTICAL" prefHeight="195.0" prefWidth="0.0" />
-               </children>
-            </FlowPane>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="196.0" prefWidth="840.0">
+               <content>
+                  <FlowPane fx:id="newProductsFlowPane" prefHeight="94.0" prefWidth="1073.0" />
+               </content>
+            </ScrollPane>
          </children>
       </VBox>
    </children>
