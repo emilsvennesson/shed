@@ -26,11 +26,12 @@ public class ProductCardController extends BaseController {
     public ProductCardController(Product product) {
         super("ProductCardView.fxml");
         this.product = product;
+        initProduct();
     }
 
     private void initProduct() {
-        nameBoldLabel.setText(product.productNameBold);
+        nameBoldLabel.setText(product.getProductNameBold());
         //productNameThinLabel.setText(product.productNameThin);;
-        priceLabel.setText(costFormat.format(product.price) + " " + "kr");
+        priceLabel.setText(costFormat.format(product.getPrice()) + " " + "kr");
     }
 }
