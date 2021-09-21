@@ -3,6 +3,7 @@ package backend;
 import backend.parser.ParserFactory;
 import backend.parser.IProductParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataHandler {
@@ -10,6 +11,9 @@ public class DataHandler {
 
     public List<Product> getProducts() {
         return products;
+    }
+    public List<Product> getProducts(String filter) {
+        return Filter.getProducts(products, filter);
     }
 
     public DataHandler() {
@@ -23,5 +27,9 @@ public class DataHandler {
 
     private void populateProducts(IProductParser parser) {
         products = parser.getProducts();
+    }
+
+    public List<Product> getCategory(String category){
+        return  Filter.getCategory(products, category);
     }
 }

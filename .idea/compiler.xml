@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shed" />
+        <module name="shedster" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="shed" target="1.8" />
+      <module name="shedster" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
