@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.ProductsViewController">
+   <children>
+      <AnchorPane fx:id="navBarPane" prefHeight="64.0" prefWidth="1152.0" style="-fx-background-color: blue;" />
+   </children>
+</AnchorPane>

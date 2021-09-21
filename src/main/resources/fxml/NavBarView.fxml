@@ -25,8 +25,8 @@
                </font></Text>
             <MenuButton fx:id="productsButton" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="134.0" styleClass="navbar-button" text="Produkter">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" onAction="#beerButtonOnClicked" text="Öl" />
+                <MenuItem mnemonicParsing="false" onAction="#wineButtonOnClicked" text="Vin" />
               </items>
                <font>
                   <Font size="20.0" />
