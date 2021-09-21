@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1440.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="144.0" layoutY="-3.0" prefHeight="80.0" prefWidth="1022.0" spacing="30.0">
+      <HBox alignment="CENTER_LEFT" layoutX="65.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1022.0" spacing="30.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shedbolaget." wrappingWidth="71.47003936767578" />
             <MenuButton fx:id="productsButton" mnemonicParsing="false" text="MenuButton">
