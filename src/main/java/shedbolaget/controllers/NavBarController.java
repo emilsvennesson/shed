@@ -21,8 +21,8 @@ public class NavBarController extends BaseController {
     @FXML
     private TextField searchTextField;
 
-    public NavBarController(String fxmlName) {
-        super(fxmlName);
+    public NavBarController() {
+        super("NavBarView.fxml");
     }
 }
 
