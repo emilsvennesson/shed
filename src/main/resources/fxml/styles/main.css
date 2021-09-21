@@ -91,7 +91,16 @@
     -fx-background-color: transparent;
 }
 
-.scroll-pane:focused {
-    -fx-background-color: transparent;
-    -fx-control-inner-background: transparent;
+.scroll-bar:vertical .thumb {
+    -fx-background-radius: 10em;
+    -fx-border-color: transparent;
+    -fx-background-color: #dcdcdc;
+}
+
+.scroll-pane, .scroll-pane:focused, .scroll-pane .corner {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-border-color: white;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
