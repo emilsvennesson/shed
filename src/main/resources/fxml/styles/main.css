@@ -1,39 +1,40 @@
 /* Define colors */
+
 * {
-    --black: #110C15;
-    --dark_grey: #5D5860;
-    --grey: #8E8A90;
-    --light_grey: #F4F4F4;
-    --light_grey_background: #FBFBFB;
-    --primary_green: #50858B;
-    --primary_green_variant: #62A8AC;
+    -black: #110C15;
+    -dark_grey: #5D5860;
+    -grey: #8E8A90;
+    -light_grey: #F4F4F4;
+    -light_grey_background: #FBFBFB;
+    -primary_green: #50858B;
+    -primary_green_variant: #62A8AC;
 }
 
 /* Load fonts */
-@font-face {
-    font-family: Inter-Regular;
-    src: url('fonts/Inter-Regular.ttf');
-}
 
 @font-face {
-    font-family: Inter-Bold;
-    src: url('fonts/Inter-Bold.ttf');
-}
+    /*src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');*/
 
-@font-face {
-    font-family: Inter-Light;
-    src: url('fonts/Inter-Thin.ttf');
-}
-
-* {
-    -fx-color: var(--black);
-    -fx-font-family: Inter-Regular;
+    src: local('fonts/Inter-Black.ttf');
+    /*src: url('https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap');*/
 }
 
 /* ---------- General ----------- */
 
+.root {
+    -fx-font-family: 'Comic Sans MS';
+}
+
 .bold {
-    -fx-font-family: Inter-Bold;
+    -fx-font-family: 'Inter';
+}
+
+.regular {
+    -fx-font-family: 'Inter-Regular';
+}
+
+.black-text {
+    -fx-fill: -dark_grey;
 }
 
 .shadow {
@@ -41,6 +42,12 @@
 }
 
 /* -------- General end --------- */
+
+/* ------ JavaFX specific ------- */
+
+.text {
+    -fx-text-fill: -black;
+}
 
 /* -------- Navbar start -------- */
 
@@ -55,7 +62,7 @@
 }
 
 .navbar-search-text {
-    -fx-text-fill: var(--grey);
+    -fx-text-fill: -grey;
 }
 
 /* --------- Navbar end --------- */
@@ -63,7 +70,7 @@
 /* ------ Start page start ------ */
 
 .search-box {
-    -fx-fill: var(--light_grey_background);
-    -fx-border-color: var(--dark_grey);
+    -fx-fill: -light_grey_background;
+    -fx-border-color: -dark_grey;
     -fx-border-radius: 12px;
 }
