@@ -9,6 +9,6 @@ public class MainViewController {
 
     @FXML
     public void initialize() {
-        navBarPane.getChildren().add(new NavBarController("NavBarView.fxml"));
+        navBarPane.getChildren().add(new NavBarController());
     }
 }
