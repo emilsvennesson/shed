@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
@@ -7,40 +8,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.MainViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1152.0" stylesheets="@styles/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.MainViewController">
    <children>
-      <AnchorPane fx:id="navBarPane" prefHeight="64.0" prefWidth="1152.0" style="-fx-background-color: blue;" />
-      <AnchorPane layoutY="64.0" prefHeight="496.0" prefWidth="1152.0" style="-fx-background-color: yellow;">
-         <children>
-            <VBox layoutX="65.0" layoutY="103.671875">
+      <AnchorPane fx:id="navBarPane" prefHeight="64.0" prefWidth="1152.0" AnchorPane.bottomAnchor="755.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="65.0" prefHeight="755.0" prefWidth="1152.0" AnchorPane.topAnchor="65.0">
+         <content>
+            <AnchorPane prefHeight="496.0" prefWidth="1152.0" styleClass="gradient-background">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Välkommen till Shedbolaget." wrappingWidth="528.4922485351562">
-                     <font>
-                        <Font size="80.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sök bland 1337 produkter eller slå sönder datorn pga Scene Builder." wrappingWidth="528.0350952148438">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
+                  <VBox layoutY="104.0" prefHeight="322.0" prefWidth="1152.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Välkommen till Shedbolaget." wrappingWidth="528.4922485351562">
+                           <font>
+                              <Font size="80.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="65.0" right="65.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sök bland 1337 produkter eller slå sönder datorn pga Scene Builder." wrappingWidth="528.0350952148438">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="100.0" left="65.0" right="65.0" />
+                           </VBox.margin>
+                        </Text>
+                        <FlowPane fx:id="newProductsFlowPane" prefHeight="94.0" prefWidth="1152.0" styleClass="new-products-background">
+                           <padding>
+                              <Insets left="65.0" right="65.0" />
+                           </padding>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="new-products-background" text="Nya produkter" wrappingWidth="1000.0">
+                                 <font>
+                                    <Font size="46.0" />
+                                 </font>
+                                 <FlowPane.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                 </FlowPane.margin>
+                              </Text>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-         </children>
-      </AnchorPane>
-      <VBox layoutX="65.0" layoutY="560.0" prefHeight="257.0" prefWidth="1075.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nya produkter">
-               <font>
-                  <Font size="46.0" />
-               </font>
-            </Text>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="196.0" prefWidth="840.0">
-               <content>
-                  <FlowPane fx:id="newProductsFlowPane" prefHeight="94.0" prefWidth="1073.0" />
-               </content>
-            </ScrollPane>
-         </children>
-      </VBox>
+               <padding>
+                  <Insets right="15.0" />
+               </padding>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

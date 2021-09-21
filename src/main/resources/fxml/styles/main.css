@@ -32,7 +32,7 @@
 }
 
 .shadow {
-    -fx-effect: dropshadow(three-pass-box, rgba(111, 111, 111, 0.1), 0, 30, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(111, 111, 111, 0.1), 30, 30, 0, 0);
 }
 
 /* -------- General end --------- */
@@ -67,7 +67,7 @@
     -fx-text-fill: -black;
 }
 
-.navbar-search-box {
+.search-box {
     -fx-background-color: -light_grey_background;
     -fx-border-radius: 8px;
     -fx-border-width: 1px;
@@ -79,8 +79,19 @@
 
 /* ------ Start page start ------ */
 
-.search-box {
-    -fx-fill: -light_grey_background;
-    -fx-border-color: -dark_grey;
-    -fx-border-radius: 12px;
+.gradient-background {
+    -fx-background-color: linear-gradient(from 35% 35% to 92% 92%, #ECFFF0, #D2F4FF);
+}
+
+.new-products-background {
+    -fx-background-color: -light_grey_background;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane:focused {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
 }
