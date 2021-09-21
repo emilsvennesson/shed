@@ -3,6 +3,8 @@
     --black: #110C15;
     --dark_grey: #5D5860;
     --grey: #8E8A90;
+    --light_grey: #F4F4F4;
+    --light_grey_background: #FBFBFB;
     --primary_green: #50858B;
     --primary_green_variant: #62A8AC;
 }
@@ -28,6 +30,18 @@
     -fx-font-family: Inter-Regular;
 }
 
+/* ---------- General ----------- */
+
+.bold {
+    -fx-font-family: Inter-Bold;
+}
+
+.shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(111, 111, 111, 0.1), 0, 30, 0, 0);
+}
+
+/* -------- General end --------- */
+
 /* -------- Navbar start -------- */
 
 .navbar {
@@ -37,7 +51,19 @@
 .navbar-button {
     -fx-fill: white;
     -fx-border: none;
-    -fx-font-size: 20px;
+    -fx-font-family: Inter-Regular;
+}
+
+.navbar-search-text {
+    -fx-text-fill: var(--grey);
 }
 
 /* --------- Navbar end --------- */
+
+/* ------ Start page start ------ */
+
+.search-box {
+    -fx-fill: var(--light_grey_background);
+    -fx-border-color: var(--dark_grey);
+    -fx-border-radius: 12px;
+}
