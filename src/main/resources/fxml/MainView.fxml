@@ -33,7 +33,7 @@
                               <Insets bottom="100.0" left="65.0" right="65.0" />
                            </VBox.margin>
                         </Text>
-                        <FlowPane fx:id="newProductsFlowPane" prefHeight="94.0" prefWidth="1152.0" styleClass="new-products-background">
+                        <FlowPane fx:id="newProductsFlowPane" hgap="20.0" prefHeight="94.0" prefWidth="1152.0" styleClass="new-products-background" vgap="15.0">
                            <padding>
                               <Insets left="65.0" right="65.0" />
                            </padding>
