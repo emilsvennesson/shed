@@ -32,7 +32,7 @@
 }
 
 .shadow {
-    -fx-effect: dropshadow(three-pass-box, rgba(111, 111, 111, 0.1), 30, 30, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(111, 111, 111, 0.1), 0, 50, 0, 0);
 }
 
 /* -------- General end --------- */
@@ -103,4 +103,27 @@
     -fx-border-color: white;
     -fx-background-insets: 0;
     -fx-padding: 0;
+}
+
+/* Basic Product Card */
+.basic-product-card {
+    -fx-border-radius: 2px;
+    -fx-border-color: -light_grey;
+    -fx-border-width: 1px;
+    -fx-background-color: white;
+}
+
+.basic-product-card:hover {
+    -fx-cursor: hand;
+    -fx-background-color: -light_grey;
+}
+
+.basic-product-card-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.basic-product-card-desc {
+    -fx-text-fill: -grey;
+    -fx-font-size: 13px;
 }
