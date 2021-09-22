@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="188.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="188.0" stylesheets="@styles/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutY="14.0" prefHeight="243.0" prefWidth="188.0">
          <children>
             <ImageView fx:id="imageView" fitHeight="149.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="nameBoldLabel" alignment="CENTER" prefHeight="19.0" prefWidth="275.0" text="Greywacke">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="nameThinLabel" alignment="CENTER" prefHeight="17.0" prefWidth="215.0" text="Wild Sauvignon, 2018">
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-            </Label>
-            <Label fx:id="priceLabel" alignment="CENTER" prefHeight="17.0" prefWidth="207.0" text="1337:-" />
+            <Text fx:id="nameBoldText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-name" text="Lorem ipsum sit amet dolor sit amet dolor" textAlignment="CENTER" wrappingWidth="188.0">
+               <VBox.margin>
+                  <Insets top="14.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="nameThinText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-desc" text="Wild Sauvignon, 2018" textAlignment="CENTER" wrappingWidth="188.0" VBox.vgrow="NEVER" />
+            <Text fx:id="priceText" strokeType="OUTSIDE" strokeWidth="0.0" text="169 kr" textAlignment="CENTER" wrappingWidth="188.0" y="230.0" />
          </children>
       </VBox>
    </children>
+   <styleClass>
+      <String fx:value="basic-product-card" />
+      <String fx:value="shadow" />
+   </styleClass>
 </fx:root>
