@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 
 import java.text.DecimalFormat;
 
-public class ProductCardController extends BaseController {
+public class BasicProductCardController extends BaseController {
     @FXML
     private ImageView imageView;
 
@@ -22,8 +22,8 @@ public class ProductCardController extends BaseController {
 
     private Product product;
 
-    public ProductCardController(Product product) {
-        super("ProductCardView.fxml");
+    public BasicProductCardController(Product product) {
+        super("BasicProductCardView.fxml");
         this.product = product;
         initProduct();
     }
