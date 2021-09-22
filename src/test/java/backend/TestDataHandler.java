@@ -18,11 +18,13 @@ public class TestDataHandler {
     }
 
     @Test
-    public void testGetAlcoholFreeProducts() {
+    public void testGetLevel1CategoryProducts() {
         DataHandler dh = new DataHandler();
+
         boolean wrongCategory = false;
-        String category = "Alkoholfritt";
-        for (Product product : dh.getCategory(category)) {
+        String category = "Öl";
+        dh.setCategoryLevel1Filter(category);
+        for (Product product : dh.getFilteredProducts()) {
             if (!product.categoryLevel1.contains(category))
                 wrongCategory = true;
         }
@@ -30,16 +32,19 @@ public class TestDataHandler {
     }
 
     @Test
-    public void testSearchNameProducts() {
+    public void testGetLevel2CategoryProducts() {
         DataHandler dh = new DataHandler();
-        boolean wrongProduct = false;
-        String filter = "Norrland";
-        for (Product product : dh.getProducts(filter)) {
-            if (!product.productNameBold.contains(filter))
-                wrongProduct = true;
+
+        boolean wrongCategory = false;
+        String category = "Veteöl";
+        dh.addCategoryLevel2Filter(category);
+        for (Product product : dh.getFilteredProducts()) {
+            if (!product.categoryLevel2.contains(category))
+                wrongCategory = true;
         }
-        Assert.assertEquals(false, wrongProduct);
+        Assert.assertEquals(false, wrongCategory);
     }
+
 
 
 }

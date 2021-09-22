@@ -8,16 +8,14 @@ import java.util.List;
 
 public class DataHandler {
     private List<Product> products;
+    private Filter filter;
 
     public List<Product> getProducts() {
         return products;
     }
-    public List<Product> getProducts(String filter) {
-        return Filter.getProducts(products, filter);
-    }
-
     public DataHandler() {
         populateProducts(ParserFactory.makeJsonParser());
+        filter = new Filter(getProducts());
     }
 
 
@@ -29,7 +27,29 @@ public class DataHandler {
         products = parser.getProducts();
     }
 
-    public List<Product> getCategory(String category){
-        return  Filter.getCategory(products, category);
+    public void setCategoryLevel1Filter(String categoryName){
+        filter.setCategoryLevel1Filter(categoryName);
     }
+
+    public void clearCategoryLevel1Filter(){
+        filter.clearCategoryLevel1Filter();
+    }
+
+    public void addCategoryLevel2Filter(String categoryName){
+        filter.addCategoryLevel2Filter(categoryName);
+    }
+
+    public void removeCategoryLevel2Filter(String categoryName){
+        filter.removeCategoryLevel2Filter(categoryName);
+    }
+
+    public void clearCategoryLevel2Filters(){
+        filter.clearCategoryLevel2Filters();
+    }
+
+
+    public List<Product> getFilteredProducts(){
+        return filter.getFilteredProducts();
+    }
+
 }
