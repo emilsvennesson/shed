@@ -32,6 +32,6 @@ public class BasicProductCardController extends BaseController {
         DecimalFormat costFormat = new DecimalFormat("#.##");
         nameBoldLabel.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());
-        priceLabel.setText(costFormat.format(product.getPrice()) + " " + "kr");
+        priceLabel.setText(costFormat.format(product.getPrice()) + " kr");
     }
 }
