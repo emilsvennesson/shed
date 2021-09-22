@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import java.text.DecimalFormat;
 
 public class ProductCardController extends BaseController {
-    public static DecimalFormat costFormat = new DecimalFormat("#.##");
     @FXML
     private ImageView imageView;
 
@@ -30,6 +29,7 @@ public class ProductCardController extends BaseController {
     }
 
     private void initProduct() {
+        DecimalFormat costFormat = new DecimalFormat("#.##");
         nameBoldLabel.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());
         priceLabel.setText(costFormat.format(product.getPrice()) + " " + "kr");
