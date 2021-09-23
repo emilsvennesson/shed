@@ -44,7 +44,7 @@ public class Filter {
     private List<Product> getFilteredLevel1Products(){
         try {
             return products.stream()
-                    .filter(product -> product.categoryLevel1.toLowerCase().contains(activeCategoryLevel1Filter.toLowerCase()))
+                    .filter(product -> product.getCategoryLevel1().toLowerCase().contains(activeCategoryLevel1Filter.toLowerCase()))
                     .collect(Collectors.toList());
         }catch(NullPointerException e){
             return products;
@@ -58,7 +58,7 @@ public class Filter {
             for (String condition : activeCategoryLevel2Filters) {
                 productsStreamLevel2 = Stream.concat(productsStreamLevel2, filteredLevel1Products
                         .stream()
-                        .filter(product -> product.categoryLevel2.toLowerCase().contains(condition.toLowerCase())));
+                        .filter(product -> product.getCategoryLevel2().toLowerCase().contains(condition.toLowerCase())));
             }
             return productsStreamLevel2.collect(Collectors.toList());
         }

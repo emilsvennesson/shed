@@ -19,6 +19,17 @@ public class Product {
     private double price;
     private List<Image> images;
 
+    public String getCategoryLevel1() {
+        return categoryLevel1;
+    }
+
+    public String getCategoryLevel2() {
+        return categoryLevel2;
+    }
+
+    private String categoryLevel1;
+    private String categoryLevel2;
+
     public List<Image> getImages() {
         return images;
     }

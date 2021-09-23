@@ -18,6 +18,31 @@ public class TestDataHandler {
     }
 
     @Test
+
+    public void testGetFavorites() {
+        Product product = new Product();
+
+
+    }
+
+
+    //TODO Fix tests for favorites
+    @Test
+    public void testAddFavorite() {
+
+
+        Product product = new Product();
+
+
+    }
+
+    @Test
+    public void testRemoveFavorite() {
+
+        Product product = new Product();
+    }
+
+
     public void testGetLevel1CategoryProducts() {
         DataHandler dh = new DataHandler();
 
@@ -25,11 +50,12 @@ public class TestDataHandler {
         String category = "Öl";
         dh.setCategoryLevel1Filter(category);
         for (Product product : dh.getFilteredProducts()) {
-            if (!product.categoryLevel1.contains(category))
+            if (!product.getCategoryLevel1().contains(category))
                 wrongCategory = true;
         }
         Assert.assertEquals(false, wrongCategory);
     }
+
 
     @Test
     public void testGetLevel2CategoryProducts() {
@@ -39,12 +65,11 @@ public class TestDataHandler {
         String category = "Veteöl";
         dh.addCategoryLevel2Filter(category);
         for (Product product : dh.getFilteredProducts()) {
-            if (!product.categoryLevel2.contains(category))
+            if (!product.getCategoryLevel2().contains(category))
                 wrongCategory = true;
         }
         Assert.assertEquals(false, wrongCategory);
     }
-
 
 
 }
