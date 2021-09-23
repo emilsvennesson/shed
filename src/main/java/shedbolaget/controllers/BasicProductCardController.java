@@ -2,6 +2,7 @@ package shedbolaget.controllers;
 
 import backend.Product;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -15,7 +16,7 @@ public class BasicProductCardController extends BaseController {
     private Text nameBoldText;
 
     @FXML
-    private Text nameThinText;
+    private Label nameThinLabel;
 
     @FXML
     private Text priceText;
@@ -31,7 +32,7 @@ public class BasicProductCardController extends BaseController {
     private void initProduct() {
         DecimalFormat costFormat = new DecimalFormat("#.##");
         nameBoldText.setText(product.getProductNameBold());
-        nameThinText.setText(product.getProductNameThin());
+        nameThinLabel.setText(product.getProductNameThin());
         priceText.setText(costFormat.format(product.getPrice()) + " kr");
     }
 }

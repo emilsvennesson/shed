@@ -126,4 +126,5 @@
 .basic-product-card-desc {
     -fx-text-fill: -grey;
     -fx-font-size: 13px;
+    -fx-alignment:center;
 }
