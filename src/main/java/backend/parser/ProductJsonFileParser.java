@@ -18,8 +18,7 @@ class ProductJsonFileParser implements IProductParser {
             products = mapper.readValue(Paths.get("data.json").toFile(), new TypeReference<List<Product>>() {
             });
 
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Failed to read data.json file.");
             ex.printStackTrace();
         }

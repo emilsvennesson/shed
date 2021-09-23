@@ -86,11 +86,11 @@ public class DataHandler {
 
     /*---------------- Utility -------------*/
 
-    public void onStartUp(){
+    public void onStartUp() {
         ListIOManager.loadAllLists();
     }
 
-    public void onShutDown(){
+    public void onShutDown() {
         ListIOManager.saveAllLists();
     }
 
@@ -98,28 +98,28 @@ public class DataHandler {
         return this.products.size();
     }
 
-    public void setCategoryLevel1Filter(String categoryName){
+    public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
     }
 
-    public void clearCategoryLevel1Filter(){
+    public void clearCategoryLevel1Filter() {
         filter.clearCategoryLevel1Filter();
     }
 
-    public void addCategoryLevel2Filter(String categoryName){
+    public void addCategoryLevel2Filter(String categoryName) {
         filter.addCategoryLevel2Filter(categoryName);
     }
 
-    public void removeCategoryLevel2Filter(String categoryName){
+    public void removeCategoryLevel2Filter(String categoryName) {
         filter.removeCategoryLevel2Filter(categoryName);
     }
 
-    public void clearCategoryLevel2Filters(){
+    public void clearCategoryLevel2Filters() {
         filter.clearCategoryLevel2Filters();
     }
 
 
-    public List<Product> getFilteredProducts(){
+    public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
 }
