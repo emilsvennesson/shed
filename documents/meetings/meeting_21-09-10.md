@@ -8,7 +8,7 @@
 ## Objectives
 
 * Is everyone up to speed with git (PRs and branches)
-* We have started shedbolaget.backend, next step?
+* We have started backend, next step?
 * Frontend
 * Seminar on Tuesday
 * RAD, SDD and user stories
@@ -50,7 +50,7 @@
 * Backend:
   * At the moment we are only parsing one variable from `data.json`. We need to get all variables.
   * How should we represent the data? 
-  * We need to create UML for the shedbolaget.backend, in order to start building.
+  * We need to create UML for the backend, in order to start building.
   * We need a search algorithm
   * We need a sort algorithm
   * We need a filter algorithm

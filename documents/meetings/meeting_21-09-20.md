@@ -57,7 +57,7 @@
 
 * Daniel R.
   * Drink generator
-  * Favorites in shedbolaget.backend
+  * Favorites in backend
 
 * Pouya
   * Filtering

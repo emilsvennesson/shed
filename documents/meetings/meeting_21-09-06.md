@@ -74,7 +74,7 @@ Here are the outcomes and assignments from the objectives
   * Start with UI
 
 * Everyone:
-  * UML for main.shedbolaget.backend
+  * UML for backend
 
 ## Wrap up
 

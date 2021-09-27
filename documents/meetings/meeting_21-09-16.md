@@ -51,7 +51,7 @@
   * Rename saved products to favorites (Samuel)
 
 * Pouya:
-  * Make sequence diagram for shedbolaget.backend.
+  * Make sequence diagram for backend.
 
 * Daniel Ericsson:
   * Look over RAD and SDD. Focus on RAD.
