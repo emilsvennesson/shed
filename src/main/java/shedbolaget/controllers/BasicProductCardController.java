@@ -1,6 +1,6 @@
 package shedbolaget.controllers;
 
-import backend.Product;
+import shedbolaget.backend.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

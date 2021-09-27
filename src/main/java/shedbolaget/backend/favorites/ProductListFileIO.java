@@ -1,4 +1,4 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 
 import java.io.*;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-class ProductListFileIO implements IProductListIO {
+public class ProductListFileIO implements IProductListIO {
 
 
 
@@ -26,7 +26,7 @@ class ProductListFileIO implements IProductListIO {
 
 
     /*---------------------------- Constructor ----------------------------*/
-    ProductListFileIO() {
+    public ProductListFileIO() {
         file = new File(filePath);
 
         try {

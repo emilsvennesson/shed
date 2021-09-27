@@ -1,9 +1,9 @@
-package backend;
+package shedbolaget.backend;
 
-import backend.favorites.ProductIdListsIOManager;
-import backend.favorites.SavableProductIdList;
-import backend.parser.ParserFactory;
-import backend.parser.IProductParser;
+import shedbolaget.backend.favorites.ProductIdListsIOManager;
+import shedbolaget.backend.favorites.SavableProductIdList;
+import shedbolaget.backend.parser.ParserFactory;
+import shedbolaget.backend.parser.IProductParser;
 
 import java.util.List;
 

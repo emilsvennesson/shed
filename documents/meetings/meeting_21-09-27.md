@@ -34,7 +34,7 @@
 
 * Samuel
   1. Reorganize folder structure
-  2. Class diagrams for backend
+  2. Class diagrams for shedbolaget.backend
 * Emil
   1. Singleton pattern for ProductParser and Favorites
   2. Code cleanup

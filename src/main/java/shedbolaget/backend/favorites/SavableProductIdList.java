@@ -1,7 +1,7 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 
-import backend.Product;
+import shedbolaget.backend.Product;
 
 import java.util.ArrayList;
 import java.util.List;

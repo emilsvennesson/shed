@@ -60,7 +60,7 @@ Here are the outcomes and assignments from the objectives
   * Continuous scrolling in sortiment
 
 * Dev strategy:
-  * In the beginning: Wait with frontend until main.backend is done
+  * In the beginning: Wait with frontend until main.shedbolaget.backend is done
     * Backend
     * UI
   * JavaFX should only be in Controllers and views.
@@ -74,7 +74,7 @@ Here are the outcomes and assignments from the objectives
   * Start with UI
 
 * Everyone:
-  * UML for main.backend
+  * UML for main.shedbolaget.backend
 
 ## Wrap up
 

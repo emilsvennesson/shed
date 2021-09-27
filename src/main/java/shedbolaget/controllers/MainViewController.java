@@ -1,6 +1,6 @@
 package shedbolaget.controllers;
 
-import backend.DataHandler;
+import shedbolaget.backend.DataHandler;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;

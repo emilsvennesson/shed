@@ -1,4 +1,4 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 
 import java.util.ArrayList;

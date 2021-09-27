@@ -35,14 +35,14 @@ public class NavBarController extends BaseController {
     @FXML
     void beerButtonOnClicked(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) productsButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ProductsView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ProductsView.fxml"));
         primaryStage.setScene(new Scene(root));
     }
 
     @FXML
     void wineButtonOnClicked(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) productsButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         primaryStage.setScene(new Scene(root));
     }
 }
