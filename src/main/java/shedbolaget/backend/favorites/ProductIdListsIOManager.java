@@ -1,6 +1,5 @@
 package shedbolaget.backend.favorites;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,48 +12,27 @@ import java.util.List;
  * @version 1.0
  */
 public class ProductIdListsIOManager {
-
-    /*---------------------------- Instance Variables ----------------------------*/
+    private static final ProductIdListsIOManager instance = new ProductIdListsIOManager();
     IProductListIO handler;
-
-    //List of SavableProductLists
     List<SavableProductIdList> list = new ArrayList<>();
 
-    private static ProductIdListsIOManager instance;
-
-
-    /*---------------------------- Constructor ----------------------------*/
     private ProductIdListsIOManager() {
         this.handler = new ProductListFileIO();
     }
 
-
-    /*---------------------------- Public class methods ----------------------------*/
-
     public static ProductIdListsIOManager getInstance() {
-
-        if (instance == null) {
-            instance = new ProductIdListsIOManager();
-        }
-
-
         return instance;
     }
-
-
-    /*---------------------------- Public instance methods ----------------------------*/
 
     /**
      * <p>Saves all the {@link SavableProductIdList} trough the file {@link IProductListIO}</p>
      */
     public void saveAllLists() {
         //TODO Call this on shut down
-
         for (SavableProductIdList sList :
                 this.list) {
             handler.save(sList);
         }
-
         this.handler.close();
     }
 
@@ -63,7 +41,6 @@ public class ProductIdListsIOManager {
      */
     public void loadAllLists() {
         //TODO Call this on start up
-
         this.list = handler.loadAll();
 
         handler.close();
@@ -78,15 +55,10 @@ public class ProductIdListsIOManager {
      * @return a SavableList of products
      */
     public SavableProductIdList getList(String name) {
-
-        for (SavableProductIdList sList :
-                this.list) {
+        for (SavableProductIdList sList : this.list) {
             if (sList.getName().equals(name))
                 return sList;
-
         }
-
-
         return null;
     }
 
@@ -96,7 +68,6 @@ public class ProductIdListsIOManager {
      * @return a {@link SavableProductIdList}
      */
     public List<SavableProductIdList> getLists() {
-
         return this.list;
     }
 
@@ -107,24 +78,16 @@ public class ProductIdListsIOManager {
      * @param list, {@link SavableProductIdList} that will be saved
      */
     public void addList(SavableProductIdList list) {
-
         if (nameTaken(list.getName()))
             return;
-
 
         this.list.add(list);
     }
 
     public void addLists(List<SavableProductIdList> lists) {
-
-        for (SavableProductIdList l :
-                lists) {
+        for (SavableProductIdList l : lists)
             this.addList(l);
-
-        }
-
     }
-
 
     /**
      * <p>Removes the given {@link SavableProductIdList} from the manager</p>
@@ -143,8 +106,6 @@ public class ProductIdListsIOManager {
      * @param listName name of the {@link SavableProductIdList} that will be removed
      */
     public void removeList(String listName) {
-
-
         int index = getIndexOfListByName(listName);
         if (index != -1)
             this.list.remove(index);
@@ -157,12 +118,9 @@ public class ProductIdListsIOManager {
      * @return boolean
      */
     private boolean nameTaken(String name) {
-
-        for (SavableProductIdList sList :
-                this.list) {
+        for (SavableProductIdList sList : this.list) {
             if (sList.getName().equals(name))
                 return true;
-
         }
         return false;
     }
@@ -174,14 +132,12 @@ public class ProductIdListsIOManager {
      * @return the index, -1 if a list with the given name doesn't exits
      */
     private int getIndexOfListByName(String name) {
-
         for (int i = 0; i < this.list.size(); i++) {
             if (this.list.get(i).getName().equals(name))
                 return i;
         }
 
         return -1;
-
     }
 
     /**
@@ -191,14 +147,12 @@ public class ProductIdListsIOManager {
      * @return the index, -1 if a list doesn't exits
      */
     private int getIndexOfListByName(SavableProductIdList list) {
-
         for (int i = 0; i < this.list.size(); i++) {
             if (this.list.get(i).getName().equals(list.getName()))
                 return i;
         }
 
         return -1;
-
     }
 
 
@@ -208,7 +162,6 @@ public class ProductIdListsIOManager {
      * @return amount of {@link SavableProductIdList}s as an integer
      */
     public int getSize() {
-
         return this.list.size();
     }
 
@@ -218,11 +171,4 @@ public class ProductIdListsIOManager {
     public void clear() {
         list.clear();
     }
-
-
-
-
-    /*---------------------------- Private methods ----------------------------*/
-
-
 }

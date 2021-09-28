@@ -2,31 +2,29 @@ package shedbolaget.backend;
 
 import shedbolaget.backend.favorites.ProductIdListsIOManager;
 import shedbolaget.backend.favorites.SavableProductIdList;
-import shedbolaget.backend.parser.ParserFactory;
 import shedbolaget.backend.parser.IProductParser;
+import shedbolaget.backend.parser.ParserFactory;
+
 
 import java.util.List;
 
 public class DataHandler {
     private List<Product> products;
-    private ProductIdListsIOManager ListIOManager;
-    private Filter filter;
+    private ProductIdListsIOManager listIOManager;
+    private final Filter filter;
 
+    public DataHandler() {
+        populateProducts(ParserFactory.getJsonParser());
+        filter = new Filter(getProducts());
+    }
 
     public List<Product> getProducts() {
         return products;
     }
 
-
-    /*------------------- Parsing ---------------------*/
-
     private void populateProducts(IProductParser parser) {
         products = parser.getProducts();
     }
-
-
-    /*------------------- Favorites ---------------------*/
-
 
     /**
      * <p>Adds a {@link Product} to favorites</p>
@@ -34,13 +32,9 @@ public class DataHandler {
      * @param prod the {@link Product} that is added
      */
     public void addToFavorites(Product prod) {
-        SavableProductIdList favList = ListIOManager.getList("Favorites");
-
-        if (favList == null) ListIOManager.addList(new SavableProductIdList("Favorites"));
-
+        SavableProductIdList favList = listIOManager.getList("Favorites");
+        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
         favList.addProductId(prod);
-
-
     }
 
     /**
@@ -49,19 +43,10 @@ public class DataHandler {
      * @param prod the {@link Product} that will be removed
      */
     public void removeFromFavorites(Product prod) {
-        SavableProductIdList favList = ListIOManager.getList("Favorites");
-
-        if (favList == null) ListIOManager.addList(new SavableProductIdList("Favorites"));
-
+        SavableProductIdList favList = listIOManager.getList("Favorites");
+        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
         favList.removeProductId(prod);
     }
-
-
-    public DataHandler() {
-        populateProducts(ParserFactory.makeJsonParser());
-        filter = new Filter(getProducts());
-    }
-
 
     /**
      * Returns all the {@link Product} ids from Favorites
@@ -69,29 +54,18 @@ public class DataHandler {
      * @return {@link Product} ids as an {@link List} of {@link Integer}s
      */
     public List<Integer> getProductIdsFromFavorites() {
-
         //TODO Fix so that this return product
-
-        SavableProductIdList favList = ListIOManager.getList("Favorites");
-
-        if (favList == null) ListIOManager.addList(new SavableProductIdList("Favorites"));
-
+        SavableProductIdList favList = listIOManager.getList("Favorites");
+        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
         return favList.getProductIds();
-
     }
-
-
-
-
-
-    /*---------------- Utility -------------*/
-
+  
     public void onStartUp() {
-        ListIOManager.loadAllLists();
+        listIOManager.loadAllLists();
     }
 
     public void onShutDown() {
-        ListIOManager.saveAllLists();
+        listIOManager.saveAllLists();
     }
 
     public int getSize() {
@@ -117,7 +91,6 @@ public class DataHandler {
     public void clearCategoryLevel2Filters() {
         filter.clearCategoryLevel2Filters();
     }
-
 
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();

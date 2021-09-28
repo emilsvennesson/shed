@@ -1,6 +1,5 @@
 package shedbolaget.backend.favorites;
 
-
 import java.util.List;
 
 /**
@@ -12,8 +11,6 @@ import java.util.List;
  * @version 1.0
  */
 public interface IProductListIO {
-
-
     /**
      * Saves a {@link SavableProductIdList} to a file
      *
@@ -32,5 +29,4 @@ public interface IProductListIO {
      * Closes the readers and writers
      */
     void close();
-
 }

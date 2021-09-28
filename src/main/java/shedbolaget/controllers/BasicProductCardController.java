@@ -21,7 +21,7 @@ public class BasicProductCardController extends BaseController {
     @FXML
     private Text priceText;
 
-    private Product product;
+    private final Product product;
 
     public BasicProductCardController(Product product) {
         super("BasicProductCardView.fxml");
