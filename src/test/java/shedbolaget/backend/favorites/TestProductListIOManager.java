@@ -1,4 +1,4 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 import org.junit.Assert;
 import org.junit.Test;

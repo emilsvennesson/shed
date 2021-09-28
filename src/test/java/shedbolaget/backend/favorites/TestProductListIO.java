@@ -1,4 +1,4 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 import shedbolaget.backend.DataHandler;
 import shedbolaget.backend.Product;

@@ -1,4 +1,4 @@
-package backend;
+package shedbolaget.backend;
 
 import org.junit.Assert;
 import org.junit.Test;
