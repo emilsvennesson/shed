@@ -1,6 +1,8 @@
 package shedbolaget.backend;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -63,6 +65,17 @@ class Filter {
         } else {
             return filteredLevel1Products;
         }
+    }
+
+    public void sortProductsByPrice(boolean sortLowest){
+            Collections.sort(products, new Comparator<Product>() {
+                @Override
+                public int compare(Product product1, Product product2) {
+                    return Double.compare(product1.getPrice(), product2.getPrice());
+                }
+            });
+            if (!sortLowest)
+                Collections.reverse(products);
     }
 
 }

@@ -44,7 +44,7 @@ public class TestDataHandler {
         Product product = new Product();
     }
 
-
+    @Test
     public void testGetLevel1CategoryProducts() {
         DataHandler dh = new DataHandler();
 
@@ -72,6 +72,5 @@ public class TestDataHandler {
         }
         Assert.assertEquals(false, wrongCategory);
     }
-
 
 }

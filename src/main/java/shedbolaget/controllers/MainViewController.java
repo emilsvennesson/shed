@@ -16,7 +16,7 @@ public class MainViewController {
         navBarPane.getChildren().add(new NavBarController());
         DataHandler dh = new DataHandler();
         for (int i = 0; i < 20; i++)
-            newProductsFlowPane.getChildren().add(new BasicProductCardController(dh.getProducts().get(i)));
+            newProductsFlowPane.getChildren().add(new BasicProductCardController(dh.getFilteredProducts().get(i)));
 
     }
 }

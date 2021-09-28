@@ -7,6 +7,7 @@ import shedbolaget.backend.parser.ParserFactory;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DataHandler {
     private List<Product> products;
@@ -19,7 +20,7 @@ public class DataHandler {
     }
 
     public List<Product> getProducts() {
-        return products;
+        return products.stream().collect(Collectors.toList());
     }
 
     private void populateProducts(IProductParser parser) {
@@ -94,5 +95,9 @@ public class DataHandler {
 
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
+    }
+
+    public void sortProductsByPrice(boolean lowestPrice){
+        filter.sortProductsByPrice(lowestPrice);
     }
 }
