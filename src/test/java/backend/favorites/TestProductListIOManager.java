@@ -2,6 +2,8 @@ package backend.favorites;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.backend.favorites.ProductIdListsIOManager;
+import shedbolaget.backend.favorites.SavableProductIdList;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package backend.parser;
+package shedbolaget.backend.parser;
 
 public final class ParserFactory {
     private static ParserFactory instance;
@@ -11,7 +11,6 @@ public final class ParserFactory {
             instance = new ParserFactory();
         }
         return instance;
-
     }
 
     public static IProductParser makeJsonParser() {

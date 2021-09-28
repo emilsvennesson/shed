@@ -1,4 +1,4 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-interface IProductListIO {
+public interface IProductListIO {
 
 
     /**

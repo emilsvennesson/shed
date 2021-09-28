@@ -2,6 +2,8 @@ package backend;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.backend.DataHandler;
+import shedbolaget.backend.Product;
 
 public class TestDataHandler {
 
