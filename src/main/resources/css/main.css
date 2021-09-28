@@ -139,12 +139,11 @@
     -fx-background-color: white;
 }
 
-.check-box-level1 {
+.check-box-general {
     -fx-font-size: 14px;
 }
 
-.check-box-level2 {
-    -fx-font-size: 14px;
+.check-box-indented {
     -fx-border-color: #EBEBEB;
     -fx-border-width: 0 0 0.2px 0;
 }
@@ -154,6 +153,7 @@
     -fx-border-color: #E9E9E9;
     -fx-border-radius: 4px;
     -fx-background-radius: 4px;
+    -fx-font-size: 14px;
 }
 
 .check-box:selected .box {
