@@ -60,8 +60,18 @@ public class DataHandler {
     public List<Integer> getProductIdsFromFavorites() {
         //TODO Fix so that this return product
         SavableProductIdList favList = listIOManager.getList("Favorites");
-        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
+        if (favList == null) {
+            listIOManager.addList(new SavableProductIdList("Favorites"));
+            favList = listIOManager.getList("Favorites");
+        }
         return favList.getProductIds();
+    }
+
+    /**
+     * Removes all the products from favorites
+     */
+    public void clearFavorites(){
+        listIOManager.removeList("Favorites");
     }
   
     public void onStartUp() {
