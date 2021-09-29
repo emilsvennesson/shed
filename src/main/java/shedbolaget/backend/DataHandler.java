@@ -16,6 +16,7 @@ public class DataHandler {
     public DataHandler() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
+        listIOManager = ProductIdListsIOManager.getInstance();
     }
 
     public List<Product> getProducts() {
@@ -33,7 +34,10 @@ public class DataHandler {
      */
     public void addToFavorites(Product prod) {
         SavableProductIdList favList = listIOManager.getList("Favorites");
-        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
+        if (favList == null) {
+            listIOManager.addList(new SavableProductIdList("Favorites"));
+            favList = listIOManager.getList("Favorites");
+        }
         favList.addProductId(prod);
     }
 
