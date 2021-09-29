@@ -30,24 +30,15 @@ public class TestDataHandler {
     @Test
     public void testAddFavorite() {
 
+
         DataHandler dh = new DataHandler();
-        List<Product> prods = new ArrayList<>();
+        dh.clearFavorites();
+        Product prod = getRandomUnequeProduct();
 
-        for(int i = 0; i< 100 ; i++){
-            Product prod = getRandomUnequeProduct();
-            prods.add(prod);
-            dh.addToFavorites(prod);
-        }
+        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
+        dh.addToFavorites(prod);
 
-        List<Integer> favProds = dh.getProductIdsFromFavorites();
-
-       for(int i = 0; i< prods.size(); i++){
-           Assert.assertEquals(prods.get(i).getProductId(), favProds.get(i).toString());
-       }
-
-
-
-
+        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
 
 
 
@@ -56,12 +47,38 @@ public class TestDataHandler {
     @Test
     public void testRemoveFavorite() {
 
-        Product product = new Product();
+        DataHandler dh = new DataHandler();
+        dh.clearFavorites();
+        Product prod = getRandomUnequeProduct();
+
+        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
+        dh.addToFavorites(prod);
+
+        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
+        dh.removeFromFavorites(prod);
+
+        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
     }
 
     @Test
 
     public void testGetFavorites() {
+
+        DataHandler dh = new DataHandler();
+        List<String> prods = new ArrayList<>();
+        dh.clearFavorites();
+
+        for(int i = 0; i< 10 ; i++){
+            Product prod = getRandomUnequeProduct();
+            prods.add(prod.getProductId());
+            dh.addToFavorites(prod);
+        }
+
+        List<Integer> favProds = dh.getProductIdsFromFavorites();
+
+        for(int i = 0; i< prods.size(); i++){
+            Assert.assertEquals(prods.get(i), favProds.get(i).toString());
+        }
 
 
 
