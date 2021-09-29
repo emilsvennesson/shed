@@ -1,9 +1,8 @@
 package shedbolaget.backend;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -67,15 +66,32 @@ class Filter {
         }
     }
 
-    public void sortProductsByPrice(boolean sortLowest){
-            Collections.sort(products, new Comparator<Product>() {
-                @Override
-                public int compare(Product product1, Product product2) {
-                    return Double.compare(product1.getPrice(), product2.getPrice());
-                }
-            });
+    public void sortProductsByPrice(boolean sortLowest) {
+            sortProductsByMethod("getPrice");
             if (!sortLowest)
                 Collections.reverse(products);
     }
 
+    private void sortProductsByMethod(String methodName) {
+        // gets method to compare by from the Product class
+        // i.e methodName = "getPrice" would compare the products by their price.
+        Method method = Objects.requireNonNull(getMethodByName(methodName));
+        products.sort((product1, product2) -> {
+            try {
+                return Double.compare((double) method.invoke(product1), (double) method.invoke(product2));
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+                return 0;
+            }
+        });
+    }
+
+    private Method getMethodByName(String methodName) {
+        try {
+            return Product.class.getMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

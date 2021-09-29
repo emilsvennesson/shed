@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class MainViewController {
     @FXML
     private AnchorPane navBarPane;
@@ -15,6 +17,7 @@ public class MainViewController {
     public void initialize() {
         navBarPane.getChildren().add(new NavBarController());
         DataHandler dh = new DataHandler();
+        dh.sortProductsByPrice(true);
         for (int i = 0; i < 20; i++)
             newProductsFlowPane.getChildren().add(new BasicProductCardController(dh.getFilteredProducts().get(i)));
 

@@ -2,6 +2,8 @@ package shedbolaget.backend;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 class Image {
@@ -53,6 +55,5 @@ public class Product {
     public double getPrice() {
         return price;
     }
-
 
 }

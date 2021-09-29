@@ -6,6 +6,7 @@ import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -97,7 +98,7 @@ public class DataHandler {
         return filter.getFilteredProducts();
     }
 
-    public void sortProductsByPrice(boolean lowestPrice){
+    public void sortProductsByPrice(boolean lowestPrice) {
         filter.sortProductsByPrice(lowestPrice);
     }
 }
