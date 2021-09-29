@@ -5,6 +5,10 @@ import org.junit.Test;
 import shedbolaget.backend.DataHandler;
 import shedbolaget.backend.Product;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class TestDataHandler {
 
     @Test
@@ -19,21 +23,32 @@ public class TestDataHandler {
         Assert.assertEquals(22170, dh.getSize());
     }
 
-    @Test
 
-    public void testGetFavorites() {
-        Product product = new Product();
-
-
-    }
 
 
     //TODO Fix tests for favorites
     @Test
     public void testAddFavorite() {
 
+        DataHandler dh = new DataHandler();
+        List<Product> prods = new ArrayList<>();
 
-        Product product = new Product();
+        for(int i = 0; i< 100 ; i++){
+            Product prod = getRandomUnequeProduct();
+            prods.add(prod);
+            dh.addToFavorites(prod);
+        }
+
+        List<Integer> favProds = dh.getProductIdsFromFavorites();
+
+       for(int i = 0; i< prods.size(); i++){
+           Assert.assertEquals(prods.get(i).getProductId(), favProds.get(i).toString());
+       }
+
+
+
+
+
 
 
     }
@@ -42,6 +57,14 @@ public class TestDataHandler {
     public void testRemoveFavorite() {
 
         Product product = new Product();
+    }
+
+    @Test
+
+    public void testGetFavorites() {
+
+
+
     }
 
 
@@ -71,6 +94,24 @@ public class TestDataHandler {
                 wrongCategory = true;
         }
         Assert.assertEquals(false, wrongCategory);
+    }
+
+
+
+    private static Product getRandomUnequeProduct(){
+        DataHandler handler = new DataHandler();
+        Random rand = new Random() ;
+        List<Product> usedProducts = new ArrayList<>();
+
+        Product prod;
+        do {
+            prod= handler.getProducts().get(rand.nextInt(handler.getSize()));
+        }while (usedProducts.contains(prod));
+
+        usedProducts.add(prod);
+
+
+        return prod;
     }
 
 
