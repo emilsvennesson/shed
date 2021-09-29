@@ -128,3 +128,38 @@
     -fx-font-size: 13px;
     -fx-alignment:center;
 }
+
+/* Sidebar in product view */
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-radius: 8px;
+}
+
+.sidebar-categories {
+    -fx-background-color: white;
+}
+
+.check-box-general {
+    -fx-font-size: 14px;
+}
+
+.check-box-indented {
+    -fx-border-color: #EBEBEB;
+    -fx-border-width: 0 0 0.2px 0;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #E9E9E9;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-size: 14px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: -primary_green;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
