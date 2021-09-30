@@ -10,7 +10,7 @@
       <AnchorPane fx:id="navBarPane" prefHeight="64.0" prefWidth="1152.0" style="-fx-background-color: blue;" />
       <ScrollPane hbarPolicy="NEVER" layoutY="64.0" prefHeight="757.0" prefWidth="1152.0">
          <content>
-            <FlowPane fx:id="contentFlowPane" hgap="8.0" prefHeight="200.0" prefWidth="1152.0" prefWrapLength="1026.0" rowValignment="TOP" vgap="8.0">
+            <FlowPane fx:id="contentFlowPane" alignment="TOP_RIGHT" hgap="8.0" prefHeight="200.0" prefWidth="1152.0" prefWrapLength="1026.0" rowValignment="TOP" styleClass="flow-pane" vgap="8.0">
                <padding>
                   <Insets left="65.0" right="65.0" top="8.0" />
                </padding>

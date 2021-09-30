@@ -12,7 +12,7 @@
    <children>
       <VBox prefHeight="464.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Drycker:">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
                <styleClass>
                   <String fx:value="bold" />
                   <String fx:value="black-text" />

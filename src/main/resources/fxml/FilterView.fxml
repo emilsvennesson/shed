@@ -15,7 +15,7 @@
          <children>
             <HBox spacing="35.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filter:">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Filter:">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -24,12 +24,12 @@
                         <String fx:value="bold" />
                      </styleClass>
                   </Text>
-                  <Button fx:id="clearFiltersButton" mnemonicParsing="false" styleClass="clear-filters-btn" text="Rensa alla filter" />
+                  <Button fx:id="clearFiltersButton" mnemonicParsing="false" style="-fx-font-size: 12;" styleClass="clear-filters-btn" text="Rensa alla filter" />
                </children>
             </HBox>
             <FlowPane fx:id="filterFlowPane" prefHeight="55.0" prefWidth="181.0">
                <children>
-                  <Button mnemonicParsing="false" text="Öl">
+                  <Button mnemonicParsing="false" style="-fx-font-size: 12;" text="Öl">
                      <styleClass>
                         <String fx:value="filter-item" />
                         <String fx:value="bold" />

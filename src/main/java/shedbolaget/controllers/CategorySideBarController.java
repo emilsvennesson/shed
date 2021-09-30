@@ -35,6 +35,7 @@ public class CategorySideBarController {
         checkBox.getStyleClass().add("black-text");
         checkBox.getStyleClass().add("check-box-general");
         checkBox.setAlignment(Pos.CENTER_LEFT);
+        checkBox.setStyle("-fx-font-size: 14px");
         if (isCategoryLevel1) {
             checkBox.setPadding(new Insets(4, 0, 6, 0));
             checkBox.setPrefWidth(176);
