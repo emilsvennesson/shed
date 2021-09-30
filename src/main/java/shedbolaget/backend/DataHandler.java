@@ -98,7 +98,11 @@ public class DataHandler {
         return filter.getFilteredProducts();
     }
 
-    public void sortProductsByPrice(boolean lowestPrice) {
-        filter.sortProductsByPrice(lowestPrice);
+    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
+        filter.sortProductsByVariable(variableName, lowestToHighest);
+    }
+
+    public void sortProductsByVariable(String variableName) {
+        filter.sortProductsByVariable(variableName, true);
     }
 }

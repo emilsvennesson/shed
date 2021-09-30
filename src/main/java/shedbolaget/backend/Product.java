@@ -19,6 +19,8 @@ public class Product {
     private String productNameBold;
     private String productNameThin;
     private double price;
+    private double volume;
+    private double alcoholPercentage;
     private List<Image> images;
 
     public String getCategoryLevel1() {
@@ -55,5 +57,12 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
+    public double getVolume(){ return volume;}
+
+    public double getAlcoholPercentage(){return alcoholPercentage;}
+
+    public double getApk(){ return (volume * alcoholPercentage)/price;}
+
 
 }

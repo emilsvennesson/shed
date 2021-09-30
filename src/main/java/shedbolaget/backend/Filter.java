@@ -66,16 +66,20 @@ class Filter {
         }
     }
 
-    public void sortProductsByPrice(boolean sortLowest) {
-            sortProductsByMethod("getPrice");
-            if (!sortLowest)
-                Collections.reverse(products);
-    }
-
-    private void sortProductsByMethod(String methodName) {
-        // gets method to compare by from the Product class
-        // i.e methodName = "getPrice" would compare the products by their price.
+    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
+        String methodName = "get" + getCapitalizedString(variableName);
+        try{
         Method method = Objects.requireNonNull(getMethodByName(methodName));
+        sortProducts(method);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+            System.out.println("ERROR: No valid variable in sortProductsByVariable");
+        }
+
+        if(!lowestToHighest)
+            Collections.reverse(products);
+    }
+    private void sortProducts(Method method){
         products.sort((product1, product2) -> {
             try {
                 return Double.compare((double) method.invoke(product1), (double) method.invoke(product2));
@@ -85,7 +89,10 @@ class Filter {
             }
         });
     }
-
+    //Detta kanske ska vara en static metod i en utility klass
+    private String getCapitalizedString(String str){
+        return str.substring(0,1).toUpperCase();
+    }
     private Method getMethodByName(String methodName) {
         try {
             return Product.class.getMethod(methodName);

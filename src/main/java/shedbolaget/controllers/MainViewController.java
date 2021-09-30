@@ -17,7 +17,7 @@ public class MainViewController {
     public void initialize() {
         navBarPane.getChildren().add(new NavBarController());
         DataHandler dh = new DataHandler();
-        dh.sortProductsByPrice(true);
+        dh.sortProductsByVariable("apk", false);
         for (int i = 0; i < 20; i++)
             newProductsFlowPane.getChildren().add(new BasicProductCardController(dh.getFilteredProducts().get(i)));
 
