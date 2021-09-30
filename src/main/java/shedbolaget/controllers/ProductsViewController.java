@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import shedbolaget.backend.DataHandler;
 
 import java.io.IOException;
 
@@ -14,10 +15,13 @@ public class ProductsViewController {
     @FXML
     private FlowPane contentFlowPane;
 
+    private FlowPane productsWrapper;
+
     private CategorySideBarController sidebar;
 
     @FXML
     public void initialize() throws IOException {
+        initProductsWrapper();
         populateView();
     }
 
@@ -26,6 +30,18 @@ public class ProductsViewController {
         contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/FilterView.fxml")).load());
         contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/BreadCrumbsView.fxml")).load());
         contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/CategorySideBarView.fxml")).load());
+        contentFlowPane.getChildren().add(productsWrapper);
+        DataHandler dh = new DataHandler();
+        for (int i = 0; i < 20; i++) {
+            FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
+            cardLoader.setController(new DetailedProductCardViewController(dh.getProducts().get(i)));
+            productsWrapper.getChildren().add(cardLoader.load());
+        }
+    }
+
+    private void initProductsWrapper() {
+        productsWrapper = new FlowPane();
+        productsWrapper.setVgap(8);
     }
 }
 
