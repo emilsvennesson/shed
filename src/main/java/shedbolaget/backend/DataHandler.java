@@ -105,4 +105,6 @@ public class DataHandler {
     public void sortProductsByVariable(String variableName) {
         filter.sortProductsByVariable(variableName, true);
     }
+
+    public Product getProduct(int id){ return filter.getProduct(id); }
 }

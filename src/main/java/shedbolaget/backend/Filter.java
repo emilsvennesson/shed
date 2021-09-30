@@ -91,7 +91,7 @@ class Filter {
     }
     //Detta kanske ska vara en static metod i en utility klass
     private String getCapitalizedString(String str){
-        return str.substring(0,1).toUpperCase();
+        return str.substring(0,1).toUpperCase() + str.substring(1);
     }
     private Method getMethodByName(String methodName) {
         try {
@@ -100,5 +100,11 @@ class Filter {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public Product getProduct(int id){
+        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
+                .findAny()
+                .orElse(null));
     }
 }
