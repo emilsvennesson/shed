@@ -3,9 +3,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="178.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="178.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.CategorySideBarItemController">
    <children>
       <VBox fx:id="categoriesVBox" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="178.0" styleClass="sidebar-categories" />
    </children>
-</fx:root>
+</AnchorPane>
