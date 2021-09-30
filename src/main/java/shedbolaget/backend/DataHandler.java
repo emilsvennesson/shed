@@ -1,5 +1,8 @@
 package shedbolaget.backend;
 
+import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
+import shedbolaget.backend.events.CategoryEvent;
 import shedbolaget.backend.favorites.ProductIdListsIOManager;
 import shedbolaget.backend.favorites.SavableProductIdList;
 import shedbolaget.backend.parser.IProductParser;
@@ -8,14 +11,36 @@ import shedbolaget.backend.parser.ParserFactory;
 import java.util.List;
 
 public class DataHandler {
+    private static final DataHandler instance = new DataHandler();
     private List<Product> products;
     private ProductIdListsIOManager listIOManager;
     private final Filter filter;
+    private final EventBus eventBus;
 
-    public DataHandler() {
+    private DataHandler() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
+        eventBus = new EventBus();
+        eventBus.register(this);
+    }
+
+    public static DataHandler getInstance() {
+        return instance;
+    }
+
+    @Subscribe
+    public void listen(CategoryEvent event) {
+        System.out.println("test");
+        System.out.println(event.getCurrentCategoryLevel1());
+    }
+
+    public void registerToEventBus(Object o) {
+        eventBus.register(o);
+    }
+
+    public void unregisterFromEventBus(Object o) {
+        eventBus.unregister(o);
     }
 
     public List<Product> getProducts() {
@@ -69,10 +94,10 @@ public class DataHandler {
     /**
      * Removes all the products from favorites
      */
-    public void clearFavorites(){
+    public void clearFavorites() {
         listIOManager.removeList("Favorites");
     }
-  
+
     public void onStartUp() {
         listIOManager.loadAllLists();
     }
@@ -87,10 +112,12 @@ public class DataHandler {
 
     public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
+        eventBus.post(new CategoryEvent(categoryName));
     }
 
     public void clearCategoryLevel1Filter() {
         filter.clearCategoryLevel1Filter();
+        eventBus.post(new CategoryEvent(""));
     }
 
     public void addCategoryLevel2Filter(String categoryName) {

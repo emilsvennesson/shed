@@ -2,8 +2,6 @@ package shedbolaget.backend;
 
 import org.junit.Assert;
 import org.junit.Test;
-import shedbolaget.backend.DataHandler;
-import shedbolaget.backend.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,17 +11,15 @@ public class TestDataHandler {
 
     @Test
     public void testProducts() {
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
         Assert.assertEquals(22170, dh.getProducts().size());  // we know data should contain 22170 products
     }
 
     @Test
     public void testGetSize() {
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
         Assert.assertEquals(22170, dh.getSize());
     }
-
-
 
 
     //TODO Fix tests for favorites
@@ -31,7 +27,7 @@ public class TestDataHandler {
     public void testAddFavorite() {
 
 
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
         dh.clearFavorites();
         Product prod = getRandomUnequeProduct();
 
@@ -41,13 +37,12 @@ public class TestDataHandler {
         Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
 
 
-
     }
 
     @Test
     public void testRemoveFavorite() {
 
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
         dh.clearFavorites();
         Product prod = getRandomUnequeProduct();
 
@@ -64,11 +59,11 @@ public class TestDataHandler {
 
     public void testGetFavorites() {
 
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
         List<String> prods = new ArrayList<>();
         dh.clearFavorites();
 
-        for(int i = 0; i< 10 ; i++){
+        for (int i = 0; i < 10; i++) {
             Product prod = getRandomUnequeProduct();
             prods.add(prod.getProductId());
             dh.addToFavorites(prod);
@@ -76,17 +71,16 @@ public class TestDataHandler {
 
         List<Integer> favProds = dh.getProductIdsFromFavorites();
 
-        for(int i = 0; i< prods.size(); i++){
+        for (int i = 0; i < prods.size(); i++) {
             Assert.assertEquals(prods.get(i), favProds.get(i).toString());
         }
-
 
 
     }
 
 
     public void testGetLevel1CategoryProducts() {
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
 
         boolean wrongCategory = false;
         String category = "Öl";
@@ -101,7 +95,7 @@ public class TestDataHandler {
 
     @Test
     public void testGetLevel2CategoryProducts() {
-        DataHandler dh = new DataHandler();
+        DataHandler dh = DataHandler.getInstance();
 
         boolean wrongCategory = false;
         String category = "Veteöl";
@@ -114,16 +108,15 @@ public class TestDataHandler {
     }
 
 
-
-    private static Product getRandomUnequeProduct(){
-        DataHandler handler = new DataHandler();
-        Random rand = new Random() ;
+    private static Product getRandomUnequeProduct() {
+        DataHandler handler = DataHandler.getInstance();
+        Random rand = new Random();
         List<Product> usedProducts = new ArrayList<>();
 
         Product prod;
         do {
-            prod= handler.getProducts().get(rand.nextInt(handler.getSize()));
-        }while (usedProducts.contains(prod));
+            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+        } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);
 

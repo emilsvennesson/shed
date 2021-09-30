@@ -1,11 +1,10 @@
 package shedbolaget.backend.favorites;
 
 
-import shedbolaget.backend.DataHandler;
-import shedbolaget.backend.Product;
 import org.junit.Assert;
 import org.junit.Test;
-import shedbolaget.backend.favorites.SavableProductIdList;
+import shedbolaget.backend.DataHandler;
+import shedbolaget.backend.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +33,10 @@ public class TestSavableProductIdList {
         Assert.assertEquals(2, list.getSize());
 
 
-
-
-
     }
 
     @Test
-    public void testAddProductWithProductId(){
+    public void testAddProductWithProductId() {
         Product prod = getRandomUnequeProduct();
 
         SavableProductIdList list = new SavableProductIdList("Test");
@@ -52,10 +48,10 @@ public class TestSavableProductIdList {
         Assert.assertEquals(1, list.getSize());
 
 
-
     }
+
     @Test
-    public void addProductWithSameId(){
+    public void addProductWithSameId() {
 
         SavableProductIdList list = new SavableProductIdList("Favorites");
 
@@ -80,7 +76,7 @@ public class TestSavableProductIdList {
 
 
     @Test
-    public void testRemoveProductViaProductObject(){
+    public void testRemoveProductViaProductObject() {
         SavableProductIdList list = new SavableProductIdList("Favorites");
         Assert.assertEquals(0, list.getSize());
         Product prod = getRandomUnequeProduct();
@@ -98,8 +94,7 @@ public class TestSavableProductIdList {
 
 
     @Test
-    public void testRemoveProductViaProductId(){
-
+    public void testRemoveProductViaProductId() {
 
 
         SavableProductIdList list = new SavableProductIdList("test");
@@ -120,7 +115,7 @@ public class TestSavableProductIdList {
     }
 
     @Test
-    public void testGetSize(){
+    public void testGetSize() {
 
         SavableProductIdList list = new SavableProductIdList("Favorites");
 
@@ -138,7 +133,7 @@ public class TestSavableProductIdList {
     }
 
     @Test
-    public void testGetName(){
+    public void testGetName() {
         String name = "Test";
 
         SavableProductIdList list = new SavableProductIdList(name);
@@ -146,19 +141,19 @@ public class TestSavableProductIdList {
         Assert.assertEquals(name, list.getName());
 
 
-
     }
 
-    static DataHandler handler = new DataHandler();
-    static Random rand = new Random() ;
+    static DataHandler handler = DataHandler.getInstance();
+    static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
-    private static Product getRandomUnequeProduct(){
+
+    private static Product getRandomUnequeProduct() {
 
 
         Product prod;
         do {
-            prod= handler.getProducts().get(rand.nextInt(handler.getSize()));
-        }while (usedProducts.contains(prod));
+            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+        } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);
 
