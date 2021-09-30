@@ -8,7 +8,7 @@ v1.1
 
 ## 1 Introduction
 
-Shed is a project that aims to extend the functionality of Systembolaget's website with additional features in a desktop application.
+Shed is a project that aims to extend the functionality of Systembolaget's website with additional features in a desktop application. Most of the work will be in simply copying what Systembolaget already does. We need to focus on minimal browsing first, to catch bugs and be sure that it will work. Then we will reimplement the rest of Systembolaget's features, to lastly add new features. We will add new features to appeal primarily to students, who are poor, have lots of time on their hands and would like to try every kind of alcohol (or at least every kind of beer) once.
 
 ### 1.1 Word book
 

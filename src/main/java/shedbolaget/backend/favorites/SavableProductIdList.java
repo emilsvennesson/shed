@@ -1,7 +1,6 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
-
-import backend.Product;
+import shedbolaget.backend.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,23 +14,14 @@ import java.util.List;
  * @version 1.0
  */
 public class SavableProductIdList {
-
-
-    /*---------------------------- Instance Variables ----------------------------*/
     private final String name;
     private final List<Integer> products;
 
-
-    /*---------------------------- Constructor ----------------------------*/
     public SavableProductIdList(String name) {
         this.name = name;
         products = new ArrayList<>();
     }
-
-
-
-    /*---------------------------- Public methods ----------------------------*/
-
+  
     /**
      * <p>Adds a productId to the list, cannot add an already existing productId</p>
      *
@@ -41,8 +31,6 @@ public class SavableProductIdList {
         if (products.contains(productId))
             return;
         products.add(productId);
-
-
     }
 
     /**
@@ -53,13 +41,9 @@ public class SavableProductIdList {
     public void addProductId(Product product) {
         if (products.contains(Integer.parseInt(product.getProductId())))
             return;
-
         products.add(Integer.parseInt(product.getProductId()));
-
-
     }
-
-
+  
     /**
      * <p>Removes a productId taken from the given {@link Product} from the list</p>
      *
@@ -92,7 +76,6 @@ public class SavableProductIdList {
             products.remove(removeId);
     }
 
-
     /**
      * <p> Returns the name of the list</p>
      *
@@ -108,7 +91,6 @@ public class SavableProductIdList {
      * @return the amount of products as an int
      */
     public int getSize() {
-
         return this.products.size();
     }
 
@@ -119,42 +101,22 @@ public class SavableProductIdList {
      */
     public List<Integer> getProductIds() {
         List<Integer> prod = this.products;
-
         //TODO Return a copy of the product list
-
         return prod;
-
     }
 
     @Override
     public boolean equals(Object object) {
-
         if (!(object instanceof SavableProductIdList)) return false;
-
         SavableProductIdList inList = (SavableProductIdList) object;
-
         if (!inList.getName().equals(this.getName())) return false;
-
         if (inList.getSize() != this.getSize()) return false;
 
-
         for (int i = 0; i < inList.getSize(); i++) {
-
-
             boolean b = (inList.getProductIds().get(i).equals(this.getProductIds().get(i)));
-
-
             if (!(inList.getProductIds().get(i).equals(this.getProductIds().get(i)))) return false;
-
         }
-
 
         return true;
     }
-
-
-
-    /*---------------------------- Private methods ----------------------------*/
-
-
 }

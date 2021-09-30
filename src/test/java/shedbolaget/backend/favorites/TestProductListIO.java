@@ -1,10 +1,13 @@
-package backend.favorites;
+package shedbolaget.backend.favorites;
 
-import backend.DataHandler;
-import backend.Product;
+import shedbolaget.backend.DataHandler;
+import shedbolaget.backend.Product;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import shedbolaget.backend.favorites.IProductListIO;
+import shedbolaget.backend.favorites.ProductListFileIO;
+import shedbolaget.backend.favorites.SavableProductIdList;
 
 import java.io.IOException;
 import java.util.ArrayList;

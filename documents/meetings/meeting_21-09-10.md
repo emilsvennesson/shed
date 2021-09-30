@@ -30,7 +30,7 @@
 ## Discussion items
 
 * Is everyone comfortable with using branches and making pull requests?
-* How should we proceed from now with the backend?
+* How should we proceed from now with the shedbolaget.backend?
 * Are we prepared for the seminar on Tuesday? If not, what is left?
 * We need to look over the assignments, how are we doing here?
 * How is the domain mdoel looking?

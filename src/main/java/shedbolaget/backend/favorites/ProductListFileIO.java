@@ -1,5 +1,4 @@
-package backend.favorites;
-
+package shedbolaget.backend.favorites;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,22 +12,14 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-class ProductListFileIO implements IProductListIO {
-
-
-
-    /*---------------------------- Instance Variables ----------------------------*/
-
+public class ProductListFileIO implements IProductListIO {
     String filePath = "SavedLists.txt";
     File file;
     BufferedWriter writer;
     BufferedReader reader;
 
-
-    /*---------------------------- Constructor ----------------------------*/
-    ProductListFileIO() {
+    public ProductListFileIO() {
         file = new File(filePath);
-
         try {
             if (!file.exists()) file.createNewFile();
 
@@ -38,13 +29,9 @@ class ProductListFileIO implements IProductListIO {
 
     }
 
-
-    /*---------------------------- Public methods ----------------------------*/
     @Override
     public void save(SavableProductIdList list) {
-
         if (writer == null) {
-
             try {
                 this.writer = new BufferedWriter(new FileWriter(this.filePath));
             } catch (IOException e) {
@@ -52,33 +39,22 @@ class ProductListFileIO implements IProductListIO {
             }
         }
 
-
         StringBuilder builder = new StringBuilder();
-
         builder.append(list.getName() + "\n");
         builder.append(list.getSize() + "\n");
-
-        for (int prod :
-                list.getProductIds()) {
-
+      
+        for (int prod : list.getProductIds())
             builder.append(prod + "\n");
-
-        }
-
-
         try {
             writer.write(builder.toString());
         } catch (IOException e) {
             genericFileError(e, "Writing to the file");
         }
 
-
     }
 
     @Override
     public List<SavableProductIdList> loadAll() {
-
-
         if (reader == null) {
             try {
                 reader = new BufferedReader(new FileReader(filePath));
@@ -89,23 +65,19 @@ class ProductListFileIO implements IProductListIO {
 
 
         List<SavableProductIdList> listOfLists = new ArrayList<>();
-
         String line;
         try {
             while ((line = reader.readLine()) != null) {
                 SavableProductIdList list = new SavableProductIdList(line);
                 int amount = Integer.parseInt(reader.readLine());
-
-                for (int i = 0; i < amount; i++) {
+                for (int i = 0; i < amount; i++)
                     list.addProductId(Integer.parseInt(reader.readLine()));
-                }
                 listOfLists.add(list);
             }
         } catch (IOException e) {
             genericFileError(e, "Reading the lists from the file");
         }
-
-
+      
         return listOfLists;
     }
 
@@ -124,9 +96,6 @@ class ProductListFileIO implements IProductListIO {
         }
     }
 
-
-    /*---------------------------- Private methods ----------------------------*/
-
     //TODO add a method to display errors in gui
 
     /**
@@ -135,7 +104,6 @@ class ProductListFileIO implements IProductListIO {
      * @param ex  Exception
      * @param msg Message to display with the error
      */
-
     private void genericFileError(IOException ex, String msg) {
         System.out.println("IO file error has occurred in Path: " + file.getAbsolutePath() + "\n" +
                 "At a point where the program is " + msg + "\n" +

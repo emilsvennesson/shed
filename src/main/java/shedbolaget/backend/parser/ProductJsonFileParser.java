@@ -1,6 +1,6 @@
-package backend.parser;
+package shedbolaget.backend.parser;
 
-import backend.Product;
+import shedbolaget.backend.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,8 +18,7 @@ class ProductJsonFileParser implements IProductParser {
             products = mapper.readValue(Paths.get("data.json").toFile(), new TypeReference<List<Product>>() {
             });
 
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Failed to read data.json file.");
             ex.printStackTrace();
         }
