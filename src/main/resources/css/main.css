@@ -163,3 +163,28 @@
 .check-box:selected .mark {
     -fx-background-color: white;
 }
+
+.filter-box {
+    -fx-border-radius: 8px;
+}
+
+.filter-box {
+    -fx-background-color: white;
+}
+
+.clear-filters-btn {
+    -fx-background-color: white;
+    -fx-underline: true;
+    -fx-border: none;
+}
+
+.filter-item {
+    -fx-border-radius: 4px;
+    -fx-background-color: -primary_green;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.breadcrumbs-box {
+    -fx-background-color: white;
+}
