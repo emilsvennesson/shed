@@ -66,8 +66,8 @@
 * Daniel E. (done by Wednesday)
   * RAD (done by Monday)
     * Introduction
-    * https://chalmers.instructure.com/courses/15184/files/folder/templates?preview=1603848
-    * Github repo example
+    * [Template for RAD](https://chalmers.instructure.com/courses/15184/files/folder/templates?preview=1603848)
+    * [Github repo example](https://github.com/nahojjjen/OOP-Project-TowerDefence/blob/master/document/RAD.pdf) (See section 1.)
   * Drink Generator: Controllers in Scenebuilder and in code (done by Wednesday)
 * Daniel R. (done by Monday)
   * Drink Generator
