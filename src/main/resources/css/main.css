@@ -185,6 +185,12 @@
     -fx-font-size: 12px;
 }
 
-.breadcrumbs-box {
+.white-background {
     -fx-background-color: white;
+}
+
+.add-favorite-btn {
+    -fx-background-color: -primary_green;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
 }
