@@ -5,7 +5,6 @@ import shedbolaget.backend.favorites.SavableProductIdList;
 import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
-
 import java.util.List;
 
 public class DataHandler {
