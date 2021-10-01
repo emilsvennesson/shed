@@ -103,8 +103,9 @@ class Filter {
     }
 
     public Product getProduct(int id){
-        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
-                .findAny()
-                .orElse(null));
+            return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
+                    .findAny()
+                    .orElse(new Product()));
+
     }
 }
