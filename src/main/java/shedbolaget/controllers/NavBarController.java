@@ -11,8 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class NavBarController extends BaseController {
+public class NavBarController {
     @FXML
     private MenuButton productsButton;
 
@@ -28,21 +29,17 @@ public class NavBarController extends BaseController {
     @FXML
     private TextField searchTextField;
 
-    public NavBarController() {
-        super("NavBarView.fxml");
-    }
-
     @FXML
     void beerButtonOnClicked(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) productsButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ProductsView.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ProductsView.fxml")));
         primaryStage.setScene(new Scene(root));
     }
 
     @FXML
     void wineButtonOnClicked(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) productsButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainView.fxml")));
         primaryStage.setScene(new Scene(root));
     }
 }
