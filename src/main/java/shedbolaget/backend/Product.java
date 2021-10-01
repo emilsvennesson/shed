@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
-    public String imageUrl;
-    public Object fileType;
-    public Object size;
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    private String imageUrl;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
