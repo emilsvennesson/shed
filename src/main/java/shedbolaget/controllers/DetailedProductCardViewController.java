@@ -3,6 +3,7 @@ package shedbolaget.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import shedbolaget.backend.DataHandler;
@@ -39,13 +40,20 @@ public class DetailedProductCardViewController {
     private Button favoritesButton;
 
     private final Product product;
+    private DataHandler dh;
 
     public DetailedProductCardViewController(Product product) {
+        // temporary, wont pass a datahandler later on
         this.product = product;
+        this.dh = new DataHandler();
     }
 
     @FXML
     public void initialize() throws IOException {
-        this.nameBoldText.setText(this.product.getProductNameBold());
+        nameBoldText.setText(this.product.getProductNameBold());
+        Image productImage = new Image(dh.getProductImageUrl(product, DataHandler.ImageSize.MEDIUM), 0, 0, false, false);
+        imageView.setImage(productImage);
+
+        //alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.));
     }
 }
