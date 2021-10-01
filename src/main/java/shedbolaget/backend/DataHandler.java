@@ -5,7 +5,9 @@ import shedbolaget.backend.favorites.SavableProductIdList;
 import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DataHandler {
     public enum ImageSize {
@@ -25,7 +27,7 @@ public class DataHandler {
     }
 
     public List<Product> getProducts() {
-        return products;
+        return products.stream().collect(Collectors.toList());
     }
 
     private void populateProducts(IProductParser parser) {
@@ -115,6 +117,16 @@ public class DataHandler {
         return filter.getFilteredProducts();
     }
 
+    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
+        filter.sortProductsByVariable(variableName, lowestToHighest);
+    }
+
+    public void sortProductsByVariable(String variableName) {
+        filter.sortProductsByVariable(variableName, true);
+    }
+
+    public Product getProduct(int id){ return filter.getProduct(id); }
+
     public String getProductImageUrl(Product product, ImageSize imageSize) {
         String imageUrl;
         String size;
@@ -140,5 +152,6 @@ public class DataHandler {
 
         return imageUrl + String.format("_%s.png", size);
     }
+
 
 }
