@@ -5,10 +5,15 @@ import shedbolaget.backend.favorites.SavableProductIdList;
 import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
-
 import java.util.List;
 
 public class DataHandler {
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
+    }
+
     private List<Product> products;
     private ProductIdListsIOManager listIOManager;
     private final Filter filter;
@@ -70,10 +75,10 @@ public class DataHandler {
     /**
      * Removes all the products from favorites
      */
-    public void clearFavorites(){
+    public void clearFavorites() {
         listIOManager.removeList("Favorites");
     }
-  
+
     public void onStartUp() {
         listIOManager.loadAllLists();
     }
@@ -109,4 +114,31 @@ public class DataHandler {
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
+
+    public String getProductImageUrl(Product product, ImageSize imageSize) {
+        String imageUrl;
+        String size;
+        switch (imageSize) {
+            case SMALL:
+                size = "20";
+                break;
+            case MEDIUM:
+                size = "100";
+                break;
+            case LARGE:
+                size = "200";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + imageSize);
+        }
+
+        try {
+            imageUrl = product.getImages().get(0).getImageUrl();
+        } catch (IndexOutOfBoundsException e) {
+            return "https://i.ibb.co/LdVhq7m/skavlan.png";
+        }
+
+        return imageUrl + String.format("_%s.png", size);
+    }
+
 }
