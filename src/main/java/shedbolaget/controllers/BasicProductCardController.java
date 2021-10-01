@@ -1,14 +1,15 @@
 package shedbolaget.controllers;
 
-import shedbolaget.backend.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import shedbolaget.backend.Product;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class BasicProductCardController extends BaseController {
+public class BasicProductCardController {
     @FXML
     private ImageView imageView;
 
@@ -24,12 +25,11 @@ public class BasicProductCardController extends BaseController {
     private final Product product;
 
     public BasicProductCardController(Product product) {
-        super("BasicProductCardView.fxml");
         this.product = product;
-        initProduct();
     }
 
-    private void initProduct() {
+    @FXML
+    public void initialize() throws IOException {
         DecimalFormat costFormat = new DecimalFormat("#.##");
         nameBoldText.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());

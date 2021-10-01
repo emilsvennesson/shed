@@ -14,9 +14,10 @@ import java.util.List;
 public class ProductIdListsIOManager {
     private static final ProductIdListsIOManager instance = new ProductIdListsIOManager();
     IProductListIO handler;
-    List<SavableProductIdList> list = new ArrayList<>();
+    List<SavableProductIdList> list;
 
     private ProductIdListsIOManager() {
+        list = new ArrayList<>();
         this.handler = new ProductListFileIO();
     }
 

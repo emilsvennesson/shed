@@ -5,12 +5,17 @@ import shedbolaget.backend.favorites.SavableProductIdList;
 import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DataHandler {
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
+    }
+
     private List<Product> products;
     private ProductIdListsIOManager listIOManager;
     private final Filter filter;
@@ -18,6 +23,7 @@ public class DataHandler {
     public DataHandler() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
+        listIOManager = ProductIdListsIOManager.getInstance();
     }
 
     public List<Product> getProducts() {
@@ -35,7 +41,10 @@ public class DataHandler {
      */
     public void addToFavorites(Product prod) {
         SavableProductIdList favList = listIOManager.getList("Favorites");
-        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
+        if (favList == null) {
+            listIOManager.addList(new SavableProductIdList("Favorites"));
+            favList = listIOManager.getList("Favorites");
+        }
         favList.addProductId(prod);
     }
 
@@ -58,10 +67,20 @@ public class DataHandler {
     public List<Integer> getProductIdsFromFavorites() {
         //TODO Fix so that this return product
         SavableProductIdList favList = listIOManager.getList("Favorites");
-        if (favList == null) listIOManager.addList(new SavableProductIdList("Favorites"));
+        if (favList == null) {
+            listIOManager.addList(new SavableProductIdList("Favorites"));
+            favList = listIOManager.getList("Favorites");
+        }
         return favList.getProductIds();
     }
-  
+
+    /**
+     * Removes all the products from favorites
+     */
+    public void clearFavorites() {
+        listIOManager.removeList("Favorites");
+    }
+
     public void onStartUp() {
         listIOManager.loadAllLists();
     }
@@ -107,4 +126,32 @@ public class DataHandler {
     }
 
     public Product getProduct(int id){ return filter.getProduct(id); }
+
+    public String getProductImageUrl(Product product, ImageSize imageSize) {
+        String imageUrl;
+        String size;
+        switch (imageSize) {
+            case SMALL:
+                size = "20";
+                break;
+            case MEDIUM:
+                size = "100";
+                break;
+            case LARGE:
+                size = "200";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + imageSize);
+        }
+
+        try {
+            imageUrl = product.getImages().get(0).getImageUrl();
+        } catch (IndexOutOfBoundsException e) {
+            return "https://i.ibb.co/LdVhq7m/skavlan.png";
+        }
+
+        return imageUrl + String.format("_%s.png", size);
+    }
+
+
 }
