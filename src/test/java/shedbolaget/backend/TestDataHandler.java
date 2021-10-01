@@ -84,7 +84,7 @@ public class TestDataHandler {
 
     }
 
-
+    @Test
     public void testGetLevel1CategoryProducts() {
         DataHandler dh = new DataHandler();
 
@@ -130,6 +130,5 @@ public class TestDataHandler {
 
         return prod;
     }
-
 
 }
