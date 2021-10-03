@@ -212,22 +212,22 @@ As a user, I want to be able to find drinks based on products I select so that I
 
 ***
 
-#### 2.1.7 Tasted beverages
+#### 2.1.7 Favorites
 
-As a customer, I want to be able to mark some products as tasted because I want to differentiate between drinks I have tried and those which I have not.
+As a customer, I want to be able to mark some products as favorites because I want to remember to keep buying those.
 
 
 
 **Acceptance:**
 
-- Can I mark a beverage as tasted?
-- If I change my mind, can I unmark untasted beverages?
+- Can I mark a beverage as favorite?
+- If I change my mind, can I unmark favourited beverages?
 
 
 
 **Tasks:**
 
-- Allow user to mark beverages as tasted.   
+- Allow user to mark beverages as favourite.   
 - Allow the user to view all marked beverages.   
 - Allow the user to unmark beverages in case they change their mind.
 
