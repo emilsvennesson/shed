@@ -114,7 +114,6 @@ public class TestDataHandler {
     }
 
 
-
     private static Product getRandomUnequeProduct(){
         DataHandler handler = new DataHandler();
         Random rand = new Random() ;

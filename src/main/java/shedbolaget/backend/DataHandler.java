@@ -93,6 +93,10 @@ public class DataHandler {
         return this.products.size();
     }
 
+    public void clearAllFilters(){
+        filter.clearAllFilters();
+    }
+
     public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
     }
@@ -125,7 +129,8 @@ public class DataHandler {
         filter.sortProductsByVariable(variableName, true);
     }
 
-    public Product getProduct(int id){ return filter.getProduct(id); }
+    public List<Product> getProducts(int id){ return filter.getProducts(id); }
+    public List<Product> getProducts(String filterString){ return filter.getProducts(filterString); }
 
     public String getProductImageUrl(Product product, ImageSize imageSize) {
         String imageUrl;
