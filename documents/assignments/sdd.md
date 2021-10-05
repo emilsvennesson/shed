@@ -10,7 +10,7 @@ v1.0
 
 ### 1.1 Word book
 
-## 2 System architecture
+## 2 System architecture(Daniel)
 
 ###FileSaver
 
@@ -27,7 +27,7 @@ v1.0
 ###Datahandler
 
 
-## 3 System design
+## 3 System design(Daniel)
 
 ## 4 Persistent data management
 
