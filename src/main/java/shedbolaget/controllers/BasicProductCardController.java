@@ -33,6 +33,6 @@ public class BasicProductCardController {
         DecimalFormat costFormat = new DecimalFormat("#.##");
         nameBoldText.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());
-        priceText.setText(costFormat.format(product.getPrice()) + " kr");
+        priceText.setText(costFormat.format(product.getPrice()) + " :-");
     }
 }
