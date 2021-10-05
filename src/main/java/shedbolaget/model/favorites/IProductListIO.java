@@ -1,4 +1,4 @@
-package shedbolaget.backend.favorites;
+package shedbolaget.model.favorites;
 
 import java.util.List;
 

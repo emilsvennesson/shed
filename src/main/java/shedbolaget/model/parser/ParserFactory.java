@@ -1,4 +1,4 @@
-package shedbolaget.backend.parser;
+package shedbolaget.model.parser;
 
 public final class ParserFactory {
     private static volatile ParserFactory instance = new ParserFactory();

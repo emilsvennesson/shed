@@ -1,6 +1,6 @@
-package shedbolaget.backend.favorites;
+package shedbolaget.model.favorites;
 
-import shedbolaget.backend.Product;
+import shedbolaget.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

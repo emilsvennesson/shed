@@ -1,29 +1,47 @@
-package shedbolaget.backend;
+package shedbolaget.model;
 
-import shedbolaget.backend.favorites.ProductIdListsIOManager;
-import shedbolaget.backend.favorites.SavableProductIdList;
-import shedbolaget.backend.parser.IProductParser;
-import shedbolaget.backend.parser.ParserFactory;
+import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
+import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.favorites.ProductIdListsIOManager;
+import shedbolaget.model.favorites.SavableProductIdList;
+import shedbolaget.model.parser.IProductParser;
+import shedbolaget.model.parser.ParserFactory;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DataHandler {
-    public enum ImageSize {
-        SMALL,
-        MEDIUM,
-        LARGE
-    }
-
-    private List<Product> products;
-    private ProductIdListsIOManager listIOManager;
+public class Model {
+    private static final Model instance = new Model();
     private final Filter filter;
+    private final EventBus eventBus;
+    private List<Product> products;
+    private final ProductIdListsIOManager listIOManager;
 
-    public DataHandler() {
+    private Model() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
+        eventBus = new EventBus();
+        eventBus.register(this);
+    }
+
+    public static Model getInstance() {
+        return instance;
+    }
+
+    @Subscribe
+    public void listen(CategoryEvent event) {
+        System.out.println("test");
+        System.out.println(event.getCurrentCategoryLevel1());
+    }
+
+    public void registerToEventBus(Object o) {
+        eventBus.register(o);
+    }
+
+    public void unregisterFromEventBus(Object o) {
+        eventBus.unregister(o);
     }
 
     public List<Product> getProducts() {
@@ -34,11 +52,6 @@ public class DataHandler {
         products = parser.getProducts();
     }
 
-    /**
-     * <p>Adds a {@link Product} to favorites</p>
-     *
-     * @param prod the {@link Product} that is added
-     */
     public void addToFavorites(Product prod) {
         SavableProductIdList favList = listIOManager.getList("Favorites");
         if (favList == null) {
@@ -47,6 +60,12 @@ public class DataHandler {
         }
         favList.addProductId(prod);
     }
+
+    /**
+     * <p>Adds a {@link Product} to favorites</p>
+     *
+     * @param prod the {@link Product} that is added
+     */
 
     /**
      * <p>Removes a {@link Product} from favorites</p>
@@ -95,10 +114,12 @@ public class DataHandler {
 
     public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
+        eventBus.post(new CategoryEvent(categoryName));
     }
 
     public void clearCategoryLevel1Filter() {
         filter.clearCategoryLevel1Filter();
+        eventBus.post(new CategoryEvent(""));
     }
 
     public void addCategoryLevel2Filter(String categoryName) {
@@ -125,7 +146,9 @@ public class DataHandler {
         filter.sortProductsByVariable(variableName, true);
     }
 
-    public Product getProduct(int id){ return filter.getProduct(id); }
+    public Product getProduct(int id) {
+        return filter.getProduct(id);
+    }
 
     public String getProductImageUrl(Product product, ImageSize imageSize) {
         String imageUrl;
@@ -151,6 +174,12 @@ public class DataHandler {
         }
 
         return imageUrl + String.format("_%s.png", size);
+    }
+
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
     }
 
 

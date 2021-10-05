@@ -1,13 +1,10 @@
-package shedbolaget.backend.favorites;
+package shedbolaget.model.favorites;
 
-import shedbolaget.backend.DataHandler;
-import shedbolaget.backend.Product;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import shedbolaget.backend.favorites.IProductListIO;
-import shedbolaget.backend.favorites.ProductListFileIO;
-import shedbolaget.backend.favorites.SavableProductIdList;
+import shedbolaget.model.Model;
+import shedbolaget.model.Product;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +13,6 @@ import java.util.Random;
 
 
 public class TestProductListIO {
-
 
 
     SavableProductIdList list = new SavableProductIdList("Favorites");
@@ -59,17 +55,17 @@ public class TestProductListIO {
     }
 
 
-
-    static DataHandler handler = new DataHandler();
-    static Random rand = new Random() ;
+    static Model handler = Model.getInstance();
+    static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
-    private static Product getRandomUnequeProduct(){
+
+    private static Product getRandomUnequeProduct() {
 
 
         Product prod;
         do {
-            prod= handler.getProducts().get(rand.nextInt(handler.getSize()));
-        }while (usedProducts.contains(prod));
+            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+        } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);
 
