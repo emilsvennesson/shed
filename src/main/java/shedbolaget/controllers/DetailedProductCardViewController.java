@@ -1,13 +1,12 @@
 package shedbolaget.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import shedbolaget.backend.DataHandler;
-import shedbolaget.backend.Product;
+import shedbolaget.model.Model;
+import shedbolaget.model.Product;
 
 import java.io.IOException;
 
@@ -40,18 +39,18 @@ public class DetailedProductCardViewController {
     private Button favoritesButton;
 
     private final Product product;
-    private DataHandler dh;
+    private Model model;
 
     public DetailedProductCardViewController(Product product) {
         // temporary, wont pass a datahandler later on
         this.product = product;
-        this.dh = new DataHandler();
+        this.model = model.getInstance();
     }
 
     @FXML
     public void initialize() throws IOException {
         nameBoldText.setText(this.product.getProductNameBold());
-        Image productImage = new Image(dh.getProductImageUrl(product, DataHandler.ImageSize.MEDIUM), 0, 0, false, false);
+        Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
         imageView.setImage(productImage);
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
         volumeText.setText(String.format("%.0f ml", product.getVolume()));
