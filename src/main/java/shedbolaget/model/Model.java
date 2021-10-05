@@ -8,6 +8,7 @@ import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -124,6 +125,10 @@ public class Model {
 
     public void addCategoryLevel2Filter(String categoryName) {
         filter.addCategoryLevel2Filter(categoryName);
+    }
+
+    public HashMap<String, List<String>> getCategories() {
+        return filter.getCategories();
     }
 
     public void removeCategoryLevel2Filter(String categoryName) {

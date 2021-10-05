@@ -50,8 +50,8 @@ public class DetailedProductCardViewController {
     @FXML
     public void initialize() throws IOException {
         nameBoldText.setText(this.product.getProductNameBold());
-        Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
-        imageView.setImage(productImage);
+        //Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
+        //imageView.setImage(productImage);
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
         volumeText.setText(String.format("%.0f ml", product.getVolume()));
         apkText.setText(String.format("APK: %.2f", product.getApk()));
