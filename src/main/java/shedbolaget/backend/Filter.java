@@ -77,6 +77,13 @@ class Filter {
         return getFilteredLevel2Products(getFilteredLevel1Products());
     }
 
+    public List<Product> getFilteredProducts(String filterString){
+        return (getFilteredProducts().stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
+                || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
+                || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
+                .collect(Collectors.toList()));
+    }
+
     //This method filters the whole sortiment on the condition given by "activeCategoryLevel1" string
     private List<Product> getFilteredLevel1Products() {
         try {

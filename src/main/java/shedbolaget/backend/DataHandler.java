@@ -121,6 +121,9 @@ public class DataHandler {
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
+    public List<Product> getFilteredProducts(String filterString) {
+        return filter.getFilteredProducts(filterString);
+    }
 
     public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
         filter.sortProductsByVariable(variableName, lowestToHighest);
