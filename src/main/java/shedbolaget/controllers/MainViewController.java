@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.Model;
+import shedbolaget.model.Product;
 
 import java.io.IOException;
 
@@ -19,12 +20,10 @@ public class MainViewController {
         navBarPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/NavBarView.fxml")).load());
         Model model = Model.getInstance();
         model.sortProductsByVariable("apk", false);
-
-        for (int i = 0; i < 20; i++) {
+        for(Product p : model.getNewProducts(20)) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/BasicProductCardView.fxml"));
-            cardLoader.setController(new BasicProductCardController(model.getProducts().get(i)));
+            cardLoader.setController(new BasicProductCardController(p));
             newProductsFlowPane.getChildren().add(cardLoader.load());
-
         }
     }
 }
