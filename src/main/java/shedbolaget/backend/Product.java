@@ -25,6 +25,7 @@ public class Product {
     private double volume;
     private double alcoholPercentage;
     private List<Image> images;
+    private String country;
 
     public String getCategoryLevel1() {
         return categoryLevel1;
@@ -65,7 +66,9 @@ public class Product {
 
     public double getAlcoholPercentage(){return alcoholPercentage;}
 
-    public double getApk(){ return (volume * alcoholPercentage)/price;}
+    public double getApk(){ return (volume * alcoholPercentage * 0.01) / price;}
+
+    public String getCountry(){return country;}
 
 
 }
