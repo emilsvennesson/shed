@@ -3,6 +3,7 @@ package shedbolaget.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -101,6 +102,33 @@ public class TestModel {
         Assert.assertEquals(false, wrongCategory);
     }
 
+    @Test
+    public void testGetProductsById(){
+        DataHandler dh = new DataHandler();
+        Product testProduct = dh.getProducts().get(0);
+        int id = Integer.parseInt(testProduct.getProductId());
+        Assert.assertEquals(true, Integer.parseInt(dh.getProducts(id).get(0).getProductId()) == id);
+    }
+
+    @Test
+    public void testAddAndRemoveCategoryLevel1(){
+        DataHandler dh = new DataHandler();
+        dh.setCategoryLevel1Filter("beer");
+        Assert.assertEquals(true, dh.getActiveLevel1Category() == "beer");
+        dh.clearCategoryLevel1Filter();
+        Assert.assertEquals(true, dh.getActiveLevel1Category() == "");
+    }
+
+    @Test
+    public void testAddAndRemoveCategoryLevel2(){
+        DataHandler dh = new DataHandler();
+        dh.addCategoryLevel2Filter("test1");
+        dh.addCategoryLevel2Filter("test2");
+        Assert.assertEquals(true, dh.getActiveLevel2Categories().get(0) == "test1");
+        Assert.assertEquals(true, dh.getActiveLevel2Categories().get(1) == "test2");
+        dh.clearCategoryLevel2Filters();
+        Assert.assertEquals(true, dh.getActiveLevel2Categories().size() == 0);
+    }
 
     private static Product getRandomUnequeProduct() {
         Model handler = Model.getInstance();

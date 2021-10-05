@@ -6,38 +6,82 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * A filtering class where its use is to return a filtered list of products depending on
+ * the given keywords (categories)
+ */
 class Filter {
     private List<Product> products;
     private String activeCategoryLevel1Filter;
     private List<String> activeCategoryLevel2Filters = new ArrayList<>();
 
+    /**
+     *
+     * @param products
+     */
     public Filter(List<Product> products) {
         this.products = products;
     }
 
+    /**
+     * This method sets the keyword of the first level of filtering.
+     * @param categoryName
+     */
     public void setCategoryLevel1Filter(String categoryName) {
         activeCategoryLevel1Filter = categoryName;
     }
 
+    /**
+     * Clears the level 1 category keyword.
+     */
     public void clearCategoryLevel1Filter() {
         activeCategoryLevel1Filter = "";
     }
 
+    /**
+     * Adds a keyword to level 2 category filtering.
+     * @param categoryName
+     */
     public void addCategoryLevel2Filter(String categoryName) {
         activeCategoryLevel2Filters.add(categoryName);
     }
 
+    /**
+     * Removes a keyword from the level 2 category filtering.
+     * @param categoryName
+     */
     public void removeCategoryLevel2Filter(String categoryName) {
         activeCategoryLevel2Filters.remove(categoryName);
     }
 
+    /**
+     * Clears all level 2 category filter keywords.
+     */
     public void clearCategoryLevel2Filters() {
         activeCategoryLevel2Filters.clear();
     }
 
+    /**
+     * Clears both category filters.
+     */
+    public void clearAllFilters(){
+        clearCategoryLevel1Filter();
+        clearCategoryLevel2Filters();
+    }
 
+    /**
+     * Return a list of products, filtered by set keywords from category level 1 and 2.
+     * @return a list of products.
+     */
     public List<Product> getFilteredProducts() {
         return getFilteredLevel2Products(getFilteredLevel1Products());
+    }
+
+    public List<Product> getFilteredProducts(String filterString){
+        return (getFilteredProducts().stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
+                || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
+                || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
+                .collect(Collectors.toList()));
     }
 
     //This method filters the whole sortiment on the condition given by "activeCategoryLevel1" string
@@ -66,6 +110,11 @@ class Filter {
         }
     }
 
+    /**
+     * Sort the products with the given variable.
+     * @param variableName Variable to sort the products by
+     * @param lowestToHighest Option to sort the products from lowest to highest or vice versa.
+     */
     public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
         String methodName = "get" + getCapitalizedString(variableName);
         try{
@@ -102,9 +151,36 @@ class Filter {
         }
     }
 
-    public Product getProduct(int id){
-        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
-                .findAny()
-                .orElse(null));
+    /**
+     * This method returns products whose id is equal to the given id.
+     * @param id
+     * @return a list of products
+     */
+    public List<Product> getProducts(int id){
+            return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
+                    .collect(Collectors.toList()));
+
     }
+
+    /**
+     * This method returns products that matches with the given string. It looks at 1. product name, 2. category level 1-3
+     * @param filterString
+     * @return
+     */
+    public List<Product> getProducts(String filterString){
+        return (products.stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
+        || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
+        || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
+                .collect(Collectors.toList()));
+    }
+
+    //TODO - get active categories
+    public String getActiveLevel1Category(){
+        return activeCategoryLevel1Filter;
+    }
+
+    public ArrayList<String> getActiveLevel2Categories(){
+        return new ArrayList<>(activeCategoryLevel2Filters);
+    }
+    //TODO -
 }
