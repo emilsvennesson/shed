@@ -168,5 +168,12 @@ class Filter {
     }
 
     //TODO - get active categories
+    public String getActiveLevel1Category(){
+        return activeCategoryLevel1Filter;
+    }
+
+    public ArrayList<String> getActiveLevel2Categories(){
+        return new ArrayList<>(activeCategoryLevel2Filters);
+    }
     //TODO -
 }

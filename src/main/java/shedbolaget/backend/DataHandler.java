@@ -6,6 +6,7 @@ import shedbolaget.backend.parser.IProductParser;
 import shedbolaget.backend.parser.ParserFactory;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -131,6 +132,12 @@ public class DataHandler {
 
     public List<Product> getProducts(int id){ return filter.getProducts(id); }
     public List<Product> getProducts(String filterString){ return filter.getProducts(filterString); }
+    public String getActiveLevel1Category(){
+        return filter.getActiveLevel1Category();
+    }
+    public ArrayList<String> getActiveLevel2Categories(){
+        return filter.getActiveLevel2Categories();
+    }
 
     public String getProductImageUrl(Product product, ImageSize imageSize) {
         String imageUrl;
