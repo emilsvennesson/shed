@@ -53,12 +53,11 @@ public class DetailedProductCardViewController {
         nameBoldText.setText(this.product.getProductNameBold());
         Image productImage = new Image(dh.getProductImageUrl(product, DataHandler.ImageSize.MEDIUM), 0, 0, false, false);
         imageView.setImage(productImage);
-
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
         volumeText.setText(String.format("%.0f ml", product.getVolume()));
         apkText.setText(String.format("APK: %.2f", product.getApk()));
         categoryLevel2Text.setText(product.getCategoryLevel2());
-        countryText.setText("TODO");
+        countryText.setText(product.getCountry());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
     }
 }
