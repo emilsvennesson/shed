@@ -26,6 +26,7 @@ public class Product {
     private double alcoholPercentage;
     private List<Image> images;
     private String country;
+    private boolean isNew;
 
     public String getCategoryLevel1() {
         return categoryLevel1;
@@ -70,5 +71,5 @@ public class Product {
 
     public String getCountry(){return country;}
 
-
+    public boolean getIsNew(){return isNew;}
 }
