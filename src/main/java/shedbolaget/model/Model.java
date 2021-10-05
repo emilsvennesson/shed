@@ -8,6 +8,7 @@ import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -182,5 +183,15 @@ public class Model {
         LARGE
     }
 
-
+    /**
+     * Gets a given amount of products and returns them as an ArrayList
+     * @param amount
+     */
+    public ArrayList<Product> getNewProducts(int amount) {
+        ArrayList<Product> newProductList = new ArrayList<>();
+        for(int i = 0; i < amount; i++) {
+            newProductList.add(this.products.get(i)); // TODO: replace param with real new products
+        }
+        return newProductList;
+    }
 }
