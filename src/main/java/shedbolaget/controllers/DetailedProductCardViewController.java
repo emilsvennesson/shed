@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import shedbolaget.model.Model;
 import shedbolaget.model.Product;
@@ -11,6 +13,9 @@ import shedbolaget.model.Product;
 import java.io.IOException;
 
 public class DetailedProductCardViewController {
+    @FXML
+    private AnchorPane cardAnchorPane;
+
     @FXML
     private ImageView imageView;
 
@@ -58,5 +63,10 @@ public class DetailedProductCardViewController {
         categoryLevel2Text.setText(product.getCategoryLevel2());
         countryText.setText(product.getCountry());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
+    }
+
+    @FXML
+    void cardOnClick(MouseEvent event) {
+        
     }
 }
