@@ -1,4 +1,4 @@
-package shedbolaget.backend.events;
+package shedbolaget.model.events;
 
 public class CategoryEvent {
     private final String currentCategoryLevel1;

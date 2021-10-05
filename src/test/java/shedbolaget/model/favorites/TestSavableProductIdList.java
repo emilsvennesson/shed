@@ -1,10 +1,10 @@
-package shedbolaget.backend.favorites;
+package shedbolaget.model.favorites;
 
 
 import org.junit.Assert;
 import org.junit.Test;
-import shedbolaget.backend.DataHandler;
-import shedbolaget.backend.Product;
+import shedbolaget.model.Model;
+import shedbolaget.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +143,7 @@ public class TestSavableProductIdList {
 
     }
 
-    static DataHandler handler = DataHandler.getInstance();
+    static Model handler = Model.getInstance();
     static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
 

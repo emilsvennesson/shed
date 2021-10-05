@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import shedbolaget.backend.Product;
+import shedbolaget.model.Product;
 
 import java.io.IOException;
 import java.text.DecimalFormat;

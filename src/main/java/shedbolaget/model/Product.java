@@ -1,4 +1,4 @@
-package shedbolaget.backend;
+package shedbolaget.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

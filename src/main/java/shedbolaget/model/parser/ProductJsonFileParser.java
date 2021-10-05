@@ -1,6 +1,6 @@
-package shedbolaget.backend.parser;
+package shedbolaget.model.parser;
 
-import shedbolaget.backend.Product;
+import shedbolaget.model.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -1,23 +1,23 @@
-package shedbolaget.backend;
+package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import shedbolaget.backend.events.CategoryEvent;
-import shedbolaget.backend.favorites.ProductIdListsIOManager;
-import shedbolaget.backend.favorites.SavableProductIdList;
-import shedbolaget.backend.parser.IProductParser;
-import shedbolaget.backend.parser.ParserFactory;
+import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.favorites.ProductIdListsIOManager;
+import shedbolaget.model.favorites.SavableProductIdList;
+import shedbolaget.model.parser.IProductParser;
+import shedbolaget.model.parser.ParserFactory;
 
 import java.util.List;
 
-public class DataHandler {
-    private static final DataHandler instance = new DataHandler();
+public class Model {
+    private static final Model instance = new Model();
     private List<Product> products;
     private ProductIdListsIOManager listIOManager;
     private final Filter filter;
     private final EventBus eventBus;
 
-    private DataHandler() {
+    private Model() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
@@ -25,7 +25,7 @@ public class DataHandler {
         eventBus.register(this);
     }
 
-    public static DataHandler getInstance() {
+    public static Model getInstance() {
         return instance;
     }
 

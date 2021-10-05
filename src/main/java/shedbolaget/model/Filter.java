@@ -1,4 +1,4 @@
-package shedbolaget.backend;
+package shedbolaget.model;
 
 import java.util.ArrayList;
 import java.util.List;

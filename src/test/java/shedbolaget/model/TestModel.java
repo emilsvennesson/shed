@@ -1,4 +1,4 @@
-package shedbolaget.backend;
+package shedbolaget.model;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class TestDataHandler {
+public class TestModel {
 
     @Test
     public void testProducts() {
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
         Assert.assertEquals(22170, dh.getProducts().size());  // we know data should contain 22170 products
     }
 
     @Test
     public void testGetSize() {
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
         Assert.assertEquals(22170, dh.getSize());
     }
 
@@ -25,9 +25,7 @@ public class TestDataHandler {
     //TODO Fix tests for favorites
     @Test
     public void testAddFavorite() {
-
-
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
         dh.clearFavorites();
         Product prod = getRandomUnequeProduct();
 
@@ -35,14 +33,11 @@ public class TestDataHandler {
         dh.addToFavorites(prod);
 
         Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
-
-
     }
 
     @Test
     public void testRemoveFavorite() {
-
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
         dh.clearFavorites();
         Product prod = getRandomUnequeProduct();
 
@@ -58,8 +53,7 @@ public class TestDataHandler {
     @Test
 
     public void testGetFavorites() {
-
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
         List<String> prods = new ArrayList<>();
         dh.clearFavorites();
 
@@ -80,7 +74,7 @@ public class TestDataHandler {
 
 
     public void testGetLevel1CategoryProducts() {
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
 
         boolean wrongCategory = false;
         String category = "Öl";
@@ -95,7 +89,7 @@ public class TestDataHandler {
 
     @Test
     public void testGetLevel2CategoryProducts() {
-        DataHandler dh = DataHandler.getInstance();
+        Model dh = Model.getInstance();
 
         boolean wrongCategory = false;
         String category = "Veteöl";
@@ -109,7 +103,7 @@ public class TestDataHandler {
 
 
     private static Product getRandomUnequeProduct() {
-        DataHandler handler = DataHandler.getInstance();
+        Model handler = Model.getInstance();
         Random rand = new Random();
         List<Product> usedProducts = new ArrayList<>();
 
