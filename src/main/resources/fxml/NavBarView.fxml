@@ -12,7 +12,7 @@
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="65.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1022.0">
          <children>
-            <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked" prefHeight="52.0" prefWidth="209.0" text="Shedbolaget.">
+            <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked" prefHeight="52.0" prefWidth="180.0" text="Shedbolaget.">
                <styleClass>
                   <String fx:value="navbar-button" />
                   <String fx:value="bold" />
@@ -32,7 +32,7 @@
                </font></Button>
             <Button fx:id="favoritesButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
                <HBox.margin>
-                  <Insets right="44.0" />
+                  <Insets right="74.0" />
                </HBox.margin>
                <font>
                   <Font size="20.0" />
