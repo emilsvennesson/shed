@@ -76,7 +76,7 @@ public class TestModel {
     @Test
     public void testGetLevel1CategoryProducts() {
         Model dh = Model.getInstance();
-
+        dh.clearAllFilters();
         boolean wrongCategory = false;
         String category = "Öl";
         dh.setCategoryLevel1Filter(category);
@@ -91,7 +91,7 @@ public class TestModel {
     @Test
     public void testGetLevel2CategoryProducts() {
         Model dh = Model.getInstance();
-
+        dh.clearAllFilters();
         boolean wrongCategory = false;
         String category = "Veteöl";
         dh.addCategoryLevel2Filter(category);
@@ -104,30 +104,31 @@ public class TestModel {
 
     @Test
     public void testGetProductsById(){
-        DataHandler dh = new DataHandler();
-        Product testProduct = dh.getProducts().get(0);
+        Model model = Model.getInstance();
+        Product testProduct = model.getProducts().get(0);
         int id = Integer.parseInt(testProduct.getProductId());
-        Assert.assertEquals(true, Integer.parseInt(dh.getProducts(id).get(0).getProductId()) == id);
+        Assert.assertEquals(true, Integer.parseInt(model.getProducts(id).get(0).getProductId()) == id);
     }
 
     @Test
     public void testAddAndRemoveCategoryLevel1(){
-        DataHandler dh = new DataHandler();
-        dh.setCategoryLevel1Filter("beer");
-        Assert.assertEquals(true, dh.getActiveLevel1Category() == "beer");
-        dh.clearCategoryLevel1Filter();
-        Assert.assertEquals(true, dh.getActiveLevel1Category() == "");
+        Model model = Model.getInstance();
+        model.setCategoryLevel1Filter("beer");
+        Assert.assertEquals(true, model.getActiveLevel1Category() == "beer");
+        model.clearCategoryLevel1Filter();
+        Assert.assertEquals(true, model.getActiveLevel1Category() == "");
     }
 
     @Test
     public void testAddAndRemoveCategoryLevel2(){
-        DataHandler dh = new DataHandler();
-        dh.addCategoryLevel2Filter("test1");
-        dh.addCategoryLevel2Filter("test2");
-        Assert.assertEquals(true, dh.getActiveLevel2Categories().get(0) == "test1");
-        Assert.assertEquals(true, dh.getActiveLevel2Categories().get(1) == "test2");
-        dh.clearCategoryLevel2Filters();
-        Assert.assertEquals(true, dh.getActiveLevel2Categories().size() == 0);
+        Model model = Model.getInstance();
+        model.clearAllFilters();
+        model.addCategoryLevel2Filter("test1");
+        model.addCategoryLevel2Filter("test2");
+        Assert.assertEquals(true, model.getActiveLevel2Categories().get(0) == "test1");
+        Assert.assertEquals(true, model.getActiveLevel2Categories().get(1) == "test2");
+        model.clearCategoryLevel2Filters();
+        Assert.assertEquals(true, model.getActiveLevel2Categories().size() == 0);
     }
 
     private static Product getRandomUnequeProduct() {
