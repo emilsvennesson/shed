@@ -9,13 +9,14 @@ import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Model {
     private static final Model instance = new Model();
-    private List<Product> products;
-    private ProductIdListsIOManager listIOManager;
     private final Filter filter;
     private final EventBus eventBus;
+    private List<Product> products;
+    private final ProductIdListsIOManager listIOManager;
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
@@ -44,18 +45,13 @@ public class Model {
     }
 
     public List<Product> getProducts() {
-        return products;
+        return products.stream().collect(Collectors.toList());
     }
 
     private void populateProducts(IProductParser parser) {
         products = parser.getProducts();
     }
 
-    /**
-     * <p>Adds a {@link Product} to favorites</p>
-     *
-     * @param prod the {@link Product} that is added
-     */
     public void addToFavorites(Product prod) {
         SavableProductIdList favList = listIOManager.getList("Favorites");
         if (favList == null) {
@@ -64,6 +60,12 @@ public class Model {
         }
         favList.addProductId(prod);
     }
+
+    /**
+     * <p>Adds a {@link Product} to favorites</p>
+     *
+     * @param prod the {@link Product} that is added
+     */
 
     /**
      * <p>Removes a {@link Product} from favorites</p>
@@ -135,4 +137,50 @@ public class Model {
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
+
+    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
+        filter.sortProductsByVariable(variableName, lowestToHighest);
+    }
+
+    public void sortProductsByVariable(String variableName) {
+        filter.sortProductsByVariable(variableName, true);
+    }
+
+    public Product getProduct(int id) {
+        return filter.getProduct(id);
+    }
+
+    public String getProductImageUrl(Product product, ImageSize imageSize) {
+        String imageUrl;
+        String size;
+        switch (imageSize) {
+            case SMALL:
+                size = "20";
+                break;
+            case MEDIUM:
+                size = "100";
+                break;
+            case LARGE:
+                size = "200";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + imageSize);
+        }
+
+        try {
+            imageUrl = product.getImages().get(0).getImageUrl();
+        } catch (IndexOutOfBoundsException e) {
+            return "https://i.ibb.co/LdVhq7m/skavlan.png";
+        }
+
+        return imageUrl + String.format("_%s.png", size);
+    }
+
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
+    }
+
+
 }

@@ -2,12 +2,17 @@ package shedbolaget.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
-    public String imageUrl;
-    public Object fileType;
-    public Object size;
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    private String imageUrl;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -17,7 +22,10 @@ public class Product {
     private String productNameBold;
     private String productNameThin;
     private double price;
+    private double volume;
+    private double alcoholPercentage;
     private List<Image> images;
+    private String country;
 
     public String getCategoryLevel1() {
         return categoryLevel1;
@@ -53,6 +61,14 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
+    public double getVolume(){ return volume;}
+
+    public double getAlcoholPercentage(){return alcoholPercentage;}
+
+    public double getApk(){ return (volume * alcoholPercentage * 0.01) / price;}
+
+    public String getCountry(){return country;}
 
 
 }

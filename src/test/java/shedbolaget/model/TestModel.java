@@ -72,7 +72,7 @@ public class TestModel {
 
     }
 
-
+    @Test
     public void testGetLevel1CategoryProducts() {
         Model dh = Model.getInstance();
 
@@ -117,6 +117,5 @@ public class TestModel {
 
         return prod;
     }
-
 
 }

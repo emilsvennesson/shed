@@ -1,7 +1,8 @@
 package shedbolaget.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -65,4 +66,45 @@ class Filter {
         }
     }
 
+    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
+        String methodName = "get" + getCapitalizedString(variableName);
+        try{
+        Method method = Objects.requireNonNull(getMethodByName(methodName));
+        sortProducts(method);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+            System.out.println("ERROR: No valid variable in sortProductsByVariable");
+        }
+
+        if(!lowestToHighest)
+            Collections.reverse(products);
+    }
+    private void sortProducts(Method method){
+        products.sort((product1, product2) -> {
+            try {
+                return Double.compare((double) method.invoke(product1), (double) method.invoke(product2));
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+                return 0;
+            }
+        });
+    }
+    //Detta kanske ska vara en static metod i en utility klass
+    private String getCapitalizedString(String str){
+        return str.substring(0,1).toUpperCase() + str.substring(1);
+    }
+    private Method getMethodByName(String methodName) {
+        try {
+            return Product.class.getMethod(methodName);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Product getProduct(int id){
+        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
+                .findAny()
+                .orElse(null));
+    }
 }
