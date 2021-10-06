@@ -46,7 +46,7 @@ public class DetailedProductCardController {
     private HBox expandedHBox;
 
     @FXML
-    private Text descriptionText;
+    private Text producerText;
 
     @FXML
     private Text colorText;
@@ -55,7 +55,7 @@ public class DetailedProductCardController {
     private Text tasteText;
 
     @FXML
-    private Text suitsText;
+    private Text usageText;
 
     @FXML
     private Text priceText;
@@ -81,14 +81,18 @@ public class DetailedProductCardController {
     @FXML
     public void initialize() throws IOException {
         nameBoldText.setText(this.product.getProductNameBold());
-        //Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
-        //imageView.setImage(productImage);
+        Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
+        imageView.setImage(productImage);
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
         volumeText.setText(String.format("%.0f ml", product.getVolume()));
         apkText.setText(String.format("APK: %.2f", product.getApk()));
         categoryLevel2Text.setText(product.getCategoryLevel2());
         countryText.setText(product.getCountry());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
+        producerText.setText(product.getProducerName());
+        colorText.setText(product.getColor());
+        tasteText.setText(product.getTaste());
+        usageText.setText(product.getUsage());
         closeProductCard();
     }
 
