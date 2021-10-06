@@ -147,4 +147,11 @@ public class TestModel {
         return prod;
     }
 
+    @Test
+    public void testGetNewProducts() {
+        Model model = Model.getInstance();
+        ArrayList<Product> products = model.getNewProducts(10);
+        Assert.assertEquals(products.size(), 10);
+    }
+
 }

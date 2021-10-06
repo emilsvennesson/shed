@@ -33,7 +33,7 @@ public class ProductsViewController {
         contentFlowPane.getChildren().add(productsWrapper);
         for (int i = 0; i < 20; i++) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
-            cardLoader.setController(new DetailedProductCardViewController(Model.getInstance().getProducts().get(i)));
+            cardLoader.setController(new DetailedProductCardController(Model.getInstance().getProducts().get(i)));
             productsWrapper.getChildren().add(cardLoader.load());
         }
     }

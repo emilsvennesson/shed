@@ -117,10 +117,10 @@ class Filter {
      */
     public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
         String methodName = "get" + getCapitalizedString(variableName);
-        try{
-        Method method = Objects.requireNonNull(getMethodByName(methodName));
-        sortProducts(method);
-        }catch(NullPointerException e){
+        try {
+            Method method = Objects.requireNonNull(getMethodByName(methodName));
+            sortProducts(method);
+        } catch(NullPointerException e){
             e.printStackTrace();
             System.out.println("ERROR: No valid variable in sortProductsByVariable");
         }

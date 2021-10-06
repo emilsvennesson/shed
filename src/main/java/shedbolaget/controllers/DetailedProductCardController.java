@@ -1,16 +1,26 @@
 package shedbolaget.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.model.Model;
 import shedbolaget.model.Product;
 
 import java.io.IOException;
 
-public class DetailedProductCardViewController {
+public class DetailedProductCardController {
+    @FXML
+    private AnchorPane cardAnchorPane;
+
     @FXML
     private ImageView imageView;
 
@@ -33,18 +43,39 @@ public class DetailedProductCardViewController {
     private Text countryText;
 
     @FXML
+    private HBox expandedHBox;
+
+    @FXML
+    private Text producerText;
+
+    @FXML
+    private Text colorText;
+
+    @FXML
+    private Text tasteText;
+
+    @FXML
+    private Text usageText;
+
+    @FXML
     private Text priceText;
 
     @FXML
     private Button favoritesButton;
 
+    @FXML
+    private VBox descriptionVBox;
+
     private final Product product;
     private Model model;
 
-    public DetailedProductCardViewController(Product product) {
+    private boolean expanded;
+
+    public DetailedProductCardController(Product product) {
         // temporary, wont pass a datahandler later on
         this.product = product;
-        this.model = model.getInstance();
+        this.model = Model.getInstance();
+        this.expanded = false;
     }
 
     @FXML
@@ -58,5 +89,30 @@ public class DetailedProductCardViewController {
         categoryLevel2Text.setText(product.getCategoryLevel2());
         countryText.setText(product.getCountry());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
+        producerText.setText(product.getProducerName());
+        colorText.setText(product.getColor());
+        tasteText.setText(product.getTaste());
+        usageText.setText(product.getUsage());
+        closeProductCard();
+    }
+
+    @FXML
+    void cardOnClick(MouseEvent event) throws IOException {
+        if(!expanded)
+            expandProductCard();
+        else
+            closeProductCard();
+    }
+
+    private void expandProductCard() {
+        if(!descriptionVBox.getChildren().contains(expandedHBox)) {
+            descriptionVBox.getChildren().add(expandedHBox);
+            expanded = true;
+        }
+    }
+
+    private void closeProductCard() {
+        descriptionVBox.getChildren().remove(expandedHBox);
+        expanded = false;
     }
 }
