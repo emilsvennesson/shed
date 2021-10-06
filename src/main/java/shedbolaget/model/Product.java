@@ -28,6 +28,11 @@ public class Product {
     private String country;
     private boolean isNew;
 
+    private String producerName;
+    private String color;
+    private String taste;
+    private String usage;
+
     public String getCategoryLevel1() {
         return categoryLevel1;
     }
@@ -72,4 +77,24 @@ public class Product {
     public String getCountry(){return country;}
 
     public boolean getIsNew(){return isNew;}
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public String getProducerName() {
+        return producerName;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getTaste() {
+        return taste;
+    }
+
+    public String getUsage() {
+        return usage;
+    }
 }
