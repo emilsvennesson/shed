@@ -70,4 +70,11 @@ public class NavBarController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainView.fxml")));
         primaryStage.setScene(new Scene(root));
     }
+
+    @FXML
+    void favoritesButtonOnClicked(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) homeButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/FavoritesView.fxml")));
+        primaryStage.setScene(new Scene(root));
+    }
 }

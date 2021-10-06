@@ -1,6 +1,7 @@
 package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
@@ -96,6 +97,18 @@ public class Model {
     }
 
     /**
+     * Gets all favorite products
+     * @return a list of {@link Product}
+     */
+    public List<Product> getFavoritesAsProducts() {
+        ArrayList<Product> products = new ArrayList<Product>();
+        for(Integer id : getProductIdsFromFavorites()) {
+            products.add(getProduct(id));
+        }
+        return products;
+    }
+
+    /**
      * Removes all the products from favorites
      */
     public void clearFavorites() {
@@ -150,6 +163,7 @@ public class Model {
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
+
     public List<Product> getFilteredProducts(String filterString) {
         return filter.getFilteredProducts(filterString);
     }
@@ -162,9 +176,14 @@ public class Model {
         filter.sortProductsByVariable(variableName, true);
     }
 
+    public Product getProduct(int id) {
+        return filter.getProduct(id);
+    }
 
     public List<Product> getProducts(int id){ return filter.getProducts(id); }
+
     public List<Product> getProducts(String filterString){ return filter.getProducts(filterString); }
+
     public String getActiveLevel1Category(){
         return filter.getActiveLevel1Category();
     }

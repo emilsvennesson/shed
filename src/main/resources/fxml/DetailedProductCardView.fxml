@@ -132,7 +132,7 @@
                   <Font size="28.0" />
                </font>
             </Text>
-            <Button fx:id="favoritesButton" mnemonicParsing="false" styleClass="add-favorite-btn" text="Spara som favorit" />
+            <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClick" styleClass="add-favorite-btn" text="Spara som favorit" />
          </children>
       </VBox>
    </children>

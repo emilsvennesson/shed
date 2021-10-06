@@ -27,7 +27,7 @@
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="favoritesButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
+            <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClicked" prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
                <HBox.margin>
                   <Insets right="55.0" />
                </HBox.margin>
