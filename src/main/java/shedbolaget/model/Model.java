@@ -1,7 +1,6 @@
 package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
@@ -27,14 +26,16 @@ public class Model {
         eventBus.register(this);
     }
 
-    public static Model getInstance() {
-        return instance;
+    public List<String> getActiveCategoryLevel2Filters() {
+        return filter.getActiveCategoryLevel2Filters();
     }
 
-    @Subscribe
-    public void listen(CategoryEvent event) {
-        System.out.println("test");
-        System.out.println(event.getCurrentCategoryLevel1());
+    public String getActiveCategoryLevel1Filter() {
+        return filter.getActiveCategoryLevel1Filter();
+    }
+
+    public static Model getInstance() {
+        return instance;
     }
 
     public void registerToEventBus(Object o) {
@@ -115,16 +116,17 @@ public class Model {
 
     public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
-        eventBus.post(new CategoryEvent(categoryName));
+        eventBus.post(new CategoryEvent());
     }
 
     public void clearCategoryLevel1Filter() {
         filter.clearCategoryLevel1Filter();
-        eventBus.post(new CategoryEvent(""));
+        eventBus.post(new CategoryEvent());
     }
 
     public void addCategoryLevel2Filter(String categoryName) {
         filter.addCategoryLevel2Filter(categoryName);
+        eventBus.post(new CategoryEvent());
     }
 
     public HashMap<String, List<String>> getCategories() {
@@ -133,10 +135,12 @@ public class Model {
 
     public void removeCategoryLevel2Filter(String categoryName) {
         filter.removeCategoryLevel2Filter(categoryName);
+        eventBus.post(new CategoryEvent());
     }
 
     public void clearCategoryLevel2Filters() {
         filter.clearCategoryLevel2Filters();
+        eventBus.post(new CategoryEvent());
     }
 
     public List<Product> getFilteredProducts() {

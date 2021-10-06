@@ -19,12 +19,10 @@ public class MainViewController {
         navBarPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/NavBarView.fxml")).load());
         Model model = Model.getInstance();
         model.sortProductsByVariable("apk", false);
-
         for (int i = 0; i < 20; i++) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/BasicProductCardView.fxml"));
             cardLoader.setController(new BasicProductCardController(model.getProducts().get(i)));
             newProductsFlowPane.getChildren().add(cardLoader.load());
-
         }
     }
 }

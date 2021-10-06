@@ -2,7 +2,6 @@ package shedbolaget.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import shedbolaget.model.Model;
@@ -42,7 +41,6 @@ public class DetailedProductCardViewController {
     private Model model;
 
     public DetailedProductCardViewController(Product product) {
-        // temporary, wont pass a datahandler later on
         this.product = product;
         this.model = model.getInstance();
     }

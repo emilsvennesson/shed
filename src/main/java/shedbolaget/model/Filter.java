@@ -7,15 +7,23 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class Filter {
-    private List<Product> products;
-    private String activeCategoryLevel1Filter;
-    private List<String> activeCategoryLevel2Filters = new ArrayList<>();
-    private HashMap<String, List<String>> categories = new HashMap<>();
+    private final List<Product> products;
 
+    public String getActiveCategoryLevel1Filter() {
+        return activeCategoryLevel1Filter;
+    }
+
+    private String activeCategoryLevel1Filter;
+    private final List<String> activeCategoryLevel2Filters = new ArrayList<>();
+    private final HashMap<String, List<String>> categories = new HashMap<>();
 
     public Filter(List<Product> products) {
         this.products = products;
         initCategories();
+    }
+
+    public List<String> getActiveCategoryLevel2Filters() {
+        return activeCategoryLevel2Filters;
     }
 
     public void setCategoryLevel1Filter(String categoryName) {
