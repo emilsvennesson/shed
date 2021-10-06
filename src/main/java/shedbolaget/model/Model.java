@@ -113,6 +113,10 @@ public class Model {
         return this.products.size();
     }
 
+    public void clearAllFilters(){
+        filter.clearAllFilters();
+    }
+
     public void setCategoryLevel1Filter(String categoryName) {
         filter.setCategoryLevel1Filter(categoryName);
         eventBus.post(new CategoryEvent(categoryName));
@@ -138,6 +142,9 @@ public class Model {
     public List<Product> getFilteredProducts() {
         return filter.getFilteredProducts();
     }
+    public List<Product> getFilteredProducts(String filterString) {
+        return filter.getFilteredProducts(filterString);
+    }
 
     public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
         filter.sortProductsByVariable(variableName, lowestToHighest);
@@ -147,8 +154,14 @@ public class Model {
         filter.sortProductsByVariable(variableName, true);
     }
 
-    public Product getProduct(int id) {
-        return filter.getProduct(id);
+
+    public List<Product> getProducts(int id){ return filter.getProducts(id); }
+    public List<Product> getProducts(String filterString){ return filter.getProducts(filterString); }
+    public String getActiveLevel1Category(){
+        return filter.getActiveLevel1Category();
+    }
+    public ArrayList<String> getActiveLevel2Categories(){
+        return filter.getActiveLevel2Categories();
     }
 
     public String getProductImageUrl(Product product, ImageSize imageSize) {

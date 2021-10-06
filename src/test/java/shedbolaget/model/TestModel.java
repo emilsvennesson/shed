@@ -3,6 +3,7 @@ package shedbolaget.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -75,7 +76,7 @@ public class TestModel {
     @Test
     public void testGetLevel1CategoryProducts() {
         Model dh = Model.getInstance();
-
+        dh.clearAllFilters();
         boolean wrongCategory = false;
         String category = "Öl";
         dh.setCategoryLevel1Filter(category);
@@ -90,7 +91,7 @@ public class TestModel {
     @Test
     public void testGetLevel2CategoryProducts() {
         Model dh = Model.getInstance();
-
+        dh.clearAllFilters();
         boolean wrongCategory = false;
         String category = "Veteöl";
         dh.addCategoryLevel2Filter(category);
@@ -101,6 +102,34 @@ public class TestModel {
         Assert.assertEquals(false, wrongCategory);
     }
 
+    @Test
+    public void testGetProductsById(){
+        Model model = Model.getInstance();
+        Product testProduct = model.getProducts().get(0);
+        int id = Integer.parseInt(testProduct.getProductId());
+        Assert.assertEquals(true, Integer.parseInt(model.getProducts(id).get(0).getProductId()) == id);
+    }
+
+    @Test
+    public void testAddAndRemoveCategoryLevel1(){
+        Model model = Model.getInstance();
+        model.setCategoryLevel1Filter("beer");
+        Assert.assertEquals(true, model.getActiveLevel1Category() == "beer");
+        model.clearCategoryLevel1Filter();
+        Assert.assertEquals(true, model.getActiveLevel1Category() == "");
+    }
+
+    @Test
+    public void testAddAndRemoveCategoryLevel2(){
+        Model model = Model.getInstance();
+        model.clearAllFilters();
+        model.addCategoryLevel2Filter("test1");
+        model.addCategoryLevel2Filter("test2");
+        Assert.assertEquals(true, model.getActiveLevel2Categories().get(0) == "test1");
+        Assert.assertEquals(true, model.getActiveLevel2Categories().get(1) == "test2");
+        model.clearCategoryLevel2Filters();
+        Assert.assertEquals(true, model.getActiveLevel2Categories().size() == 0);
+    }
 
     private static Product getRandomUnequeProduct() {
         Model handler = Model.getInstance();
