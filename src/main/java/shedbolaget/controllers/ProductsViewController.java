@@ -1,14 +1,17 @@
 package shedbolaget.controllers;
 
+import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.Model;
+import shedbolaget.model.events.CategoryEvent;
 
 import java.io.IOException;
 
 public class ProductsViewController {
+    private final Model model = Model.getInstance();
     @FXML
     private AnchorPane navBarPane;
 
@@ -23,6 +26,8 @@ public class ProductsViewController {
     public void initialize() throws IOException {
         initProductsWrapper();
         populateView();
+        model.registerToEventBus(this);
+        loadProducts();
     }
 
     private void populateView() throws IOException {
@@ -31,16 +36,26 @@ public class ProductsViewController {
         contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/BreadCrumbsView.fxml")).load());
         contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/CategorySideBarView.fxml")).load());
         contentFlowPane.getChildren().add(productsWrapper);
-        for (int i = 0; i < 20; i++) {
+    }
+
+    private void loadProducts() throws IOException {
+        productsWrapper.getChildren().clear();
+        for (int i = 0; i < 10; i++) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
-            cardLoader.setController(new DetailedProductCardController(Model.getInstance().getProducts().get(i)));
+            cardLoader.setController(new DetailedProductCardController(model.getFilteredProducts().get(i)));
             productsWrapper.getChildren().add(cardLoader.load());
         }
+
     }
 
     private void initProductsWrapper() {
         productsWrapper = new FlowPane();
         productsWrapper.setVgap(8);
+    }
+
+    @Subscribe
+    public void categoryEventListener(CategoryEvent event) throws IOException {
+        loadProducts();
     }
 }
 

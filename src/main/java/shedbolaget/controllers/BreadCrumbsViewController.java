@@ -1,14 +1,13 @@
 package shedbolaget.controllers;
 
+import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-
-import java.io.IOException;
+import shedbolaget.model.Model;
+import shedbolaget.model.events.CategoryEvent;
 
 public class BreadCrumbsViewController {
-
-    @FXML
-    private Text currentCategoryText;
+    private final Model model = Model.getInstance();
 
     @FXML
     private Text categoryLevel1Text;
@@ -16,18 +15,21 @@ public class BreadCrumbsViewController {
     @FXML
     private Text categoryLevel2Text;
 
-    @FXML
-    private Text separatorText;
 
     @FXML
-    public void initialize() throws IOException {
-        // Sets the breadcrumbs and current category
-        String currentCategoryLevel1 = "Öl";
-        String currentCategoryLevel2 = "Veteöl";
-        String mostDetailedCategoryText = currentCategoryLevel2.isEmpty() ? currentCategoryLevel1 : currentCategoryLevel2;
-        String separator = currentCategoryLevel2.isEmpty() ? "" : ">";
-        categoryLevel1Text.setText(currentCategoryLevel1);
-        categoryLevel2Text.setText(mostDetailedCategoryText);
+    public void initialize() {
+        model.registerToEventBus(this);
+        categoryLevel1Text.setText(model.getActiveCategoryLevel1Filter());
+        categoryLevel2Text.setVisible(false);
     }
 
+    @Subscribe
+    public void categoryLevel2EventListener(CategoryEvent event) {
+        String level2Categories = String.join(", ", model.getActiveCategoryLevel2Filters());
+        if (!level2Categories.equals("")) {
+            categoryLevel2Text.setText(level2Categories);
+            categoryLevel2Text.setVisible(true);
+        } else
+            categoryLevel2Text.setVisible(false);
+    }
 }

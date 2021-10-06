@@ -11,9 +11,15 @@ import java.util.stream.Stream;
  * the given keywords (categories)
  */
 class Filter {
-    private List<Product> products;
+    private final List<Product> products;
+
+    public String getActiveCategoryLevel1Filter() {
+        return activeCategoryLevel1Filter;
+    }
+
     private String activeCategoryLevel1Filter;
-    private List<String> activeCategoryLevel2Filters = new ArrayList<>();
+    private final List<String> activeCategoryLevel2Filters = new ArrayList<>();
+    private final HashMap<String, List<String>> categories = new HashMap<>();
 
     /**
      *
@@ -21,6 +27,11 @@ class Filter {
      */
     public Filter(List<Product> products) {
         this.products = products;
+        initCategories();
+    }
+
+    public List<String> getActiveCategoryLevel2Filters() {
+        return activeCategoryLevel2Filters;
     }
 
     /**
@@ -120,15 +131,16 @@ class Filter {
         try {
             Method method = Objects.requireNonNull(getMethodByName(methodName));
             sortProducts(method);
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
             System.out.println("ERROR: No valid variable in sortProductsByVariable");
         }
 
-        if(!lowestToHighest)
+        if (!lowestToHighest)
             Collections.reverse(products);
     }
-    private void sortProducts(Method method){
+
+    private void sortProducts(Method method) {
         products.sort((product1, product2) -> {
             try {
                 return Double.compare((double) method.invoke(product1), (double) method.invoke(product2));
@@ -138,10 +150,12 @@ class Filter {
             }
         });
     }
+
     //Detta kanske ska vara en static metod i en utility klass
-    private String getCapitalizedString(String str){
-        return str.substring(0,1).toUpperCase() + str.substring(1);
+    private String getCapitalizedString(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
+
     private Method getMethodByName(String methodName) {
         try {
             return Product.class.getMethod(methodName);
@@ -149,6 +163,33 @@ class Filter {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private List<String> getCategoriesLevel1() {
+        List<String> categories = new ArrayList<>();
+        for (Product product : products)
+            if (!categories.contains(product.getCategoryLevel1()))
+                categories.add(product.getCategoryLevel1());
+        return categories;
+    }
+
+    private List<String> getCategoriesLevel2(String categoryLevel1) {
+        List<String> categories = new ArrayList<>();
+        for (Product product : products)
+            if (Objects.equals(product.getCategoryLevel1(), categoryLevel1) && !categories.contains(product.getCategoryLevel2()))
+                categories.add(product.getCategoryLevel2());
+        return categories;
+    }
+
+
+    private void initCategories() {
+        for (String level1Category : getCategoriesLevel1()) {
+            categories.put(level1Category, getCategoriesLevel2(level1Category));
+        }
+    }
+
+    public HashMap<String, List<String>> getCategories() {
+        return categories;
     }
 
     /**
@@ -174,7 +215,6 @@ class Filter {
                 .collect(Collectors.toList()));
     }
 
-    //TODO - get active categories
     public String getActiveLevel1Category(){
         return activeCategoryLevel1Filter;
     }
@@ -182,5 +222,4 @@ class Filter {
     public ArrayList<String> getActiveLevel2Categories(){
         return new ArrayList<>(activeCategoryLevel2Filters);
     }
-    //TODO -
 }

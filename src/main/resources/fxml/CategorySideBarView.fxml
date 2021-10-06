@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.CategorySideBarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.CategorySideBarController">
    <children>
-      <VBox prefHeight="464.0" prefWidth="200.0">
+      <Text layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
+         <styleClass>
+            <String fx:value="bold" />
+            <String fx:value="black-text" />
+         </styleClass>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <FlowPane fx:id="categoriesFlowPane" layoutY="34.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
-               <styleClass>
-                  <String fx:value="bold" />
-                  <String fx:value="black-text" />
-               </styleClass>
-               <font>
-                  <Font size="20.0" />
-               </font></Text>
-            <FlowPane fx:id="categoriesFlowPane" prefHeight="466.0" prefWidth="178.0">
-               <children>
-                  <VBox fx:id="categoriesVBox" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="178.0" styleClass="sidebar-categories" />
-               </children></FlowPane>
+            <VBox fx:id="categoriesvBox" prefHeight="35.0" prefWidth="199.0" />
          </children>
-         <padding>
-            <Insets bottom="11.0" left="11.0" right="11.0" top="8.0" />
-         </padding>
-      </VBox>
+      </FlowPane>
    </children>
    <styleClass>
       <String fx:value="shadow" />
