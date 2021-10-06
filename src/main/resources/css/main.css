@@ -205,3 +205,23 @@
     -fx-text-fill: white;
     -fx-font-size: 12px;
 }
+
+.detailed-product-card-hbox {
+    -fx-border-color: -light_grey;
+    -fx-border-width: 1px 0 0 0;
+}
+
+.description-header {
+    -fx-font-size: 18px;
+    -fx-fill: -dark_grey;
+}
+
+.description-content {
+    -fx-fill: -grey;
+}
+
+.detailed-product-card-wrapper:hover {
+    -fx-effect: dropshadow(gaussian, rgba(111, 111, 111, 0.1), 0, 50, 0, 0);
+    -fx-background-color: #fcfcfc;
+    -fx-cursor: hand;
+}

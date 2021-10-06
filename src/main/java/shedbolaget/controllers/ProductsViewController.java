@@ -42,7 +42,7 @@ public class ProductsViewController {
         productsWrapper.getChildren().clear();
         for (int i = 0; i < 10; i++) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
-            cardLoader.setController(new DetailedProductCardViewController(model.getFilteredProducts().get(i)));
+            cardLoader.setController(new DetailedProductCardController(model.getFilteredProducts().get(i)));
             productsWrapper.getChildren().add(cardLoader.load());
         }
 

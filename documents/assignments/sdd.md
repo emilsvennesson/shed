@@ -10,9 +10,50 @@ v1.0
 
 ### 1.1 Word book
 
-## 2 System architecture
+## 2 System architecture(Daniel)
+In this project the program does not use any databse, server or 
+external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed.
+Moreover, if any further information needs to be stored, it is stored via a file saving system now implemented into the Favorites feature.
 
-## 3 System design
+###Components
+Furthermore, the program has several components that represents the functionality of a certain niched feature.
+Therefore, these features combined creates the whole functionality of the program.
+
+ - **Model.** 
+A public interface and state handler of the backend. To clarify, 
+this is where the front end will have access to the backend functionality.
+
+- **Favorites.**
+Responsible for handling what products the user has marked as favorite. 
+The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and represented in the gui 
+
+- **Parsing.**
+ Handles all the static data that is represented in the gui. In addition, the parser translates all the products from a Json file and into the program
+
+- **Filter.**
+This component is responsible for filtering all the products in different ways. The allround purpose is for the front end to be able to put in certain criteria, for those products that  met those criterias are then returned and will then be represented in gui.
+
+- **Drink generator,**
+ generates drinks based on certain criteria as well as ingredients that will be specified by the user.
+ The ingredients put in will be products, the program will then read a set amount of drinks from a local file and check which drinks have these products as an ingredient
+
+- **APK Leaderboard,**
+Gives a list based on the amount of alcohol and the price of a certain product. The product with the most amount of alcohol and the cheapest price will be on the top of the list while the most expensive product with the least amount of alcohol will be at the bottom.
+
+###Features
+The features that will be implemented using these components are
+- Filter and search for specific products based on user input
+- Generate drinks based on certain criteria specified by the user
+- See which products contain the best price for the most alcohol
+
+
+
+###Flow
+Moreover, the program will be used as a utility tool by the user to find information that is needed.
+When the user starts the application, he or she will be presented with several products and a carousel, in addition there will also be a naviagtion with different connections to all the features that are listed above.
+The user can close the program at any point in the process.
+ 
+## 3 System design(Daniel)
 
 ## 4 Persistent data management
 
