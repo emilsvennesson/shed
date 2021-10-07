@@ -10,7 +10,7 @@ v1.0
 
 ### 1.1 Word book
 
-## 2 System architecture(Daniel)
+## 2 System architecture
 In this project the program does not use any databse, server or 
 external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed.
 Moreover, if any further information needs to be stored, it is stored via a file saving system now implemented into the Favorites feature.
@@ -44,20 +44,57 @@ Gives a list based on the amount of alcohol and the price of a certain product. 
 The features that will be implemented using these components are
 - Filter and search for specific products based on user input
 - Generate drinks based on certain criteria specified by the user
-- See which products contain the best price for the most alcohol
+- See which products contain the best price for the most amount of alcohol
 
 
 
 ###Flow
 Moreover, the program will be used as a utility tool by the user to find information that is needed.
-When the user starts the application, he or she will be presented with several products and a carousel, in addition there will also be a naviagtion with different connections to all the features that are listed above.
+When the user starts the application, he or she will be presented with several products and a carousel, 
+in addition there will also be a naviagtion with different connections to all the features that are listed above.
 The user can close the program at any point in the process.
  
-## 3 System design(Daniel)
+## 3 System design
 
-## 4 Persistent data management
+### UML Diagram
+![UMLDiagram](Photos/UMLDiagram.png)
 
-## 5 Quality
+
+### Domain model
+
+### Design Model
+
+- **Model**
+ ![ModelDesign](Photos/ModelDesignUML.png)
+- **Parser**
+ ![ParsingDesign](Photos/ParsingDesignUML.png)
+- **Favorites**
+![FavoritesDesign](Photos/FavoritesDesignUML.png)
+- **Drink Generator**
+- **Filter**
+
+
+
+
+
+Draw an UML package diagram for the top level for all components that you have
+identified above (which can be just one if you develop a standalone application). Describe the interfaces and dependencies between the packages. Describe how you have
+implemented the MVC design pattern.
+Create an UML class diagram for every package. One of the packages will contain
+the model of your application. This will be the design model of your application,
+describe in detail the relation between your domain model and your design model.
+1
+There should be a clear and logical relation between the two. Make sure that these
+models stay in ‘sync’ during the development of your application.
+Describe which (if any) design patterns you have used.
+The above describes the static design of your application. It may sometimes be
+necessary to describe the dynamic design of your application as well. You can use an
+UML sequence diagram to show the different parts of your application communicate
+an in what order.
+
+## 4 Persistent data management(Samuel)
+
+## 5 Quality(Samuel)
 
 ### 5.1 Access control and security (if relevant)
 
