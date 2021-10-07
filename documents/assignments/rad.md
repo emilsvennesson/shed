@@ -249,7 +249,27 @@ ____
 
 ### 2.3 User interfaces
 
+![StartPage](Photos/StartPage.png)
+
+This is the starting page for the application. A welcoming message with products displayed at the bottom part of the application.
+
+![NavBar](Photos/NavBar.png)
+
+This navigation bar is shown at the top of the application. This bar is used for almost all of the navigation paths. The Escape Hatch included in the top left corner and the Search bar in the opposite corner. Between these, the user will find the necessary links to the main pages of the application.
+
+
+
+![StartPage2](Photos/StartPage2.png)
+
+Further down in the start page, is a grid of products under the label "New Products".
+
+![ProductsPage](Photos/ProductsPage.png)
+
+Entering the products page, will be a list of products on the right, and a choice of secondary categories to the left. 
+
 ## 3 Domain model
+
+![DomainModel](Photos/DomainModel.png)
 
 ### 3.1 Class responsibilities
 
