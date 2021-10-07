@@ -253,4 +253,8 @@ ____
 
 ### 3.1 Class responsibilities
 
+As observed in the domain model image, all class modules work independently with the exception of the references to the Product class. All modules are bound to the product class in some way*, since the whole program is built upon the product data. Each of the modules have their own area of responsibility where they together complete a whole program. The model class 'Shedbolaget' is the main class that brings the modules together to create this desired program.
+
+*Drinking games module not included, since it's a feature not yet to be implemented.
+
 ## 4 References
