@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1152.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.MainViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1152.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.MainViewController">
    <children>
       <AnchorPane fx:id="navBarPane" prefHeight="64.0" prefWidth="1152.0" AnchorPane.bottomAnchor="755.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="65.0" prefHeight="755.0" prefWidth="1152.0" AnchorPane.topAnchor="64.0">
@@ -35,7 +35,7 @@
                         </Text>
                         <FlowPane fx:id="newProductsFlowPane" hgap="20.0" prefHeight="94.0" prefWidth="1152.0" styleClass="new-products-background" vgap="15.0">
                            <padding>
-                              <Insets left="65.0" right="65.0" />
+                              <Insets bottom="15.0" left="65.0" right="65.0" />
                            </padding>
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="new-products-background" text="Nya produkter" wrappingWidth="1000.0">
@@ -47,6 +47,9 @@
                                  </FlowPane.margin>
                               </Text>
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </FlowPane>
                      </children>
                   </VBox>

@@ -25,6 +25,16 @@ public class Model {
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
         eventBus.register(this);
+        onStartUp();
+        addShutdownHook();
+    }
+
+    private void addShutdownHook() {
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                onShutDown();
+            }
+        }, "Shutdown-thread"));
     }
 
     public List<String> getActiveCategoryLevel2Filters() {
@@ -233,5 +243,13 @@ public class Model {
             newProductList.add(this.products.get(i)); // TODO: replace param with real new products
         }
         return newProductList;
+    }
+
+    /**
+     * Returns whether a product is favorited or not
+     * @param p
+     */
+    public boolean isFavorite(Product p) {
+        return(getFavoritesAsProducts().contains(p));
     }
 }
