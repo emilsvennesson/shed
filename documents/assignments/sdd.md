@@ -2,9 +2,9 @@
 
 Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
-2021-09-04
+2021-10-07
 
-v1.0
+v2.0
 
 ## 1 Introduction
 
@@ -15,7 +15,7 @@ In this project the program does not use any databse, server or
 external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed.
 Moreover, if any further information needs to be stored, it is stored via a file saving system now implemented into the Favorites feature.
 
-###Components
+### Components
 Furthermore, the program has several components that represents the functionality of a certain niched feature.
 Therefore, these features combined creates the whole functionality of the program.
 
@@ -40,15 +40,16 @@ This component is responsible for filtering all the products in different ways. 
 - **APK Leaderboard,**
 Displays a list based on the amount of alcohol and the price of a certain product. The product with the most amount of alcohol and the cheapest price will be on the top of the list while the most expensive product with the least amount of alcohol will be at the bottom.
 
-###Features
+### Features
 The features that will be implemented using these components are
+
 - Filter and search for specific products based on user input
 - Generate drinks based on certain criteria specified by the user
 - See which products contain the best price for the most amount of alcohol
 
 
 
-###Flow
+### Flow
 Moreover, the program will be used as a utility tool by the user to find information that is needed.
 When the user starts the application, he or she will be presented with several products and a carousel, 
 in addition there will also be a navigation with different connections to all the features that are listed above.
@@ -136,10 +137,28 @@ This module is responsible for handling drinking games, the module will have the
 - **Drink Generator**
  Not yet implemented
 
-## 4 Persistent data management(Samuel)
+## 4 Persistent data management
+- All product data is saved in `data.json`, and corresponds to Systembolagets sortiment. 
+- All views are saved in `src/main/resources`. 
+- Saved product ID:s are stored in `SavedLists.txt`.
 
-## 5 Quality(Samuel)
+## 5 Quality
 
-### 5.1 Access control and security (if relevant)
+### Tests
+Testing the application is done with JUnit, and the test classes can be found in `src/test/java/shedbolaget`. All tests are run using [Travis](https://travis-ci.org/) whenever commits are pushed to the GitHub-repository. Only the backend is tested, since issues with controllers become apparent when using the user interface.
 
-## 6 References
+### Known issues
+- `Filter` has no way of sorting products by variables that are not numeric, i.e. sorting by Strings like `name` or booleans like `isNew` is not possible at the moment.
+- Loading images is very slow for larger quantities of products, making load times slow when looking at broad filters.
+- There is no pagination in the `ProductsView`, making it only possible to view the first products in each category.
+
+### Source code analysis
+
+#### Dependency matrix
+This matrix displays all dependencies in the project, marking cyclic dependencies in red.
+![Dependency matrix](Photos/dependency_matrix.png)
+
+#### Quality report
+The overall code quaity has been analysed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
+
+![PMD result](Photos/pmd_result.png)

@@ -9,38 +9,45 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.NavBarController">
-   <children>
-      <HBox alignment="CENTER_LEFT" layoutX="65.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1022.0">
-         <children>
-            <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked" prefHeight="60.0" prefWidth="212.0" text="Shedbolaget.">
-               <styleClass>
-                  <String fx:value="navbar-button" />
-                  <String fx:value="bold" />
-               </styleClass></Button>
-            <MenuButton fx:id="dropDownButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="145.0" styleClass="navbar-button" text="Produkter" />
-            <Button fx:id="apkLeaderboardButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="176.0" styleClass="navbar-button" text="APK Leaderboard">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="161.0" styleClass="navbar-button" text="Drink Generator">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClicked" prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
-               <HBox.margin>
-                  <Insets right="55.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="230.0" promptText="Sök" styleClass="search-box" text="Sök" />
-         </children>
-      </HBox>
-   </children>
-   <styleClass>
-      <String fx:value="navbar" />
-      <String fx:value="shadow" />
-   </styleClass>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0"
+            prefWidth="1152.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.NavBarController">
+    <styleClass>
+        <String fx:value="navbar"/>
+        <String fx:value="shadow"/>
+    </styleClass>
+    <HBox alignment="CENTER_LEFT" layoutX="65.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1022.0">
+        <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked"
+                prefHeight="60.0" prefWidth="212.0" text="Shedbolaget.">
+            <styleClass>
+                <String fx:value="navbar-button"/>
+                <String fx:value="bold"/>
+            </styleClass>
+        </Button>
+        <MenuButton fx:id="dropDownButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="145.0"
+                    styleClass="navbar-button" text="Produkter"/>
+        <Button fx:id="apkLeaderboardButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="176.0"
+                styleClass="navbar-button" text="APK Leaderboard">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Button>
+        <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="161.0"
+                styleClass="navbar-button" text="Drink Generator">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Button>
+        <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClicked"
+                prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
+            <HBox.margin>
+                <Insets right="55.0"/>
+            </HBox.margin>
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Button>
+        <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="230.0" promptText="Sök"
+                   styleClass="search-box" text="Sök"/>
+    </HBox>
 </AnchorPane>

@@ -6,17 +6,13 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane layoutY="3.0" prefHeight="45.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="categoryLevel1CheckBox" layoutX="6.0" mnemonicParsing="false" styleClass="bold" text="CheckBox" />
-            <FlowPane layoutX="20.0" layoutY="25.0" prefWidth="182.0">
-               <children>
-                  <VBox fx:id="categoryLevel2VBox" prefWidth="190.0" spacing="1.0" />
-               </children>
-            </FlowPane>
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@../css/main.css"
+            xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane layoutY="3.0" prefHeight="45.0" prefWidth="200.0">
+        <CheckBox fx:id="categoryLevel1CheckBox" layoutX="6.0" mnemonicParsing="false" styleClass="bold"
+                  text="CheckBox"/>
+        <FlowPane layoutX="20.0" layoutY="25.0" prefWidth="182.0">
+            <VBox fx:id="categoryLevel2VBox" prefWidth="190.0" spacing="1.0"/>
+        </FlowPane>
+    </AnchorPane>
 </AnchorPane>
