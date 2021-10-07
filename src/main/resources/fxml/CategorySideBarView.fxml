@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
@@ -9,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shedbolaget.controllers.CategorySideBarController">
    <children>
-      <Text layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
+      <Text layoutX="8.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
          <styleClass>
             <String fx:value="bold" />
             <String fx:value="black-text" />
@@ -20,7 +21,10 @@
       </Text>
       <FlowPane fx:id="categoriesFlowPane" layoutY="34.0" prefWidth="200.0">
          <children>
-            <VBox fx:id="categoriesvBox" prefHeight="35.0" prefWidth="199.0" />
+            <VBox fx:id="categoriesvBox" prefHeight="35.0" prefWidth="199.0" spacing="2.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" />
+               </padding></VBox>
          </children>
       </FlowPane>
    </children>

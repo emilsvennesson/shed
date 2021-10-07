@@ -68,12 +68,14 @@ public class DetailedProductCardController {
     private Model model;
 
     private boolean expanded;
+    private boolean isFavorite;
 
     public DetailedProductCardController(Product product) {
         // temporary, wont pass a datahandler later on
         this.product = product;
         this.model = Model.getInstance();
         this.expanded = false;
+        this.isFavorite = model.isFavorite(product);
     }
 
     @FXML
@@ -91,6 +93,7 @@ public class DetailedProductCardController {
         colorText.setText(product.getColor());
         tasteText.setText(product.getTaste());
         usageText.setText(product.getUsage());
+        initFavoriteButton();
         closeProductCard();
     }
 
@@ -111,11 +114,33 @@ public class DetailedProductCardController {
 
     @FXML
     void favoritesButtonOnClick(ActionEvent event)throws IOException {
-        model.addToFavorites(product);
+        if(isFavorite) {
+            model.removeFromFavorites(product);
+        }
+        else {
+            model.addToFavorites(product);
+        }
+        favoritesButton.getStyleClass().remove(getFavoriteButtonClass());
+        isFavorite = !isFavorite;
+        favoritesButton.setText(getFavoriteButtonText());
+        favoritesButton.getStyleClass().add(getFavoriteButtonClass());
     }
 
     private void closeProductCard() {
         descriptionVBox.getChildren().remove(expandedHBox);
         expanded = false;
+    }
+
+    private String getFavoriteButtonText() {
+        return(isFavorite ? "Ta bort favorit" : "Lägg till favorit");
+    }
+
+    private String getFavoriteButtonClass() {
+        return(isFavorite ?  "remove-favorite-btn" : "add-favorite-btn");
+    }
+
+    private void initFavoriteButton() {
+        favoritesButton.getStyleClass().add(getFavoriteButtonClass());
+        favoritesButton.setText(getFavoriteButtonText());
     }
 }

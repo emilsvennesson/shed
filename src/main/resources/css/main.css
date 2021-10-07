@@ -12,6 +12,8 @@
     -light_grey_background: #FBFBFB;
     -primary_green: #50858B;
     -primary_green_variant: #62A8AC;
+    -secondary_red: #FF8585;
+    -secondary_red_variant: #FF9999;
 }
 
 /* Load fonts */
@@ -202,6 +204,23 @@
 
 .add-favorite-btn {
     -fx-background-color: -primary_green;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.add-favorite-btn:hover {
+    -fx-background-color: -primary_green_variant;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+.remove-favorite-btn {
+    -fx-background-color: -secondary_red;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.remove-favorite-btn:hover {
+    -fx-background-color: -secondary_red_variant;
     -fx-text-fill: white;
     -fx-font-size: 12px;
 }
