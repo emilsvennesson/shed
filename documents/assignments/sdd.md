@@ -51,27 +51,92 @@ The features that will be implemented using these components are
 ###Flow
 Moreover, the program will be used as a utility tool by the user to find information that is needed.
 When the user starts the application, he or she will be presented with several products and a carousel, 
-in addition there will also be a naviagtion with different connections to all the features that are listed above.
-The user can close the program at any point in the process.
+in addition there will also be a navigation with different connections to all the features that are listed above.
+The user will be able to close the program at any point in the process.
  
 ## 3 System design
 
-### UML Diagram
-![UMLDiagram](Photos/UMLDiagram.png)
+### Package Diagram
+
+![PackageDiagramAll](PackageDiagramBig.png)
+This package digram shows the entirety of the program in it's biggest package model. The uml shows that Model,view,controller structure i followed. 
+
+#### Model
+![PackageDiagramModel](PackageDiagramModel.png)
+The model package is responsible for handling the logic and handling all the data that the program saves or represents for the user. The features implemented in the model right now is, - filter, filters all the products
+- Favorites, saves products as favorites
+- Parsing, fetches the data from a Json file
+
+#### View
+As a consequence of using scenebuilder and fxml files with maven, is that the fxml files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependancies still apply correctly. When we create a FXMl file a controller is assosiated with that file. The fxml file then points to that file and gives it all the Objects and information it needs to execute correctly.
+
+#### Controller
+This package includes all of the controllers that is associated to the different fxml files.
+A controller for an fxml files handles what happens when a user does any sort of input
+
+
 
 
 ### Domain model
+![DomainModel](Photos/DomainModel.png)
+
+Domain model represents the program in a more abstract format. The program will work as follows,
+
+- Product
+The product represents all the information that is needed from a beverage by the program 
+	- Name 
+	- Price
+	- Alcohol percentage
+	- etc
+	.......
+
+- Selection
+A selection is a asserted number of products with specific attributes. This is a way of finding products with a specifik attribute that the user have selected
+
+- Sortiment,
+This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specifik Selection with that product in it and the get the product from that slection.
+
+- Drink
+Represents all the information the program needs for a drink
+	- Name
+	- Ingredients(Products)
+	- etc
+	.......
+
+- DrinkGenerator
+This module is responsible for finding a driunk based on a list of products(Beverages), the user will give it.
+
+- FavoriteProducts
+FavoriteProducts will save th products that is selected by the user and represent them in a lst of favoritised products
+
+- Drinking game
+This module is responsible for handling drinking games, the module will have the functionality for the user to play drinking games. The moduel has several different players that will be specified by the user
+
+- Player
+Represents the information needed by a player for the drinking games
+	- name
+
 
 ### Design Model
 
 - **Model**
  ![ModelDesign](Photos/ModelDesignUML.png)
+ This class si for the Template Method pattern, it provides a simpler interface to a complex subsystem. this will be the only conncection that is accessable outside of the model package.
+ The model uses all the different pakcages of the backend and represents a simpler way of using them.
+ 
 - **Parser**
  ![ParsingDesign](Photos/ParsingDesignUML.png)
-- **Favorites**
-![FavoritesDesign](Photos/FavoritesDesignUML.png)
-- **Drink Generator**
+ The functionallity of this module isto fetch data from some type of datastorage. In our case, we use a json file to store our products. Therefore we are using 
+ 
+ 
 - **Filter**
+![FilterDesign](Photos/FilterDesignUML.png)
+- **Favorites**
+ ![FavoritesDesign](Photos/FavoritesDesignUML.png)
+- **Drink Generator**
+ Not yet implemented
+
+
 
 
 
