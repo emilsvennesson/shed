@@ -35,10 +35,10 @@ This component is responsible for filtering all the products in different ways. 
 
 - **Drink generator,**
  generates drinks based on certain criteria as well as ingredients that will be specified by the user.
- The ingredients put in will be products, the program will then read a set amount of drinks from a local file and check which drinks have these products as an ingredient
+  The ingredients put in will be products, the program will then read a set amount of drinks from a local file and check which drinks have these products as an ingredient
 
 - **APK Leaderboard,**
-Gives a list based on the amount of alcohol and the price of a certain product. The product with the most amount of alcohol and the cheapest price will be on the top of the list while the most expensive product with the least amount of alcohol will be at the bottom.
+Displays a list based on the amount of alcohol and the price of a certain product. The product with the most amount of alcohol and the cheapest price will be on the top of the list while the most expensive product with the least amount of alcohol will be at the bottom.
 
 ###Features
 The features that will be implemented using these components are
@@ -53,7 +53,7 @@ Moreover, the program will be used as a utility tool by the user to find informa
 When the user starts the application, he or she will be presented with several products and a carousel, 
 in addition there will also be a navigation with different connections to all the features that are listed above.
 The user will be able to close the program at any point in the process.
- 
+
 ## 3 System design
 
 ### Package Diagram
@@ -68,7 +68,7 @@ The model package is responsible for handling the logic and handling all the dat
 - Parsing, fetches the data from a Json file
 
 #### View
-As a consequence of using scenebuilder and fxml files with maven, is that the fxml files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependancies still apply correctly. When we create a FXMl file a controller is assosiated with that file. The fxml file then points to that file and gives it all the Objects and information it needs to execute correctly.
+As a consequence of using scenebuilder and fxml files with maven, is that the fxml files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependancies still apply correctly. When we create a FXML file a controller is associated with that file. The fxml file then points to that file and gives it all the Objects and information it needs to execute correctly.
 
 #### Controller
 This package includes all of the controllers that is associated to the different fxml files.
@@ -91,10 +91,10 @@ The product represents all the information that is needed from a beverage by the
 	.......
 
 - Selection
-A selection is a asserted number of products with specific attributes. This is a way of finding products with a specifik attribute that the user have selected
+A selection is a asserted number of products with specific attributes. This is a way of finding products with a specific attribute that the user have selected
 
 - Sortiment,
-This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specifik Selection with that product in it and the get the product from that slection.
+This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specific Selection with that product in it and the get the product from that selection.
 
 - Drink
 Represents all the information the program needs for a drink
@@ -104,7 +104,7 @@ Represents all the information the program needs for a drink
 	.......
 
 - DrinkGenerator
-This module is responsible for finding a driunk based on a list of products(Beverages), the user will give it.
+This module is responsible for finding a drink based on a list of products(Beverages), the user will give it.
 
 - FavoriteProducts
 FavoriteProducts will save th products that is selected by the user and represent them in a lst of favoritised products
@@ -113,7 +113,7 @@ FavoriteProducts will save th products that is selected by the user and represen
 This module is responsible for handling drinking games, the module will have the functionality for the user to play drinking games. The moduel has several different players that will be specified by the user
 
 - Player
-Represents the information needed by a player for the drinking games
+	Represents the information needed by a player for the drinking games
 	- name
 
 
@@ -121,41 +121,20 @@ Represents the information needed by a player for the drinking games
 
 - **Model**
  ![ModelDesign](Photos/ModelDesignUML.png)
- This class si for the Template Method pattern, it provides a simpler interface to a complex subsystem. this will be the only conncection that is accessable outside of the model package.
- The model uses all the different pakcages of the backend and represents a simpler way of using them.
- 
+  This class is for the Template Method pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessable outside of the model package.
+  The model uses all the different packages of the backend and represents a simpler way of using them.
+
 - **Parser**
  ![ParsingDesign](Photos/ParsingDesignUML.png)
- The functionallity of this module isto fetch data from some type of datastorage. In our case, we use a json file to store our products. Therefore we are using 
- 
- 
+  The functionallity of this module is to fetch data from some type of data storage. In our case, we use a json file to store our products. Therefore we are using 
+
+
 - **Filter**
 ![FilterDesign](Photos/FilterDesignUML.png)
 - **Favorites**
  ![FavoritesDesign](Photos/FavoritesDesignUML.png)
 - **Drink Generator**
  Not yet implemented
-
-
-
-
-
-
-
-Draw an UML package diagram for the top level for all components that you have
-identified above (which can be just one if you develop a standalone application). Describe the interfaces and dependencies between the packages. Describe how you have
-implemented the MVC design pattern.
-Create an UML class diagram for every package. One of the packages will contain
-the model of your application. This will be the design model of your application,
-describe in detail the relation between your domain model and your design model.
-1
-There should be a clear and logical relation between the two. Make sure that these
-models stay in ‘sync’ during the development of your application.
-Describe which (if any) design patterns you have used.
-The above describes the static design of your application. It may sometimes be
-necessary to describe the dynamic design of your application as well. You can use an
-UML sequence diagram to show the different parts of your application communicate
-an in what order.
 
 ## 4 Persistent data management(Samuel)
 
