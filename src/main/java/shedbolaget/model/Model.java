@@ -1,14 +1,14 @@
 package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
-import java.util.HashMap;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -108,11 +108,12 @@ public class Model {
 
     /**
      * Gets all favorite products
+     *
      * @return a list of {@link Product}
      */
     public List<Product> getFavoritesAsProducts() {
         ArrayList<Product> products = new ArrayList<Product>();
-        for(Integer id : getProductIdsFromFavorites()) {
+        for (Integer id : getProductIdsFromFavorites()) {
             products.add(getProduct(id));
         }
         return products;
@@ -137,7 +138,7 @@ public class Model {
         return this.products.size();
     }
 
-    public void clearAllFilters(){
+    public void clearAllFilters() {
         filter.clearAllFilters();
     }
 
@@ -190,20 +191,26 @@ public class Model {
         return filter.getProduct(id);
     }
 
-    public List<Product> getProducts(int id){ return filter.getProducts(id); }
+    public List<Product> getProducts(int id) {
+        return filter.getProducts(id);
+    }
 
-    public List<Product> getProducts(String filterString){ return filter.getProducts(filterString); }
+    public List<Product> getProducts(String filterString) {
+        return filter.getProducts(filterString);
+    }
 
-    public String getActiveLevel1Category(){
+    public String getActiveLevel1Category() {
         return filter.getActiveLevel1Category();
     }
-    public ArrayList<String> getActiveLevel2Categories(){
+
+    public ArrayList<String> getActiveLevel2Categories() {
         return filter.getActiveLevel2Categories();
     }
 
     public String getProductImageUrl(Product product, ImageSize imageSize) {
         String imageUrl;
         String size;
+        String productId;
         switch (imageSize) {
             case SMALL:
                 size = "20";
@@ -219,12 +226,13 @@ public class Model {
         }
 
         try {
-            imageUrl = product.getImages().get(0).getImageUrl();
+            imageUrl = product.getImages().get(0).getImageUrl() + String.format("_%s.png", size);
         } catch (IndexOutOfBoundsException e) {
-            return "https://i.ibb.co/LdVhq7m/skavlan.png";
+            //fallback, some products do not have an image in json even though it exists on cdn
+            productId = product.getProductId();
+            imageUrl = String.format("https://product-cdn.systembolaget.se/productimages/%s/%s_%s.png", productId, productId, size);
         }
-
-        return imageUrl + String.format("_%s.png", size);
+        return imageUrl;
     }
 
     public enum ImageSize {
@@ -235,11 +243,12 @@ public class Model {
 
     /**
      * Gets a given amount of products and returns them as an ArrayList
+     *
      * @param amount
      */
     public ArrayList<Product> getNewProducts(int amount) {
         ArrayList<Product> newProductList = new ArrayList<>();
-        for(int i = 0; i < amount; i++) {
+        for (int i = 0; i < amount; i++) {
             newProductList.add(this.products.get(i)); // TODO: replace param with real new products
         }
         return newProductList;
@@ -247,9 +256,10 @@ public class Model {
 
     /**
      * Returns whether a product is favorited or not
+     *
      * @param p
      */
     public boolean isFavorite(Product p) {
-        return(getFavoritesAsProducts().contains(p));
+        return (getFavoritesAsProducts().contains(p));
     }
 }
