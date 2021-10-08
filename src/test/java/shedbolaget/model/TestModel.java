@@ -3,9 +3,9 @@ package shedbolaget.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class TestModel {
@@ -28,7 +28,7 @@ public class TestModel {
     public void testAddFavorite() {
         Model dh = Model.getInstance();
         dh.clearFavorites();
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
         dh.addToFavorites(prod);
@@ -40,7 +40,7 @@ public class TestModel {
     public void testRemoveFavorite() {
         Model dh = Model.getInstance();
         dh.clearFavorites();
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
         dh.addToFavorites(prod);
@@ -59,7 +59,7 @@ public class TestModel {
         dh.clearFavorites();
 
         for (int i = 0; i < 10; i++) {
-            Product prod = getRandomUnequeProduct();
+            Product prod = getRandomUniqueProduct();
             prods.add(prod.getProductId());
             dh.addToFavorites(prod);
         }
@@ -114,9 +114,9 @@ public class TestModel {
     public void testAddAndRemoveCategoryLevel1(){
         Model model = Model.getInstance();
         model.setCategoryLevel1Filter("beer");
-        Assert.assertEquals(true, model.getActiveLevel1Category() == "beer");
+        Assert.assertEquals(true, Objects.equals(model.getActiveLevel1Category(), "beer"));
         model.clearCategoryLevel1Filter();
-        Assert.assertEquals(true, model.getActiveLevel1Category() == "");
+        Assert.assertEquals(true, Objects.equals(model.getActiveLevel1Category(), ""));
     }
 
     @Test
@@ -125,13 +125,13 @@ public class TestModel {
         model.clearAllFilters();
         model.addCategoryLevel2Filter("test1");
         model.addCategoryLevel2Filter("test2");
-        Assert.assertEquals(true, model.getActiveLevel2Categories().get(0) == "test1");
-        Assert.assertEquals(true, model.getActiveLevel2Categories().get(1) == "test2");
+        Assert.assertEquals(true, Objects.equals(model.getActiveLevel2Categories().get(0), "test1"));
+        Assert.assertEquals(true, Objects.equals(model.getActiveLevel2Categories().get(1), "test2"));
         model.clearCategoryLevel2Filters();
         Assert.assertEquals(true, model.getActiveLevel2Categories().size() == 0);
     }
 
-    private static Product getRandomUnequeProduct() {
+    private static Product getRandomUniqueProduct() {
         Model handler = Model.getInstance();
         Random rand = new Random();
         List<Product> usedProducts = new ArrayList<>();
@@ -143,15 +143,22 @@ public class TestModel {
 
         usedProducts.add(prod);
 
-
         return prod;
     }
 
     @Test
     public void testGetNewProducts() {
         Model model = Model.getInstance();
-        ArrayList<Product> products = model.getNewProducts(10);
-        Assert.assertEquals(products.size(), 10);
+        ArrayList<Product> emptyProducts = model.getNewProducts(0);
+        Assert.assertTrue(emptyProducts.isEmpty());
+        Random rng = new Random(1);
+        //       Random rng = new Random(); /// NOOOOOOOOOOOOOOOOO!
+        for(int i = 0; i < 100; i++) {
+            int expected = rng.nextInt(5000);
+            List<Product> ps = model.getNewProducts(expected);
+            Assert.assertEquals(ps.size(), expected);
+        }
+        // try getting 0 or -10 products
     }
 
 }
