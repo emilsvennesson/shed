@@ -41,7 +41,7 @@ public class BasicProductCardController {
     @FXML
     public void initialize() throws IOException {
         isFavorite = model.isFavorite(product);
-        Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false);
+        Image productImage = new Image(model.getProductImageUrl(product, Model.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         nameBoldText.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());

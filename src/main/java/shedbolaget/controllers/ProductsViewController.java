@@ -40,7 +40,7 @@ public class ProductsViewController {
 
     private void loadProducts() throws IOException {
         productsWrapper.getChildren().clear();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
             cardLoader.setController(new DetailedProductCardController(model.getFilteredProducts().get(i)));
             productsWrapper.getChildren().add(cardLoader.load());
