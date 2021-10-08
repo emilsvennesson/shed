@@ -10,22 +10,21 @@ v2.0
 
 ### 1.1 Word book
 
+* APK (Alkohol per krona) - Alcohol per crown
+
 ## 2 System architecture
-In this project the program does not use any databse, server or 
-external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed.
-Moreover, if any further information needs to be stored, it is stored via a file saving system now implemented into the Favorites feature.
+In this project the program does not use any database, server or 
+external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system now implemented into the Favorites feature.
 
 ### Components
 Furthermore, the program has several components that represents the functionality of a certain niched feature.
 Therefore, these features combined creates the whole functionality of the program.
 
  - **Model.** 
-A public interface and state handler of the backend. To clarify, 
-this is where the front end will have access to the backend functionality.
+A public interface and state handler of the backend. To clarify, this is where the front end will have access to the backend functionality.
 
 - **Favorites.**
-Responsible for handling what products the user has marked as favorite. 
-The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and represented in the gui 
+Responsible for handling what products the user has marked as favorite.  The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and represented in the gui 
 
 - **Parsing.**
  Handles all the static data that is represented in the gui. In addition, the parser translates all the products from a Json file and into the program
@@ -59,12 +58,13 @@ The user will be able to close the program at any point in the process.
 
 ### Package Diagram
 
-![PackageDiagramAll](PackageDiagramBig.png)
+![PackageDiagramAll](Photos/PackageDiagramBig.png)
 This package digram shows the entirety of the program in it's biggest package model. The uml shows that Model,view,controller structure i followed. 
 
 #### Model
-![PackageDiagramModel](PackageDiagramModel.png)
+![PackageDiagramModel](Photos/PackageDiagramModel.png)
 The model package is responsible for handling the logic and handling all the data that the program saves or represents for the user. The features implemented in the model right now is, - filter, filters all the products
+
 - Favorites, saves products as favorites
 - Parsing, fetches the data from a Json file
 
@@ -84,13 +84,12 @@ A controller for an fxml files handles what happens when a user does any sort of
 Domain model represents the program in a more abstract format. The program will work as follows,
 
 - Product
-The product represents all the information that is needed from a beverage by the program 
+	The product represents all the information that is needed from a beverage by the program 
 	- Name 
 	- Price
 	- Alcohol percentage
 	- etc
-	.......
-
+	
 - Selection
 A selection is a asserted number of products with specific attributes. This is a way of finding products with a specific attribute that the user have selected
 
@@ -98,12 +97,11 @@ A selection is a asserted number of products with specific attributes. This is a
 This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specific Selection with that product in it and the get the product from that selection.
 
 - Drink
-Represents all the information the program needs for a drink
+	Represents all the information the program needs for a drink
 	- Name
 	- Ingredients(Products)
 	- etc
-	.......
-
+	
 - DrinkGenerator
 This module is responsible for finding a drink based on a list of products(Beverages), the user will give it.
 
