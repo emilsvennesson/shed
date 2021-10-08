@@ -120,24 +120,22 @@ Domain model represents the program in a more abstract format. The program will 
 
 - **Model**
 
- ![ModelDesign](Photos/ModelDesignUML.png)
- 
+ ![ModelDesign](Photos/ModelDesignUML.png)  
   This module uses the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessable outside of the model package.
-  The model uses all the different packages of the backend and represents a simpler way of using them.
+  The model uses all the different packages of the backend and represents a simpler way of using them.  
   
-   Patterns
-`- Template Method pattern`
-`- Singleton`
+   Patterns  
+`- Template Method pattern`  
+`- Singleton`  
 
 - **Parser**
 
- ![ParsingDesign](Photos/ParsingDesignUML.png)
- 
+ ![ParsingDesign](Photos/ParsingDesignUML.png)  
   The functionallity of this module is to fetch data from some type of data storage. In our case, we use a json file to store our [Products](#Product). 
   
-   Patterns
- `- Strategy?`
- `- Adapter patten`
+   Patterns  
+ `- Strategy?`  
+ `- Adapter patten`  
 
 
 
@@ -146,20 +144,23 @@ Domain model represents the program in a more abstract format. The program will 
 
 ![FilterDesign](Photos/FilterDesignUML.png)
 
-This class works as a filter for all the [Products](#Product), it takes in a filter of either 1 or 2 levels and returns the Products that matches these filters.
+This class works as a filter for all the [Products](#Product), it takes in a filter of either 1 or 2 levels and returns the Products that matches these filters.  
  
- Patterns
-`- No patterns recognised`
+ Patterns  
+ 
+`- No patterns recognised`  
 
 - **Favorites**
 
  ![FavoritesDesign](Photos/FavoritesDesignUML.png)
  
- Patterns
- `- Singleton`
+ Patterns  
+ 
+ `- Singleton`  
 
-Future implementations
-`- Composite`
+Future implementations  
+
+`- Composite`  
 	
 	
 
