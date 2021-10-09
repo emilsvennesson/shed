@@ -7,6 +7,11 @@ Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 v2.0
 
 ## 1 Introduction
+### Shedbolaget overview
+Shedbolaget works as a tool for finding alcoholic or none alcoholic beverages or drinks. Users can display multiple types of beverages and get some overall information about it. In addition, the user can see multiple types of drinks, what ingredients the drink includes and how to make them. The user is also able to keep track of which beverages and drinks they like. 
+
+### Purpose of the design document
+The SDD document tracks the necessary information required to get a clear picture over the system architecture and system design. As a consequence , gives guidance to the development team on the architecture of the system that is developed.
 
 ### 1.1 Word book
 
@@ -25,13 +30,13 @@ Therefore, these features combined creates the whole functionality of the progra
 A public interface and state handler of the backend. To clarify, this is where the front end will have access to the backend functionality.
 
 - **Favorites.**
-Responsible for handling what products the user has marked as favorite.  The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and avilable for use by the frontend
+Responsible for handling what products the user has marked as favorite.  The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and available for use by the frontend
 
 - **Parsing.**
- Handles all the static data that is represented in the frontend. In addition, the parser translates all the [Products](#Product) from a Json file and into the program
+ Handles all the static data that is represented in the frontend. In addition, the parser translates all the [Products](#Product) from a JSON file and into the program
 
 - **Filter.**
-This component is responsible for filtering all the [Products](#Product) in different ways. The allround purpose is for the front end to be able to put in certain criteria, for those [Products](#Product) that met those criterias are then returned and will then be represented in frontend.
+This component is responsible for filtering all the [Products](#Product) in different ways. The allround purpose is for the front end to be able to put in certain criteria, for those [Products](#Product) that met those criteria are then returned and will then be represented in frontend.
 
 - **Drink generator,**
  generates drinks based on certain criteria as well as ingredients that will be specified by the user.
@@ -70,11 +75,11 @@ The model package is responsible for handling the logic and handling all the dat
 - Parsing, fetches the data from a Json file
 
 #### View
-As a consequence of using scenebuilder and fxml files with maven, is that the fxml files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependancies still apply correctly. When we create a FXML file a controller is associated with that file. The fxml file then points to that file and gives it all the Objects and information it needs to execute correctly.
+As a consequence of using Scene builder and FXML files with maven, is that the FXML files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependencies still apply correctly. When we create a FXML file a controller is associated with that file. The FXML file then points to that file and gives it all the Objects and information it needs to execute correctly.
 
 #### Controller
-This package includes all of the controllers that is associated to the different fxml files.
-A controller for an fxml file handles what happens when a user does any sort of input
+This package includes all of the controllers that is associated to the different FXML files.
+A controller for an FXML file handles what happens when a user does any sort of input
 
 
 
@@ -121,8 +126,15 @@ Domain model represents the program in a more abstract format. The program will 
 - **Model**
 
  ![ModelDesign](Photos/ModelDesignUML.png)  
-  This module uses the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessable outside of the model package.
+  This module is the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside of the model package.
   The model uses all the different packages of the backend and represents a simpler way of using them.  
+  
+  Relation to Domain model
+  This combines the four modules in the domain model into one interface
+  - APK Leaderboard
+  - Sortiment
+  - Favorite Products
+  - Drink Generator
   
    Patterns  
 `- Template Method pattern`  
@@ -131,7 +143,10 @@ Domain model represents the program in a more abstract format. The program will 
 - **Parser**
 
  ![ParsingDesign](Photos/ParsingDesignUML.png)  
-  The functionallity of this module is to fetch data from some type of data storage. In our case, we use a json file to store our [Products](#Product). 
+  The functionality of this module is to fetch data from some type of data storage. In our case, we use a JSON file to store our [Products](#Product). 
+ 
+ Relation to Domain model  
+ This in combination with the filter class acts as the Sortiment module in the domain model
   
    Patterns  
  `- Strategy?`  
@@ -146,6 +161,10 @@ Domain model represents the program in a more abstract format. The program will 
 
 This class works as a filter for all the [Products](#Product), it takes in a filter of either 1 or 2 levels and returns the Products that matches these filters.  
  
+ Relation to Domain model  
+ This divides all the products into different selections  
+ This in combination with the Parser class acts as the Sortiment module in the domain model
+ 
  Patterns  
  
 `- No patterns recognised`  
@@ -153,8 +172,14 @@ This class works as a filter for all the [Products](#Product), it takes in a fil
 - **Favorites**
 
  ![FavoritesDesign](Photos/FavoritesDesignUML.png)
+ This module is responsible from saving all marked [Products](#Product) in a txt file. It saves the list of products when the program is shut down and then fetches them when the program is started again.
  
+ The ProductListIOManager class uses the singleton pattern. This is because multiple instances of this class should not be created since it is not needed for any of the functionality.
  Patterns  
+ 
+ Relation to Domain model  
+This keeps track of the Favorite products that is also represented in the Domain model
+ 
  
  `- Singleton`  
 
@@ -162,7 +187,7 @@ Future implementations
 
 `- Composite`  
 	
-	
+### Sequence Diagrams
 
 
 ## 4 Persistent data management
