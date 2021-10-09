@@ -114,7 +114,9 @@ public class Model {
     public List<Product> getFavoritesAsProducts() {
         ArrayList<Product> products = new ArrayList<Product>();
         for (Integer id : getProductIdsFromFavorites()) {
-            products.add(getProduct(id));
+            List<Product> productsFromId = getProducts(id);
+            for (int i = 0; i < productsFromId.size(); i++)
+                products.add(productsFromId.get(i));
         }
         return products;
     }
