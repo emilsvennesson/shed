@@ -24,7 +24,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="shed" target="1.8" />
-      <module name="shedster" target="1.8" />
+      <module name="shedster" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

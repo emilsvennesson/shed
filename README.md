@@ -1,14 +1,17 @@
-# Shed
-Group project for TDA367   
+
+![Shed image](https://i.ibb.co/tYYRXSP/shed.png)
+# Shed  [![Build Status](https://app.travis-ci.com/samkaj/shed.svg?token=tsNsyCSMsE6iGxWwHpDL&branch=main)](https://app.travis-ci.com/samkaj/shed)
+Group project for TDA367     
 Made with 💚 by Samuel Kajava, Emil Svensson, Daniel Rygaard, Pouya Shirin and Daniel Ericsson
 
 ## Prerequisites
-- JavaFX
+- Java SDK 11 or higher
+- Maven
 
 ## Running the application
-In order to run the source code, you will need to do some configurations in your IDE of choice.
-Before running:
-- Mark `src/main/java` as SourceDirectory
-- Mark `src/test/java` as TestDirectory
-- Mark `src/main/rescoures` as Resources
-- Add `--module-path "/path/to/javafx/lib" --add-modules javafx.controls,javafx.fxml` with your JavaFX path pointing to the `lib` directory
+- Clone the repository and head into its directory:<br />
+`git clone https://github.com/samkaj/shed && cd shed`
+- Build the application JAR file:<br />
+`mvn clean compile assembly:single`
+- Run the application:<br />
+`java -jar target/shedster-1.0-SNAPSHOT-jar-with-dependencies.jar`

@@ -1,12 +1,13 @@
 package shedbolaget.model.parser;
 
-import shedbolaget.model.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import shedbolaget.model.Product;
 
-import java.nio.file.Paths;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 class ProductJsonFileParser implements IProductParser {
     @Override
@@ -15,7 +16,7 @@ class ProductJsonFileParser implements IProductParser {
         try {
             // create object mapper instance
             ObjectMapper mapper = new ObjectMapper();
-            products = mapper.readValue(Paths.get("data.json").toFile(), new TypeReference<List<Product>>() {
+            products = mapper.readValue(ClassLoader.getSystemClassLoader().getResourceAsStream("data.json"), new TypeReference<>() {
             });
 
         } catch (Exception ex) {
