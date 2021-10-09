@@ -93,6 +93,12 @@ class Filter {
         return getFilteredLevel2Products(getFilteredLevel1Products());
     }
 
+    /**
+     * Return a list of products, filtered by set keywords from category level 1, 2 and string keyword.
+     * Parameter filters by product name and product categories.
+     * @param filterString a string to filter the products with.
+     * @returna list of products.
+     */
     public List<Product> getFilteredProducts(String filterString){
         return (getFilteredProducts().stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
                 || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
