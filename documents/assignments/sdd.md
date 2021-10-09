@@ -15,12 +15,19 @@ The SDD document tracks the necessary information required to get a clear pictur
 
 ### 1.1 Word book
 
+###### Unit testing
+	Unit testing is
+
+###### Data interchange format
+	Data interchange format is a
+
+
 ###### APK 
 	(Alkohol per krona) - Alcohol per crown
 
 ## 2 System architecture
 In this project the program does not use any database, server or 
-external source for storing or retrieving information. Instead, it uses a stored Json file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system implemented into the Favorites module.
+external source for storing or retrieving information. Instead, it uses a stored [JSON](#JSON) file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system implemented into the Favorites module.
 
 ### Components
 Furthermore, the program has several components that represents the functionality of a certain niched feature.
@@ -33,7 +40,7 @@ A public interface and state handler of the backend. To clarify, this is where t
 Responsible for handling what products the user has marked as favorite.  The favorite's module then stores all the products marked as favorite in a local txt file when the program gets closed. Furthermore, the txt file is then read by the program on the program startup and available for use by the frontend
 
 - **Parsing.**
- Handles all the static data that is represented in the frontend. In addition, the parser translates all the [Products](#Product) from a JSON file and into the program
+ Handles all the static data that is represented in the frontend. In addition, the parser translates all the [Products](#Product) from a [JSON](#JSON) file and into the program
 
 - **Filter.**
 This component is responsible for filtering all the [Products](#Product) in different ways. The allround purpose is for the front end to be able to put in certain criteria, for those [Products](#Product) that met those criteria are then returned and will then be represented in frontend.
@@ -72,14 +79,14 @@ This package digram shows the entirety of the program in it's biggest package mo
 The model package is responsible for handling the logic and handling all the data that the program saves or represents for the user. The features implemented in the model right now is, - filter, filters all the products
 
 - Favorites, saves products as favorites
-- Parsing, fetches the data from a Json file
+- Parsing, fetches the data from a [JSON](#JSON) file
 
 #### View
-As a consequence of using Scene builder and FXML files with maven, is that the FXML files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependencies still apply correctly. When we create a FXML file a controller is associated with that file. The FXML file then points to that file and gives it all the Objects and information it needs to execute correctly.
+As a consequence of using [Scene builder](#Scenebuilder) and [FXML](#FXML)  files with maven, is that the [FXML](#FXML) files need to be in the resource folder.  Therefore the view is not a package in the java structure. However, the dependencies still apply correctly. When we create a [FXML](#FXML) file a controller is associated with that file. The [FXML](#FXML) file then points to that file and gives it all the Objects and information it needs to execute correctly.
 
 #### Controller
-This package includes all of the controllers that is associated to the different FXML files.
-A controller for an FXML file handles what happens when a user does any sort of input
+This package includes all of the controllers that is associated to the different [FXML](#FXML) files.
+A controller for an [FXML](#FXML) file handles what happens when a user does any sort of input
 
 
 
@@ -137,13 +144,13 @@ Domain model represents the program in a more abstract format. The program will 
   - Drink Generator
   
    Patterns  
-`- Template Method pattern`  
+`- Facade pattern`  
 `- Singleton`  
 
 - **Parser**
 
  ![ParsingDesign](Photos/ParsingDesignUML.png)  
-  The functionality of this module is to fetch data from some type of data storage. In our case, we use a JSON file to store our [Products](#Product). 
+  The functionality of this module is to fetch data from some type of data storage. In our case, we use a [JSON](#JSON) file to store our [Products](#Product). 
  
  Relation to Domain model  
  This in combination with the filter class acts as the Sortiment module in the domain model
@@ -188,17 +195,24 @@ Future implementations
 `- Composite`  
 	
 ### Sequence Diagrams
+#### Get Selection of products
+![Selection of products](Photos/SequenceDiagramSelection.png)
+
+
+#### Favorites
+![Favorites](Photos/SeqDiagFavorites.png)
+
 
 
 ## 4 Persistent data management
-- All product data is saved in `data.json`, nd corresponds to Systembolagets sortiment. 
+- All product data is saved in `data.json`, nd corresponds to [Systembolaget](#Systembolaget) sortiment. 
 - All views are saved in `src/main/resources`. 
 - Saved product ID:s are stored in `SavedLists.txt`.
 
 ## 5 Quality
 
 ### Tests
-Testing the application is done with JUnit, and the test classes can be found in `src/test/java/shedbolaget`. All tests are run using [Travis](https://travis-ci.org/) whenever commits are pushed to the GitHub-repository. Only the backend is tested, since issues with controllers become apparent when using the user interface.
+Testing the application is done with [JUnit](#JUnit), and the test classes can be found in `src/test/java/shedbolaget`. All tests are run using [Travis](https://travis-ci.org/) whenever commits are pushed to the GitHub-repository. Only the backend is tested, since issues with controllers become apparent when using the user interface.
 
 ### Known issues
 - `Filter` has no way of sorting products by variables that are not numeric, i.e. sorting by Strings like `name` or booleans like `isNew` is not possible at the moment.
@@ -215,3 +229,30 @@ This matrix displays all dependencies in the project, marking cyclic dependencie
 The overall code quaity has been analysed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
 
 ![PMD result](Photos/pmd_result.png)
+
+## References
+### JavaFX
+https://openjfx.io/
+JavaFX is a collection of graphics and media package, that opens up creation of a rich client application that operates across diverse platforms
+
+### Scenebuilder
+https://gluonhq.com/products/scene-builder/
+Scenebuilder is a tool that allows the developer to easily layout [JavaFX](#JavaFX) UI, so that it is easier to create a user interfaces
+
+### JSON
+https://www.json.org/json-en.html
+JSON is data interchange format, JSON is easy for both machines and humans to read and write
+
+### FXML
+https://en.wikipedia.org/wiki/FXML
+FXML is a [user interface markup language ](https://en.wikipedia.org/wiki/User_interface_markup_language) based on the [XML](https://en.wikipedia.org/wiki/XML)
+
+### JUnit
+https://junit.org/junit5/
+JUnit is a framework made for unit testing
+
+### Systembolaget
+https://www.systembolaget.se/
+Is the stately owned business that sells alcoholic and non alcoholic beverages in Sweden
+
+
