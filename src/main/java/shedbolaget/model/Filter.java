@@ -9,6 +9,8 @@ import java.util.stream.Stream;
 /**
  * A filtering class where its use is to return a filtered list of products depending on
  * the given keywords (categories)
+ *
+ * @author Pouya Shirin, Samuel Kajava, Emil Svensson
  */
 class Filter {
     private final List<Product> products;
@@ -30,6 +32,9 @@ class Filter {
         initCategories();
     }
 
+    /**
+     * @return a list of active category level 2 filters
+     */
     public List<String> getActiveCategoryLevel2Filters() {
         return activeCategoryLevel2Filters;
     }
@@ -187,8 +192,13 @@ class Filter {
         }
     }
 
+    /**
+     *
+     * @return all categories
+     */
     public HashMap<String, List<String>> getCategories() {
-        return categories;
+        HashMap<String, List<String>> shallowCopy = new HashMap<>(categories);
+        return shallowCopy;
     }
 
     /**
@@ -200,12 +210,6 @@ class Filter {
             return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
                     .collect(Collectors.toList()));
 
-    }
-
-    public Product getProduct(int id){
-        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
-                .findAny()
-                .orElse(null));
     }
 
     /**
@@ -220,10 +224,18 @@ class Filter {
                 .collect(Collectors.toList()));
     }
 
+    /**
+     *
+     * @return active level 1 category
+     */
     public String getActiveLevel1Category(){
         return activeCategoryLevel1Filter;
     }
 
+    /**
+     *
+     * @return active level 2 categories
+     */
     public ArrayList<String> getActiveLevel2Categories(){
         return new ArrayList<>(activeCategoryLevel2Filters);
     }
