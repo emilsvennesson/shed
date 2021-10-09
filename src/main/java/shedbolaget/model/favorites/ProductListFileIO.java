@@ -40,11 +40,11 @@ public class ProductListFileIO implements IProductListIO {
         }
 
         StringBuilder builder = new StringBuilder();
-        builder.append(list.getName() + "\n");
-        builder.append(list.getSize() + "\n");
-      
+        builder.append(list.getName()).append("\n");
+        builder.append(list.getSize()).append("\n");
+
         for (int prod : list.getProductIds())
-            builder.append(prod + "\n");
+            builder.append(prod).append("\n");
         try {
             writer.write(builder.toString());
         } catch (IOException e) {
@@ -77,7 +77,7 @@ public class ProductListFileIO implements IProductListIO {
         } catch (IOException e) {
             genericFileError(e, "Reading the lists from the file");
         }
-      
+
         return listOfLists;
     }
 

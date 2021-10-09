@@ -21,6 +21,11 @@ public class CategoryController {
     @FXML
     private VBox categoryLevel2VBox;
 
+    CategoryController(String level1Category, List<String> level2Categories) {
+        this.level1Category = level1Category;
+        this.level2Categories = level2Categories;
+    }
+
     @FXML
     public void initialize() {
         this.categoryLevel1CheckBox.setText(level1Category);
@@ -28,12 +33,6 @@ public class CategoryController {
         initLevel2CheckBoxes();
         categoryLevel1CheckBox.setOnAction(this::onChecked);
         model.registerToEventBus(this);
-    }
-
-
-    CategoryController(String level1Category, List<String> level2Categories) {
-        this.level1Category = level1Category;
-        this.level2Categories = level2Categories;
     }
 
     private void onChecked(ActionEvent actionEvent) {

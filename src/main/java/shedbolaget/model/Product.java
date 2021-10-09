@@ -2,17 +2,15 @@ package shedbolaget.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
+    private String imageUrl;
+
     public String getImageUrl() {
         return imageUrl;
     }
-
-    private String imageUrl;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -32,6 +30,8 @@ public class Product {
     private String color;
     private String taste;
     private String usage;
+    private String categoryLevel1;
+    private String categoryLevel2;
 
     public String getCategoryLevel1() {
         return categoryLevel1;
@@ -40,9 +40,6 @@ public class Product {
     public String getCategoryLevel2() {
         return categoryLevel2;
     }
-
-    private String categoryLevel1;
-    private String categoryLevel2;
 
     public List<Image> getImages() {
         return images;
@@ -68,15 +65,25 @@ public class Product {
         return price;
     }
 
-    public double getVolume(){ return volume;}
+    public double getVolume() {
+        return volume;
+    }
 
-    public double getAlcoholPercentage(){return alcoholPercentage;}
+    public double getAlcoholPercentage() {
+        return alcoholPercentage;
+    }
 
-    public double getApk(){ return (volume * alcoholPercentage * 0.01) / price;}
+    public double getApk() {
+        return (volume * alcoholPercentage * 0.01) / price;
+    }
 
-    public String getCountry(){return country;}
+    public String getCountry() {
+        return country;
+    }
 
-    public boolean getIsNew(){return isNew;}
+    public boolean getIsNew() {
+        return isNew;
+    }
 
     public boolean isNew() {
         return isNew;

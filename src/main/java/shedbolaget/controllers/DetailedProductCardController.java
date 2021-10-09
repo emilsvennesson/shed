@@ -1,11 +1,11 @@
 package shedbolaget.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,64 +16,46 @@ import shedbolaget.model.Product;
 import java.io.IOException;
 
 public class DetailedProductCardController {
+    private final Product product;
     @FXML
     private AnchorPane cardAnchorPane;
-
     @FXML
     private ImageView imageView;
-
     @FXML
     private Text nameBoldText;
-
     @FXML
     private Text alcoholPercentageText;
-
     @FXML
     private Text volumeText;
-
     @FXML
     private Text apkText;
-
     @FXML
     private Text categoryLevel2Text;
-
     @FXML
     private Text countryText;
-
     @FXML
     private HBox expandedHBox;
-
     @FXML
     private Text producerText;
-
     @FXML
     private Text colorText;
-
     @FXML
     private Text tasteText;
-
     @FXML
     private Text usageText;
-
     @FXML
     private Text priceText;
-
     @FXML
     private Button favoritesButton;
-
     @FXML
     private VBox descriptionVBox;
-
-    private final Product product;
-    private Model model;
+    private final Model model = Model.getInstance();
 
     private boolean expanded;
     private boolean isFavorite;
 
     public DetailedProductCardController(Product product) {
-        // temporary, wont pass a datahandler later on
         this.product = product;
-        this.model = Model.getInstance();
         this.expanded = false;
         this.isFavorite = model.isFavorite(product);
     }
@@ -98,26 +80,25 @@ public class DetailedProductCardController {
     }
 
     @FXML
-    void cardOnClick(MouseEvent event) throws IOException {
-        if(!expanded)
+    void cardOnClick(MouseEvent event) {
+        if (!expanded)
             expandProductCard();
         else
             closeProductCard();
     }
 
     private void expandProductCard() {
-        if(!descriptionVBox.getChildren().contains(expandedHBox)) {
+        if (!descriptionVBox.getChildren().contains(expandedHBox)) {
             descriptionVBox.getChildren().add(expandedHBox);
             expanded = true;
         }
     }
 
     @FXML
-    void favoritesButtonOnClick(ActionEvent event)throws IOException {
-        if(isFavorite) {
+    void favoritesButtonOnClick(ActionEvent event) {
+        if (isFavorite) {
             model.removeFromFavorites(product);
-        }
-        else {
+        } else {
             model.addToFavorites(product);
         }
         favoritesButton.getStyleClass().remove(getFavoriteButtonClass());
@@ -132,11 +113,11 @@ public class DetailedProductCardController {
     }
 
     private String getFavoriteButtonText() {
-        return(isFavorite ? "Ta bort favorit" : "Lägg till favorit");
+        return (isFavorite ? "Ta bort favorit" : "Lägg till favorit");
     }
 
     private String getFavoriteButtonClass() {
-        return(isFavorite ?  "remove-favorite-btn" : "add-favorite-btn");
+        return (isFavorite ? "remove-favorite-btn" : "add-favorite-btn");
     }
 
     private void initFavoriteButton() {

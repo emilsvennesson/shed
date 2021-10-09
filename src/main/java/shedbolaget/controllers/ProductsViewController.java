@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class ProductsViewController {
     private final Model model = Model.getInstance();
+
     @FXML
     private AnchorPane navBarPane;
 

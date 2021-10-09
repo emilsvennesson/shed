@@ -6,7 +6,6 @@ import org.junit.Test;
 import shedbolaget.model.Model;
 import shedbolaget.model.Product;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,9 +14,26 @@ import java.util.Random;
 public class TestProductListIO {
 
 
+    static Model handler = Model.getInstance();
+    static Random rand = new Random();
+    static List<Product> usedProducts = new ArrayList<>();
     SavableProductIdList list = new SavableProductIdList("Favorites");
-    List<SavableProductIdList> listofLists = new ArrayList<SavableProductIdList>();
+    List<SavableProductIdList> listofLists = new ArrayList<>();
     IProductListIO io = new ProductListFileIO();
+
+    private static Product getRandomUnequeProduct() {
+
+
+        Product prod;
+        do {
+            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+        } while (usedProducts.contains(prod));
+
+        usedProducts.add(prod);
+
+
+        return prod;
+    }
 
     @Before
     public void testOfFileWriter() {
@@ -35,9 +51,8 @@ public class TestProductListIO {
 
     }
 
-
     @Test
-    public void testOfFileReader() throws IOException {
+    public void testOfFileReader() {
 
         listofLists = io.loadAll();
 
@@ -52,25 +67,6 @@ public class TestProductListIO {
         for (int i = 0; i < list.getSize(); i++) {
             Assert.assertEquals(list.getProductIds().get(i), list2.getProductIds().get(i));
         }
-    }
-
-
-    static Model handler = Model.getInstance();
-    static Random rand = new Random();
-    static List<Product> usedProducts = new ArrayList<>();
-
-    private static Product getRandomUnequeProduct() {
-
-
-        Product prod;
-        do {
-            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
-        } while (usedProducts.contains(prod));
-
-        usedProducts.add(prod);
-
-
-        return prod;
     }
 
 

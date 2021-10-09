@@ -21,7 +21,7 @@ public class SavableProductIdList {
         this.name = name;
         products = new ArrayList<>();
     }
-  
+
     /**
      * <p>Adds a productId to the list, cannot add an already existing productId</p>
      *
@@ -43,7 +43,7 @@ public class SavableProductIdList {
             return;
         products.add(Integer.parseInt(product.getProductId()));
     }
-  
+
     /**
      * <p>Removes a productId taken from the given {@link Product} from the list</p>
      *
@@ -100,9 +100,8 @@ public class SavableProductIdList {
      * @return a generic List of the product ids
      */
     public List<Integer> getProductIds() {
-        List<Integer> prod = this.products;
         //TODO Return a copy of the product list
-        return prod;
+        return this.products;
     }
 
     @Override
@@ -113,7 +112,6 @@ public class SavableProductIdList {
         if (inList.getSize() != this.getSize()) return false;
 
         for (int i = 0; i < inList.getSize(); i++) {
-            boolean b = (inList.getProductIds().get(i).equals(this.getProductIds().get(i)));
             if (!(inList.getProductIds().get(i).equals(this.getProductIds().get(i)))) return false;
         }
 

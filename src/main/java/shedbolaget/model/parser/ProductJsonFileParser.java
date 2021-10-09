@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author Emil Svensson
+ */
 class ProductJsonFileParser implements IProductParser {
     @Override
     public List<Product> getProducts() {

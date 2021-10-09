@@ -10,31 +10,29 @@ import shedbolaget.model.parser.ParserFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Model {
     private static final Model instance = new Model();
     private final Filter filter;
     private final EventBus eventBus;
-    private List<Product> products;
     private final ProductIdListsIOManager listIOManager;
+    private List<Product> products;
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
-        eventBus.register(this);
         onStartUp();
         addShutdownHook();
     }
 
+    public static Model getInstance() {
+        return instance;
+    }
+
     private void addShutdownHook() {
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            public void run() {
-                onShutDown();
-            }
-        }, "Shutdown-thread"));
+        Runtime.getRuntime().addShutdownHook(new Thread(this::onShutDown, "Shutdown-thread"));
     }
 
     public List<String> getActiveCategoryLevel2Filters() {
@@ -43,10 +41,6 @@ public class Model {
 
     public String getActiveCategoryLevel1Filter() {
         return filter.getActiveCategoryLevel1Filter();
-    }
-
-    public static Model getInstance() {
-        return instance;
     }
 
     public void registerToEventBus(Object o) {
@@ -58,7 +52,7 @@ public class Model {
     }
 
     public List<Product> getProducts() {
-        return products.stream().collect(Collectors.toList());
+        return new ArrayList<>(products);
     }
 
     private void populateProducts(IProductParser parser) {
@@ -73,12 +67,6 @@ public class Model {
         }
         favList.addProductId(prod);
     }
-
-    /**
-     * <p>Adds a {@link Product} to favorites</p>
-     *
-     * @param prod the {@link Product} that is added
-     */
 
     /**
      * <p>Removes a {@link Product} from favorites</p>
@@ -112,7 +100,7 @@ public class Model {
      * @return a list of {@link Product}
      */
     public List<Product> getFavoritesAsProducts() {
-        ArrayList<Product> products = new ArrayList<Product>();
+        ArrayList<Product> products = new ArrayList<>();
         for (Integer id : getProductIdsFromFavorites()) {
             List<Product> productsFromId = getProducts(id);
             for (int i = 0; i < productsFromId.size(); i++)
@@ -233,12 +221,6 @@ public class Model {
         return imageUrl;
     }
 
-    public enum ImageSize {
-        SMALL,
-        MEDIUM,
-        LARGE
-    }
-
     /**
      * Gets a given amount of products and returns them as an ArrayList
      *
@@ -259,5 +241,11 @@ public class Model {
      */
     public boolean isFavorite(Product p) {
         return (getFavoritesAsProducts().contains(p));
+    }
+
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
     }
 }

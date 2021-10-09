@@ -8,6 +8,8 @@ import shedbolaget.model.Model;
 import shedbolaget.model.Product;
 
 public class ProductModalPaneViewController {
+    private final Product product;
+
     @FXML
     private Text productNameText;
 
@@ -31,11 +33,9 @@ public class ProductModalPaneViewController {
 
     @FXML
     private Text volumeText;
-
+    
     @FXML
     private Text alcoholPercentageText;
-
-    private final Product product;
 
     public ProductModalPaneViewController(Product product) {
         this.product = product;
