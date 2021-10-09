@@ -187,10 +187,6 @@ public class Model {
         filter.sortProductsByVariable(variableName, true);
     }
 
-    public Product getProduct(int id) {
-        return filter.getProduct(id);
-    }
-
     public List<Product> getProducts(int id) {
         return filter.getProducts(id);
     }
