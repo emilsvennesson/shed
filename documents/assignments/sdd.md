@@ -16,14 +16,14 @@ The SDD document tracks the necessary information required to get a clear pictur
 ### 1.1 Word book
 
 ###### Unit testing
-	Unit testing is
+Unit testing is
 
 ###### Data interchange format
-	Data interchange format is a
+Data interchange format is a
 
 
 ###### APK 
-	(Alkohol per krona) - Alcohol per crown
+(Alkohol per krona) - Alcohol per crown
 	
 ###### UML
 	
@@ -100,35 +100,35 @@ A controller for an [FXML](#FXML) file handles what happens when a user does any
 Domain model represents the program in a more abstract format. The program will works as follows,
 
 #### Product
-	The product represents all the information that is needed from a beverage by the program 
+The product represents all the information that is needed from a beverage by the program 
 	- Name 
 	- Price
 	- Alcohol percentage
 	- etc
 	
 #### Selection
-	A selection is a asserted number of [product](#Product)s with specific attributes. This is a way of finding products with a specific attribute that the user have selected
+A selection is a asserted number of [product](#Product)s with specific attributes. This is a way of finding products with a specific attribute that the user have selected
 
 #### Sortiment,
-	This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specific Selection with that product in it and then get the product from that selection.
+This is where all the information of the products are, lets say the user wants information about a product. The program will then go to Sortiment, get that specific Selection with that product in it and then get the product from that selection.
 
 #### Drink
-	Represents all the information the program needs for a drink
+Represents all the information the program needs for a drink
 	- Name
 	- Ingredients(Products)
 	- etc
 	
 #### DrinkGenerator
-	This module is responsible for finding a drink based on a list of products(Beverages), the user has specified
+This module is responsible for finding a drink based on a list of products(Beverages), the user has specified
 
 #### FavoriteProducts
-	FavoriteProducts will save the products that is selected by the user and represent them in a lst of favoritised products
+FavoriteProducts will save the products that is selected by the user and represent them in a lst of favoritised products
 
 #### Drinking game
-	This module is responsible for handling drinking games, the module will have the functionality for the user to play drinking games. The moduel has several different players that will be specified by the user
+This module is responsible for handling drinking games, the module will have the functionality for the user to play drinking games. The moduel has several different players that will be specified by the user
 
 #### Player
-	Represents the information needed by a player for the drinking games
+Represents the information needed by a player for the drinking games
 	- name
 
 
