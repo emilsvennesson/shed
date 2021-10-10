@@ -32,8 +32,8 @@ In this project the program does not use any database, server or
 external source for storing or retrieving information. Instead, it uses a stored [JSON](#JSON) file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system implemented into the Favorites module.
 
 ### Components
-Furthermore, the program has several components that represents the functionality of a certain niche feature.
-Therefore, these features combined creates the whole functionality of the program.
+Furthermore, the program has several components that divides the functionality between certain modules.
+Therefore, these modules combined creates the whole functionality of the program.
 
  - **Model.** 
 A public interface and state handler of the backend. To clarify, this is where the front end will have access to the backend functionality.
@@ -74,7 +74,7 @@ The user will be able to close the program at any point in the process.
 ### Package Diagram
 
 ![PackageDiagramAll](Photos/PackageDiagramBig.png)
-This package diagram shows the entirety of the program in it's biggest package model. The UML shows that Model,view,controller structure i followed. 
+This package diagram shows the entirety of the program in it's biggest package model. The UML shows that Model,view,controller structure is followed. 
 
 #### Model
 ![PackageDiagramModel](Photos/PackageDiagramModel.png)
@@ -135,7 +135,7 @@ Domain model represents the program in a more abstract format. The program will 
 - **Model**
 
  ![ModelDesign](Photos/ModelDesignUML.png)  
-  This module is the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside of the model package.
+  This module uses the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside of the model package.
   The model uses all the different packages of the backend and represents a simpler way of using them.  
   
   Relation to Domain model
