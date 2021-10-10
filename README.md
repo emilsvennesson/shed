@@ -15,3 +15,6 @@ Made with 💚 by Samuel Kajava, Emil Svensson, Daniel Rygaard, Pouya Shirin and
 `mvn clean compile assembly:single`
 - Run the application:<br />
 `java -jar target/shedster-1.0-SNAPSHOT-jar-with-dependencies.jar`
+
+## Documentation
+- PDF:s for the SDD and RAD can be found in `documents/RAD & SDD`
