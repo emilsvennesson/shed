@@ -24,14 +24,17 @@ The SDD document tracks the necessary information required to get a clear pictur
 
 ###### APK 
 	(Alkohol per krona) - Alcohol per crown
+	
+###### UML
+	
 
 ## 2 System architecture
 In this project the program does not use any database, server or 
 external source for storing or retrieving information. Instead, it uses a stored [JSON](#JSON) file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system implemented into the Favorites module.
 
 ### Components
-Furthermore, the program has several components that represents the functionality of a certain niched feature.
-Therefore, these features combined creates the whole functionality of the program.
+Furthermore, the program has several components that divides the functionality between certain modules.
+Therefore, these modules combined creates the whole functionality of the program.
 
  - **Model.** 
 A public interface and state handler of the backend. To clarify, this is where the front end will have access to the backend functionality.
@@ -72,8 +75,7 @@ The user will be able to close the program at any point in the process.
 ### Package Diagram
 
 ![PackageDiagramAll](Photos/PackageDiagramBig.png)
-
-This package digram shows the entirety of the program in it's biggest package model. The uml shows that Model,view,controller structure i followed. 
+This package diagram shows the entirety of the program in it's biggest package model. The UML shows that Model,view,controller structure is followed. 
 
 #### Model
 ![PackageDiagramModel](Photos/PackagediagramModel.png)
@@ -135,7 +137,7 @@ Domain model represents the program in a more abstract format. The program will 
 - **Model**
 
  ![ModelDesign](Photos/ModelDesignUML.png)  
-  This module is the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside the model package.
+  This module uses the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside of the model package.
   The model uses all the different packages of the backend and represents a simpler way of using them.  
   
   Relation to Domain model
@@ -216,7 +218,7 @@ The Sorter is responsible for how the list of Products is ordered and is therefo
 
 
 ## 4 Persistent data management
-- All product data is saved in `data.json`, nd corresponds to [Systembolaget](#Systembolaget) sortiment. 
+- All product data is saved in `data.json`, and corresponds to [Systembolaget](#Systembolaget) sortiment. 
 - All views are saved in `src/main/resources`. 
 - Saved product ID:s are stored in `SavedLists.txt`.
 
@@ -238,7 +240,7 @@ _NOTE for peer review: we're unsure on what software to use for analysing depend
 ![Dependency matrix](Photos/dependency_matrix.png)
 
 #### Quality report
-The overall code quaity has been analysed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
+The overall code quality has been analyzed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
 
 ![PMD result](Photos/pmd_result.png)
 
@@ -253,7 +255,7 @@ Scenebuilder is a tool that allows the developer to easily layout [JavaFX](#Java
 
 ### JSON
 https://www.json.org/json-en.html
-JSON is data interchange format, JSON is easy for both machines and humans to read and write
+JSON is a data interchange format, JSON is easy for both machines and humans to read and write
 
 ### FXML
 https://en.wikipedia.org/wiki/FXML
