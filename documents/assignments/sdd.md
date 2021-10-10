@@ -21,16 +21,18 @@ The SDD document tracks the necessary information required to get a clear pictur
 ###### Data interchange format
 	Data interchange format is a
 
-
 ###### APK 
 	(Alkohol per krona) - Alcohol per crown
+	
+###### UML
+	
 
 ## 2 System architecture
 In this project the program does not use any database, server or 
 external source for storing or retrieving information. Instead, it uses a stored [JSON](#JSON) file with all the data that is needed. Moreover, if any further information needs to be stored, it is stored via a file saving system implemented into the Favorites module.
 
 ### Components
-Furthermore, the program has several components that represents the functionality of a certain niched feature.
+Furthermore, the program has several components that represents the functionality of a certain niche feature.
 Therefore, these features combined creates the whole functionality of the program.
 
  - **Model.** 
@@ -72,7 +74,7 @@ The user will be able to close the program at any point in the process.
 ### Package Diagram
 
 ![PackageDiagramAll](Photos/PackageDiagramBig.png)
-This package digram shows the entirety of the program in it's biggest package model. The uml shows that Model,view,controller structure i followed. 
+This package diagram shows the entirety of the program in it's biggest package model. The UML shows that Model,view,controller structure i followed. 
 
 #### Model
 ![PackageDiagramModel](Photos/PackageDiagramModel.png)
@@ -205,7 +207,7 @@ Future implementations
 
 
 ## 4 Persistent data management
-- All product data is saved in `data.json`, nd corresponds to [Systembolaget](#Systembolaget) sortiment. 
+- All product data is saved in `data.json`, and corresponds to [Systembolaget](#Systembolaget) sortiment. 
 - All views are saved in `src/main/resources`. 
 - Saved product ID:s are stored in `SavedLists.txt`.
 
@@ -226,7 +228,7 @@ This matrix displays all dependencies in the project, marking cyclic dependencie
 ![Dependency matrix](Photos/dependency_matrix.png)
 
 #### Quality report
-The overall code quaity has been analysed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
+The overall code quality has been analyzed using PMD. With 1065 violations at the moment of analysis, it is apparent that there is work to be done here, mainly in areas such as documentation, commenting, making variables final and avoiding Law of Demeter.
 
 ![PMD result](Photos/pmd_result.png)
 
@@ -241,7 +243,7 @@ Scenebuilder is a tool that allows the developer to easily layout [JavaFX](#Java
 
 ### JSON
 https://www.json.org/json-en.html
-JSON is data interchange format, JSON is easy for both machines and humans to read and write
+JSON is a data interchange format, JSON is easy for both machines and humans to read and write
 
 ### FXML
 https://en.wikipedia.org/wiki/FXML
