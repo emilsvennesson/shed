@@ -4,9 +4,12 @@ import com.google.common.eventbus.EventBus;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
+import shedbolaget.model.filter.Filter;
 import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
+import shedbolaget.model.sorter.Sorter;
 
+import java.util.function.Function;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,8 +106,7 @@ public class Model {
         ArrayList<Product> products = new ArrayList<>();
         for (Integer id : getProductIdsFromFavorites()) {
             List<Product> productsFromId = getProducts(id);
-            for (int i = 0; i < productsFromId.size(); i++)
-                products.add(productsFromId.get(i));
+            products.addAll(productsFromId);
         }
         return products;
     }
@@ -169,12 +171,31 @@ public class Model {
         return filter.getFilteredProducts(filterString);
     }
 
-    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
-        filter.sortProductsByVariable(variableName, lowestToHighest);
+    /**
+     * Sort products double values.
+     *
+     * @param doubleFunction the double function to compare by
+     */
+    public void sortProductsDouble(Function<Product, Double> doubleFunction) {
+        Sorter.sortProductsDouble(doubleFunction, this.products);
     }
 
-    public void sortProductsByVariable(String variableName) {
-        filter.sortProductsByVariable(variableName, true);
+    /**
+     * Sort products by boolean values.
+     *
+     * @param booleanFunction the boolean function to compare by
+     */
+    public void sortProductsBoolean(Function<Product, Boolean> booleanFunction) {
+        Sorter.sortProductsBoolean(booleanFunction, this.products);
+    }
+
+    /**
+     * Sort products string values.
+     *
+     * @param stringFunction the string function to compare by
+     */
+    public void sortProductsString(Function<Product, String> stringFunction) {
+        Sorter.sortProductsString(stringFunction, this.products);
     }
 
     public List<Product> getProducts(int id) {
@@ -224,23 +245,20 @@ public class Model {
     /**
      * Gets a given amount of products and returns them as an ArrayList
      *
-     * @param amount
+     * @param amount    the amount of wanted products
      */
-    public ArrayList<Product> getNewProducts(int amount) {
-        ArrayList<Product> newProductList = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            newProductList.add(this.products.get(i)); // TODO: replace param with real new products
-        }
-        return newProductList;
+    public List<Product> getNewProducts(int amount) {
+        sortProductsBoolean(Product::isNews);
+        return products.subList(0,amount);
     }
 
     /**
-     * Returns whether a product is favorited or not
+     * Returns whether a product is marked as favorite or not
      *
-     * @param p
+     * @param product a product
      */
-    public boolean isFavorite(Product p) {
-        return (getFavoritesAsProducts().contains(p));
+    public boolean isFavorite(Product product) {
+        return (getFavoritesAsProducts().contains(product));
     }
 
     public enum ImageSize {

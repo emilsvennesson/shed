@@ -1,7 +1,7 @@
-package shedbolaget.model;
+package shedbolaget.model.filter;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import shedbolaget.model.Product;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  *
  * @author Pouya Shirin, Samuel Kajava, Emil Svensson
  */
-class Filter {
+public class Filter {
     private final List<Product> products;
 
     public String getActiveCategoryLevel1Filter() {
@@ -24,8 +24,8 @@ class Filter {
     private final HashMap<String, List<String>> categories = new HashMap<>();
 
     /**
-     *
-     * @param products
+     * Represents a filter for a list of products
+     * @param products a List of Products
      */
     public Filter(List<Product> products) {
         this.products = products;
@@ -41,7 +41,7 @@ class Filter {
 
     /**
      * This method sets the keyword of the first level of filtering.
-     * @param categoryName
+     * @param categoryName name of the category to set as level 1
      */
     public void setCategoryLevel1Filter(String categoryName) {
         activeCategoryLevel1Filter = categoryName;
@@ -56,7 +56,7 @@ class Filter {
 
     /**
      * Adds a keyword to level 2 category filtering.
-     * @param categoryName
+     * @param categoryName name of the category to set as level 2
      */
     public void addCategoryLevel2Filter(String categoryName) {
         activeCategoryLevel2Filters.add(categoryName);
@@ -64,7 +64,7 @@ class Filter {
 
     /**
      * Removes a keyword from the level 2 category filtering.
-     * @param categoryName
+     * @param categoryName name of the level 2 category to remove
      */
     public void removeCategoryLevel2Filter(String categoryName) {
         activeCategoryLevel2Filters.remove(categoryName);
@@ -97,7 +97,7 @@ class Filter {
      * Return a list of products, filtered by set keywords from category level 1, 2 and string keyword.
      * Parameter filters by product name and product categories.
      * @param filterString a string to filter the products with.
-     * @returna list of products.
+     * @return a list of products.
      */
     public List<Product> getFilteredProducts(String filterString){
         return (getFilteredProducts().stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
@@ -132,47 +132,10 @@ class Filter {
         }
     }
 
-    /**
-     * Sort the products with the given variable.
-     * @param variableName Variable to sort the products by
-     * @param lowestToHighest Option to sort the products from lowest to highest or vice versa.
-     */
-    public void sortProductsByVariable(String variableName, boolean lowestToHighest) {
-        String methodName = "get" + getCapitalizedString(variableName);
-        try {
-            Method method = Objects.requireNonNull(getMethodByName(methodName));
-            sortProducts(method);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            System.out.println("ERROR: No valid variable in sortProductsByVariable");
-        }
-
-        if (!lowestToHighest)
-            Collections.reverse(products);
-    }
-
-    private void sortProducts(Method method) {
-        products.sort((product1, product2) -> {
-            try {
-                return Double.compare((double) method.invoke(product1), (double) method.invoke(product2));
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-                return 0;
-            }
-        });
-    }
 
     //Detta kanske ska vara en static metod i en utility klass
     private String getCapitalizedString(String str){
         return str.substring(0,1).toUpperCase() + str.substring(1);
-    }
-    private Method getMethodByName(String methodName) {
-        try {
-            return Product.class.getMethod(methodName);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     private List<String> getCategoriesLevel1() {
@@ -199,29 +162,27 @@ class Filter {
     }
 
     /**
-     *
-     * @return all categories
+     * Gets all the filter's categories
+     * @return a HashMap containing all categories with their respective sub-categories
      */
     public HashMap<String, List<String>> getCategories() {
-        HashMap<String, List<String>> shallowCopy = new HashMap<>(categories);
-        return shallowCopy;
+        return new HashMap<>(categories);
     }
 
     /**
      * This method returns products whose id is equal to the given id.
-     * @param id
-     * @return a list of products
+     * @param id    the product ID to get
+     * @return a list of products sharing the given ID
      */
     public List<Product> getProducts(int id){
-            return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
-                    .collect(Collectors.toList()));
-
+        return (products.stream().filter(product -> id == Integer.parseInt(product.getProductId()))
+                .collect(Collectors.toList()));
     }
 
     /**
      * This method returns products that matches with the given string. It looks at 1. product name, 2. category level 1-3
-     * @param filterString
-     * @return
+     * @param filterString a string to match with a product's name or categories 1-2
+     * @return a List of products matching the given filterString
      */
     public List<Product> getProducts(String filterString){
         return (products.stream().filter(product ->  product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())

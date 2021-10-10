@@ -19,8 +19,7 @@ public class MainViewController {
     public void initialize() throws IOException {
         navBarPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/NavBarView.fxml")).load());
         Model model = Model.getInstance();
-        model.sortProductsByVariable("apk", false);
-        for (Product p : model.getNewProducts(20)) {
+        for(Product p : model.getNewProducts(20)) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/BasicProductCardView.fxml"));
             cardLoader.setController(new BasicProductCardController(p));
             newProductsFlowPane.getChildren().add(cardLoader.load());

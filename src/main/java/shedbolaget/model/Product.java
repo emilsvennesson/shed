@@ -24,8 +24,7 @@ public class Product {
     private double alcoholPercentage;
     private List<Image> images;
     private String country;
-    private boolean isNew;
-
+    private boolean isNews;
     private String producerName;
     private String color;
     private String taste;
@@ -81,12 +80,8 @@ public class Product {
         return country;
     }
 
-    public boolean getIsNew() {
-        return isNew;
-    }
-
-    public boolean isNew() {
-        return isNew;
+    public boolean isNews() {
+        return isNews;
     }
 
     public String getProducerName() {
