@@ -72,10 +72,12 @@ The user will be able to close the program at any point in the process.
 ### Package Diagram
 
 ![PackageDiagramAll](Photos/PackageDiagramBig.png)
+
 This package digram shows the entirety of the program in it's biggest package model. The uml shows that Model,view,controller structure i followed. 
 
 #### Model
-![PackageDiagramModel](Photos/PackageDiagramModel.png)
+![PackageDiagramModel](Photos/PackagediagramModel.png)
+
 The model package is responsible for handling the logic and handling all the data that the program saves or represents for the user. The features implemented in the model right now is, - filter, filters all the products
 
 - Favorites, saves products as favorites
@@ -133,7 +135,7 @@ Domain model represents the program in a more abstract format. The program will 
 - **Model**
 
  ![ModelDesign](Photos/ModelDesignUML.png)  
-  This module is the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside of the model package.
+  This module is the Facade pattern, it provides a simpler interface to a complex subsystem. this will be the only connection that is accessible outside the model package.
   The model uses all the different packages of the backend and represents a simpler way of using them.  
   
   Relation to Domain model
@@ -193,6 +195,15 @@ This keeps track of the Favorite products that is also represented in the Domain
 Future implementations  
 
 `- Composite`  
+
+- **Sorter**
+
+![SorterDesign](Photos/SorterDesignUML.png)
+
+The Sorter class is used for sorting a given list of products based on a given attribute. By passing a function, i.e. a getter for a price, the passed list gets sorted based on price.
+
+Relation to Domain model   
+The Sorter is responsible for how the list of Products is ordered and is therefore connected to the Sortiment in the domain model.
 	
 ### Sequence Diagrams
 #### Get Selection of products
@@ -223,6 +234,7 @@ Testing the application is done with [JUnit](#JUnit), and the test classes can b
 
 #### Dependency matrix
 This matrix displays all dependencies in the project, marking cyclic dependencies in red.
+_NOTE for peer review: we're unsure on what software to use for analysing dependencies, tips are very appreciated here!_
 ![Dependency matrix](Photos/dependency_matrix.png)
 
 #### Quality report
