@@ -99,4 +99,36 @@ public class Product {
     public String getUsage() {
         return usage;
     }
+
+    public String getImageUrl(ImageSize imageSize) {
+        String imageUrl;
+        String size;
+        switch (imageSize) {
+            case SMALL:
+                size = "20";
+                break;
+            case MEDIUM:
+                size = "100";
+                break;
+            case LARGE:
+                size = "200";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + imageSize);
+        }
+
+        try {
+            imageUrl = this.getImages().get(0).getImageUrl() + String.format("_%s.png", size);
+        } catch (IndexOutOfBoundsException e) {
+            // fallback, some products do not have an image in json even though it exists on cdn
+            imageUrl = String.format("https://product-cdn.systembolaget.se/productimages/%s/%s_%s.png", this.getProductId(), this.getProductId(), size);
+        }
+        return imageUrl;
+    }
+
+    public enum ImageSize {
+        SMALL,
+        MEDIUM,
+        LARGE
+    }
 }

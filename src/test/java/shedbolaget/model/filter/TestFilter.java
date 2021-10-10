@@ -92,11 +92,11 @@ public class TestFilter {
     public void testGetFilteredProductsWithFilterString() {
         Model model = Model.getInstance();
         List<Product> emptyFilter = model.getFilteredProducts("");
-        Assert.assertEquals(emptyFilter, model.getProducts()); // filtering by nothing should return everything
+        Assert.assertEquals(emptyFilter, model.getAllProducts()); // filtering by nothing should return everything
         Random rng = new Random(20211010);
         for(int i = 0; i < 100; i++) {
             int expected = rng.nextInt(20000);
-            Product randomProduct = model.getProducts().get(expected);
+            Product randomProduct = model.getAllProducts().get(expected);
             List<Product> randomFilter = model.getFilteredProducts(randomProduct.getProductNameBold());
             Assert.assertTrue(randomFilter.contains(randomProduct));
         }

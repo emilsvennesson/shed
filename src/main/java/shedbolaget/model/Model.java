@@ -23,7 +23,7 @@ public class Model {
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
-        filter = new Filter(getProducts());
+        filter = new Filter(getAllProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
         onStartUp();
@@ -54,7 +54,7 @@ public class Model {
         eventBus.unregister(o);
     }
 
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return new ArrayList<>(products);
     }
 
@@ -214,33 +214,6 @@ public class Model {
         return filter.getActiveLevel2Categories();
     }
 
-    public String getProductImageUrl(Product product, ImageSize imageSize) {
-        String imageUrl;
-        String size;
-        String productId;
-        switch (imageSize) {
-            case SMALL:
-                size = "20";
-                break;
-            case MEDIUM:
-                size = "100";
-                break;
-            case LARGE:
-                size = "200";
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + imageSize);
-        }
-
-        try {
-            imageUrl = product.getImages().get(0).getImageUrl() + String.format("_%s.png", size);
-        } catch (IndexOutOfBoundsException e) {
-            //fallback, some products do not have an image in json even though it exists on cdn
-            productId = product.getProductId();
-            imageUrl = String.format("https://product-cdn.systembolaget.se/productimages/%s/%s_%s.png", productId, productId, size);
-        }
-        return imageUrl;
-    }
 
     /**
      * Gets a given amount of products and returns them as an ArrayList
@@ -261,9 +234,5 @@ public class Model {
         return (getFavoritesAsProducts().contains(product));
     }
 
-    public enum ImageSize {
-        SMALL,
-        MEDIUM,
-        LARGE
-    }
+
 }

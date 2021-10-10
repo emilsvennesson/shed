@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0"
             prefWidth="814.0" styleClass="white-background" stylesheets="@../css/main.css"
             xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="shedbolaget.controllers.BreadCrumbsViewController">
+            fx:controller="shedbolaget.controllers.BreadCrumbsController">
     <VBox layoutX="6.0" layoutY="5.0">
         <Text fx:id="categoryLevel1Text" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 48;"
               text="Alla drycker" wrappingWidth="800.0">

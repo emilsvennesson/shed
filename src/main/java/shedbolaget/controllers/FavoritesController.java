@@ -9,7 +9,7 @@ import shedbolaget.model.Product;
 
 import java.io.IOException;
 
-public class FavoritesViewController {
+public class FavoritesController {
 
     @FXML
     private AnchorPane navBarPane;

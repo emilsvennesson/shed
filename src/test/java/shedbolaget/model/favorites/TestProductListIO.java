@@ -26,7 +26,7 @@ public class TestProductListIO {
 
         Product prod;
         do {
-            prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+            prod = handler.getAllProducts().get(rand.nextInt(handler.getSize()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);

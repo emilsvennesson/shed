@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
-public class FilterViewController {
+public class FilterController {
     // not yet implemented
 
     @FXML

@@ -15,7 +15,7 @@ public class TestModel {
         List<Product> usedProducts = new ArrayList<>();
 
         Product prod;
-        prod = handler.getProducts().get(rand.nextInt(handler.getSize()));
+        prod = handler.getAllProducts().get(rand.nextInt(handler.getSize()));
 
         usedProducts.add(prod);
 
@@ -25,7 +25,7 @@ public class TestModel {
     @Test
     public void testProducts() {
         Model dh = Model.getInstance();
-        Assert.assertEquals(22170, dh.getProducts().size());  // we know data should contain 22170 products
+        Assert.assertEquals(22170, dh.getAllProducts().size());  // we know data should contain 22170 products
     }
 
     @Test
@@ -83,7 +83,7 @@ public class TestModel {
     @Test
     public void testGetProductsById() {
         Model model = Model.getInstance();
-        Product testProduct = model.getProducts().get(0);
+        Product testProduct = model.getAllProducts().get(0);
         int id = Integer.parseInt(testProduct.getProductId());
         Assert.assertEquals(Integer.parseInt(model.getProducts(id).get(0).getProductId()), id);
     }

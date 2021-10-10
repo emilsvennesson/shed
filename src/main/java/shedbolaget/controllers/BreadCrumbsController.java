@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 import shedbolaget.model.Model;
 import shedbolaget.model.events.CategoryEvent;
 
-public class BreadCrumbsViewController {
+public class BreadCrumbsController {
     private final Model model = Model.getInstance();
 
     @FXML
@@ -14,7 +14,6 @@ public class BreadCrumbsViewController {
 
     @FXML
     private Text categoryLevel2Text;
-
 
     @FXML
     public void initialize() {

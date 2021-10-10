@@ -21,7 +21,7 @@ public class ProductMenuItemController extends MenuItem {
 
     private void setOnClickedEventHandler() {
         Stage primaryStage = (Stage) this.getParentPopup().getOwnerWindow();
-        this.setOnAction(new EventHandler<ActionEvent>() {
+        this.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent e) {
                 Parent root = null;
