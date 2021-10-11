@@ -3,7 +3,7 @@
 - **Group**:        shed
 - **Date**: 21-10-07
 - **Chair**:        Samuel Kajava
-- **Participants**: Samuel Kajava, Daniel Ericsson, Daniel Rygaard, Pouya Shirin & Emil Svensson
+- **Participants**: Samuel Kajava, Daniel Rygaard, Pouya Shirin & Emil Svensson
 
 ## Objectives
 

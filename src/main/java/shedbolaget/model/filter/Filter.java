@@ -190,7 +190,6 @@ public class Filter {
         || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
                 .collect(Collectors.toList()));
     }
-
     /**
      *
      * @return active level 1 category
