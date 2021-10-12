@@ -36,4 +36,9 @@ public class ProductPages {
     public int getNumberOfPages() {
         return productPages.size();
     }
+
+    public int getNumberOfProducts(int pageNumber) {
+        // TODO needs boundary checks
+        return productPages.get(pageNumber - 1).getNumberOfProducts();
+    }
 }
