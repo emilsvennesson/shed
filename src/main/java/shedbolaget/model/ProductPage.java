@@ -1,5 +1,6 @@
 package shedbolaget.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,14 +8,18 @@ import java.util.List;
  *
  * @author Emil Svensson, Pouya Shirin
  */
-public class ProductPage<T> {
-    private final List<T> products;
+public class ProductPage {
+    private final List<Product> products;
 
-    public ProductPage(List<T> products) {
+    public ProductPage(List<Product> products) {
         this.products = products;
     }
 
-    public List<T> getProducts() {
-        return products;
+    public List<Product> getProducts() {
+        return new ArrayList<>(products);
+    }
+
+    public int getNumberOfProducts() {
+        return products.size();
     }
 }
