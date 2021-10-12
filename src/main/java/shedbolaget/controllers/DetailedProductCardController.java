@@ -68,7 +68,7 @@ public class DetailedProductCardController {
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
         volumeText.setText(String.format("%.0f ml", product.getVolume()));
         apkText.setText(String.format("APK: %.2f", product.getApk()));
-        categoryLevel2Text.setText(product.getCategoryLevel2());
+        categoryLevel2Text.setText(product.getCategoryLevel2().getName());
         countryText.setText(product.getCountry());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
         producerText.setText(product.getProducerName());

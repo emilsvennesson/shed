@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 public class TestFilter {
+
+    /*
     @Test
     public void testGetLevel1CategoryProducts() {
         Model dh = Model.getInstance();
@@ -100,5 +102,8 @@ public class TestFilter {
             List<Product> randomFilter = model.getFilteredProducts(randomProduct.getProductNameBold());
             Assert.assertTrue(randomFilter.contains(randomProduct));
         }
+
     }
+    */
+
 }

@@ -41,27 +41,7 @@ public class NavBarController {
     }
 
     private void initLevel1Categories() {
-        MenuItem menuItem;
-        for (String category : Model.getInstance().getCategories().keySet()) {
-            menuItem = new MenuItem(category);
-            menuItem.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    Model.getInstance().clearCategoryLevel2Filters();
-                    Model.getInstance().setCategoryLevel1Filter(category);
-                    Stage primaryStage = (Stage) homeButton.getScene().getWindow();
-                    Parent root = null;
-                    try {
-                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ProductsView.fxml")));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    assert root != null;
-                    primaryStage.setScene(new Scene(root));
-                }
-            });
-            dropDownButton.getItems().add(menuItem);
-        }
+
     }
 
     @FXML

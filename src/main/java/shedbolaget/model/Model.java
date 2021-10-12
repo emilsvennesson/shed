@@ -10,7 +10,6 @@ import shedbolaget.model.parser.ParserFactory;
 import shedbolaget.model.sorter.Sorter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 
@@ -20,14 +19,13 @@ public class Model {
     private final EventBus eventBus;
     private final ProductIdListsIOManager listIOManager;
     private List<Product> products;
-    private final Categories categories;
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getAllProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
-        categories = new Categories(getAllProducts());
+        //categories = new Categories(getAllProducts());
         onStartUp();
         addShutdownHook();
     }
@@ -212,9 +210,6 @@ public class Model {
         return filter.getActiveLevel2Categories();
     }
 
-    public HashMap<Category, List<Category>> getCategories() {
-        return categories.getCategories();
-    }
 
     /**
      * Gets a given amount of products and returns them as an ArrayList

@@ -108,8 +108,8 @@ public class Filter {
      */
     public List<Product> getFilteredProducts(String filterString) {
         return (getFilteredProducts().stream().filter(product -> product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
-                        || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
-                        || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
+                        || product.getCategoryLevel1().getName().toLowerCase().contains(filterString.toLowerCase())
+                        || product.getCategoryLevel2().getName().toLowerCase().contains(filterString.toLowerCase()))
                 .collect(Collectors.toList()));
     }
 
@@ -117,7 +117,7 @@ public class Filter {
     private List<Product> getFilteredLevel1Products() {
         try {
             return products.stream()
-                    .filter(product -> product.getCategoryLevel1().toLowerCase().contains(activeCategoryLevel1Filter.toLowerCase()))
+                    .filter(product -> product.getCategoryLevel1().getName().toLowerCase().contains(activeCategoryLevel1Filter.toLowerCase()))
                     .collect(Collectors.toList());
         } catch (NullPointerException e) {
             return products;
@@ -131,7 +131,7 @@ public class Filter {
             for (String condition : activeCategoryLevel2Filters) {
                 productsStreamLevel2 = Stream.concat(productsStreamLevel2, filteredLevel1Products
                         .stream()
-                        .filter(product -> product.getCategoryLevel2().toLowerCase().contains(condition.toLowerCase())));
+                        .filter(product -> product.getCategoryLevel2().getName().toLowerCase().contains(condition.toLowerCase())));
             }
             return productsStreamLevel2.collect(Collectors.toList());
         } else {
@@ -165,8 +165,8 @@ public class Filter {
      */
     public List<Product> getProducts(String filterString) {
         return (products.stream().filter(product -> product.getProductNameBold().toLowerCase().contains(filterString.toLowerCase())
-                        || product.getCategoryLevel1().toLowerCase().contains(filterString.toLowerCase())
-                        || product.getCategoryLevel2().toLowerCase().contains(filterString.toLowerCase()))
+                        || product.getCategoryLevel1().getName().toLowerCase().contains(filterString.toLowerCase())
+                        || product.getCategoryLevel2().getName().toLowerCase().contains(filterString.toLowerCase()))
                 .collect(Collectors.toList()));
     }
 

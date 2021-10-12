@@ -16,9 +16,9 @@ public class CategorySideBarController {
     public void initialize() throws IOException {
         String categoryLevel1 = model.getActiveCategoryLevel1Filter();
         model.clearCategoryLevel2Filters();
-        FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/CategoryView.fxml"));
-        cardLoader.setController(new CategoryController(categoryLevel1, model.getCategories().get(categoryLevel1)));
-        this.categoriesvBox.getChildren().add(cardLoader.load());
+        //FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/CategoryView.fxml"));
+        //cardLoader.setController(new CategoryController(categoryLevel1, model.getCategories().get(categoryLevel1)));
+        //this.categoriesvBox.getChildren().add(cardLoader.load());
 
     }
 

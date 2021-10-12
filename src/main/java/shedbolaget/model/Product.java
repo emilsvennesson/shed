@@ -33,11 +33,11 @@ public class Product {
     private String categoryLevel2;
 
     public Category getCategoryLevel1() {
-        return new Category(categoryLevel1);
+        return new Category(categoryLevel1, 1);
     }
 
     public Category getCategoryLevel2() {
-        return new Category(categoryLevel2);
+        return new Category(categoryLevel2, 2);
     }
 
     public List<Image> getImages() {
