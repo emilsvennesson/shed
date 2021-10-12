@@ -9,10 +9,10 @@ import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
 import shedbolaget.model.sorter.Sorter;
 
-import java.util.function.Function;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 
 public class Model {
     private static final Model instance = new Model();
@@ -20,12 +20,14 @@ public class Model {
     private final EventBus eventBus;
     private final ProductIdListsIOManager listIOManager;
     private List<Product> products;
+    private final Categories categories;
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
         filter = new Filter(getAllProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
+        categories = new Categories(getAllProducts());
         onStartUp();
         addShutdownHook();
     }
@@ -149,10 +151,6 @@ public class Model {
         eventBus.post(new CategoryEvent());
     }
 
-    public HashMap<String, List<String>> getCategories() {
-        return filter.getCategories();
-    }
-
     public void removeCategoryLevel2Filter(String categoryName) {
         filter.removeCategoryLevel2Filter(categoryName);
         eventBus.post(new CategoryEvent());
@@ -214,15 +212,18 @@ public class Model {
         return filter.getActiveLevel2Categories();
     }
 
+    public HashMap<Category, List<Category>> getCategories() {
+        return categories.getCategories();
+    }
 
     /**
      * Gets a given amount of products and returns them as an ArrayList
      *
-     * @param amount    the amount of wanted products
+     * @param amount the amount of wanted products
      */
     public List<Product> getNewProducts(int amount) {
         sortProductsBoolean(Product::isNews);
-        return products.subList(0,amount);
+        return products.subList(0, amount);
     }
 
     /**
