@@ -29,8 +29,8 @@ public class ProductPages {
         return newProductPages;
     }
 
-    public ProductPage getPage(int pageNumber) {
-        return productPages.get(pageNumber - 1);
+    public List<Product> getProductsfromPage(int pageNumber) {
+        return productPages.get(pageNumber - 1).getProducts();
     }
 
     public int getNumberOfPages() {

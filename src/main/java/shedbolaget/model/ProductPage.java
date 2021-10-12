@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Emil Svensson, Pouya Shirin
  */
-public class ProductPage {
+class ProductPage {
     private final List<Product> products;
 
     public ProductPage(List<Product> products) {
