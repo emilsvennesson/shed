@@ -22,7 +22,7 @@ public class MainViewController {
         Model model = Model.getInstance();
 
         ProductPages productPages = new ProductPages(model.getAllProducts());
-        for (Product p : productPages.getProductsfromPage(4)) {
+        for (Product p : productPages.getProductsFromPage(4)) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/BasicProductCardView.fxml"));
             cardLoader.setController(new BasicProductCardController(p));
             newProductsFlowPane.getChildren().add(cardLoader.load());

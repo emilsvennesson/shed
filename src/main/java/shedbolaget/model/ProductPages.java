@@ -29,7 +29,7 @@ public class ProductPages {
         return newProductPages;
     }
 
-    public List<Product> getProductsfromPage(int pageNumber) {
+    public List<Product> getProductsFromPage(int pageNumber) {
         return productPages.get(pageNumber - 1).getProducts();
     }
 
