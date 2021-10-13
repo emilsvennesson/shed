@@ -1,9 +1,11 @@
 package shedbolaget.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
+import shedbolaget.model.Category;
 import shedbolaget.model.Model;
 
 import java.util.ArrayList;
@@ -11,8 +13,7 @@ import java.util.List;
 
 public class CategoryController {
     private final Model model = Model.getInstance();
-    String level1Category;
-    List<String> level2Categories;
+    Category level1Category = model.getActiveCategories(1).get(0);
     List<CheckBox> checkBoxes;
 
     @FXML
@@ -21,14 +22,9 @@ public class CategoryController {
     @FXML
     private VBox categoryLevel2VBox;
 
-    CategoryController(String level1Category, List<String> level2Categories) {
-        this.level1Category = level1Category;
-        this.level2Categories = level2Categories;
-    }
-
     @FXML
     public void initialize() {
-        this.categoryLevel1CheckBox.setText(level1Category);
+        this.categoryLevel1CheckBox.setText(level1Category.getName());
         this.categoryLevel1CheckBox.setSelected(true);
         initLevel2CheckBoxes();
         categoryLevel1CheckBox.setOnAction(this::onChecked);
@@ -41,8 +37,11 @@ public class CategoryController {
 
     private void initLevel2CheckBoxes() {
         checkBoxes = new ArrayList<>();
-        for (String level2Category : level2Categories)
-            categoryLevel2VBox.getChildren().add(new CategoryLevel2CheckBoxController(level1Category, level2Category));
+        for (Category level2Category : model.getSubCategories(level1Category)) {
+            CheckBox checkBox = new CheckBox(level2Category.getName());
+            checkBox.setOnAction(e -> model.addToActiveCategories(level2Category));
+            categoryLevel2VBox.getChildren().add(checkBox);
+        }
     }
 }
 
