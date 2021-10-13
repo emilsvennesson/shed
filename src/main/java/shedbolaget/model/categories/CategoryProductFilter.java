@@ -28,6 +28,7 @@ public class CategoryProductFilter {
      * @return the filtered products that matches the list of categories specified
      */
     public static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
+        categories = categories.stream().distinct().collect(Collectors.toList());  // ensure we have no duplicates
         List<Product> filteredProducts = new ArrayList<>();
         List<Category> level1Categories = Categories.getCategories(categories, 1);
         List<Category> level2Categories = Categories.getCategories(categories, 2);
