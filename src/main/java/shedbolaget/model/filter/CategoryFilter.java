@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CategoryFilter {
+    private CategoryFilter() {
+    }
+
     public static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
         List<Product> filteredProducts = new ArrayList<>();
         List<Category> level1Categories = categories.stream().filter(category -> category.getLevel() == 1).collect(Collectors.toList());

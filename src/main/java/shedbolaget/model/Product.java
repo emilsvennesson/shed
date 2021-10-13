@@ -3,6 +3,7 @@ package shedbolaget.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
+import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
@@ -34,6 +35,16 @@ public class Product {
 
     public Category getCategoryLevel1() {
         return new Category(categoryLevel1, 1);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // override equals and match product id
+        if (getClass() != o.getClass())
+            return false;
+        if (o == this)
+            return true;
+        return Objects.equals(this.getProductId(), ((Product) o).getProductId());
     }
 
     public Category getCategoryLevel2() {

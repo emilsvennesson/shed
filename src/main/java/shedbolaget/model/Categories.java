@@ -35,8 +35,7 @@ public class Categories {
     }
 
     private void initCategories() {
-        for (Category level1Category : getCategoriesLevel1()) {
+        for (Category level1Category : getCategoriesLevel1())
             categories.put(level1Category, getCategoriesLevel2(level1Category));
-        }
     }
 }
