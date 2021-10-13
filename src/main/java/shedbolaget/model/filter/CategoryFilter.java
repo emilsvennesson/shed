@@ -10,10 +10,23 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This class is responsible for filtering out products based on categories.
+ *
+ * @author Emil Svensson, Samuel Kajava
+ */
 public class CategoryFilter {
     private CategoryFilter() {
     }
 
+
+    /**
+     * Gets filtered products.
+     *
+     * @param products   the products list to filter from
+     * @param categories the categories list with filters to apply to the products list
+     * @return the filtered products that matches the list of categories specified
+     */
     public static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
         List<Product> filteredProducts = new ArrayList<>();
         List<Category> level1Categories = categories.stream().filter(category -> category.getLevel() == 1).collect(Collectors.toList());

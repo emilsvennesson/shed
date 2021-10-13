@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class that can be used to parse categories from a products list.
+ *
+ * @author Emil Svensson
+ */
 class Categories {
     private Categories() {
     }

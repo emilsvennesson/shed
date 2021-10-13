@@ -2,6 +2,11 @@ package shedbolaget.model;
 
 import java.util.Objects;
 
+/**
+ * Represents a product category.
+ *
+ * @author Emil Svensson
+ */
 public class Category {
     private final String name;
     private final int level;
