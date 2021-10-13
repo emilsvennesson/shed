@@ -1,7 +1,7 @@
 package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
-import shedbolaget.model.categories.Categories;
+import shedbolaget.model.categories.CategoriesHandler;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.categories.CategoryProductFilter;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
@@ -29,7 +29,7 @@ public class Model {
         populateProducts(ParserFactory.getJsonParser());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
-        categories = Categories.getCategories(getAllProducts());
+        categories = CategoriesHandler.getCategories(getAllProducts());
         onStartUp();
         addShutdownHook();
     }
@@ -64,11 +64,11 @@ public class Model {
     }
 
     public List<Category> getActiveCategories(int level) {
-        return Categories.getCategories(getActiveCategories(), level);
+        return CategoriesHandler.getCategories(getActiveCategories(), level);
     }
 
     public List<Category> getSubCategories(Category category) {
-        return Categories.getCategoriesLevel2(getAllProducts(), category);
+        return CategoriesHandler.getCategoriesLevel2(getAllProducts(), category);
     }
 
     private void addShutdownHook() {

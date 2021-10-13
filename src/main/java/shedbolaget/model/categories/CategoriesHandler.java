@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  *
  * @author Emil Svensson
  */
-public class Categories {
-    private Categories() {
+public class CategoriesHandler {
+    private CategoriesHandler() {
     }
 
     private static List<Category> getCategoriesLevel1(List<Product> products) {
