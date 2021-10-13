@@ -20,6 +20,16 @@ public class Model {
     private final EventBus eventBus;
     private final ProductIdListsIOManager listIOManager;
     private List<Product> products;
+
+    /**
+     * Gets all available categories.
+     *
+     * @return the categories in which each key has its associated subcategories as value
+     */
+    public HashMap<Category, List<Category>> getCategories() {
+        return categories;
+    }
+
     HashMap<Category, List<Category>> categories;
 
     private Model() {
@@ -27,7 +37,7 @@ public class Model {
         filter = new Filter(getAllProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
-        categories = new Categories(getAllProducts()).getCategories();
+        categories = Categories.getCategories(getAllProducts());
         onStartUp();
         addShutdownHook();
     }
