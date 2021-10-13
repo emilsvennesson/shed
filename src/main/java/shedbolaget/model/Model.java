@@ -2,6 +2,7 @@ package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
 import shedbolaget.model.categories.Categories;
+import shedbolaget.model.categories.Category;
 import shedbolaget.model.categories.CategoryProductFilter;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;

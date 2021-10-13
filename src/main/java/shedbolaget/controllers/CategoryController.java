@@ -1,11 +1,10 @@
 package shedbolaget.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
-import shedbolaget.model.Category;
+import shedbolaget.model.categories.Category;
 import shedbolaget.model.Model;
 
 import java.util.ArrayList;

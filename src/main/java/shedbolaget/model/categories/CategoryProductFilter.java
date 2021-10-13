@@ -1,6 +1,5 @@
 package shedbolaget.model.categories;
 
-import shedbolaget.model.Category;
 import shedbolaget.model.Product;
 
 import java.util.ArrayList;

@@ -11,7 +11,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import shedbolaget.model.Category;
+import shedbolaget.model.categories.Category;
 import shedbolaget.model.Model;
 
 import java.io.IOException;
