@@ -1,7 +1,9 @@
-package shedbolaget.model;
+package shedbolaget.model.categories;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.model.Category;
+import shedbolaget.model.Model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,4 +30,5 @@ public class TestCategories {
             }
         }
     }
+
 }
