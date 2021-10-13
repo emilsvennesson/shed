@@ -47,6 +47,11 @@ public class Product {
         return Objects.equals(this.getProductId(), ((Product) o).getProductId());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getProductId());
+    }
+
     public Category getCategoryLevel2() {
         return new Category(categoryLevel2, 2);
     }

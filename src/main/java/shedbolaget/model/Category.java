@@ -27,7 +27,12 @@ public class Category {
             return false;
         if (o == this)
             return true;
-        return Objects.equals(this.getName(), ((Category) o).getName()) && this.getLevel() == ((Category) o).getLevel();
+        return Objects.equals(name, ((Category) o).getName()) && level == ((Category) o).getLevel();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, level);
     }
 
     public String getName() {
