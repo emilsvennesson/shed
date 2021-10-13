@@ -4,6 +4,7 @@ import com.google.common.eventbus.EventBus;
 import shedbolaget.model.categories.CategoriesHandler;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.categories.CategoryProductFilter;
+import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.parser.IProductParser;
@@ -44,14 +45,17 @@ public class Model {
 
     public void addToActiveCategories(Category category) {
         activeCategories.add(category);
+        eventBus.post(new CategoryEvent(getActiveCategories()));
     }
 
     public void removeFromActiveCategories(Category category) {
         activeCategories.remove(category);
+        eventBus.post(new CategoryEvent(getActiveCategories()));
     }
 
     public void clearActiveCategories() {
         activeCategories.clear();
+        eventBus.post(new CategoryEvent(getActiveCategories()));
     }
 
     /**
