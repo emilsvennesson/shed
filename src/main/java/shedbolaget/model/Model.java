@@ -1,10 +1,10 @@
 package shedbolaget.model;
 
 import com.google.common.eventbus.EventBus;
-import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.categories.Categories;
+import shedbolaget.model.categories.CategoryProductFilter;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
-import shedbolaget.model.filter.Filter;
 import shedbolaget.model.parser.IProductParser;
 import shedbolaget.model.parser.ParserFactory;
 import shedbolaget.model.sorter.Sorter;
@@ -12,29 +12,20 @@ import shedbolaget.model.sorter.Sorter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Model {
     private static final Model instance = new Model();
-    private final Filter filter;
     private final EventBus eventBus;
     private final ProductIdListsIOManager listIOManager;
-    private List<Product> products;
-
-    /**
-     * Gets all available categories.
-     *
-     * @return the categories in which each key has its associated subcategories as value
-     */
-    public HashMap<Category, List<Category>> getCategories() {
-        return categories;
-    }
-
+    private final List<Category> activeCategories = new ArrayList<>();
     HashMap<Category, List<Category>> categories;
+    private List<Product> products;
 
     private Model() {
         populateProducts(ParserFactory.getJsonParser());
-        filter = new Filter(getAllProducts());
         listIOManager = ProductIdListsIOManager.getInstance();
         eventBus = new EventBus();
         categories = Categories.getCategories(getAllProducts());
@@ -46,16 +37,41 @@ public class Model {
         return instance;
     }
 
+    public List<Category> getActiveCategories() {
+        return activeCategories;
+    }
+
+    public void addToActiveCategories(Category category) {
+        activeCategories.add(category);
+    }
+
+    public void removeFromActiveCategories(Category category) {
+        activeCategories.remove(category);
+    }
+
+    public void clearActiveCategories() {
+        activeCategories.clear();
+    }
+
+    /**
+     * Gets all available categories.
+     *
+     * @return the categories in which each key has its associated subcategories as value
+     */
+    public HashMap<Category, List<Category>> getCategories() {
+        return categories;
+    }
+
+    public List<Category> getActiveCategories(int level) {
+        return Categories.getCategories(getActiveCategories(), level);
+    }
+
+    public List<Category> getSubCategories(Category category) {
+        return Categories.getCategoriesLevel2(getAllProducts(), category);
+    }
+
     private void addShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(this::onShutDown, "Shutdown-thread"));
-    }
-
-    public List<String> getActiveCategoryLevel2Filters() {
-        return filter.getActiveCategoryLevel2Filters();
-    }
-
-    public String getActiveCategoryLevel1Filter() {
-        return filter.getActiveCategoryLevel1Filter();
     }
 
     public void registerToEventBus(Object o) {
@@ -142,41 +158,8 @@ public class Model {
         return this.products.size();
     }
 
-    public void clearAllFilters() {
-        filter.clearAllFilters();
-    }
-
-    public void setCategoryLevel1Filter(String categoryName) {
-        filter.setCategoryLevel1Filter(categoryName);
-        eventBus.post(new CategoryEvent());
-    }
-
-    public void clearCategoryLevel1Filter() {
-        filter.clearCategoryLevel1Filter();
-        eventBus.post(new CategoryEvent());
-    }
-
-    public void addCategoryLevel2Filter(String categoryName) {
-        filter.addCategoryLevel2Filter(categoryName);
-        eventBus.post(new CategoryEvent());
-    }
-
-    public void removeCategoryLevel2Filter(String categoryName) {
-        filter.removeCategoryLevel2Filter(categoryName);
-        eventBus.post(new CategoryEvent());
-    }
-
-    public void clearCategoryLevel2Filters() {
-        filter.clearCategoryLevel2Filters();
-        eventBus.post(new CategoryEvent());
-    }
-
-    public List<Product> getFilteredProducts() {
-        return filter.getFilteredProducts();
-    }
-
-    public List<Product> getFilteredProducts(String filterString) {
-        return filter.getFilteredProducts(filterString);
+    public List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
+        return CategoryProductFilter.getFilteredProducts(products, categories);
     }
 
     /**
@@ -206,22 +189,9 @@ public class Model {
         Sorter.sortProductsString(stringFunction, this.products);
     }
 
-    public List<Product> getProducts(int id) {
-        return filter.getProducts(id);
+    public List<Product> getProducts(int productId) {
+        return getAllProducts().stream().filter(product -> Objects.equals(product.getProductId(), Integer.toString(productId))).collect(Collectors.toList());
     }
-
-    public List<Product> getProducts(String filterString) {
-        return filter.getProducts(filterString);
-    }
-
-    public String getActiveLevel1Category() {
-        return filter.getActiveLevel1Category();
-    }
-
-    public ArrayList<String> getActiveLevel2Categories() {
-        return filter.getActiveLevel2Categories();
-    }
-
 
     /**
      * Gets a given amount of products and returns them as an ArrayList

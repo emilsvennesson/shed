@@ -1,4 +1,4 @@
-package shedbolaget.model.filter;
+package shedbolaget.model.categories;
 
 import shedbolaget.model.Category;
 import shedbolaget.model.Product;
@@ -15,8 +15,8 @@ import java.util.stream.Stream;
  *
  * @author Emil Svensson, Samuel Kajava
  */
-public class CategoryFilter {
-    private CategoryFilter() {
+public class CategoryProductFilter {
+    private CategoryProductFilter() {
     }
 
 
@@ -29,12 +29,14 @@ public class CategoryFilter {
      */
     public static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
         List<Product> filteredProducts = new ArrayList<>();
-        List<Category> level1Categories = categories.stream().filter(category -> category.getLevel() == 1).collect(Collectors.toList());
-        List<Category> level2Categories = categories.stream().filter(category -> category.getLevel() == 2).collect(Collectors.toList());
+        List<Category> level1Categories = Categories.getCategories(categories, 1);
+        List<Category> level2Categories = Categories.getCategories(categories, 2);
         for (Category level2Category : level2Categories) {
             List<Product> prods = products.stream().filter(product -> Objects.equals(product.getCategoryLevel2().getName(), level2Category.getName())).collect(Collectors.toList());
             filteredProducts = Stream.of(filteredProducts, prods).flatMap(Collection::stream).collect(Collectors.toList());
         }
+        if (!filteredProducts.isEmpty() && !Categories.getCategories(categories, 1).isEmpty())
+            return filteredProducts;
         for (Category level1Category : level1Categories) {
             List<Product> finalFilteredProducts = filteredProducts;
             List<Product> prods = products.stream().filter(product -> Objects.equals(product.getCategoryLevel1().getName(), level1Category.getName()) && !finalFilteredProducts.contains(product)).collect(Collectors.toList());
