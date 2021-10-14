@@ -23,6 +23,7 @@ public class Drink {
      * Checks if the drink has a {@link Ingredient}
      * @param ingredient, the ingredient that is checked
      * @return a boolean that is true only if this drink has the ingredient
+     * @since 1.0.0
      */
     boolean hasIngreadient(Ingredient ingredient){
 
@@ -40,6 +41,7 @@ public class Drink {
      * Checks if this drink has {@link Ingredient}s, this only returns true if all the set {@link Ingredient}s are in this drink
      * @param ings, a list of {@link Ingredient}s that are checked
      * @return a boolean, true if all the ingredients are in this drink
+     * @since 1.0.0
      */
     boolean hasIngreadients(List<Ingredient> ings){
 
