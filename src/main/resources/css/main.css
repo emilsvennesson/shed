@@ -61,13 +61,29 @@
     -fx-cursor: hand;
 }
 
-.navbar-button, .context-menu, .context-menu .label {
+.navbar-button, .context-menu, .context-menu .label{
     -fx-background-color: white;
     -fx-border: none;
-    -fx-font-size: 18px;
     -fx-border-width: 2px 0 2px 0;
     -fx-border-color: transparent;
     -fx-text-fill: -black;
+}
+
+.navbar-button {
+    -fx-font-size: 18px;
+}
+
+.filter-btn {
+    -fx-border: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: -light_grey;
+    -fx-background-color: -light_grey_background;
+}
+
+.filter-btn:hover {
+    -fx-text-fill: white;
+    -fx-background-color: -light_grey;
+    -fx-cursor: hand;
 }
 
 .navbar-button:hover, .context-menu:hover {
