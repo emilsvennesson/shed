@@ -9,13 +9,11 @@ import java.util.List;
  * <p> {@link DrinkFilter} class compares drinks and singles out different drinks with different properties</p>
  *
  * @author Daniel Rygaard
- * @version %I%, %G%
  * @version 1.0.0
  */
 public class DrinkFilter {
 
 
-    List<Drink> drinks;
     private List<Drink> drinks;
 
     DrinkFilter(IDrinkLoader loader){
