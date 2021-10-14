@@ -11,8 +11,8 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import shedbolaget.model.categories.Category;
 import shedbolaget.model.Model;
+import shedbolaget.model.categories.Category;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -44,9 +44,9 @@ public class NavBarController {
 
     private void initLevel1Categories() {
         MenuItem menuItem;
-        for (Category category : Model.getInstance().getCategories().keySet()) {
+        for (Category category : model.getCategories().keySet()) {
             menuItem = new MenuItem(category.getName());
-            menuItem.setOnAction(new EventHandler<ActionEvent>() {
+            menuItem.setOnAction(new EventHandler<>() {
                 @Override
                 public void handle(ActionEvent e) {
                     model.clearActiveCategories();

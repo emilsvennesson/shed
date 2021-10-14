@@ -4,8 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
-import shedbolaget.model.categories.Category;
 import shedbolaget.model.Model;
+import shedbolaget.model.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +38,13 @@ public class CategoryController {
         checkBoxes = new ArrayList<>();
         for (Category level2Category : model.getSubCategories(level1Category)) {
             CheckBox checkBox = new CheckBox(level2Category.getName());
-            checkBox.setOnAction(e -> model.addToActiveCategories(level2Category));
+            checkBox.setOnAction(event -> {
+                if (checkBox.isSelected())
+                    model.addToActiveCategories(level2Category);
+                else
+                    model.removeFromActiveCategories(level2Category);
+            });
             categoryLevel2VBox.getChildren().add(checkBox);
         }
     }
 }
-

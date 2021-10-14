@@ -15,7 +15,6 @@ public class CategorySideBarController {
     @FXML
     public void initialize() throws IOException {
         FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/CategoryView.fxml"));
-        //cardLoader.setController(new CategoryController(categoryLevel1, model.getCategories().get(categoryLevel1)));
         this.categoriesvBox.getChildren().add(cardLoader.load());
 
     }
