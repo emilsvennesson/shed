@@ -19,7 +19,7 @@ public class Categories {
     private Categories() {
     }
 
-    private static List<Category> getCategoriesLevel1(List<Product> products) {
+    public static List<Category> getCategoriesLevel1(List<Product> products) {
         List<Category> categories = new ArrayList<>();
         for (Product product : products)
             if (!categories.contains(product.getCategoryLevel1()))
@@ -27,7 +27,7 @@ public class Categories {
         return categories;
     }
 
-    private static List<Category> getCategoriesLevel2(List<Product> products, Category categoryLevel1) {
+    public static List<Category> getCategoriesLevel2(List<Product> products, Category categoryLevel1) {
         List<Category> categories = new ArrayList<>();
         for (Product product : products) {
             Category productCategoryLevel2 = product.getCategoryLevel2();
@@ -56,5 +56,9 @@ public class Categories {
 
     public static HashMap<Category, List<Category>> getAllCategories() {
         return allCategories;
+    }
+
+    public static List<Category> getSubCategories(Category category) {
+        return Categories.getCategoriesLevel2(Products.getInstance().getAllProducts(), category);
     }
 }
