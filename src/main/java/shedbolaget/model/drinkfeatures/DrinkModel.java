@@ -1,7 +1,6 @@
 package shedbolaget.model.drinkfeatures;
 
 import shedbolaget.model.Product;
-import shedbolaget.model.favorites.SavableProductIdList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +16,9 @@ import java.util.List;
 public class DrinkModel {
 
 
-    List<Ingredient> ingredients = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
+    DrinkFilter dFilter;
 
     /**
      * Gets all the {@link Drink}s with the set {@link Ingredient}s
@@ -27,8 +27,7 @@ public class DrinkModel {
      */
     public List<Drink> loadDrinks(){
 
-
-        return null;
+        return dFilter.getFilteredDrinks(ingredients);
     }
 
     /**
@@ -37,7 +36,7 @@ public class DrinkModel {
      * @return      a list of {@link Drink}
      */
     public List<Drink> loadAllDrinks(){
-        return null;
+        return dFilter.getAllDrinks();
     }
 
 
@@ -47,7 +46,7 @@ public class DrinkModel {
      * @param ingredient    {@link Ingredient} that will be added
      */
     public void addIngredient(Ingredient ingredient){
-
+        ingredients.add(ingredient);
     }
 
     /**
@@ -58,8 +57,6 @@ public class DrinkModel {
     public void addIngredient(Product product){
         Ingredient ing = new Ingredient(product);
         this.addIngredient(ing);
-
-
     }
 
 }
