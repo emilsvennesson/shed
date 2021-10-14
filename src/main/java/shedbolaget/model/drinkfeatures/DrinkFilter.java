@@ -26,16 +26,12 @@ public class DrinkFilter {
      * @param ingredients, the ingredients that need to be in the drinks
      * @return a list of {@link Drink}s
      */
-    List<Drink> generateDrinks(List<Ingredient> ingredients){
-        List<Drink> viableDrinks = new ArrayList<>();
+    List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
 
-        for (Drink d :
-                drinks) {
-            if(d.hasIngreadients(ingredients))
-                viableDrinks.add(d);
-        }
+        return drinks.stream()
+                .filter(x-> x.hasIngreadients(ingredients))
+                .toList();
 
-        return viableDrinks;
     }
 
     public List<Drink> getAllDrinks() {
