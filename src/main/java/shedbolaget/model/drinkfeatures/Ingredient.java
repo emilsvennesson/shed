@@ -3,6 +3,9 @@ package shedbolaget.model.drinkfeatures;
 import shedbolaget.model.Product;
 import shedbolaget.model.favorites.SavableProductIdList;
 
+import java.util.Objects;
+import java.util.stream.IntStream;
+
 /**
  * model.drinkfeatures.Ingredient
  *
@@ -27,5 +30,18 @@ public class Ingredient {
 
     public String getIngredient() {
         return ingredient;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ingredient)) return false;
+        Ingredient that = (Ingredient) o;
+        return getIngredient().equals(that.getIngredient());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIngredient());
     }
 }
