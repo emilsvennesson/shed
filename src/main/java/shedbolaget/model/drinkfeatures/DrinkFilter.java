@@ -16,6 +16,7 @@ public class DrinkFilter {
 
 
     List<Drink> drinks;
+    private List<Drink> drinks;
 
     DrinkFilter(IDrinkLoader loader){
         this.drinks = loader.load();
