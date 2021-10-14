@@ -57,7 +57,7 @@ public class Product {
         return new Category(categoryLevel2, 2);
     }
 
-    public List<Image> getImages() {
+    private List<Image> getImages() {
         return images;
     }
 

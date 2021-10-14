@@ -30,7 +30,7 @@ public class Pages {
     }
 
     public List<Product> getProductsFromPage(int pageNumber) {
-        return productPages.get(pageNumber - 1).getProducts();
+        return productPages.get(pageNumber - 1).getAllProducts();
     }
 
     public int getNumberOfPages() {

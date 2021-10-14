@@ -11,14 +11,12 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import shedbolaget.model.Model;
 import shedbolaget.model.categories.Category;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class NavBarController {
-    private final Model model = Model.getInstance();
     @FXML
     private MenuButton dropDownButton;
 
@@ -44,6 +42,7 @@ public class NavBarController {
 
     private void initLevel1Categories() {
         MenuItem menuItem;
+        /*
         for (Category category : model.getCategories().keySet()) {
             menuItem = new MenuItem(category.getName());
             menuItem.setOnAction(new EventHandler<>() {
@@ -64,6 +63,8 @@ public class NavBarController {
             });
             dropDownButton.getItems().add(menuItem);
         }
+
+         */
     }
 
 

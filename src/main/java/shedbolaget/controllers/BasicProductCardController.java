@@ -7,14 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import shedbolaget.model.Model;
 import shedbolaget.model.products.Product;
 
 import java.io.IOException;
 
 public class BasicProductCardController {
     private final Product product;
-    private final Model model = Model.getInstance();
+    //private final Model model = Model.getInstance();
     @FXML
     private ImageView imageView;
     @FXML
@@ -33,7 +32,7 @@ public class BasicProductCardController {
 
     @FXML
     public void initialize() throws IOException {
-        isFavorite = model.isFavorite(product);
+        //isFavorite = model.isFavorite(product);
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         nameBoldText.setText(product.getProductNameBold());
@@ -44,11 +43,14 @@ public class BasicProductCardController {
 
     @FXML
     void favoriteButtonOnClick(ActionEvent event) {
+        /*
         if (isFavorite) {
             model.removeFromFavorites(product);
         } else {
             model.addToFavorites(product);
         }
+
+         */
         isFavorite = !isFavorite;
         favoriteButton.setText(getFavoriteButtonText());
     }

@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import shedbolaget.model.Model;
-import shedbolaget.model.products.Product;
 
 import java.io.IOException;
 
@@ -24,12 +22,15 @@ public class FavoritesController {
     }
 
     private void populateFavorites() throws IOException {
-        Model model = Model.getInstance();
+        //Model model = Model.getInstance();
+        /*
         for (Product p : model.getFavoritesAsProducts()) {
             FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/BasicProductCardView.fxml"));
             cardLoader.setController(new BasicProductCardController(p));
             favoritesFlowPane.getChildren().add(cardLoader.load());
         }
+
+         */
     }
 
 }
