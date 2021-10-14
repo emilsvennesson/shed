@@ -18,7 +18,6 @@ import java.util.stream.IntStream;
 public class Ingredient {
 
 
-    String ingredient;
     private String ingredient;
 
     public Ingredient(Product prod){
