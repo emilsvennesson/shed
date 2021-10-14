@@ -136,7 +136,7 @@ public class Product {
 
         try {
             imageUrl = this.getImages().get(0).getImageUrl() + String.format("_%s.png", size);
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NullPointerException e) {
             // fallback, some products do not have an image in json even though it exists on cdn
             imageUrl = String.format("https://product-cdn.systembolaget.se/productimages/%s/%s_%s.png", this.getProductId(), this.getProductId(), size);
         }

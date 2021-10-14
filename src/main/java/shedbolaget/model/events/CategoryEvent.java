@@ -2,6 +2,7 @@ package shedbolaget.model.events;
 
 import shedbolaget.model.categories.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryEvent {
@@ -12,7 +13,7 @@ public class CategoryEvent {
     }
 
     public List<Category> getActiveCategories() {
-        return activeCategories;
+        return new ArrayList<>(activeCategories);
     }
 
     public boolean isCleared() {
