@@ -22,7 +22,7 @@ public class Sorter {
     }
 
     public static List<Product> getProductListSortedByApk(List<Product> productList) {
-        return ProductListSorter.getProductsSortedByDouble(Product::getApk, productList);
+        return ProductListSorter.getProductsSortedByDouble(Product::getApk, productList, true);
     }
 
     public static List<Product> getProductListSortedByApk(List<Product> productList, boolean reversed) {
