@@ -1,6 +1,6 @@
 package shedbolaget.model.parser;
 
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.util.List;
 

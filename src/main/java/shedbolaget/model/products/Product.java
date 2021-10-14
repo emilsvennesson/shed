@@ -1,4 +1,4 @@
-package shedbolaget.model;
+package shedbolaget.model.products;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import shedbolaget.model.categories.Category;

@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.SortEvent;
 

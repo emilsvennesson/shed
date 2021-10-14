@@ -4,7 +4,7 @@ package shedbolaget.model.favorites;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
