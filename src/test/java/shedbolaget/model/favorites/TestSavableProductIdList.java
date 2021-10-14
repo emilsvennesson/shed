@@ -3,8 +3,8 @@ package shedbolaget.model.favorites;
 
 import org.junit.Assert;
 import org.junit.Test;
-import shedbolaget.model.Model;
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.Products;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +143,6 @@ public class TestSavableProductIdList {
 
     }
 
-    static Model handler = Model.getInstance();
     static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
 
@@ -152,7 +151,7 @@ public class TestSavableProductIdList {
 
         Product prod;
         do {
-            prod = handler.getAllProducts().get(rand.nextInt(handler.getSize()));
+            prod = Products.getInstance().getAllProducts().get(rand.nextInt(Products.getInstance().getAllProducts().size()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);

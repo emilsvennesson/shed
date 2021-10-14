@@ -3,8 +3,8 @@ package shedbolaget.model.favorites;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import shedbolaget.model.Model;
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.Products;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +12,17 @@ import java.util.Random;
 
 
 public class TestProductListIO {
-
-
-    static Model handler = Model.getInstance();
     static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
     SavableProductIdList list = new SavableProductIdList("Favorites");
     List<SavableProductIdList> listofLists = new ArrayList<>();
     IProductListIO io = new ProductListFileIO();
 
-    private static Product getRandomUnequeProduct() {
-
-
+    private static Product getRandomUniqueProduct() {
+        List<Product> products = Products.getInstance().getAllProducts();
         Product prod;
         do {
-            prod = handler.getAllProducts().get(rand.nextInt(handler.getSize()));
+            prod = products.get(rand.nextInt(products.size()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);
@@ -40,7 +36,7 @@ public class TestProductListIO {
 
 
         for (int i = 0; i < 10; i++) {
-            Product prod = getRandomUnequeProduct();
+            Product prod = getRandomUniqueProduct();
             list.addProductId(prod);
         }
 

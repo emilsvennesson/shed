@@ -11,15 +11,26 @@ import java.util.List;
 public class Pages {
     private final List<IProductsCollection> productPages;
     private final int productsPerPage;
+    private final int totalProducts;
 
     public Pages(List<Product> products) {
         this.productsPerPage = 20;  // default page size
+        this.totalProducts = products.size();
         this.productPages = splitIntoPages(products);
+    }
+
+    public int getTotalNumberOfProducts() {
+        return totalProducts;
     }
 
     public Pages(List<Product> products, int productsPerPage) {
         this.productsPerPage = productsPerPage;
+        this.totalProducts = products.size();
         this.productPages = splitIntoPages(products);
+    }
+
+    public int getProductsPerPage() {
+        return productsPerPage;
     }
 
     private List<IProductsCollection> splitIntoPages(List<Product> products) {
