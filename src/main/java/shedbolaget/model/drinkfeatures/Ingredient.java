@@ -19,6 +19,7 @@ public class Ingredient {
 
 
     String ingredient;
+    private String ingredient;
 
     public Ingredient(Product prod){
 
