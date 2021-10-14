@@ -5,6 +5,7 @@ import shedbolaget.model.categories.CategoriesHandler;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.categories.CategoryProductFilter;
 import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.favorites.ProductIdListsIOManager;
 import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.parser.IProductParser;
@@ -167,33 +168,6 @@ public class Model {
         return CategoryProductFilter.getFilteredProducts(products, categories);
     }
 
-    /**
-     * Sort products double values.
-     *
-     * @param doubleFunction the double function to compare by
-     */
-    public void sortProductsDouble(Function<Product, Double> doubleFunction) {
-        Sorter.sortProductsDouble(doubleFunction, this.products);
-    }
-
-    /**
-     * Sort products by boolean values.
-     *
-     * @param booleanFunction the boolean function to compare by
-     */
-    public void sortProductsBoolean(Function<Product, Boolean> booleanFunction) {
-        Sorter.sortProductsBoolean(booleanFunction, this.products);
-    }
-
-    /**
-     * Sort products string values.
-     *
-     * @param stringFunction the string function to compare by
-     */
-    public void sortProductsString(Function<Product, String> stringFunction) {
-        Sorter.sortProductsString(stringFunction, this.products);
-    }
-
     public List<Product> getProducts(int productId) {
         return getAllProducts().stream().filter(product -> Objects.equals(product.getProductId(), Integer.toString(productId))).collect(Collectors.toList());
     }
@@ -204,7 +178,7 @@ public class Model {
      * @param amount the amount of wanted products
      */
     public List<Product> getNewProducts(int amount) {
-        sortProductsBoolean(Product::isNews);
+        Sorter.getProductListSortedByApk(products);
         return products.subList(0, amount);
     }
 
@@ -217,5 +191,20 @@ public class Model {
         return (getFavoritesAsProducts().contains(product));
     }
 
+    public void sortByPrice() {
+        List<Product> sortedProducts = Sorter.getProductListSortedByPrice(getFilteredProducts(products, getActiveCategories()));
+        eventBus.post(new SortEvent(sortedProducts));
+    }
+
+    public void sortByApk() {
+        List<Product> sortedProducts = Sorter.getProductListSortedByApk(getFilteredProducts(products, getActiveCategories()));
+        eventBus.post(new SortEvent(sortedProducts));
+    }
+
+    public void sortByName() {
+        System.out.println("Now calling sortedByApk(), replace with sortedByName() when implemented");
+        List<Product> sortedProducts = Sorter.getProductListSortedByApk(getFilteredProducts(products, getActiveCategories()));
+        eventBus.post(new SortEvent(sortedProducts));
+    }
 
 }
