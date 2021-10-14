@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import shedbolaget.model.Model;
 import shedbolaget.model.products.Product;
 
 import java.io.IOException;
@@ -49,7 +48,6 @@ public class DetailedProductCardController {
     private Button favoritesButton;
     @FXML
     private VBox descriptionVBox;
-    private final Model model = Model.getInstance();
 
     private boolean expanded;
     private boolean isFavorite;
@@ -57,7 +55,7 @@ public class DetailedProductCardController {
     public DetailedProductCardController(Product product) {
         this.product = product;
         this.expanded = false;
-        this.isFavorite = model.isFavorite(product);
+        //this.isFavorite = model.isFavorite(product);
     }
 
     @FXML
@@ -97,9 +95,9 @@ public class DetailedProductCardController {
     @FXML
     void favoritesButtonOnClick(ActionEvent event) {
         if (isFavorite) {
-            model.removeFromFavorites(product);
+            //model.removeFromFavorites(product);
         } else {
-            model.addToFavorites(product);
+            //model.addToFavorites(product);
         }
         favoritesButton.getStyleClass().remove(getFavoriteButtonClass());
         isFavorite = !isFavorite;

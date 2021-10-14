@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @author Emil Svensson
  */
 public class Categories {
-    private static final HashMap<Category, List<Category>> allCategories = getCategories(Products.getInstance().getAllProducts());
+    private static final HashMap<Category, List<Category>> allCategories = getCategoriesByLevel(Products.getInstance().getAllProducts());
 
     private Categories() {
     }
@@ -43,14 +43,14 @@ public class Categories {
      * @param products the list of products to retrieve categories from
      * @return the categories in which each key has its associated subcategories as value
      */
-    private static HashMap<Category, List<Category>> getCategories(List<Product> products) {
+    private static HashMap<Category, List<Category>> getCategoriesByLevel(List<Product> products) {
         HashMap<Category, List<Category>> categories = new HashMap<>();
         for (Category level1Category : getCategoriesLevel1(products))
             categories.put(level1Category, getCategoriesLevel2(products, level1Category));
         return categories;
     }
 
-    private static List<Category> getCategories(List<Category> categories, int level) {
+    public static List<Category> getCategoriesByLevel(List<Category> categories, int level) {
         return categories.stream().filter(category -> category.getLevel() == level).collect(Collectors.toList());
     }
 

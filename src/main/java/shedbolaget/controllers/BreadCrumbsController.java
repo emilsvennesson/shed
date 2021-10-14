@@ -3,7 +3,6 @@ package shedbolaget.controllers;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import shedbolaget.model.Model;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 
@@ -11,7 +10,6 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class BreadCrumbsController {
-    private final Model model = Model.getInstance();
 
     @FXML
     private Text categoryLevel1Text;
@@ -21,8 +19,8 @@ public class BreadCrumbsController {
 
     @FXML
     public void initialize() {
-        model.registerToEventBus(this);
-        categoryLevel1Text.setText(getCategoryLevelText(model.getActiveCategories(), 1));
+        //model.registerToEventBus(this);
+        //categoryLevel1Text.setText(getCategoryLevelText(model.getActiveCategories(), 1));
         categoryLevel2Text.setVisible(false);
     }
 
@@ -39,7 +37,7 @@ public class BreadCrumbsController {
     public void actOnCategoryEvent(CategoryEvent event) {
         // TODO: we need to refactor frontend to avoid this
         if (event.isCleared()) {
-            model.unregisterFromEventBus(this);
+            //model.unregisterFromEventBus(this);
             return;
         }
         categoryLevel1Text.setText(getCategoryLevelText(event.getActiveCategories(), 1));
