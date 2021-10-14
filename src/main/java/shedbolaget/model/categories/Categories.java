@@ -1,6 +1,7 @@
 package shedbolaget.model.categories;
 
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.Products;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,12 +9,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Class that can be used to parse categories from a products list.
+ * Handles and parses categories from a products list.
  *
  * @author Emil Svensson
  */
-public class CategoriesHandler {
-    private CategoriesHandler() {
+public class Categories {
+    private static final HashMap<Category, List<Category>> allCategories = getCategories(Products.getInstance().getAllProducts());
+
+    private Categories() {
     }
 
     private static List<Category> getCategoriesLevel1(List<Product> products) {
@@ -24,7 +27,7 @@ public class CategoriesHandler {
         return categories;
     }
 
-    public static List<Category> getCategoriesLevel2(List<Product> products, Category categoryLevel1) {
+    private static List<Category> getCategoriesLevel2(List<Product> products, Category categoryLevel1) {
         List<Category> categories = new ArrayList<>();
         for (Product product : products) {
             Category productCategoryLevel2 = product.getCategoryLevel2();
@@ -40,14 +43,18 @@ public class CategoriesHandler {
      * @param products the list of products to retrieve categories from
      * @return the categories in which each key has its associated subcategories as value
      */
-    public static HashMap<Category, List<Category>> getCategories(List<Product> products) {
+    private static HashMap<Category, List<Category>> getCategories(List<Product> products) {
         HashMap<Category, List<Category>> categories = new HashMap<>();
         for (Category level1Category : getCategoriesLevel1(products))
             categories.put(level1Category, getCategoriesLevel2(products, level1Category));
         return categories;
     }
 
-    public static List<Category> getCategories(List<Category> categories, int level) {
+    private static List<Category> getCategories(List<Category> categories, int level) {
         return categories.stream().filter(category -> category.getLevel() == level).collect(Collectors.toList());
+    }
+
+    public static HashMap<Category, List<Category>> getAllCategories() {
+        return allCategories;
     }
 }
