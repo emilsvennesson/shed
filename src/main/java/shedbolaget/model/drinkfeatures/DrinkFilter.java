@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author Daniel Rygaard
  * @version %I%, %G%
+ * @version 1.0.0
  */
 public class DrinkFilter {
 
@@ -25,6 +26,7 @@ public class DrinkFilter {
      * <p>Gets drinks based on a list of {@link Ingredient} set in the parameter</p>
      * @param ingredients, the ingredients that need to be in the drinks
      * @return a list of {@link Drink}s
+     * @since 1.0.0
      */
     List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
 
