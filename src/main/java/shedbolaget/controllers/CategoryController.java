@@ -54,7 +54,7 @@ public class CategoryController {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        categoryLevel2VBox.getChildren().clear();
-        initLevel2CheckBoxes(event.getActiveCategories());
+        if (categoryLevel2VBox.getChildren().isEmpty())
+            initLevel2CheckBoxes(event.getActiveCategories());
     }
 }
