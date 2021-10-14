@@ -16,9 +16,10 @@ class ProductPage implements IProductsCollection {
     }
 
     @Override
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return new ArrayList<>(products);
     }
+
     @Override
     public int getNumberOfProducts() {
         return products.size();
