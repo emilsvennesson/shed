@@ -8,6 +8,7 @@ import javafx.scene.layout.FlowPane;
 import shedbolaget.model.Model;
 import shedbolaget.model.Product;
 import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.events.SortEvent;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,6 +70,12 @@ public class ProductsViewController {
         filteredProducts = model.getFilteredProducts(model.getAllProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
             loadProducts(filteredProducts);
+    }
+
+    @Subscribe
+    public void actOnSortEvent(SortEvent event){
+        System.out.println("Sort event fired");
+        loadProducts(event.getSortedProductList());
     }
 }
 
