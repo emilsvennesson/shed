@@ -3,7 +3,8 @@ package shedbolaget.model.sorter;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
+import shedbolaget.model.products.ProductListSorter;
 
 import java.util.List;
 import java.util.function.Function;

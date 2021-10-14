@@ -1,6 +1,6 @@
 package shedbolaget.model.events;
 
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.util.List;
 

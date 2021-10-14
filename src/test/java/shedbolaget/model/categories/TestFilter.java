@@ -3,12 +3,13 @@ package shedbolaget.model.categories;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
+import shedbolaget.model.products.Filter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestCategoryProductFilter {
+public class TestFilter {
     private Model model = Model.getInstance();
 
     @Test
@@ -16,7 +17,7 @@ public class TestCategoryProductFilter {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Ale", 2));
         List<Product> products = model.getAllProducts();
-        List<Product> filteredProductsList = CategoryProductFilter.getFilteredProducts(products, categories);
+        List<Product> filteredProductsList = Filter.getFilteredProducts(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Ale", p.getCategoryLevel2().getName());
         }
@@ -27,7 +28,7 @@ public class TestCategoryProductFilter {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Öl", 1));
         List<Product> products = model.getAllProducts();
-        List<Product> filteredProductsList = CategoryProductFilter.getFilteredProducts(products, categories);
+        List<Product> filteredProductsList = Filter.getFilteredProducts(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Öl", p.getCategoryLevel1().getName());
         }

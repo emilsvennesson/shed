@@ -1,4 +1,4 @@
-package shedbolaget.model;
+package shedbolaget.model.products;
 
 import com.google.common.collect.Lists;
 
@@ -8,22 +8,22 @@ import java.util.List;
 /**
  * @author Emil Svensson, Pouya Shirin
  */
-public class ProductPages {
-    private final List<ProductPage> productPages;
+public class Pages {
+    private final List<IProductsCollection> productPages;
     private final int productsPerPage;
 
-    public ProductPages(List<Product> products) {
+    public Pages(List<Product> products) {
         this.productsPerPage = 20;  // default page size
         this.productPages = splitIntoPages(products);
     }
 
-    public ProductPages(List<Product> products, int productsPerPage) {
+    public Pages(List<Product> products, int productsPerPage) {
         this.productsPerPage = productsPerPage;
         this.productPages = splitIntoPages(products);
     }
 
-    private List<ProductPage> splitIntoPages(List<Product> products) {
-        List<ProductPage> newProductPages = new ArrayList<>();
+    private List<IProductsCollection> splitIntoPages(List<Product> products) {
+        List<IProductsCollection> newProductPages = new ArrayList<>();
         for (List<Product> splitProducts : Lists.partition(products, productsPerPage))
             newProductPages.add(new ProductPage(splitProducts));
         return newProductPages;

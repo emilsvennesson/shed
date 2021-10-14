@@ -1,6 +1,7 @@
-package shedbolaget.model.categories;
+package shedbolaget.model.products;
 
-import shedbolaget.model.Product;
+import shedbolaget.model.categories.CategoriesHandler;
+import shedbolaget.model.categories.Category;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,17 +11,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * This class is responsible for filtering out products based on categories.
+ * This class is responsible for filtering out products.
  *
  * @author Emil Svensson, Samuel Kajava
  */
-public class CategoryProductFilter {
-    private CategoryProductFilter() {
+public class Filter {
+    private Filter() {
     }
 
 
     /**
-     * Gets filtered products.
+     * Gets filtered products based on categories.
      *
      * @param products   the products list to filter from
      * @param categories the categories list with filters to apply to the products list

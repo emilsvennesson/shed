@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.io.IOException;
 

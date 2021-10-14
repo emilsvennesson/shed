@@ -2,12 +2,10 @@ package shedbolaget.model.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Emil Svensson

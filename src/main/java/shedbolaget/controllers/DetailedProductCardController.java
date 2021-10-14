@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.model.Model;
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.io.IOException;
 

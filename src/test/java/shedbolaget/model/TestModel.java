@@ -2,6 +2,7 @@ package shedbolaget.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;

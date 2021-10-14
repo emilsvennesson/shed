@@ -1,6 +1,4 @@
-package shedbolaget.model.sorter;
-
-import shedbolaget.model.Product;
+package shedbolaget.model.products;
 
 import java.util.List;
 
@@ -12,21 +10,20 @@ public class Sorter {
     private Sorter() {
     }
 
-
     public static List<Product> getProductListSortedByPrice(List<Product> productList) {
-        return ProductListSorter.getProductsSortedByDouble(Product::getPrice, productList);
+        return new ProductListSorter().getProductsSortedByDouble(Product::getPrice, productList);
     }
 
     public static List<Product> getProductListSortedByPrice(List<Product> productList, boolean reversed) {
-        return ProductListSorter.getProductsSortedByDouble(Product::getPrice, productList, reversed);
+        return new ProductListSorter().getProductsSortedByDouble(Product::getPrice, productList, reversed);
     }
 
     public static List<Product> getProductListSortedByApk(List<Product> productList) {
-        return ProductListSorter.getProductsSortedByDouble(Product::getApk, productList, true);
+        return new ProductListSorter().getProductsSortedByDouble(Product::getApk, productList, true);
     }
 
     public static List<Product> getProductListSortedByApk(List<Product> productList, boolean reversed) {
-        return ProductListSorter.getProductsSortedByDouble(Product::getApk, productList, reversed);
+        return new ProductListSorter().getProductsSortedByDouble(Product::getApk, productList, reversed);
     }
 
 }
