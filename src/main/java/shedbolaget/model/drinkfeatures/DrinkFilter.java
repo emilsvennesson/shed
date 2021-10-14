@@ -38,10 +38,7 @@ public class DrinkFilter {
         return viableDrinks;
     }
 
-
-
-
-
-
-
+    public List<Drink> getAllDrinks() {
+        return drinks;
+    }
 }
