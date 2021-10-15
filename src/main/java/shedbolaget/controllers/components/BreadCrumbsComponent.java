@@ -1,4 +1,4 @@
-package shedbolaget.controllers;
+package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import shedbolaget.model.events.CategoryEvent;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class BreadCrumbsController {
+public class BreadCrumbsComponent extends Component {
 
     @FXML
     private Text categoryLevel1Text;
@@ -17,10 +17,8 @@ public class BreadCrumbsController {
     @FXML
     private Text categoryLevel2Text;
 
-    @FXML
-    public void initialize() {
-        //model.registerToEventBus(this);
-        //categoryLevel1Text.setText(getCategoryLevelText(model.getActiveCategories(), 1));
+    protected BreadCrumbsComponent() {
+        super("BreadCrumbsView");
         categoryLevel2Text.setVisible(false);
     }
 
