@@ -1,7 +1,6 @@
 package shedbolaget.model.categories;
 
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.Products;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,15 +9,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Handles and parses categories from a products list.
+ * Handles parsing of categories.
  *
  * @author Emil Svensson
  */
 public enum Categories {
     ;
-    private static final Map<Category, List<Category>> allCategories = getCategoriesByLevel(Products.getInstance().getAllProducts());
 
-    public static List<Category> getCategoriesLevel1(List<Product> products) {
+    public static List<Category> getLevel1Categories(List<Product> products) {
         List<Category> categories = new ArrayList<>();
         for (Product product : products)
             if (!categories.contains(product.getCategoryLevel1()))
@@ -26,7 +24,15 @@ public enum Categories {
         return categories;
     }
 
-    public static List<Category> getCategoriesLevel2(List<Product> products, Category categoryLevel1) {
+    public static List<Category> getLevel2Categories(List<Product> products) {
+        List<Category> categories = new ArrayList<>();
+        for (Product product : products)
+            if (!categories.contains(product.getCategoryLevel2()))
+                categories.add(product.getCategoryLevel2());
+        return categories;
+    }
+
+    public static List<Category> getAssociatedLevel2Categories(List<Product> products, Category categoryLevel1) {
         List<Category> categories = new ArrayList<>();
         for (Product product : products) {
             Category productCategoryLevel2 = product.getCategoryLevel2();
@@ -36,22 +42,14 @@ public enum Categories {
         return categories;
     }
 
-    private static Map<Category, List<Category>> getCategoriesByLevel(List<Product> products) {
+    public static Map<Category, List<Category>> getCategoriesAsMap(List<Product> products) {
         Map<Category, List<Category>> categories = new HashMap<>();
-        for (Category level1Category : getCategoriesLevel1(products))
-            categories.put(level1Category, getCategoriesLevel2(products, level1Category));
+        for (Category level1Category : getLevel1Categories(products))
+            categories.put(level1Category, getAssociatedLevel2Categories(products, level1Category));
         return categories;
     }
 
     public static List<Category> getCategoriesByLevel(List<Category> categories, int level) {
         return categories.stream().filter(category -> category.getLevel() == level).collect(Collectors.toList());
-    }
-
-    public static Map<Category, List<Category>> getAllCategories() {
-        return new HashMap<>(allCategories);
-    }
-
-    public static List<Category> getSubCategories(Category category) {
-        return Categories.getCategoriesLevel2(Products.getInstance().getAllProducts(), category);
     }
 }
