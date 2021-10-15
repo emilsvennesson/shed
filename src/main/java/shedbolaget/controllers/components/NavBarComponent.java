@@ -2,23 +2,18 @@ package shedbolaget.controllers.components;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
+import shedbolaget.model.events.NavigationEvent;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class NavBarComponent extends Component {
     private EventManager eventManager;
@@ -47,15 +42,25 @@ public class NavBarComponent extends Component {
         super("NavBarView");
         eventManager = EventManager.getInstance();
         eventManager.registerToEventBus(this);
+        initDropdown();
+    }
+
+    private void initDropdown() {
+        MenuItem menuItem;
+        for (Category category : Categories.getAllCategories().keySet()) {
+            menuItem = new MenuItem(category.getName());
+            menuItem.setOnAction(e -> {
+                eventManager.fireEvent(new CategoryEvent(List.of(category)));
+                eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
+            });
+            dropDownButton.getItems().add(menuItem);
+        }
     }
 
     @FXML
     void homeButtonOnClicked(ActionEvent event) {
-        List<Category> test = new ArrayList<>();
-        test.add(new Category("Öl", 1));
-        eventManager.fireEvent(new CategoryEvent(test));
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.MAIN));
     }
-
 
     @FXML
     void favoritesButtonOnClicked(ActionEvent event) {
