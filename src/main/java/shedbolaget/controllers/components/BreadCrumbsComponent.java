@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.events.EventManager;
 
 import java.util.List;
 import java.util.StringJoiner;
@@ -20,6 +21,7 @@ public class BreadCrumbsComponent extends Component {
     protected BreadCrumbsComponent() {
         super("BreadCrumbsView");
         categoryLevel2Text.setVisible(false);
+        EventManager.getInstance().registerToEventBus(this);
     }
 
     private String getCategoryLevelText(List<Category> categories, int level) {
@@ -33,11 +35,6 @@ public class BreadCrumbsComponent extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        // TODO: we need to refactor frontend to avoid this
-        if (event.isCleared()) {
-            //model.unregisterFromEventBus(this);
-            return;
-        }
         categoryLevel1Text.setText(getCategoryLevelText(event.getActiveCategories(), 1));
         if (!getCategoryLevelText(event.getActiveCategories(), 1).isEmpty()) {
             categoryLevel2Text.setText(getCategoryLevelText(event.getActiveCategories(), 2));
