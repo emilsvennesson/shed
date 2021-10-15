@@ -14,11 +14,9 @@ import java.util.stream.Collectors;
  *
  * @author Emil Svensson
  */
-public class Categories {
+public enum Categories {
+    ;
     private static final Map<Category, List<Category>> allCategories = getCategoriesByLevel(Products.getInstance().getAllProducts());
-
-    private Categories() {
-    }
 
     public static List<Category> getCategoriesLevel1(List<Product> products) {
         List<Category> categories = new ArrayList<>();
