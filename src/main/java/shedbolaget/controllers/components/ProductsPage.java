@@ -2,7 +2,6 @@ package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
@@ -12,7 +11,6 @@ import shedbolaget.model.products.Filter;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.Products;
 
-import java.io.IOException;
 import java.util.List;
 
 public class ProductsPage extends Component {
@@ -35,11 +33,10 @@ public class ProductsPage extends Component {
         eventManager.registerToEventBus(this);
     }
 
-    private void populateView() throws IOException {
-        contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/SorterView.fxml")).load());
-        contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/BreadCrumbsView.fxml")).load());
-        contentFlowPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/CategorySideBarView.fxml")).load());
-        //navBarPane.getChildren().add(new FXMLLoader(getClass().getResource("/fxml/NavBarView.fxml")).load());
+    private void populateView() {
+        contentFlowPane.getChildren().add(ComponentFactory.createSorter());
+        contentFlowPane.getChildren().add(ComponentFactory.createBreadCrumbs());
+        contentFlowPane.getChildren().add(ComponentFactory.createCategoryMenu());
         contentFlowPane.getChildren().add(productsWrapper);
     }
 
