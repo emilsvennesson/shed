@@ -1,4 +1,4 @@
-package shedbolaget.controllers;
+package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@ import shedbolaget.model.products.Sorter;
 import java.util.List;
 import java.util.ArrayList;
 
-public class SorterController {
+public class SorterComponent extends Component {
 
     @FXML
     private FlowPane filterFlowPane;
@@ -37,7 +37,11 @@ public class SorterController {
 
     private EventManager eventManager;
 
-    private List<Category> activeCategories = new ArrayList<Category>();
+    private List<Category> activeCategories = new ArrayList<>();
+
+    protected SorterComponent() {
+        super("SorterView");
+    }
 
     @FXML
     public void initialize() {
@@ -67,17 +71,17 @@ public class SorterController {
     }
 
     private void sortByPrice() {
-        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByApk() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByName() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 

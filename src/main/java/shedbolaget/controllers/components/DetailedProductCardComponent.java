@@ -1,4 +1,4 @@
-package shedbolaget.controllers;
+package shedbolaget.controllers.components;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import shedbolaget.model.products.Product;
 
 import java.io.IOException;
 
-public class DetailedProductCardController {
+public class DetailedProductCardComponent extends Component {
     private final Product product;
     @FXML
     private AnchorPane cardAnchorPane;
@@ -52,14 +52,15 @@ public class DetailedProductCardController {
     private boolean expanded;
     private boolean isFavorite;
 
-    public DetailedProductCardController(Product product) {
+    public DetailedProductCardComponent(Product product) {
+        super("DetailedProductCardView");
         this.product = product;
         this.expanded = false;
+        initProductInfo();
         //this.isFavorite = model.isFavorite(product);
     }
 
-    @FXML
-    public void initialize() throws IOException {
+    public void initProductInfo() {
         nameBoldText.setText(this.product.getProductNameBold());
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
