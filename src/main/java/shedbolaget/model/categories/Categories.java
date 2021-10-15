@@ -6,6 +6,7 @@ import shedbolaget.model.products.Products;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
  * @author Emil Svensson
  */
 public class Categories {
-    private static final HashMap<Category, List<Category>> allCategories = getCategoriesByLevel(Products.getInstance().getAllProducts());
+    private static final Map<Category, List<Category>> allCategories = getCategoriesByLevel(Products.getInstance().getAllProducts());
 
     private Categories() {
     }
@@ -43,8 +44,8 @@ public class Categories {
      * @param products the list of products to retrieve categories from
      * @return the categories in which each key has its associated subcategories as value
      */
-    private static HashMap<Category, List<Category>> getCategoriesByLevel(List<Product> products) {
-        HashMap<Category, List<Category>> categories = new HashMap<>();
+    private static Map<Category, List<Category>> getCategoriesByLevel(List<Product> products) {
+        Map<Category, List<Category>> categories = new HashMap<>();
         for (Category level1Category : getCategoriesLevel1(products))
             categories.put(level1Category, getCategoriesLevel2(products, level1Category));
         return categories;
@@ -54,7 +55,7 @@ public class Categories {
         return categories.stream().filter(category -> category.getLevel() == level).collect(Collectors.toList());
     }
 
-    public static HashMap<Category, List<Category>> getAllCategories() {
+    public static Map<Category, List<Category>> getAllCategories() {
         return allCategories;
     }
 
