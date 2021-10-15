@@ -1,6 +1,8 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.pages;
 
 import com.google.common.collect.Lists;
+import shedbolaget.model.products.IProductsCollection;
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;

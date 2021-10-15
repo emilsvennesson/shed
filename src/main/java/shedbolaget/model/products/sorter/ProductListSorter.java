@@ -1,4 +1,6 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.sorter;
+
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +13,7 @@ import java.util.function.Function;
  *
  * @author samkaj
  */
-class ProductListSorter implements IProductsSorter {
+public class ProductListSorter implements IProductsSorter {
     @Override
     public List<Product> getProductsSortedByDouble(Function<Product, Double> sortingParameter, List<Product> productListToSort) {
         List<Product> sortedList = new ArrayList<>(productListToSort);

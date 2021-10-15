@@ -3,9 +3,9 @@ package shedbolaget.controllers.components;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import shedbolaget.model.products.Pages;
+import shedbolaget.model.products.pages.Pages;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.Products;
+import shedbolaget.model.products.ProductsHolder;
 
 public class MainPage extends Component {
     @FXML
@@ -20,7 +20,7 @@ public class MainPage extends Component {
     }
 
     private void initNewProducts() {
-        Pages pages = new Pages(Products.getInstance().getAllProducts());
+        Pages pages = new Pages(ProductsHolder.getInstance().getAllProducts());
         for (Product product : pages.getProductsFromPage(1)) // replace with actual new products?
             newProductsFlowPane.getChildren().add(ComponentFactory.createBasicProductCard(product));
     }

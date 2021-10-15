@@ -7,9 +7,9 @@ import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
-import shedbolaget.model.products.Filter;
+import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.Products;
+import shedbolaget.model.products.ProductsHolder;
 
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        Products productsHolder = Products.getInstance();
+        ProductsHolder productsHolder = ProductsHolder.getInstance();
         filteredProducts = Filter.getFilteredProductsByCategory(productsHolder.getAllProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
             loadProducts(filteredProducts);

@@ -10,10 +10,10 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
-import shedbolaget.model.products.Filter;
+import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.Products;
-import shedbolaget.model.products.Sorter;
+import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -71,17 +71,17 @@ public class SorterComponent extends Component {
     }
 
     private void sortByPrice() {
-        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(ProductsHolder.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByApk() {
-        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductsHolder.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByName() {
-        List<Product> prods = shedbolaget.model.products.Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductsHolder.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
