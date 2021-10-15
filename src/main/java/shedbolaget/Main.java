@@ -15,7 +15,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainView.fxml")));
+        Parent root = new FXMLLoader(getClass().getResource("/fxml/RootView.fxml")).load();
         primaryStage.setTitle("Shedbolaget.");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
