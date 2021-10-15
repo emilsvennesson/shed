@@ -42,7 +42,7 @@ public class ProductsPage extends Component {
 
     private void loadProducts(List<Product> products) {
         productsWrapper.getChildren().clear();
-        products.subList(0,200).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        products.subList(0,40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
 
     }
 

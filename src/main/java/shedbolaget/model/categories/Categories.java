@@ -36,12 +36,6 @@ public enum Categories {
         return categories;
     }
 
-    /**
-     * Gets all available categories in a specified product list.
-     *
-     * @param products the list of products to retrieve categories from
-     * @return the categories in which each key has its associated subcategories as value
-     */
     private static Map<Category, List<Category>> getCategoriesByLevel(List<Product> products) {
         Map<Category, List<Category>> categories = new HashMap<>();
         for (Category level1Category : getCategoriesLevel1(products))
@@ -54,7 +48,7 @@ public enum Categories {
     }
 
     public static Map<Category, List<Category>> getAllCategories() {
-        return allCategories;
+        return new HashMap<>(allCategories);
     }
 
     public static List<Category> getSubCategories(Category category) {

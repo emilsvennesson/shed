@@ -14,6 +14,7 @@ public class RootWindow {
 
     @FXML
     private AnchorPane contentWrapperAnchorPane;
+
     AnchorPane navBar = ComponentFactory.createNavBar();
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
