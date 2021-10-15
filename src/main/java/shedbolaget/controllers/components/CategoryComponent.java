@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryComponent extends Component {
+    private Category activeLevel1Category;
     private final EventManager eventManager = EventManager.getInstance();
     List<CheckBox> checkBoxes;
 
@@ -34,10 +35,11 @@ public class CategoryComponent extends Component {
         categoryLevel1CheckBox.setSelected(true);
     }
 
-    private void initLevel2CheckBoxes(List<shedbolaget.model.categories.Category> categories) {
-        shedbolaget.model.categories.Category activeLevel1Category = Categories.getCategoriesByLevel(categories, 1).get(0);
+    private void initLevel2CheckBoxes(List<Category> categories) {
+        categoryLevel2VBox.getChildren().clear();
+        Category activeLevel1Category = Categories.getCategoriesByLevel(categories, 1).get(0);
         checkBoxes = new ArrayList<>();
-        for (shedbolaget.model.categories.Category level2Category : Categories.getSubCategories(activeLevel1Category)) {
+        for (Category level2Category : Categories.getSubCategories(activeLevel1Category)) {
             CheckBox checkBox = new CheckBox(level2Category.getName());
             checkBox.setOnAction(event -> {
                 if (checkBox.isSelected()) {
@@ -54,7 +56,11 @@ public class CategoryComponent extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        if (categoryLevel2VBox.getChildren().isEmpty())
+        Category eventActiveLevel1Category = Categories.getCategoriesByLevel(event.getActiveCategories(), 1).get(0);
+        if (eventActiveLevel1Category != activeLevel1Category) {
+            activeLevel1Category = eventActiveLevel1Category;
             initLevel2CheckBoxes(event.getActiveCategories());
+        }
+        categoryLevel1CheckBox.setText(activeLevel1Category.getName());
     }
 }
