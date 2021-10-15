@@ -6,9 +6,8 @@ import java.util.List;
  * Façade for handling logic in ProductListSorter, in order to easily sort lists of products without specifying a Function as parameter.
  * @author Samuel Kajava
  */
-public class Sorter {
-    private Sorter() {
-    }
+public enum Sorter {
+    ;
 
     public static List<Product> getProductListSortedByPrice(List<Product> productList) {
         return new ProductListSorter().getProductsSortedByDouble(Product::getPrice, productList);
