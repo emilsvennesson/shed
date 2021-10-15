@@ -3,7 +3,7 @@ package shedbolaget.model.products;
 import java.util.List;
 import java.util.function.Function;
 
-public interface IProductsSorter {
+interface IProductsSorter {
     /**
      * Sort a list based on a given parameter and return the sorted version.
      *

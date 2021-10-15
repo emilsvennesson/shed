@@ -15,6 +15,9 @@ class Image {
     }
 }
 
+/**
+ * This class represents an alcoholic beverage.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
     private String productId;

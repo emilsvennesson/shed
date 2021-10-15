@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is a class
+ * This class represents a product page.
  *
  * @author Emil Svensson, Pouya Shirin
  */

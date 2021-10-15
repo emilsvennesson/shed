@@ -10,11 +10,10 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class ProductCategoryFilter {
-    private ProductCategoryFilter() {
-    }
+enum ProductCategoryFilter {
+    ;
 
-    public static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
+    static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {
         categories = categories.stream().distinct().collect(Collectors.toList());  // ensure we have no duplicates
         List<Product> filteredProducts = new ArrayList<>();
         List<Category> level1Categories = Categories.getCategoriesByLevel(categories, 1);
