@@ -7,12 +7,16 @@ import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
-import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.filter.Filter;
 
 import java.util.List;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ */
 public class ProductsPage extends Component {
     private final EventManager eventManager = EventManager.getInstance();
 
@@ -42,7 +46,7 @@ public class ProductsPage extends Component {
 
     private void loadProducts(List<Product> products) {
         productsWrapper.getChildren().clear();
-        products.subList(0,40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        products.subList(0, 40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
 
     }
 

@@ -10,14 +10,18 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
-import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ */
 public class SorterComponent extends Component {
 
     @FXML

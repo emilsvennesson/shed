@@ -4,6 +4,9 @@ import java.util.List;
 
 /**
  * A common interface for a products list.
+ *
+ * @author Emil Svensson
+ * @author Samuel Kajava
  */
 public interface IProductsCollection {
     /**

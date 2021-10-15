@@ -11,7 +11,8 @@ import java.util.function.Function;
 /**
  * The Sorter, used for sorting variables of different types in a list of Products.
  *
- * @author samkaj
+ * @author Samuel Kajava
+ * @see Product
  */
 public class ProductListSorter implements IProductsSorter {
     @Override

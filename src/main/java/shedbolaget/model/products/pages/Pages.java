@@ -10,7 +10,8 @@ import java.util.List;
 /**
  * Represents a collection of product pages.
  *
- * @author Emil Svensson, Pouya Shirin
+ * @author Emil Svensson
+ * @author Pouya Shirin
  */
 public class Pages {
     private final List<IProductsCollection> productPages;

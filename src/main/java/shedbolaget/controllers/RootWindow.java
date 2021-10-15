@@ -7,17 +7,19 @@ import shedbolaget.controllers.components.ComponentFactory;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ */
 public class RootWindow {
-
-    @FXML
-    private AnchorPane navBarPane;
-
-    @FXML
-    private AnchorPane contentWrapperAnchorPane;
 
     AnchorPane navBar = ComponentFactory.createNavBar();
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
+    @FXML
+    private AnchorPane navBarPane;
+    @FXML
+    private AnchorPane contentWrapperAnchorPane;
 
     @FXML
     public void initialize() {

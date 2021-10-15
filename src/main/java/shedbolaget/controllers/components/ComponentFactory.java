@@ -3,6 +3,11 @@ package shedbolaget.controllers.components;
 import javafx.scene.layout.AnchorPane;
 import shedbolaget.model.products.Product;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ * @author OOPsie project :-)
+ */
 public class ComponentFactory {
     public static AnchorPane createNavBar() {
         return new NavBarComponent().getPane();

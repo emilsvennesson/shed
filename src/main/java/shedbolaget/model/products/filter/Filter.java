@@ -8,7 +8,9 @@ import java.util.List;
 /**
  * This class is responsible for filtering out products.
  *
- * @author Emil Svensson, Samuel Kajava
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ * @author Pouya Shirin
  */
 public enum Filter {
     ;
@@ -18,7 +20,8 @@ public enum Filter {
      *
      * @param products   the products list to filter from
      * @param categories the categories list with filters to apply to the products list
-     * @return the filtered products that matches the list of categories specified
+     * @return the filtered products that matches the list of categories specified.
+     * If
      */
     public static List<Product> getFilteredProductsByCategory(List<Product> products, List<Category> categories) {
         return ProductCategoryFilter.getFilteredProducts(products, categories);
