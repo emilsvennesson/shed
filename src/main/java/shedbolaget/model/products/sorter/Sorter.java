@@ -1,4 +1,6 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.sorter;
+
+import shedbolaget.model.products.Product;
 
 import java.util.List;
 

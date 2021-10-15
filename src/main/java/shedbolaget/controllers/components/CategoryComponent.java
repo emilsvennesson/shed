@@ -9,7 +9,7 @@ import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
-import shedbolaget.model.products.Products;
+import shedbolaget.model.products.ProductsHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class CategoryComponent extends Component {
         categoryLevel2VBox.getChildren().clear();
         Category activeLevel1Category = Categories.getCategoriesByLevel(categories, 1).get(0);
         checkBoxes = new ArrayList<>();
-        for (Category level2Category : Categories.getAssociatedLevel2Categories(Products.getInstance().getAllProducts(), activeLevel1Category)) {
+        for (Category level2Category : Categories.getAssociatedLevel2Categories(ProductsHolder.getInstance().getAllProducts(), activeLevel1Category)) {
             CheckBox checkBox = new CheckBox(level2Category.getName());
             checkBox.setOnAction(event -> {
                 if (checkBox.isSelected()) {

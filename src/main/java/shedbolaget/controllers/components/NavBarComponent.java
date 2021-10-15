@@ -12,7 +12,7 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
-import shedbolaget.model.products.Products;
+import shedbolaget.model.products.ProductsHolder;
 
 import java.util.List;
 
@@ -48,7 +48,7 @@ public class NavBarComponent extends Component {
 
     private void initDropdown() {
         MenuItem menuItem;
-        for (Category category : Categories.getLevel1Categories(Products.getInstance().getAllProducts())) {
+        for (Category category : Categories.getLevel1Categories(ProductsHolder.getInstance().getAllProducts())) {
             menuItem = new MenuItem(category.getName());
             menuItem.setOnAction(e -> {
                 eventManager.fireEvent(new CategoryEvent(List.of(category)));

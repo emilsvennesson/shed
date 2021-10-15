@@ -7,14 +7,14 @@ import java.util.List;
 /**
  * This class holds all products available in the products JSON file.
  */
-public class Products implements IProductsCollection {
+public class ProductsHolder implements IProductsCollection {
     private final List<Product> allProducts = ProductParserFactory.getProductsFromJson();
-    private static final Products instance = new Products();
+    private static final ProductsHolder instance = new ProductsHolder();
 
-    private Products() {
+    private ProductsHolder() {
     }
 
-    public static Products getInstance() {
+    public static ProductsHolder getInstance() {
         return instance;
     }
 
