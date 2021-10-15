@@ -19,9 +19,11 @@ class ProductCategoryFilter {
         List<Product> filteredProducts = new ArrayList<>();
         List<Category> level1Categories = Categories.getCategoriesByLevel(categories, 1);
         List<Category> level2Categories = Categories.getCategoriesByLevel(categories, 2);
-        for (Category level2Category : level2Categories) {
-            List<Product> prods = products.stream().filter(product -> Objects.equals(product.getCategoryLevel2().getName(), level2Category.getName())).collect(Collectors.toList());
-            filteredProducts = Stream.of(filteredProducts, prods).flatMap(Collection::stream).collect(Collectors.toList());
+        for (Category level1Category : level1Categories) {
+            for (Category level2Category : level2Categories) {
+                List<Product> prods = products.stream().filter(product -> Objects.equals(product.getCategoryLevel2().getName(), level2Category.getName()) && Objects.equals(level1Category.getName(), product.getCategoryLevel1().getName())).collect(Collectors.toList());
+                filteredProducts = Stream.of(filteredProducts, prods).flatMap(Collection::stream).collect(Collectors.toList());
+            }
         }
         if (!filteredProducts.isEmpty() && !Categories.getCategoriesByLevel(categories, 1).isEmpty())
             return filteredProducts;
