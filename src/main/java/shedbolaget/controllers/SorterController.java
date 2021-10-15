@@ -47,21 +47,18 @@ public class SorterController {
     }
 
     @FXML
-    void sortByPrice(ActionEvent event) {
-        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
-        eventManager.fireEvent(new SortEvent(prods));
+    void onSortByPriceClick(ActionEvent event) {
+        sortByPrice();
         sortMenuButton.setText("Pris");
     }
 
     @FXML
-    void sortByApk(ActionEvent event) {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
-        eventManager.fireEvent(new SortEvent(prods));
+    void onSortByApkClick(ActionEvent event) {
         sortMenuButton.setText("APK");
     }
 
     @FXML
-    void sortByName(ActionEvent event) {
+    void onSortByNameClick(ActionEvent event) {
         // TODO: implement sort by name, right now sorting by APk...
         System.out.println("Sorting by apk instead of name, fix me");
         List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
