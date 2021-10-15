@@ -1,4 +1,4 @@
-package shedbolaget.controllers;
+package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import shedbolaget.model.products.Products;
 import java.io.IOException;
 import java.util.List;
 
-public class ProductsViewController {
+public class ProductsPage extends Component {
     private final EventManager eventManager = EventManager.getInstance();
 
     @FXML
@@ -28,8 +28,8 @@ public class ProductsViewController {
 
     private List<Product> filteredProducts;
 
-    @FXML
-    public void initialize() throws IOException {
+    protected ProductsPage() {
+        super("ProductsView");
         initProductsWrapper();
         populateView();
         eventManager.registerToEventBus(this);
@@ -45,15 +45,7 @@ public class ProductsViewController {
 
     private void loadProducts(List<Product> products) {
         productsWrapper.getChildren().clear();
-        for (int i = 0; i < 50; i++) {
-            FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/fxml/DetailedProductCardView.fxml"));
-            cardLoader.setController(new DetailedProductCardController(products.get(i)));
-            try {
-                productsWrapper.getChildren().add(cardLoader.load());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        products.subList(0,200).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
 
     }
 
@@ -73,7 +65,6 @@ public class ProductsViewController {
     @Subscribe
     public void actOnSortEvent(SortEvent event) {
         loadProducts(event.getSortedProductList());
-        System.out.println("products view controller got a sorting event");
     }
 }
 
