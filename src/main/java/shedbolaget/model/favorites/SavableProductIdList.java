@@ -111,7 +111,9 @@ public class SavableProductIdList {
 
         for (Integer in :
                 products) {
-            prods.addAll(Model.getInstance().getProducts(in));
+
+            List<Product> favProds = Model.getInstance().getProducts(in);
+            prods.add(Model.getInstance().getProducts(in).get(0));
         }
 
 
