@@ -55,21 +55,52 @@ public class SorterController {
     @FXML
     void onSortByApkClick(ActionEvent event) {
         sortMenuButton.setText("APK");
+        sortByApk();
     }
 
     @FXML
     void onSortByNameClick(ActionEvent event) {
         // TODO: implement sort by name, right now sorting by APk...
         System.out.println("Sorting by apk instead of name, fix me");
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
-        eventManager.fireEvent(new SortEvent(prods));
+        sortByName();
         sortMenuButton.setText("Namn");
     }
+
+    private void sortByPrice() {
+        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        eventManager.fireEvent(new SortEvent(prods));
+    }
+
+    private void sortByApk() {
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        eventManager.fireEvent(new SortEvent(prods));
+    }
+
+    private void sortByName() {
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(Products.getInstance().getAllProducts(), activeCategories));
+        eventManager.fireEvent(new SortEvent(prods));
+    }
+
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
         System.out.println("acting on event from category");
         activeCategories = event.getActiveCategories();
+        String activeSortingMethod = sortMenuButton.getText();
+        switch (activeSortingMethod) {
+            case "Pris":
+                sortByPrice();
+                break;
+            case "Namn":
+                sortByName();
+                break;
+            case "APK":
+                sortByApk();
+                break;
+            default:
+                break;
+        }
+
     }
 
 }
