@@ -26,9 +26,9 @@
         <FlowPane fx:id="filterFlowPane" prefHeight="55.0" prefWidth="181.0">
             <MenuButton fx:id="sortMenuButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="182.0" styleClass="filter-btn" text="Aktiv">
                 <items>
-                    <MenuItem fx:id="sortByPriceMenuItem" mnemonicParsing="false" onAction="#sortByPrice" text="Pris" />
-                    <MenuItem fx:id="sortByApkMenuItem" mnemonicParsing="false" onAction="#sortByApk" text="APK" />
-                    <MenuItem fx:id="sortByNameMenuItem" mnemonicParsing="false" onAction="#sortByName" text="Namn" />
+                    <MenuItem fx:id="sortByPriceMenuItem" mnemonicParsing="false" onAction="#onSortByPriceClick" text="Pris" />
+                    <MenuItem fx:id="sortByApkMenuItem" mnemonicParsing="false" onAction="#onSortByApkClick" text="APK" />
+                    <MenuItem fx:id="sortByNameMenuItem" mnemonicParsing="false" onAction="#onSortByNameClick" text="Namn" />
                 </items>
             </MenuButton>
         </FlowPane>
