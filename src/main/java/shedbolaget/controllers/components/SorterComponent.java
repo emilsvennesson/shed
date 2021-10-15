@@ -88,7 +88,6 @@ public class SorterComponent extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        System.out.println("acting on event from category");
         activeCategories = event.getActiveCategories();
         String activeSortingMethod = sortMenuButton.getText();
         switch (activeSortingMethod) {
