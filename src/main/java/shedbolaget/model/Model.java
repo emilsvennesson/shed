@@ -116,20 +116,6 @@ public class Model {
         favList.removeProductId(prod);
     }
 
-    /**
-     * Returns all the {@link Product} ids from Favorites
-     *
-     * @return {@link Product} ids as an {@link List} of {@link Integer}s
-     */
-    public List<Integer> getProductIdsFromFavorites() {
-        //TODO Fix so that this return product
-        SavableProductIdList favList = listIOManager.getList("Favorites");
-        if (favList == null) {
-            listIOManager.addList(new SavableProductIdList("Favorites"));
-            favList = listIOManager.getList("Favorites");
-        }
-        return favList.getProductIds();
-    }
 
     /**
      * Gets all favorite products
@@ -137,12 +123,14 @@ public class Model {
      * @return a list of {@link Product}
      */
     public List<Product> getFavoritesAsProducts() {
-        ArrayList<Product> products = new ArrayList<>();
-        for (Integer id : getProductIdsFromFavorites()) {
-            List<Product> productsFromId = getProducts(id);
-            products.addAll(productsFromId);
+
+
+        SavableProductIdList favList = listIOManager.getList("Favorites");
+        if (favList == null) {
+            listIOManager.addList(new SavableProductIdList("Favorites"));
+            favList = listIOManager.getList("Favorites");
         }
-        return products;
+        return favList.getProducts();
     }
 
     /**
