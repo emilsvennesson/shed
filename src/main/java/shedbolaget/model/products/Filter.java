@@ -9,9 +9,8 @@ import java.util.List;
  *
  * @author Emil Svensson, Samuel Kajava
  */
-public class Filter {
-    private Filter() {
-    }
+public enum Filter {
+    ;
 
     /**
      * Gets filtered products based on categories.
