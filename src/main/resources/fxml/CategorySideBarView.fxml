@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0"
-            stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="shedbolaget.controllers.CategorySideBarController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <styleClass>
-        <String fx:value="shadow"/>
-        <String fx:value="sidebar"/>
+        <String fx:value="shadow" />
+        <String fx:value="sidebar" />
     </styleClass>
-    <Text layoutX="8.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;"
-          text="Drycker:">
-        <styleClass>
-          <String fx:value="bold"/>
-          <String fx:value="black-text"/>
-        </styleClass>
-        <font>
-          <Font size="20.0"/>
-        </font>
-    </Text>
-    <FlowPane layoutY="34.0" prefWidth="200.0">
-        <VBox fx:id="categoriesvBox" prefHeight="35.0" prefWidth="199.0" spacing="2.0">
-            <padding>
-                <Insets bottom="8.0" left="8.0"/>
-            </padding>
-        </VBox>
-    </FlowPane>
-</AnchorPane>
+   <VBox prefHeight="200.0" prefWidth="100.0" spacing="6.0">
+      <children>
+          <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Drycker:">
+              <styleClass>
+                <String fx:value="bold" />
+                <String fx:value="black-text" />
+              </styleClass>
+              <font>
+                <Font size="20.0" />
+              </font>
+          </Text>
+         <AnchorPane prefHeight="45.0" prefWidth="200.0">
+            <children>
+               <CheckBox fx:id="categoryLevel1CheckBox" layoutX="6.0" mnemonicParsing="false" styleClass="bold" text="CheckBox" />
+               <FlowPane layoutX="20.0" layoutY="25.0" prefWidth="182.0">
+                  <children>
+                     <VBox fx:id="categoryLevel2VBox" prefWidth="190.0" spacing="1.0" />
+                  </children>
+               </FlowPane>
+            </children>
+         </AnchorPane>
+      </children>
+   </VBox>
+</fx:root>
