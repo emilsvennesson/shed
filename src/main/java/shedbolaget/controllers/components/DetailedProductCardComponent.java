@@ -12,8 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.model.products.Product;
 
-import java.io.IOException;
-
+/**
+ * @author Samuel Kajava
+ */
 public class DetailedProductCardComponent extends Component {
     private final Product product;
     @FXML

@@ -15,8 +15,8 @@ class ProductJsonFileParser implements IProductParser {
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         try {
-            // create object mapper instance
             ObjectMapper mapper = new ObjectMapper();
+            // use jackson to parse the JSON file into a products list
             products = mapper.readValue(ClassLoader.getSystemClassLoader().getResourceAsStream("data.json"), new TypeReference<>() {
             });
 

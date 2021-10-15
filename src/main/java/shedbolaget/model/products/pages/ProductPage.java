@@ -9,7 +9,8 @@ import java.util.List;
 /**
  * This class represents a product page.
  *
- * @author Emil Svensson, Pouya Shirin
+ * @author Emil Svensson
+ * @author Pouya Shirin
  */
 class ProductPage implements IProductsCollection {
     private final List<Product> products;

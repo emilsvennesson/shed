@@ -3,10 +3,14 @@ package shedbolaget.controllers.components;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import shedbolaget.model.products.pages.Pages;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.pages.Pages;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ */
 public class MainPage extends Component {
     @FXML
     private AnchorPane navBarPane;

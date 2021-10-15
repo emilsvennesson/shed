@@ -2,10 +2,14 @@ package shedbolaget.model.products;
 
 import shedbolaget.model.parser.ProductParserFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This class holds all products available in the products JSON file.
+ *
+ * @author Emil Svensson
+ * @author Samuel Kajava
  */
 public class ProductsHolder implements IProductsCollection {
     private final List<Product> allProducts = ProductParserFactory.getProductsFromJson();
@@ -20,7 +24,7 @@ public class ProductsHolder implements IProductsCollection {
 
     @Override
     public List<Product> getAllProducts() {
-        return allProducts;
+        return new ArrayList<>(allProducts);
     }
 
     @Override

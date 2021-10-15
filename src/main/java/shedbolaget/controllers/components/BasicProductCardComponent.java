@@ -9,11 +9,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import shedbolaget.model.products.Product;
 
-import java.io.IOException;
-
-public class BasicProductCardComponent extends Component{
+/**
+ * @author Samuel Kajava
+ */
+public class BasicProductCardComponent extends Component {
     private final Product product;
-    //private final Model model = Model.getInstance();
     @FXML
     private ImageView imageView;
     @FXML

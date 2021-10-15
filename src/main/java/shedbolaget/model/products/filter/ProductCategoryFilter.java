@@ -11,6 +11,11 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ * @author Pouya Shirin
+ */
 enum ProductCategoryFilter {
     ;
 

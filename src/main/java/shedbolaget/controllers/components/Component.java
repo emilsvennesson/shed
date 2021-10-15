@@ -6,6 +6,11 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ * @author OOPsie project :-)
+ */
 public abstract class Component {
     private final AnchorPane pane = new AnchorPane();
 

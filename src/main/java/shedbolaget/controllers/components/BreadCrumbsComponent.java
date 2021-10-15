@@ -10,6 +10,9 @@ import shedbolaget.model.events.EventManager;
 import java.util.List;
 import java.util.StringJoiner;
 
+/**
+ * @author Emil Svensson
+ */
 public class BreadCrumbsComponent extends Component {
 
     @FXML

@@ -17,6 +17,11 @@ class Image {
 
 /**
  * This class represents an alcoholic beverage.
+ *
+ * @author Emil Svensson
+ * @author Daniel Rygaard
+ * @author Pouya Shirin
+ * @author Samuel Kajava
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {

@@ -16,6 +16,10 @@ import shedbolaget.model.products.ProductsHolder;
 
 import java.util.List;
 
+/**
+ * @author Emil Svensson
+ * @author Samuel Kajava
+ */
 public class NavBarComponent extends Component {
     private EventManager eventManager;
 

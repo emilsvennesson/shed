@@ -14,6 +14,9 @@ import shedbolaget.model.products.ProductsHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Emil Svensson
+ */
 public class CategoryComponent extends Component {
     private Category activeLevel1Category;
     private final EventManager eventManager = EventManager.getInstance();
