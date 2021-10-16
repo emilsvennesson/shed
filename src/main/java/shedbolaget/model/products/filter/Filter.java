@@ -24,7 +24,7 @@ public enum Filter {
      * If
      */
     public static List<Product> getFilteredProductsByCategory(List<Product> products, List<Category> categories) {
-        return ProductCategoryFilter.getFilteredProducts(products, categories);
+        return ProductsCategoryFilter.getFilteredProducts(products, categories);
     }
 
 }

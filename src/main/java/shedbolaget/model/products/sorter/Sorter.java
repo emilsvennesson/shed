@@ -27,4 +27,8 @@ public enum Sorter {
         return new ProductListSorter().getProductsSortedByDouble(Product::getApk, productList, reversed);
     }
 
+    public static List<Product> getProductListByFullProductName(List<Product> productList, boolean reversed) {
+        return new ProductListSorter().getProductsSortedByString(Product::getFullProductName, productList, false);
+    }
+
 }

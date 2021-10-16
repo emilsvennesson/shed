@@ -85,6 +85,10 @@ public class Product {
         return productNameThin;
     }
 
+    public String getFullProductName() {
+        return productNameThin == null ? productNameBold : String.format("%s %s", productNameBold, productNameThin);
+    }
+
     public double getPrice() {
         return price;
     }
