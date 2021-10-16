@@ -23,8 +23,21 @@ public class Ingredient {
     public Ingredient(Product prod){
 
         //TODO turn the product into ingredient
+        if(prod.getCategoryLevel1().equals("sprit")){
+            if(prod.getCategoryLevel2().equals("rom")){
+                if(prod.getCategoryLevel3().equals("M\\u00f6rk rom")){
+                    this.ingredient = "Dark Rum";
+                }
+                if(prod.getCategoryLevel3().equals("M\\u00f6rk rom")){
+                    this.ingredient = "Light Rum";
+                }
+            }
+
+            if(prod.getCategoryLevel2().equals("vodka")){
 
 
+            }
+        }
     }
 
 
