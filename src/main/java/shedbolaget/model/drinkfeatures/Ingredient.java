@@ -24,35 +24,61 @@ public class Ingredient {
     public Ingredient(Product prod){
         this.product = prod;
         //TODO turn the product into ingredient
-        if(prod.getCategoryLevel1().equals("sprit")){
-            if(prod.getCategoryLevel2().equals("rom")){
-                //TODO test if this equals works
-                if(prod.getCategoryLevel3().equals("M\\u00f6rk rom")){
-                    this.ingredient = "Dark rum";
-                }
-                if(prod.getCategoryLevel3().equals("Light rum")){
-                    this.ingredient = "Light Rum";
-                }
-            }
-
-            if(prod.getCategoryLevel2().equals("Vodka")){
-                this.ingredient = "Vodka";
-
-            }
-
-            if(prod.getCategoryLevel2().equals("Tequila & Mezcal")){
-                this.ingredient = "Tequila";
-            }
+        this.ingredient = getIngredientName(prod);
 
 
-
-        }
     }
 
 
     public String getIngredient() {
         return ingredient;
     }
+
+    public String getIngredientName(Product prod){
+        if(prod.getCategoryLevel1().equals("sprit")){
+            if(prod.getCategoryLevel2().equals("rom")){
+                //TODO test if this equals works
+                if(prod.getCategoryLevel3().equals("M\\u00f6rk rom")){
+                    return "Dark rum";
+                }
+                if(prod.getCategoryLevel3().equals("Light rum")){
+                    return"Light Rum";
+                }
+            }
+
+            if(prod.getCategoryLevel2().equals("Vodka")){
+                return "Vodka";
+
+            }
+
+            if(prod.getCategoryLevel2().equals("Tequila & Mezcal")){
+                return "Tequila";
+            }
+
+            if(prod.getCategoryLevel2().equals("likör")){
+                if(prod.getCategoryLevel3().equals("Baileys"))
+                    return "Baileys Irish Cream";
+                if(prod.getCategoryLevel3().equals("Disaronno")){
+                    return "Amaretto";
+                }
+
+            }
+
+
+
+
+
+        }
+
+
+        return null;
+    }
+
+
+    public void saveName(){
+        System.out.println(this.product.getProducerName() + " has no ingredient");
+    }
+
 
     @Override
     public boolean equals(Object o) {
