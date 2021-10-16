@@ -1,4 +1,4 @@
-package shedbolaget.model.parser;
+package shedbolaget.model.products.parser;
 
 import shedbolaget.model.products.Product;
 
@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author Emil Svensson
  */
-public interface IProductParser {
+public interface IProductsParser {
     /**
      * Gets Product objects and puts them in a List.
      *
