@@ -1,4 +1,4 @@
-package shedbolaget.model.parser;
+package shedbolaget.model.products.parser;
 
 import shedbolaget.model.products.Product;
 
@@ -9,9 +9,9 @@ import java.util.List;
  *
  * @author Emil Svensson
  */
-public enum ProductParserFactory {
+public enum ProductsParserFactory {
     ;
-    private static final ProductJsonFileParser jsonParser = new ProductJsonFileParser();
+    private static final ProductsJsonFileParser jsonParser = new ProductsJsonFileParser();
 
     /**
      * Gets products from the JSON resource file.

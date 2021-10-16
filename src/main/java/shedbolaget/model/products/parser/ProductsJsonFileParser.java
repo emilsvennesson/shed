@@ -1,4 +1,4 @@
-package shedbolaget.model.parser;
+package shedbolaget.model.products.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author Emil Svensson
  */
-class ProductJsonFileParser implements IProductParser {
+class ProductsJsonFileParser implements IProductsParser {
     @Override
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();

@@ -1,6 +1,6 @@
 package shedbolaget.model.products;
 
-import shedbolaget.model.parser.ProductParserFactory;
+import shedbolaget.model.products.parser.ProductsParserFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class ProductsHolder implements IProductsCollection {
-    private final List<Product> allProducts = ProductParserFactory.getProductsFromJson();
+    private final List<Product> allProducts = ProductsParserFactory.getProductsFromJson();
     private static final ProductsHolder instance = new ProductsHolder();
 
     private ProductsHolder() {
