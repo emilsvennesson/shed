@@ -21,8 +21,6 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class NavBarComponent extends Component {
-    private EventManager eventManager;
-
     @FXML
     private MenuButton dropDownButton;
 
@@ -45,7 +43,6 @@ public class NavBarComponent extends Component {
 
     public NavBarComponent() {
         super("NavBarView");
-        eventManager = EventManager.getInstance();
         eventManager.registerToEventBus(this);
         initDropdown();
     }

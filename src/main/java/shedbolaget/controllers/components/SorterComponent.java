@@ -23,7 +23,6 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class SorterComponent extends Component {
-
     @FXML
     private FlowPane filterFlowPane;
 
@@ -39,17 +38,10 @@ public class SorterComponent extends Component {
     @FXML
     private MenuButton sortMenuButton;
 
-    private EventManager eventManager;
-
     private List<Category> activeCategories = new ArrayList<>();
 
     protected SorterComponent() {
         super("SorterView");
-    }
-
-    @FXML
-    public void initialize() {
-        eventManager = EventManager.getInstance();
         eventManager.registerToEventBus(this);
         sortMenuButton.setText("Pris");
     }

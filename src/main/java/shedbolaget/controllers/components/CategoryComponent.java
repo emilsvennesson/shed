@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.products.ProductsHolder;
 
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import java.util.List;
  */
 public class CategoryComponent extends Component {
     private Category activeLevel1Category;
-    private final EventManager eventManager = EventManager.getInstance();
     List<CheckBox> checkBoxes;
 
     @FXML
