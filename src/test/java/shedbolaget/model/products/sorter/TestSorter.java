@@ -1,7 +1,9 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.sorter;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.model.products.Product;
+import shedbolaget.model.products.ProductsHolder;
 import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.List;

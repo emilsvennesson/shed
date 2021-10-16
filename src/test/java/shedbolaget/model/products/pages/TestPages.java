@@ -1,7 +1,8 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.pages;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.model.products.ProductsHolder;
 import shedbolaget.model.products.pages.Pages;
 
 public class TestPages {

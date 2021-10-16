@@ -1,8 +1,10 @@
-package shedbolaget.model.products;
+package shedbolaget.model.products.filter;
 
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.Product;
+import shedbolaget.model.products.ProductsHolder;
 import shedbolaget.model.products.filter.Filter;
 
 import java.util.ArrayList;
