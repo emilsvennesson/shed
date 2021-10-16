@@ -14,7 +14,7 @@ import java.util.function.Function;
  * @author Samuel Kajava
  * @see Product
  */
-public class ProductListSorter implements IProductsSorter {
+class ProductListSorter implements IProductsSorter {
     @Override
     public List<Product> getProductsSortedByDouble(Function<Product, Double> sortingParameter, List<Product> productListToSort) {
         List<Product> sortedList = new ArrayList<>(productListToSort);
