@@ -5,7 +5,7 @@ Group project for TDA367
 Made with 💚 by Samuel Kajava, Emil Svensson, Daniel Rygaard, Pouya Shirin and Daniel Ericsson
 
 ## Prerequisites
-- Java SDK 11 or higher
+- Java JDK 16
 - Maven
 
 ## Running the application
