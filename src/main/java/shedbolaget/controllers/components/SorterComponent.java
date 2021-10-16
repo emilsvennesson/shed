@@ -95,17 +95,11 @@ public class SorterComponent extends Component {
         activeCategories = event.getActiveCategories();
         String activeSortingMethod = sortMenuButton.getText();
         switch (activeSortingMethod) {
-            case "Pris":
-                sortByPrice();
-                break;
-            case "Namn":
-                sortByName();
-                break;
-            case "APK":
-                sortByApk();
-                break;
-            default:
-                break;
+            case "Pris" -> sortByPrice();
+            case "Namn" -> sortByName();
+            case "APK" -> sortByApk();
+            default -> {
+            }
         }
 
     }
