@@ -1,13 +1,12 @@
 package shedbolaget.model.products.filter;
 
-import com.google.common.collect.Streams;
 import me.xdrop.fuzzywuzzy.FuzzySearch;
 import me.xdrop.fuzzywuzzy.model.ExtractedResult;
 import shedbolaget.model.products.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 enum ProductsSearch {
     ;
@@ -21,8 +20,35 @@ enum ProductsSearch {
     }
 
     static List<Product> searchByCategory(List<Product> products, String query) {
-        //TODO: figure it out kiddo
-        return null;
+        Map<Product, Integer> pScore = getCategoryHitRatio(products, query);
+        return new ArrayList<>(sortMap(pScore).keySet());
+    }
+
+    static Map<Product, Integer> getCategoryHitRatio(List<Product> products, String query) {
+        Map<Product, Integer> pScore = new LinkedHashMap<>();
+        for (Product product : products) {
+            int r1 = FuzzySearch.ratio(query, product.getCategoryLevel1().getName());
+            int r2 = FuzzySearch.ratio(query, product.getCategoryLevel2().getName());
+            int r3 = FuzzySearch.ratio(query, product.getCategoryLevel3().getName());
+            int score = Math.max(r1, Math.max(r2, r3));
+            pScore.put(product, score);
+        }
+        return pScore;
+    }
+
+    static Map<Product, Integer> sortMap(Map<Product, Integer> pMap) {
+        Map<Product, Integer> sortedMap = pMap.entrySet().stream()
+                .sorted(Comparator.comparingInt(e -> -e.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> {
+                            throw new AssertionError();
+                        },
+                        LinkedHashMap::new
+                ));
+
+        return sortedMap;
     }
 
     static List<String> extractFromMethod(Function<Product, String> stringFunction, List<Product> productList) {
