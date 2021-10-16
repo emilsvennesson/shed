@@ -2,6 +2,7 @@ package shedbolaget.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Random;
 
 public class TestModel {
 
+    /*
     private static Product getRandomUniqueProduct() {
         Model handler = Model.getInstance();
         Random rand = new Random();
@@ -22,17 +24,7 @@ public class TestModel {
         return prod;
     }
 
-    @Test
-    public void testProducts() {
-        Model dh = Model.getInstance();
-        Assert.assertEquals(22170, dh.getAllProducts().size());  // we know data should contain 22170 products
-    }
 
-    @Test
-    public void testGetSize() {
-        Model dh = Model.getInstance();
-        Assert.assertEquals(22170, dh.getSize());
-    }
 
     //TODO Fix tests for favorites
     @Test
@@ -104,5 +96,7 @@ public class TestModel {
         }
         // try getting 0 or -10 products
     }
+
+     */
 
 }

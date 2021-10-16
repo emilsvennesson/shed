@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="200.0" style="-fx-background-color: white;" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox layoutX="9.0" layoutY="8.0" spacing="6.0">
+        <HBox spacing="35.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Sortera efter:">
+                <font>
+                    <Font size="20.0" />
+                </font>
+                <styleClass>
+                    <String fx:value="black-text" />
+                    <String fx:value="bold" />
+                </styleClass>
+            </Text>
+        </HBox>
+        <FlowPane fx:id="filterFlowPane" prefHeight="55.0" prefWidth="181.0">
+            <MenuButton fx:id="sortMenuButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="182.0" styleClass="filter-btn" text="Aktiv">
+                <items>
+                    <MenuItem fx:id="sortByPriceMenuItem" mnemonicParsing="false" onAction="#onSortByPriceClick" text="Pris" />
+                    <MenuItem fx:id="sortByApkMenuItem" mnemonicParsing="false" onAction="#onSortByApkClick" text="APK" />
+                    <MenuItem fx:id="sortByNameMenuItem" mnemonicParsing="false" onAction="#onSortByNameClick" text="Namn" />
+                </items>
+            </MenuButton>
+        </FlowPane>
+    </VBox>
+</fx:root>
