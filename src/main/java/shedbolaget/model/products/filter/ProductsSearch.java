@@ -29,7 +29,11 @@ enum ProductsSearch {
         for (Product product : products) {
             int r1 = FuzzySearch.ratio(query, product.getCategoryLevel1().getName());
             int r2 = FuzzySearch.ratio(query, product.getCategoryLevel2().getName());
-            int r3 = FuzzySearch.ratio(query, product.getCategoryLevel3().getName());
+            int r3 = 0;
+            try {
+                r3 = FuzzySearch.ratio(query, product.getCategoryLevel3().getName());
+            } catch (NullPointerException ignored) {
+            }
             int score = Math.max(r1, Math.max(r2, r3));
             pScore.put(product, score);
         }
