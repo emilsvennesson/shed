@@ -1,6 +1,7 @@
 package shedbolaget.model.products.parser;
 
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.customproduct.CustomProduct;
 
 import java.util.List;
 
@@ -20,6 +21,10 @@ public enum ProductsParserFactory {
      * @see Product
      */
     public static List<Product> getProductsFromJson() {
-        return jsonParser.getProducts();
+        return jsonParser.getProducts("data.json");
     }
+    public static List<Product> getCustomProductsFromJson() {
+        return jsonParser.getProducts(CustomProduct.CUSTOM_PRODUCTS_FILENAME);
+    }
+
 }

@@ -12,12 +12,12 @@ import java.util.List;
  */
 class ProductsJsonFileParser implements IProductsParser {
     @Override
-    public List<Product> getProducts() {
+    public List<Product> getProducts(String fileName) {
         List<Product> products = new ArrayList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
             // use jackson to parse the JSON file into a products list
-            products = mapper.readValue(ClassLoader.getSystemClassLoader().getResourceAsStream("data.json"), new TypeReference<>() {
+            products = mapper.readValue(ClassLoader.getSystemClassLoader().getResourceAsStream(fileName), new TypeReference<>() {
             });
 
         } catch (Exception ex) {
