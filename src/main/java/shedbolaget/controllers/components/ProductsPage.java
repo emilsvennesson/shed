@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class ProductsPage extends Component {
     static private final int PRODUCTS_PER_PAGE = 100;
+    static private final int FUZZY_REQUIRED_HIT_RATE = 90;
 
     @FXML
     private AnchorPane navBarPane;
@@ -96,7 +97,6 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnSearchEvent(SearchEvent event) {
-        loadProducts(Filter.search(ProductModel.getInstance().getAllProducts(), event.getSearchString(), 80), true);
+        loadProducts(Filter.search(ProductModel.getInstance().getAllProducts(), event.getSearchString(), FUZZY_REQUIRED_HIT_RATE), true);
     }
 }
-
