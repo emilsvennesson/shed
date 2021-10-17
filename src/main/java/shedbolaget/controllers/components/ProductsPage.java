@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
+import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
@@ -46,7 +47,7 @@ public class ProductsPage extends Component {
 
     private void loadProducts(List<Product> products) {
         productsWrapper.getChildren().clear();
-        products.subList(0, 40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        products.subList(0, 4).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
 
     }
 
@@ -66,6 +67,11 @@ public class ProductsPage extends Component {
     @Subscribe
     public void actOnSortEvent(SortEvent event) {
         loadProducts(event.getSortedProductList());
+    }
+
+    @Subscribe
+    public void actOnSearchEvent(SearchEvent event) {
+        loadProducts(Filter.search(ProductsHolder.getInstance().getAllProducts(), event.getSearchString(), 60));
     }
 }
 

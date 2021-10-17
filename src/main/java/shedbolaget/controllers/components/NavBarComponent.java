@@ -12,6 +12,7 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
+import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.products.ProductsHolder;
 
 import java.util.List;
@@ -70,5 +71,11 @@ public class NavBarComponent extends Component {
     @FXML
     void favoritesButtonOnClicked(ActionEvent event) {
         System.out.println("favorites button clicked");
+    }
+
+    @FXML
+    void searchButtonOnClicked(ActionEvent event) {
+        eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
     }
 }
