@@ -46,7 +46,11 @@ public class ProductsPage extends Component {
 
     private void loadProducts(List<Product> products) {
         productsWrapper.getChildren().clear();
-        products.subList(0, 40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        if(products.size() >= 40)
+            products.subList(0, 40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        else{
+            products.subList(0, products.size()).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
+        }
 
     }
 
