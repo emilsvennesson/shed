@@ -2,6 +2,7 @@ package shedbolaget.model.drinkfeatures;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * model.{@link DrinkFilter} .{@link DrinkFilter}
@@ -30,8 +31,7 @@ public class DrinkFilter {
     List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
 
         return drinks.stream()
-                .filter(x-> x.hasIngreadients(ingredients))
-                .toList();
+                .filter(x-> x.hasIngreadients(ingredients)).collect(Collectors.toList());
 
     }
 
