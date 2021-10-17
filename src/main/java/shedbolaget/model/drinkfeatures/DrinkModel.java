@@ -1,6 +1,6 @@
 package shedbolaget.model.drinkfeatures;
 
-import shedbolaget.model.Product;
+import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,5 +58,7 @@ public class DrinkModel {
         Ingredient ing = new Ingredient(product);
         this.addIngredient(ing);
     }
+
+    //TODO add removeIngredirent()
 
 }

@@ -1,7 +1,8 @@
 package shedbolaget.model.drinkfeatures;
 
-import shedbolaget.model.Product;
+
 import shedbolaget.model.favorites.SavableProductIdList;
+import shedbolaget.model.products.Product;
 
 import java.util.Objects;
 import java.util.stream.IntStream;
@@ -38,7 +39,7 @@ public class Ingredient {
         if(prod.getCategoryLevel1().equals("sprit")){
             if(prod.getCategoryLevel2().equals("rom")){
                 //TODO test if this equals works
-                if(prod.getCategoryLevel3().equals("M\\u00f6rk rom")){
+                if(prod.getCategoryLevel3().getName().equals("M\\u00f6rk rom")){
                     return "Dark rum";
                 }
                 if(prod.getCategoryLevel3().equals("Light rum")){
