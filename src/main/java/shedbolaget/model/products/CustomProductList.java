@@ -10,7 +10,7 @@ import java.util.List;
  * This class holds all products available in the products JSON file.
  * @author Pouya Shirin
  */
-public class CustomProductList implements IProductsCollection {
+class CustomProductList implements IProductsCollection {
     private List<Product> products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
     private static final CustomProductList instance = new CustomProductList();
 

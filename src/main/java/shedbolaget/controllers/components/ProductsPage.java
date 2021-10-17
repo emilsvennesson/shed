@@ -10,7 +10,7 @@ import shedbolaget.model.events.PagesEvent;
 import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductList;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.pages.Pages;
 
@@ -78,8 +78,7 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        ProductList productsHolder = ProductList.getInstance();
-        filteredProducts = Filter.getFilteredProductsByCategory(productsHolder.getAllProducts(), event.getActiveCategories());
+        filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
             loadProducts(filteredProducts, true);
     }
@@ -97,7 +96,7 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnSearchEvent(SearchEvent event) {
-        loadProducts(Filter.search(ProductList.getInstance().getAllProducts(), event.getSearchString(), 80), true);
+        loadProducts(Filter.search(ProductModel.getInstance().getAllProducts(), event.getSearchString(), 80), true);
     }
 }
 

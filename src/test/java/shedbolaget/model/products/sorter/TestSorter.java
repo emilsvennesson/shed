@@ -3,14 +3,14 @@ package shedbolaget.model.products.sorter;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductList;
+import shedbolaget.model.products.ProductModel;
 
 import java.util.List;
 
 public class TestSorter {
     @Test
     public void testGetProductListSortedByPrice() {
-        List<Product> products = ProductList.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         Product cheapestProduct = products.get(0);
         double cheapestPrice = cheapestProduct.getPrice();
         for(Product p : products) {
@@ -25,7 +25,7 @@ public class TestSorter {
 
     @Test
     public void testGetProductListSortedByApk() {
-        List<Product> products = ProductList.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         Product bestProduct = products.get(0);
         double bestApk = bestProduct.getApk();
         for(Product p : products) {

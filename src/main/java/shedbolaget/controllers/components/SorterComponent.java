@@ -10,7 +10,7 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductList;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
@@ -66,17 +66,17 @@ public class SorterComponent extends Component {
     }
 
     private void sortByPrice() {
-        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(ProductList.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByApk() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductList.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByName() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductList.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 

@@ -3,7 +3,7 @@ package shedbolaget.model.products.filter;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductList;
+import shedbolaget.model.products.ProductModel;
 
 /**
  * The type Test fuzzy wuzzy.
@@ -11,26 +11,26 @@ import shedbolaget.model.products.ProductList;
 public class TestProductsSearch {
     @Test
     public void testSearchByCategory() {
-        for (Product p : ProductsSearch.searchByCategory(ProductList.getInstance().getAllProducts(), "Tequila", 100))
+        for (Product p : ProductsSearch.searchByCategory(ProductModel.getInstance().getAllProducts(), "Tequila", 100))
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Tequila");
-        for (Product p : ProductsSearch.searchByCategory(ProductList.getInstance().getAllProducts(), "tequila", 93)) {
+        for (Product p : ProductsSearch.searchByCategory(ProductModel.getInstance().getAllProducts(), "tequila", 93)) {
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Tequila");
         }
     }
 
     @Test
     public void testSearchByName() {
-        for (Product p : ProductsSearch.searchByName(ProductList.getInstance().getAllProducts(), "Arboga 10,2", 100)) {
+        for (Product p : ProductsSearch.searchByName(ProductModel.getInstance().getAllProducts(), "Arboga 10,2", 100)) {
             Assert.assertEquals(p.getFullProductName(), "Arboga 10,2");
         }
     }
 
     @Test
     public void testSearch() {
-        for (Product p : ProductsSearch.search(ProductList.getInstance().getAllProducts(), "Fruktigt & Smakrikt vin", 100)) {
+        for (Product p : ProductsSearch.search(ProductModel.getInstance().getAllProducts(), "Fruktigt & Smakrikt vin", 100)) {
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Fruktigt & Smakrikt vin");
         }
-        for (Product p : ProductsSearch.search(ProductList.getInstance().getAllProducts(), "Arboga 10,2", 100)) {
+        for (Product p : ProductsSearch.search(ProductModel.getInstance().getAllProducts(), "Arboga 10,2", 100)) {
             Assert.assertEquals(p.getFullProductName(), "Arboga 10,2");
         }
 

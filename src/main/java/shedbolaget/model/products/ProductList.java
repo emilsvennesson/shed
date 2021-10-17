@@ -13,7 +13,7 @@ import java.util.List;
  * @author Samuel Kajava
  * @author Pouya Shirin
  */
-public class ProductList implements IProductsCollection {
+class ProductList implements IProductsCollection {
     private final List<Product> products = ProductsParserFactory.createJSONParser("data.json").getProducts();
     private static final ProductList instance = new ProductList();
 

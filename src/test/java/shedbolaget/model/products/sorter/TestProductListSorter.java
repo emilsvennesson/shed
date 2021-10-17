@@ -3,7 +3,7 @@ package shedbolaget.model.products.sorter;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductList;
+import shedbolaget.model.products.ProductModel;
 
 import java.util.List;
 import java.util.function.Function;
@@ -12,7 +12,7 @@ public class TestProductListSorter {
 
     @Test
     public void testGetProductsSortedByDouble() {
-        List<Product> products = ProductList.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         Product cheapestProduct = products.get(0);
         double cheapestPrice = cheapestProduct.getPrice();
         for (Product p : products) {
@@ -27,7 +27,7 @@ public class TestProductListSorter {
 
     @Test
     public void testGetProductsSortedByBoolean() {
-        List<Product> products = ProductList.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         int len = 0;
         for (Product p : products) {
             if (p.getPrice() < 10)
