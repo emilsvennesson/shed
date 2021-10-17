@@ -31,6 +31,7 @@ public class Product {
     private String usage;
     private String categoryLevel1;
     private String categoryLevel2;
+    private String categoryLevel3;
 
     public String getCategoryLevel1() {
         return categoryLevel1;
@@ -38,6 +39,10 @@ public class Product {
 
     public String getCategoryLevel2() {
         return categoryLevel2;
+    }
+
+    public String getCategoryLevel3() {
+        return categoryLevel3;
     }
 
     public List<Image> getImages() {
