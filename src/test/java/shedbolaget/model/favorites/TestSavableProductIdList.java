@@ -4,7 +4,7 @@ package shedbolaget.model.favorites;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -151,7 +151,7 @@ public class TestSavableProductIdList {
 
         Product prod;
         do {
-            prod = ProductsHolder.getInstance().getAllProducts().get(rand.nextInt(ProductsHolder.getInstance().getAllProducts().size()));
+            prod = ProductList.getInstance().getAllProducts().get(rand.nextInt(ProductList.getInstance().getAllProducts().size()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);

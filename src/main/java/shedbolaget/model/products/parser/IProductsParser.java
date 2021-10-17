@@ -16,5 +16,5 @@ public interface IProductsParser {
      * @return the Product objects as a List.
      * @see shedbolaget.model.products.Product
      */
-    List<Product> getProducts(String fileName);
+    List<Product> getProducts();
 }

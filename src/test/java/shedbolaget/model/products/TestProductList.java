@@ -5,11 +5,11 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class TestProductsHolder {
+public class TestProductList {
 
     @Test
     public void testGetAllProducts() {
-        List<Product> products = ProductsHolder.getInstance().getAllProducts();
+        List<Product> products = ProductList.getInstance().getAllProducts();
         Assert.assertEquals(products.size(), 22170);
     }
 }

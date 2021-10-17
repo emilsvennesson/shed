@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class TestProductListIO {
     IProductListIO io = new ProductListFileIO();
 
     private static Product getRandomUniqueProduct() {
-        List<Product> products = ProductsHolder.getInstance().getAllProducts();
+        List<Product> products = ProductList.getInstance().getAllProducts();
         Product prod;
         do {
             prod = products.get(rand.nextInt(products.size()));
