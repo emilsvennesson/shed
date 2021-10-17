@@ -2,6 +2,7 @@ package shedbolaget.model.products;
 
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class ProductsHolder implements IProductsCollection {
-    private final List<Product> allProducts = ProductsParserFactory.getProductsFromJson();
+    private final List<Product> products = ProductsParserFactory.getProductsFromJson();
     private static final ProductsHolder instance = new ProductsHolder();
 
     private ProductsHolder() {
@@ -22,13 +23,27 @@ public class ProductsHolder implements IProductsCollection {
         return instance;
     }
 
+    public List<Product> getProducts(){
+        return new ArrayList<>(products);
+    }
+
     @Override
     public List<Product> getAllProducts() {
-        return new ArrayList<>(allProducts);
+        List<Product> allProducts = new ArrayList<>(products);
+        allProducts.addAll(ProductsParserFactory.getCustomProductsFromJson());
+        return allProducts;
     }
 
     @Override
     public int getNumberOfProducts() {
-        return allProducts.size();
+        return products.size();
+    }
+
+    public int getNumberOfCustomProducts(){
+        return ProductsParserFactory.getCustomProductsFromJson().size();
+    }
+
+    public int getNumberOfAllProducts(){
+        return getNumberOfProducts() + getNumberOfCustomProducts();
     }
 }
