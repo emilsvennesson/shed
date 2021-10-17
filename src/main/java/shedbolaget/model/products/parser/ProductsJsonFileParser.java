@@ -21,7 +21,7 @@ class ProductsJsonFileParser implements IProductsParser {
             });
 
         } catch (Exception ex) {
-            System.out.println("Failed to read data.json file.");
+            System.out.println("Failed to read " + fileName + " file.");
             ex.printStackTrace();
         }
 
