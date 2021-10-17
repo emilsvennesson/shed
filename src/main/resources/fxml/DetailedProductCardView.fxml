@@ -21,15 +21,24 @@
     <ImageView fx:id="imageView" fitHeight="97.0" fitWidth="28.0" layoutX="25.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
     <VBox layoutX="75.0" layoutY="5.0" spacing="8.0">
         <VBox prefHeight="60.0" prefWidth="275.0">
-            <Text fx:id="nameBoldText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 32;" text="1664 Blanc" wrappingWidth="605.3646087646484">
-                <font>
-                    <Font size="32.0" />
-                </font>
-                <styleClass>
-                    <String fx:value="black-text" />
-                    <String fx:value="bold" />
-                </styleClass>
-            </Text>
+         <VBox fx:id="nameVBox" alignment="CENTER">
+            <children>
+                  <Text fx:id="nameBoldText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 32;" text="1664 Blanc" wrappingWidth="605.3646087646484">
+                      <font>
+                          <Font size="32.0" />
+                      </font>
+                      <styleClass>
+                          <String fx:value="black-text" />
+                          <String fx:value="bold" />
+                      </styleClass>
+                  </Text>
+               <Text fx:id="nameThinText" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Strong" wrappingWidth="605.4219512939453">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Text>
+            </children>
+         </VBox>
             <HBox prefHeight="17.0" prefWidth="286.0" spacing="8.0">
                 <Text fx:id="alcoholPercentageText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="Alkoholhalt: 5 %" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="|" />

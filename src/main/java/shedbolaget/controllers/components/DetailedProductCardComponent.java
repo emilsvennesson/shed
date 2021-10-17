@@ -14,6 +14,7 @@ import shedbolaget.model.products.Product;
 
 /**
  * @author Samuel Kajava
+ * @author Emil Svensson
  */
 public class DetailedProductCardComponent extends Component {
     private final Product product;
@@ -49,6 +50,10 @@ public class DetailedProductCardComponent extends Component {
     private Button favoritesButton;
     @FXML
     private VBox descriptionVBox;
+    @FXML
+    private Text nameThinText;
+    @FXML
+    private VBox nameVBox;
 
     private boolean expanded;
     private boolean isFavorite;
@@ -62,7 +67,11 @@ public class DetailedProductCardComponent extends Component {
     }
 
     public void initProductInfo() {
-        nameBoldText.setText(this.product.getFullProductName()); //TODO: split into bold and thin
+        nameBoldText.setText(this.product.getProductNameBold());
+        if (product.getProductNameThin() == null)
+            nameVBox.getChildren().remove(nameThinText);
+        else
+            nameThinText.setText(product.getProductNameThin());
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
