@@ -77,5 +77,6 @@ public class NavBarComponent extends Component {
     void searchButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
+        searchTextField.clear();
     }
 }
