@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 import shedbolaget.model.products.ProductsHolder;
 

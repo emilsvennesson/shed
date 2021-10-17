@@ -1,6 +1,5 @@
 package shedbolaget.controllers.components;
 
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import shedbolaget.model.events.EventManager;

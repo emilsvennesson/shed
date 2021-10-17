@@ -6,7 +6,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.PagesEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
@@ -24,24 +23,26 @@ public class ProductsPage extends Component {
     static private final int PRODUCTS_PER_PAGE = 100;
 
     @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
     private AnchorPane navBarPane;
 
     @FXML
     private FlowPane contentFlowPane;
 
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
     private FlowPane productsWrapper;
 
     private List<Product> filteredProducts;
 
     private AnchorPane paginationComponent;
 
+
     protected ProductsPage() {
         super("ProductsView");
-        initProductsWrapper();
         populateView();
+        initProductsWrapper();
         eventManager.registerToEventBus(this);
     }
 

@@ -8,7 +8,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
@@ -87,19 +86,11 @@ public class SorterComponent extends Component {
         activeCategories = event.getActiveCategories();
         String activeSortingMethod = sortMenuButton.getText();
         switch (activeSortingMethod) {
-            case "Pris":
-                sortByPrice();
-                break;
-            case "Namn":
-                sortByName();
-                break;
-            case "APK":
-                sortByApk();
-                break;
-            default:
-                break;
+            case "Pris" -> sortByPrice();
+            case "Namn" -> sortByName();
+            case "APK" -> sortByApk();
+            default -> {
+            }
         }
-
     }
-
 }
