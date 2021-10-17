@@ -8,7 +8,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
@@ -23,7 +22,6 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class SorterComponent extends Component {
-
     @FXML
     private FlowPane filterFlowPane;
 
@@ -39,17 +37,10 @@ public class SorterComponent extends Component {
     @FXML
     private MenuButton sortMenuButton;
 
-    private EventManager eventManager;
-
     private List<Category> activeCategories = new ArrayList<>();
 
     protected SorterComponent() {
         super("SorterView");
-    }
-
-    @FXML
-    public void initialize() {
-        eventManager = EventManager.getInstance();
         eventManager.registerToEventBus(this);
         sortMenuButton.setText("Pris");
     }
@@ -101,7 +92,5 @@ public class SorterComponent extends Component {
             default -> {
             }
         }
-
     }
-
 }

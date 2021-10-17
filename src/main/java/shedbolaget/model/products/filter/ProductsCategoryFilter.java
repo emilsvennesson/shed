@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * @author Samuel Kajava
  * @author Pouya Shirin
  */
-enum ProductCategoryFilter {
+enum ProductsCategoryFilter {
     ;
 
     static List<Product> getFilteredProducts(List<Product> products, List<Category> categories) {

@@ -51,6 +51,7 @@ public class Product {
     private String usage;
     private String categoryLevel1;
     private String categoryLevel2;
+    private String categoryLevel3;
 
     public Category getCategoryLevel1() {
         return new Category(categoryLevel1, 1);
@@ -75,6 +76,10 @@ public class Product {
         return new Category(categoryLevel2, 2);
     }
 
+    public Category getCategoryLevel3() {
+        return new Category(categoryLevel3, 3);
+    }
+
     private List<Image> getImages() {
         return images;
     }
@@ -93,6 +98,10 @@ public class Product {
 
     public String getProductNameThin() {
         return productNameThin;
+    }
+
+    public String getFullProductName() {
+        return productNameThin == null ? productNameBold : String.format("%s %s", productNameBold, productNameThin);
     }
 
     public double getPrice() {

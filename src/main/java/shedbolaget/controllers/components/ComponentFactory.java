@@ -2,6 +2,7 @@ package shedbolaget.controllers.components;
 
 import javafx.scene.layout.AnchorPane;
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.pages.Pages;
 
 /**
  * @author Emil Svensson
@@ -43,5 +44,9 @@ public class ComponentFactory {
 
     public static AnchorPane createCategoryMenu() {
         return new CategoryComponent().getPane();
+    }
+
+    public static AnchorPane createPagination(Pages pages) {
+        return new PaginationComponent(pages).getPane();
     }
 }

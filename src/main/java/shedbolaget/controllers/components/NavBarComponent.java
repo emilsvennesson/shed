@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
+import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.products.ProductsHolder;
 
 import java.util.List;
@@ -21,8 +21,6 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class NavBarComponent extends Component {
-    private EventManager eventManager;
-
     @FXML
     private MenuButton dropDownButton;
 
@@ -45,7 +43,6 @@ public class NavBarComponent extends Component {
 
     public NavBarComponent() {
         super("NavBarView");
-        eventManager = EventManager.getInstance();
         eventManager.registerToEventBus(this);
         initDropdown();
     }
@@ -70,5 +67,12 @@ public class NavBarComponent extends Component {
     @FXML
     void favoritesButtonOnClicked(ActionEvent event) {
         System.out.println("favorites button clicked");
+    }
+
+    @FXML
+    void searchButtonOnClicked(ActionEvent event) {
+        eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
+        searchTextField.clear();
     }
 }

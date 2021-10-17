@@ -2,14 +2,17 @@ package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.EventManager;
+import shedbolaget.model.events.PagesEvent;
+import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
 import shedbolaget.model.products.filter.Filter;
+import shedbolaget.model.products.pages.Pages;
 
 import java.util.List;
 
@@ -18,7 +21,7 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class ProductsPage extends Component {
-    private final EventManager eventManager = EventManager.getInstance();
+    static private final int PRODUCTS_PER_PAGE = 100;
 
     @FXML
     private AnchorPane navBarPane;
@@ -26,9 +29,16 @@ public class ProductsPage extends Component {
     @FXML
     private FlowPane contentFlowPane;
 
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
     private FlowPane productsWrapper;
 
     private List<Product> filteredProducts;
+
+    private AnchorPane paginationComponent;
+
 
     protected ProductsPage() {
         super("ProductsView");
@@ -44,14 +54,21 @@ public class ProductsPage extends Component {
         contentFlowPane.getChildren().add(productsWrapper);
     }
 
-    private void loadProducts(List<Product> products) {
-        productsWrapper.getChildren().clear();
-        if(products.size() >= 40)
-            products.subList(0, 40).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
-        else{
-            products.subList(0, products.size()).forEach(p -> productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(p)));
-        }
+    private void loadPaginationComponent(Pages pages) {
+        contentFlowPane.getChildren().remove(paginationComponent);
+        paginationComponent = new PaginationComponent(pages).getPane();
+        contentFlowPane.getChildren().add(paginationComponent);
+    }
 
+    private void loadProducts(List<Product> products, boolean asPages) {
+        productsWrapper.getChildren().clear();
+        if (asPages) {
+            Pages pages = new Pages(products, PRODUCTS_PER_PAGE);
+            products = pages.getProductsFromPage(1);
+            loadPaginationComponent(pages);
+        }
+        for (Product product : products)
+            productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(product));
     }
 
     private void initProductsWrapper() {
@@ -64,12 +81,23 @@ public class ProductsPage extends Component {
         ProductsHolder productsHolder = ProductsHolder.getInstance();
         filteredProducts = Filter.getFilteredProductsByCategory(productsHolder.getAllProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
-            loadProducts(filteredProducts);
+            loadProducts(filteredProducts, true);
     }
 
     @Subscribe
     public void actOnSortEvent(SortEvent event) {
-        loadProducts(event.getSortedProductList());
+        loadProducts(event.getSortedProductList(), true);
+    }
+
+    @Subscribe
+    public void actOnPagesEvent(PagesEvent event) {
+        loadProducts(event.getPageProducts(), false);
+        scrollPane.setVvalue(0);
+    }
+
+    @Subscribe
+    public void actOnSearchEvent(SearchEvent event) {
+        loadProducts(Filter.search(ProductsHolder.getInstance().getAllProducts(), event.getSearchString(), 80), true);
     }
 }
 

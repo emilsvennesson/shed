@@ -1,8 +1,8 @@
 package shedbolaget.controllers.components;
 
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.model.events.EventManager;
 
 import java.io.IOException;
 
@@ -12,6 +12,7 @@ import java.io.IOException;
  * @author OOPsie project :-)
  */
 public abstract class Component {
+    static final EventManager eventManager = EventManager.getInstance();
     private final AnchorPane pane = new AnchorPane();
 
     protected Component(String fxmlFileName) {
