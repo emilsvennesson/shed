@@ -41,12 +41,8 @@ public class RootWindow {
     @Subscribe
     public void onNavigationEvent(NavigationEvent event) {
         switch (event.getPageToNavigateTo()) {
-            case PRODUCTS:
-                openProductsPage();
-                break;
-            case MAIN:
-                openMainPage();
-                break;
+            case PRODUCTS -> openProductsPage();
+            case MAIN -> openMainPage();
         }
     }
 }
