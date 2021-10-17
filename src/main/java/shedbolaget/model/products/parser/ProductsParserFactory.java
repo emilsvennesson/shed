@@ -1,8 +1,6 @@
 package shedbolaget.model.products.parser;
 
-import shedbolaget.model.products.Product;
-
-import java.util.List;
+import java.io.InputStream;
 
 /**
  * The products parser factory.
@@ -11,15 +9,15 @@ import java.util.List;
  */
 public enum ProductsParserFactory {
     ;
-    private static final ProductsJsonFileParser jsonParser = new ProductsJsonFileParser();
 
     /**
-     * Gets products from the JSON resource file.
+     * Create an IProductsParser from a JSON InputStream.
      *
-     * @return the products from the JSON resource file in a List.
-     * @see Product
+     * @param streamToParse the stream to parse
+     * @return the IProductsParser object
      */
-    public static List<Product> getProductsFromJson() {
-        return jsonParser.getProducts();
+    public static IProductsParser createJSONParser(InputStream streamToParse) {
+        return new ProductsJSONFileParser(streamToParse);
     }
 }
+
