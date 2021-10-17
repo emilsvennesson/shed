@@ -14,7 +14,7 @@ public interface IProductsCollection {
      *
      * @return all products in the list
      */
-    List<Product> getAllProducts();
+    List<Product> getProducts();
 
     /**
      * Gets the number of products.

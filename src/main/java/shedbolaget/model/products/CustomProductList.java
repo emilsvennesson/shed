@@ -8,23 +8,20 @@ import java.util.List;
 
 /**
  * This class holds all products available in the products JSON file.
- *
- * @author Emil Svensson
- * @author Samuel Kajava
  * @author Pouya Shirin
  */
-public class ProductList implements IProductsCollection {
-    private final List<Product> products = ProductsParserFactory.createJSONParser("data.json").getProducts();
-    private static final ProductList instance = new ProductList();
+public class CustomProductList implements IProductsCollection {
+    private List<Product> products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
+    private static final CustomProductList instance = new CustomProductList();
 
-    private ProductList() {
+    private CustomProductList() {
     }
 
     /**
      *
      * @return the single instance of the object
      */
-    public static ProductList getInstance() {
+    public static CustomProductList getInstance() {
         return instance;
     }
 
@@ -34,6 +31,7 @@ public class ProductList implements IProductsCollection {
      */
     @Override
     public List<Product> getProducts() {
+        products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
         return new ArrayList<>(products);
     }
 
