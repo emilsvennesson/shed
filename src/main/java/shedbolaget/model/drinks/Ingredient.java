@@ -1,11 +1,9 @@
-package shedbolaget.model.drinkfeatures;
+package shedbolaget.model.drinks;
 
 
-import shedbolaget.model.favorites.SavableProductIdList;
 import shedbolaget.model.products.Product;
 
 import java.util.Objects;
-import java.util.stream.IntStream;
 
 /**
  * model.drinkfeatures.Ingredient
@@ -22,6 +20,10 @@ public class Ingredient {
     private String ingredient;
     private Product product;
 
+    Ingredient(String ing){
+        this.ingredient = ing;
+    }
+
     public Ingredient(Product prod){
         this.product = prod;
         //TODO turn the product into ingredient
@@ -36,15 +38,27 @@ public class Ingredient {
     }
 
     public String getIngredientName(Product prod){
-        if(prod.getCategoryLevel1().equals("sprit")){
+        if(prod.getCategoryLevel1().getName().equals("Sprit")){
+
+            if(prod.getCategoryLevel3().getName().equals("M\\u00f6rk rom")){
+                return "Dark rum";
+            }
+            if(prod.getCategoryLevel3().equals("Light rum")){
+                return"Light Rum";
+            }
+
+            if(prod.getCategoryLevel3().getName().equals("Smaksatt sprit")){
+                if(prod.getProductNameBold().equals("Baileys")){
+                    return "Baileys";
+                }
+
+
+            }
+            return prod.getCategoryLevel3().getName();
+            /*
             if(prod.getCategoryLevel2().equals("rom")){
                 //TODO test if this equals works
-                if(prod.getCategoryLevel3().getName().equals("M\\u00f6rk rom")){
-                    return "Dark rum";
-                }
-                if(prod.getCategoryLevel3().equals("Light rum")){
-                    return"Light Rum";
-                }
+
             }
 
             if(prod.getCategoryLevel2().equals("Vodka")){
@@ -55,6 +69,9 @@ public class Ingredient {
             if(prod.getCategoryLevel2().equals("Tequila & Mezcal")){
                 return "Tequila";
             }
+            if(prod.getCategoryLevel3().getName().equals("Gin")){
+                return "Gin";
+            }
 
             if(prod.getCategoryLevel2().equals("likör")){
                 if(prod.getCategoryLevel3().equals("Baileys"))
@@ -63,10 +80,11 @@ public class Ingredient {
                     return "Amaretto";
                 }
 
+
             }
 
 
-
+        */
 
 
         }

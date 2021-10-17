@@ -1,6 +1,6 @@
-package shedbolaget.model.drinkfeatures;
+package shedbolaget.model.drinks.parser;
 
-import shedbolaget.model.favorites.SavableProductIdList;
+import shedbolaget.model.drinks.Drink;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version %I%, %G%
  */
-public interface IDrinkLoader {
+public interface IDrinkParser {
 
 
     /**

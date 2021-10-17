@@ -1,6 +1,7 @@
-package shedbolaget.model.drinkfeatures;
+package shedbolaget.model.drinks;
 
-import java.util.ArrayList;
+import shedbolaget.model.drinks.parser.IDrinkParser;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,7 @@ public class DrinkFilter {
 
     private List<Drink> drinks;
 
-    DrinkFilter(IDrinkLoader loader){
+    DrinkFilter(IDrinkParser loader){
         this.drinks = loader.load();
     }
 

@@ -1,6 +1,7 @@
-package shedbolaget.model.drinkfeatures;
+package shedbolaget.model.drinks;
 
 import shedbolaget.model.products.Product;
+import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class DrinkModel {
 
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    DrinkFilter dFilter;
+    DrinkFilter dFilter = new DrinkFilter(new DrinkJsonFileParser());
 
     /**
      * Gets all the {@link Drink}s with the set {@link Ingredient}s
@@ -26,6 +27,7 @@ public class DrinkModel {
      * @return      a list of {@link Drink}
      */
     public List<Drink> loadDrinks(){
+
 
         return dFilter.getFilteredDrinks(ingredients);
     }
@@ -60,5 +62,10 @@ public class DrinkModel {
     }
 
     //TODO add removeIngredirent()
+
+
+    public void reset(){
+        this.ingredients.clear();
+    }
 
 }

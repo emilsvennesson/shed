@@ -1,13 +1,14 @@
-package shedbolaget.model.drinkfeatures;
+package shedbolaget.model.drinks.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import shedbolaget.model.drinks.Drink;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrinkJsonParser implements IDrinkLoader{
+public class DrinkJsonFileParser implements IDrinkParser {
     @Override
     public List<Drink> load() {
 
