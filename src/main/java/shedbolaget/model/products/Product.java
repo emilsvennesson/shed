@@ -25,6 +25,16 @@ class Image {
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
+    public Product(String name, String category1, String category2, double price, double volume, int alcoholPercentage) {
+    this.productNameThin = name;
+    this.categoryLevel1 = category1;
+    this.categoryLevel2 = category2;
+    this.price = price;
+    this.volume = volume;
+    this.alcoholPercentage = alcoholPercentage;
+    }
+    public Product() {
+    }
     private String productId;
     private String productNumber;
     private String productNameBold;
