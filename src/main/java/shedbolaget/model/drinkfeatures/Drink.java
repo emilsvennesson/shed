@@ -1,7 +1,9 @@
 package shedbolaget.model.drinkfeatures;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import shedbolaget.model.favorites.SavableProductIdList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,11 +14,13 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version %I%, %G%
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Drink {
 
-    String name;
-    List<Ingredient> ingredients;
-    List<String> steps;
+    public String idDrink;
+    public String strDrink;
+    private List<Ingredient> ingredients;
+    private List<String> steps;
 
 
     /**
@@ -55,14 +59,22 @@ public class Drink {
 
 
     public String getName() {
-        return name;
+        return strDrink;
     }
 
     public List<Ingredient> getIngredients() {
-        return ingredients;
+
+
+        List<Ingredient> copy = new ArrayList<>();
+        copy.addAll(ingredients);
+
+        return copy;
     }
 
     public List<String> getSteps() {
-        return steps;
+        List<String> copy = new ArrayList<>();
+        copy.addAll(steps);
+
+        return copy;
     }
 }
