@@ -27,7 +27,7 @@ public class CustomProduct {
             mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
             // convert book object to JSON file
-            mapper.writeValue(Paths.get("customproducts.json").toFile(), newCustomProduct);
+            mapper.writeValue(Paths.get("src", "main", "resources", "customproducts.json").toFile(), newCustomProduct);
 
         } catch (Exception ex) {
             ex.printStackTrace();
