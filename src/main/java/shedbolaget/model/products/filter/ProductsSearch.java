@@ -35,9 +35,10 @@ enum ProductsSearch {
     private static Map<Product, Integer> getNameHitRatio(List<Product> products, String query, int requiredHitRatio) {
         Map<Product, Integer> pScore = new LinkedHashMap<>();
         for (Product product : products) {
-            int score = FuzzySearch.ratio(query, product.getFullProductName());
+            int score = FuzzySearch.weightedRatio(query, product.getFullProductName());
             if (score >= requiredHitRatio)
                 pScore.put(product, score);
+
         }
         return pScore;
     }
