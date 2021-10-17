@@ -6,6 +6,9 @@ import shedbolaget.model.products.Product;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * @author Emil Svensson
+ */
 enum ProductsSearch {
     ;
 
