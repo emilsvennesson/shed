@@ -14,8 +14,8 @@
         <String fx:value="navbar" />
         <String fx:value="shadow" />
     </styleClass>
-    <HBox alignment="CENTER_LEFT" layoutX="65.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1022.0">
-        <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked" prefHeight="60.0" prefWidth="212.0" text="Shedbolaget.">
+    <HBox alignment="CENTER_LEFT" layoutX="57.0" layoutY="-8.0" prefHeight="80.0" prefWidth="1065.0">
+        <Button id="home-logo" fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonOnClicked" prefHeight="60.0" prefWidth="217.0" text="Shedbolaget.">
             <styleClass>
                 <String fx:value="navbar-button" />
                 <String fx:value="bold" />
@@ -32,14 +32,15 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClicked" prefHeight="62.0" prefWidth="104.0" styleClass="navbar-button" text="Favoriter">
+        <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClicked" prefHeight="62.0" prefWidth="115.0" styleClass="navbar-button" text="Favoriter">
             <HBox.margin>
-                <Insets right="55.0" />
+                <Insets right="20.0" />
             </HBox.margin>
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
-        <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="230.0" promptText="Sök" styleClass="search-box" text="Sök" />
+        <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="230.0" promptText="Sök efter produkter eller kategorier" styleClass="search-box" />
+      <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonOnClicked" prefHeight="25.0" prefWidth="73.0" text="Sök" />
     </HBox>
 </fx:root>

@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.PagesEvent;
+import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
@@ -41,8 +42,8 @@ public class ProductsPage extends Component {
 
     protected ProductsPage() {
         super("ProductsView");
-        populateView();
         initProductsWrapper();
+        populateView();
         eventManager.registerToEventBus(this);
     }
 
@@ -92,6 +93,11 @@ public class ProductsPage extends Component {
     public void actOnPagesEvent(PagesEvent event) {
         loadProducts(event.getPageProducts(), false);
         scrollPane.setVvalue(0);
+    }
+
+    @Subscribe
+    public void actOnSearchEvent(SearchEvent event) {
+        loadProducts(Filter.search(ProductsHolder.getInstance().getAllProducts(), event.getSearchString(), 60), true);
     }
 }
 
