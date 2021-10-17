@@ -97,7 +97,7 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnSearchEvent(SearchEvent event) {
-        loadProducts(Filter.search(ProductsHolder.getInstance().getAllProducts(), event.getSearchString(), 60), true);
+        loadProducts(Filter.search(ProductsHolder.getInstance().getAllProducts(), event.getSearchString(), 80), true);
     }
 }
 
