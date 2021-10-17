@@ -62,7 +62,7 @@ public class DetailedProductCardComponent extends Component {
     }
 
     public void initProductInfo() {
-        nameBoldText.setText(this.product.getProductNameBold());
+        nameBoldText.setText(this.product.getFullProductName()); //TODO: split into bold and thin
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         alcoholPercentageText.setText(String.format("Alkoholhalt: %.1f %%", product.getAlcoholPercentage()));
