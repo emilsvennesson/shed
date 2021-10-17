@@ -13,7 +13,7 @@ public class TestProductsSearch {
     public void testSearchByCategory() {
         for (Product p : ProductsSearch.searchByCategory(ProductsHolder.getInstance().getAllProducts(), "Tequila", 100))
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Tequila");
-        for (Product p : ProductsSearch.searchByCategory(ProductsHolder.getInstance().getAllProducts(), "tequila", 80)) {
+        for (Product p : ProductsSearch.searchByCategory(ProductsHolder.getInstance().getAllProducts(), "tequila", 93)) {
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Tequila");
         }
     }
