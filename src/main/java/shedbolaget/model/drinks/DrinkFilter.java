@@ -2,7 +2,9 @@ package shedbolaget.model.drinks;
 
 import shedbolaget.model.drinks.parser.IDrinkParser;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -16,12 +18,8 @@ import java.util.stream.Collectors;
 public class DrinkFilter {
 
 
-    private List<Drink> drinks;
 
-    DrinkFilter(IDrinkParser loader){
-        this.drinks = loader.load();
-    }
-
+    
 
     /**
      * <p>Gets drinks based on a list of {@link Ingredient} set in the parameter</p>
@@ -30,17 +28,30 @@ public class DrinkFilter {
      * @since 1.0.0
      */
     List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
+        Map<Drink, Integer> hitMatch = new HashMap<>();
 
-        return drinks.stream()
-                .filter(x-> x.hasIngreadients(ingredients)).collect(Collectors.toList());
+        for (Drink drink :
+                DrinkHolder.getInstance().getDrinks()) {
+            hitMatch.put(drink, matchPoints(drink, ingredients));
+        }
+        
+
+
+        return null;
 
     }
 
-    /**
-     * <p>Gets all the drinks</p>
-     * @return
-     */
-    public List<Drink> getAllDrinks() {
-        return drinks;
+    private Integer matchPoints(Drink drink, List<Ingredient> ingredients) {
+        Integer score = 0;
+
+        for (Ingredient ingredient :
+                ingredients) {
+
+
+        }
+
+
+        return score;
     }
+
 }

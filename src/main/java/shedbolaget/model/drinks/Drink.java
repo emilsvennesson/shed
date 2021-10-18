@@ -35,82 +35,18 @@ public class Drink {
 
 
 
-    /**
-     * Checks if the drink has a {@link Ingredient}
-     * @param ingredient, the ingredient that is checked
-     * @return a boolean that is true only if this drink has the ingredient
-     * @since 1.0.0
-     */
-    boolean hasIngreadient(Ingredient ingredient){
-
-        if(ingredient.getName() == null)
-            return false;
-
-        if(this.getName().equals("Irish Coffee")){
-            if(ingredient.getProductNameBold().equals("Jameson")){
-                System.out.println();
-            }
-        }
-
-        for (Ingredient ing :
-                alcingredients) {
-            if(ing.getName() == null) return false;
-            if(ingredient.getName() != null && ing.getName().equals(ingredient.getName()))
-                return true;
-            if(ingredient.getCat3() != null && ingredient.getCat3().contains(ing.getName()))
-                return true;
-            if(ingredient.getAltCat() != null && ingredient.getAltCat().contains(ing.getName()))
-                return true;
-            if(ingredient.getProductNameBold() != null && ingredient.getProductNameBold().contains(ing.getName()))
-                return true;
-
-            if(ingredient.getProductNameThin() != null && ingredient.getProductNameThin().contains(ing.getName()))
-                return true;
-
-        }
-
-        return false;
-    }
-
-
-
-    /**
-     * Checks if this drink has {@link Ingredient}s, this only returns true if all the set {@link Ingredient}s are in this drink
-     * @param ings, a list of {@link Ingredient}s that are checked
-     * @return a boolean, true if all the ingredients are in this drink
-     * @since 1.0.0
-     */
-    boolean hasIngreadients(List<Ingredient> ings){
-
-
-
-        for (Ingredient ing :
-                ings) {
-            if(this.hasIngreadient(ing)){
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     public String getName() {
         return strDrink;
     }
 
-    public List<Ingredient> getIngredients() {
-
-
-        List<Ingredient> copy = new ArrayList<>(alcingredients);
-
-
-        return copy;
+    public List<Ingredient> getAlcoIngredients() {
+        return new ArrayList<>(alcingredients);
     }
 
-    public List<String> getSteps() {
-        List<String> copy = new ArrayList<>();
-
-
-        return copy;
+    public List<Ingredient> getNoingredients(){
+        return new ArrayList<>(noingredients);
     }
+
+
 }

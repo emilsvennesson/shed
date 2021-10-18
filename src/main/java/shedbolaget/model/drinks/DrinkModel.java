@@ -19,7 +19,7 @@ public class DrinkModel {
 
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    DrinkFilter dFilter = new DrinkFilter(new DrinkJsonFileParser());
+    DrinkFilter dFilter = new DrinkFilter();
 
     /**
      * Gets all the {@link Drink}s with the set {@link Ingredient}s
@@ -38,7 +38,7 @@ public class DrinkModel {
      * @return      a list of {@link Drink}
      */
     public List<Drink> loadAllDrinks(){
-        return dFilter.getAllDrinks();
+        return DrinkHolder.getInstance().getDrinks();
     }
 
 

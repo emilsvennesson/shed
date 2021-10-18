@@ -34,27 +34,29 @@ public class TestDrinkModel {
     public void canFindGinDrinkWithEveryGinProduct(){
 
 
-        List<Product> prods = Filter.search(ProductsHolder.getInstance().getAllProducts(), "Gin", 100);
+        List<Product> prods = Filter.search(ProductsHolder.getInstance().getAllProducts(), "Whisky", 100);
 
-        Assert.assertNotEquals(prods.size(), 0);
+        Assert.assertNotEquals(prods.size(), 3);
 
-        for (Product p :
-                prods) {
 
-            dModel.reset();
-            dModel.addIngredient(p);
+
+            dModel.clear();
+            dModel.addIngredient(prods.get(0));
             List<Drink> din = dModel.loadDrinks();
 
-            Assert.assertNotEquals(din.size(), 0);
 
 
-        }
 
-        List<Drink> din = dModel.loadDrinks();
+
+
+        ;
         for (Drink d:
              din) {
             System.out.println(d.getName());
+
+
         }
+        System.out.println(din.size());
 
 
 

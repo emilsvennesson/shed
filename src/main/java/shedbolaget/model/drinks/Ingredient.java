@@ -24,14 +24,8 @@ public class Ingredient {
     public String measure = "0";
 
 
-    @JsonIgnore
-    private String cat3;
-    @JsonIgnore
-    private String altCat;
-    @JsonIgnore
-    private String productNameBold;
-    @JsonIgnore
-    private String productNameThin;
+    Product prod;
+
 
 
 
@@ -43,10 +37,8 @@ public class Ingredient {
     public Ingredient(Product prod){
         //TODO turn the product into ingredient
         this.name = getIngredientName(prod);
-        this.cat3 = prod.getCategoryLevel3().getName();
-        this.productNameBold = prod.getProductNameBold();
-        this.productNameThin = prod.getProductNameThin();
-        this.altCat = prod.getCustomCategoryTitle();
+        this.prod = prod;
+
 
     }
 
@@ -54,21 +46,7 @@ public class Ingredient {
         return measure;
     }
 
-    public String getCat3() {
-        return cat3;
-    }
 
-    public String getAltCat() {
-        return altCat;
-    }
-
-    public String getProductNameBold() {
-        return productNameBold;
-    }
-
-    public String getProductNameThin() {
-        return productNameThin;
-    }
 
     public String getName() {
         return name;
@@ -96,36 +74,7 @@ public class Ingredient {
             }
 
             return prod.getCategoryLevel3().getName();
-            /*
-            if(prod.getCategoryLevel2().equals("rom")){
-                //TODO test if this equals works
 
-            }
-
-            if(prod.getCategoryLevel2().equals("Vodka")){
-                return "Vodka";
-
-            }
-
-            if(prod.getCategoryLevel2().equals("Tequila & Mezcal")){
-                return "Tequila";
-            }
-            if(prod.getCategoryLevel3().getName().equals("Gin")){
-                return "Gin";
-            }
-
-            if(prod.getCategoryLevel2().equals("likör")){
-                if(prod.getCategoryLevel3().equals("Baileys"))
-                    return "Baileys Irish Cream";
-                if(prod.getCategoryLevel3().equals("Disaronno")){
-                    return "Amaretto";
-                }
-
-
-            }
-
-
-        */
 
 
         }
