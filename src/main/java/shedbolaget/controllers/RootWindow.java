@@ -16,6 +16,7 @@ public class RootWindow {
     AnchorPane navBar = ComponentFactory.createNavBar();
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
+    AnchorPane apkLeaderboardPage = ComponentFactory.createAPKLeaderboard();
     @FXML
     private AnchorPane navBarPane;
     @FXML
@@ -38,11 +39,17 @@ public class RootWindow {
         contentWrapperAnchorPane.getChildren().add(mainPage);
     }
 
+    public void openAPKLeaderboardPage() {
+        contentWrapperAnchorPane.getChildren().clear();
+        contentWrapperAnchorPane.getChildren().add(apkLeaderboardPage);
+    }
+
     @Subscribe
     public void onNavigationEvent(NavigationEvent event) {
         switch (event.getPageToNavigateTo()) {
             case PRODUCTS -> openProductsPage();
             case MAIN -> openMainPage();
+            case APK -> openAPKLeaderboardPage();
         }
     }
 }

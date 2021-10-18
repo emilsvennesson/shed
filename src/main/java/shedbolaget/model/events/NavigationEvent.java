@@ -41,7 +41,11 @@ public class NavigationEvent {
         /**
          * Favorites navigation.
          */
-        FAVORITES
+        FAVORITES,
+        /**
+         * APK Leaderboard navigation
+         */
+        APK
     }
 
 
