@@ -49,4 +49,11 @@ public class ComponentFactory {
     public static AnchorPane createPagination(Pages pages) {
         return new PaginationComponent(pages).getPane();
     }
+
+    public static AnchorPane createDrinkGeneratorPage() {
+        return new DrinkGeneratorPage().getPane();
+    }
+    public static AnchorPane createIngredientCard(Product product){
+        return new IngredientCardComponent(product).getPane();
+    }
 }

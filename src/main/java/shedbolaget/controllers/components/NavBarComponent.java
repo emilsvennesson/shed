@@ -70,6 +70,11 @@ public class NavBarComponent extends Component {
     }
 
     @FXML
+    void drinkGeneratorButtonOnClicked(ActionEvent event){
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.DRINKGENERATOR));
+    }
+
+    @FXML
     void searchButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));

@@ -3,7 +3,9 @@ package shedbolaget.controllers;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.controllers.components.Component;
 import shedbolaget.controllers.components.ComponentFactory;
+import shedbolaget.controllers.components.DrinkGeneratorPage;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 
@@ -16,6 +18,7 @@ public class RootWindow {
     AnchorPane navBar = ComponentFactory.createNavBar();
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
+    AnchorPane drinkGeneratorPage = ComponentFactory.createDrinkGeneratorPage();
     @FXML
     private AnchorPane navBarPane;
     @FXML
@@ -37,12 +40,17 @@ public class RootWindow {
         contentWrapperAnchorPane.getChildren().clear();
         contentWrapperAnchorPane.getChildren().add(mainPage);
     }
+    public void openDrinkGenerator(){
+        contentWrapperAnchorPane.getChildren().clear();
+        contentWrapperAnchorPane.getChildren().add(drinkGeneratorPage);
+    }
 
     @Subscribe
     public void onNavigationEvent(NavigationEvent event) {
         switch (event.getPageToNavigateTo()) {
             case PRODUCTS -> openProductsPage();
             case MAIN -> openMainPage();
+            case DRINKGENERATOR -> openDrinkGenerator();
         }
     }
 }
