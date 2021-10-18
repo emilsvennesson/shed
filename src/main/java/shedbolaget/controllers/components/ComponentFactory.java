@@ -26,6 +26,8 @@ public class ComponentFactory {
         return new FavoritesPage().getPane();
     }
 
+    public static AnchorPane createAPKLeaderboard() { return new APKTop3Component().getPane(); }
+
     public static AnchorPane createDetailedProductCard(Product product) {
         return new DetailedProductCardComponent(product).getPane();
     }
@@ -49,4 +51,6 @@ public class ComponentFactory {
     public static AnchorPane createPagination(Pages pages) {
         return new PaginationComponent(pages).getPane();
     }
+
+    public static AnchorPane createAPKTop3() {return new APKTop3Component().getPane();}
 }
