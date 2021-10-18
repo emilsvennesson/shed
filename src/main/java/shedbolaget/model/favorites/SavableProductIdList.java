@@ -1,6 +1,7 @@
 package shedbolaget.model.favorites;
 
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.ProductsHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,17 @@ public class SavableProductIdList {
     public List<Integer> getProductIds() {
         //TODO Return a copy of the product list
         return this.products;
+    }
+
+    public List<Product> getProducts(){
+        List<Product> prods = new ArrayList<>();
+
+        for (Integer id : products) {
+            prods.add(ProductsHolder.getInstance().getProductById(id));
+        }
+
+
+        return prods;
     }
 
     @Override

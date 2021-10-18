@@ -31,4 +31,13 @@ public class ProductsHolder implements IProductsCollection {
     public int getNumberOfProducts() {
         return allProducts.size();
     }
+
+    public Product getProductById(int id) {
+        for (Product p : allProducts) {
+            if(Integer.parseInt(p.getProductId()) == id) {
+                return p;
+            }
+        }
+        return allProducts.get(0); // maybe return an empty product instead?
+    }
 }

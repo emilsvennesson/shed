@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import shedbolaget.model.favorites.Favorites;
 import shedbolaget.model.products.Product;
 
 /**
@@ -29,8 +30,7 @@ public class BasicProductCardComponent extends Component {
     public BasicProductCardComponent(Product product) {
         super("BasicProductCardView");
         this.product = product;
-        this.isFavorite = false;
-        //isFavorite = model.isFavorite(product);
+        this.isFavorite = Favorites.getInstance().isFavorite(product);
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         nameBoldText.setText(product.getProductNameBold());
@@ -41,19 +41,15 @@ public class BasicProductCardComponent extends Component {
 
     @FXML
     void favoriteButtonOnClick(ActionEvent event) {
-        /*
         if (isFavorite) {
-            model.removeFromFavorites(product);
+            Favorites.getInstance().removeFromFavorites(product);
         } else {
-            model.addToFavorites(product);
+            Favorites.getInstance().addToFavorites(product);
         }
-
-         */
         favoriteButton.getStyleClass().remove("non-favorite-icon");
         favoriteButton.getStyleClass().remove("favorite-icon");
         isFavorite = !isFavorite;
         favoriteButton.getStyleClass().add(getFavoriteIconClass());
-        System.out.println(favoriteButton.getStyleClass().toString());
     }
 
     private String getFavoriteIconClass() {
