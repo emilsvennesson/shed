@@ -3,6 +3,8 @@ package shedbolaget.model.products.customproduct;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import shedbolaget.model.events.CustomProductCreatedEvent;
+import shedbolaget.model.events.EventManager;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
@@ -34,12 +36,13 @@ public class CustomProduct {
         Product newCustomProduct = new Product(name, category1, category2, price, volume, alcoholPercentage);
         customProducts.add(newCustomProduct);
         writeProductsToJsonFile(customProducts);
+        EventManager.getInstance().fireEvent(new CustomProductCreatedEvent(newCustomProduct));
     }
 
     private static void writeProductsToJsonFile(List<Product> customProducts){
         try {
             for (Product product: ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts())
-                customProducts.add(product);
+                    customProducts.add(product);
 
 
             // create object mapper instance
@@ -49,7 +52,6 @@ public class CustomProduct {
 
             // convert book object to JSON file
             mapper.writeValue(Paths.get("src", "main", "resources", CUSTOM_PRODUCTS_FILENAME).toFile(), customProducts);
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -11,7 +11,7 @@ import java.util.List;
  * @author Pouya Shirin
  */
 class CustomProductList implements IProductsCollection {
-    private List<Product> products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
+    private List<Product> products = new ArrayList<>();
     private static final CustomProductList instance = new CustomProductList();
 
     private CustomProductList() {
@@ -32,6 +32,8 @@ class CustomProductList implements IProductsCollection {
     @Override
     public List<Product> getProducts() {
         products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
+        for(Product product : products)
+            System.out.println("Loaded: " + product.getProductNameBold());
         return new ArrayList<>(products);
     }
 

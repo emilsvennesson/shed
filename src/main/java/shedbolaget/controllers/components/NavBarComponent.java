@@ -1,5 +1,6 @@
 package shedbolaget.controllers.components;
 
+import com.google.common.eventbus.Subscribe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.NavigationEvent;
 import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.products.ProductModel;
@@ -57,6 +59,12 @@ public class NavBarComponent extends Component {
             });
             dropDownButton.getItems().add(menuItem);
         }
+    }
+
+    @Subscribe
+    private void updateDropdown(CustomProductCreatedEvent event){
+        dropDownButton.getItems().clear();
+        initDropdown();
     }
 
     @FXML
