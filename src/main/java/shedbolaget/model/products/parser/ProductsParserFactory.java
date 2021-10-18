@@ -11,13 +11,23 @@ public enum ProductsParserFactory {
     ;
 
     /**
-     * Create an IProductsParser from a JSON InputStream.
+     * Creates an IProductsParser from a Data file. File directory in resources.
      *
-     * @param streamToParse the stream to parse
+     * @param fileName the file name to parse
      * @return the IProductsParser object
      */
-    public static IProductsParser createJSONParser(InputStream streamToParse) {
-        return new ProductsJSONFileParser(streamToParse);
+    public static IProductsParser createJSONParser(String fileName) {
+        return new ProductsJSONFileParser(ClassLoader.getSystemClassLoader().getResourceAsStream(fileName));
+    }
+
+    /**
+     * Creates an IProductsParser from a JSON InputStream.
+     *
+     * @param inputStream the stream to parse
+     * @return the IProductsParser object
+     */
+    public static IProductsParser createJSONParser(InputStream inputStream) {
+        return new ProductsJSONFileParser(inputStream);
     }
 }
 

@@ -20,7 +20,7 @@ class ProductPage implements IProductsCollection {
     }
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getProducts() {
         return new ArrayList<>(products);
     }
 
