@@ -275,3 +275,16 @@
     -fx-background-color: #fcfcfc;
     -fx-cursor: hand;
 }
+
+.favorite-icon, .non-favorite-icon {
+    -fx-background-color: transparent;
+    -fx-border: none;
+}
+
+.favorite-icon, .non-favorite-icon:hover {
+    -fx-graphic: url("../icons/favorite.png");
+}
+
+.non-favorite-icon, .favorite-icon:hover {
+    -fx-graphic: url("../icons/non_favorite.png");
+}
