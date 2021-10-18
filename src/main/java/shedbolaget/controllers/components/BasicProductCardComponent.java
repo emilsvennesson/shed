@@ -29,13 +29,14 @@ public class BasicProductCardComponent extends Component {
     public BasicProductCardComponent(Product product) {
         super("BasicProductCardView");
         this.product = product;
+        this.isFavorite = false;
         //isFavorite = model.isFavorite(product);
         Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         imageView.setImage(productImage);
         nameBoldText.setText(product.getProductNameBold());
         nameThinLabel.setText(product.getProductNameThin());
         priceText.setText(String.format("%.2f:-", product.getPrice()));
-        favoriteButton.setText(getFavoriteButtonText());
+        favoriteButton.getStyleClass().add(getFavoriteIconClass());
     }
 
     @FXML
@@ -48,11 +49,14 @@ public class BasicProductCardComponent extends Component {
         }
 
          */
+        favoriteButton.getStyleClass().remove("non-favorite-icon");
+        favoriteButton.getStyleClass().remove("favorite-icon");
         isFavorite = !isFavorite;
-        favoriteButton.setText(getFavoriteButtonText());
+        favoriteButton.getStyleClass().add(getFavoriteIconClass());
+        System.out.println(favoriteButton.getStyleClass().toString());
     }
 
-    private String getFavoriteButtonText() {
-        return isFavorite ? "</3" : "<3";
+    private String getFavoriteIconClass() {
+        return isFavorite ?  "favorite-icon" : "non-favorite-icon";
     }
 }

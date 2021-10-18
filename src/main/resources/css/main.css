@@ -104,7 +104,22 @@
     -fx-text-fill: -grey;
 }
 
-/* --------- Navbar end --------- */
+.search-btn, .pagination-btn{
+    -fx-background-color: -primary_green;
+    -fx-border-radius: 8px;
+    -fx-text-fill: white;
+}
+
+.pagination-background {
+    -fx-background-color: white;
+}
+
+.search-btn:hover, .pagination-btn:hover {
+    -fx-background-color: -primary_green_variant;
+    -fx-cursor: hand;
+}
+
+    /* --------- Navbar end --------- */
 
 /* ------ Start page start ------ */
 
@@ -259,4 +274,17 @@
     -fx-effect: dropshadow(gaussian, rgba(111, 111, 111, 0.1), 0, 50, 0, 0);
     -fx-background-color: #fcfcfc;
     -fx-cursor: hand;
+}
+
+.favorite-icon, .non-favorite-icon {
+    -fx-background-color: transparent;
+    -fx-border: none;
+}
+
+.favorite-icon, .non-favorite-icon:hover {
+    -fx-graphic: url("../icons/favorite.png");
+}
+
+.non-favorite-icon, .favorite-icon:hover {
+    -fx-graphic: url("../icons/non_favorite.png");
 }
