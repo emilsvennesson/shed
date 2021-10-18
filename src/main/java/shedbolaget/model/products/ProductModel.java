@@ -42,4 +42,13 @@ public class ProductModel{
     public int getNumberOfProducts() {
         return products.size();
     }
+
+    public List<Product> getProductsById(int id) {
+        List<Product> matches = new ArrayList<>();
+        for(Product p : products) {
+            if(Integer.parseInt(p.getProductId())==id)
+                matches.add(p);
+        }
+        return matches;
+    }
 }

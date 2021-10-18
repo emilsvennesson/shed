@@ -15,7 +15,7 @@ public class TestFilter {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Ale", 2));
         categories.add(new Category("Öl", 1)); // using the application always has a category level 1
-        List<Product> products = ProductsHolder.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Ale", p.getCategoryLevel2().getName());
