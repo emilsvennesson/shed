@@ -19,7 +19,7 @@ public class Favorites {
         Runtime.getRuntime().addShutdownHook(new Thread(this::onShutDown, "Shutdown-thread"));
     }
 
-    public Favorites getInstance() {
+    public static Favorites getInstance() {
         return instance;
     }
 
@@ -41,6 +41,10 @@ public class Favorites {
         return favList.getProducts();
     }
 
+    /**
+     * Adds a Product to favorites
+     * @param product the Product that will be added
+     */
     public void addToFavorites(Product product) {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
         SavableProductIdList favList = listIOManager.getList("Favorites");
@@ -76,6 +80,11 @@ public class Favorites {
         listIOManager.removeList("Favorites");
     }
 
+    /**
+     * Returns whether a Product is marked as favorite or not
+     * @param product the product which is searched for within the favorites list
+     * @return true if it is a favorite, false if not
+     */
     public boolean isFavorite(Product product) {
         return getFavoriteProducts().contains(product);
     }
