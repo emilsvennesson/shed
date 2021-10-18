@@ -104,13 +104,17 @@
     -fx-text-fill: -grey;
 }
 
-.search-btn {
+.search-btn, .pagination-btn{
     -fx-background-color: -primary_green;
     -fx-border-radius: 8px;
     -fx-text-fill: white;
 }
 
-.search-btn:hover {
+.pagination-background {
+    -fx-background-color: white;
+}
+
+.search-btn:hover, .pagination-btn:hover {
     -fx-background-color: -primary_green_variant;
     -fx-cursor: hand;
 }
