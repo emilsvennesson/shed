@@ -1,6 +1,7 @@
 package shedbolaget.model.products.filter;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.products.Product;
@@ -10,6 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestFilter {
+    private List<Product> products;
+
+    @Before
+    public void initProducts() {
+        products = ProductsHolder.getInstance().getAllProducts();
+    }
+
     @Test
     public void testGetFilteredProductsLevel2() {
         List<Category> categories = new ArrayList<>();
@@ -38,11 +46,21 @@ public class TestFilter {
         for (Product p : Filter.search(ProductModel.getInstance().getAllProducts(), "Fruktigt & Smakrikt vin", 100)) {
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Fruktigt & Smakrikt vin");
         }
-        for (Product p : Filter.search(ProductModel.getInstance().getAllProducts(), "Arboga 10,2", 100)) {
+        for (Product p : Filter.search(products, "Fruktigt & Smakrikt vin", 100)) {
+            Assert.assertEquals(p.getCategoryLevel3().getName(), "Fruktigt & Smakrikt vin");
+        }
+        for (Product p : Filter.search(products, "Arboga 10,2", 100)) {
             Assert.assertEquals(p.getFullProductName(), "Arboga 10,2");
         }
 
     }
 
-    // TODO skapa filter med alla categories i level 2 och jämför med motsvarande level 1 filter (Öl vs Ale/Ljus lager/...)
+    @Test
+    public void testCategoryCombination() {
+        System.out.println("hi");
+    }
 }
+
+
+// TODO skapa filter med alla categories i level 2 och jämför med motsvarande level 1 filter (Öl vs Ale/Ljus lager/...)
+

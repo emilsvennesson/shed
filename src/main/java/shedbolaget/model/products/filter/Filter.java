@@ -39,6 +39,5 @@ public enum Filter {
     public static List<Product> search(List<Product> products, String query, int requiredHitRatio) {
         return ProductsSearch.search(products, query, requiredHitRatio);
     }
-
 }
 
