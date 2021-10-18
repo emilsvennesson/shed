@@ -31,7 +31,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="favoriteButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="150.0" layoutY="8.0" mnemonicParsing="false" onAction="#favoriteButtonOnClick" text="&lt;3" />
+      <Button fx:id="favoriteButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="140.0" layoutY="6.0" mnemonicParsing="false" onAction="#favoriteButtonOnClick" />
    </children>
    <styleClass>
       <String fx:value="basic-product-card" />

@@ -12,7 +12,7 @@ import java.util.List;
  * @author Samuel Kajava
  */
 public class ProductsHolder implements IProductsCollection {
-    private final List<Product> allProducts = ProductsParserFactory.getProductsFromJson();
+    private final List<Product> allProducts = ProductsParserFactory.createJSONParser(ClassLoader.getSystemClassLoader().getResourceAsStream("data.json")).getProducts();
     private static final ProductsHolder instance = new ProductsHolder();
 
     private ProductsHolder() {
