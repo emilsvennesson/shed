@@ -1,6 +1,8 @@
 package shedbolaget.model.drinks;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import shedbolaget.model.products.Product;
 
 import java.util.Objects;
@@ -14,36 +16,54 @@ import java.util.Objects;
  * @author Daniel Rygaard
  * @version %I%, %G%
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Ingredient {
 
 
-    private String ingredient;
-    private Product product;
+    public String name;
+    public String measure = "0";
 
-    Ingredient(String ing){
-        this.ingredient = ing;
+
+    private String cat3;
+    private String altCat;
+
+
+
+    public Ingredient(){
+
     }
+
 
     public Ingredient(Product prod){
-        this.product = prod;
         //TODO turn the product into ingredient
-        this.ingredient = getIngredientName(prod);
+        this.name = getIngredientName(prod);
 
 
     }
 
+    public String getMeasure() {
+        return measure;
+    }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getCat3() {
+        return cat3;
+    }
+
+    public String getAltCat() {
+        return altCat;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getIngredientName(Product prod){
         if(prod.getCategoryLevel1().getName().equals("Sprit")){
 
-            if(prod.getCategoryLevel3().getName().equals("M\\u00f6rk rom")){
+            if(prod.getCategoryLevel3().getName().equals("Mörk rom")){
                 return "Dark rum";
             }
-            if(prod.getCategoryLevel3().equals("Light rum")){
+            if(prod.getCategoryLevel3().equals("Ljus rom")){
                 return"Light Rum";
             }
 
@@ -94,9 +114,6 @@ public class Ingredient {
     }
 
 
-    public void saveName(){
-        System.out.println(this.product.getProducerName() + " has no ingredient");
-    }
 
 
     @Override
@@ -104,11 +121,11 @@ public class Ingredient {
         if (this == o) return true;
         if (!(o instanceof Ingredient)) return false;
         Ingredient that = (Ingredient) o;
-        return getIngredient().equals(that.getIngredient());
+        return getName().equals(that.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIngredient());
+        return Objects.hash(getName());
     }
 }
