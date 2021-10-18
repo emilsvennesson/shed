@@ -42,6 +42,7 @@ public class Product {
     private String categoryLevel1;
     private String categoryLevel2;
     private String categoryLevel3;
+    private String customCategoryTitle;
 
     public Category getCategoryLevel1() {
         return new Category(categoryLevel1, 1);
@@ -68,6 +69,10 @@ public class Product {
 
     public Category getCategoryLevel3() {
         return new Category(categoryLevel3, 3);
+    }
+
+    public String getCustomCategoryTitle() {
+        return customCategoryTitle;
     }
 
     private List<Image> getImages() {

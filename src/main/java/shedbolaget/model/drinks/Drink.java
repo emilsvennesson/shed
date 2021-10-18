@@ -43,17 +43,28 @@ public class Drink {
      */
     boolean hasIngreadient(Ingredient ingredient){
 
+        if(ingredient.getName() == null)
+            return false;
 
-
+        if(this.getName().equals("Irish Coffee")){
+            if(ingredient.getProductNameBold().equals("Jameson")){
+                System.out.println();
+            }
+        }
 
         for (Ingredient ing :
                 alcingredients) {
             if(ing.getName() == null) return false;
-            if(ing.getName().contains(ingredient.getName()))
+            if(ingredient.getName() != null && ing.getName().equals(ingredient.getName()))
                 return true;
-            if(ing.getName().contains(ingredient.getCat3()))
+            if(ingredient.getCat3() != null && ingredient.getCat3().contains(ing.getName()))
                 return true;
-            if(ing.getName().contains(ingredient.getAltCat()))
+            if(ingredient.getAltCat() != null && ingredient.getAltCat().contains(ing.getName()))
+                return true;
+            if(ingredient.getProductNameBold() != null && ingredient.getProductNameBold().contains(ing.getName()))
+                return true;
+
+            if(ingredient.getProductNameThin() != null && ingredient.getProductNameThin().contains(ing.getName()))
                 return true;
 
         }
@@ -90,8 +101,8 @@ public class Drink {
     public List<Ingredient> getIngredients() {
 
 
-        List<Ingredient> copy = new ArrayList<>();
-        copy.addAll(alcingredients);
+        List<Ingredient> copy = new ArrayList<>(alcingredients);
+
 
         return copy;
     }

@@ -1,8 +1,8 @@
 package shedbolaget.model.drinks;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import shedbolaget.model.products.Product;
 
 import java.util.Objects;
@@ -24,8 +24,14 @@ public class Ingredient {
     public String measure = "0";
 
 
+    @JsonIgnore
     private String cat3;
+    @JsonIgnore
     private String altCat;
+    @JsonIgnore
+    private String productNameBold;
+    @JsonIgnore
+    private String productNameThin;
 
 
 
@@ -37,7 +43,10 @@ public class Ingredient {
     public Ingredient(Product prod){
         //TODO turn the product into ingredient
         this.name = getIngredientName(prod);
-
+        this.cat3 = prod.getCategoryLevel3().getName();
+        this.productNameBold = prod.getProductNameBold();
+        this.productNameThin = prod.getProductNameThin();
+        this.altCat = prod.getCustomCategoryTitle();
 
     }
 
@@ -53,27 +62,39 @@ public class Ingredient {
         return altCat;
     }
 
+    public String getProductNameBold() {
+        return productNameBold;
+    }
+
+    public String getProductNameThin() {
+        return productNameThin;
+    }
+
     public String getName() {
         return name;
     }
 
     public String getIngredientName(Product prod){
+        if(prod.getProductNameBold().equals("Jameson"))
+            System.out.println("hej");
         if(prod.getCategoryLevel1().getName().equals("Sprit")){
 
+            if(prod.getCategoryLevel3().getName() == null)
+                return "Sprit";
             if(prod.getCategoryLevel3().getName().equals("Mörk rom")){
-                return "Dark rum";
+                return "Mörk rom";
             }
-            if(prod.getCategoryLevel3().equals("Ljus rom")){
-                return"Light Rum";
+            if(prod.getCategoryLevel3().getName().equals("Ljus rom")){
+                return"Ljus rom";
             }
 
-            if(prod.getCategoryLevel3().getName().equals("Smaksatt sprit")){
-                if(prod.getProductNameBold().equals("Baileys")){
-                    return "Baileys";
-                }
+            if(prod.getCategoryLevel2().getName().equals("Whisky"))
+                return "Whisky";
 
-
+            if(prod.getCategoryLevel2().getName().equals("Vodka")){
+                return "Vodka";
             }
+
             return prod.getCategoryLevel3().getName();
             /*
             if(prod.getCategoryLevel2().equals("rom")){
@@ -108,9 +129,9 @@ public class Ingredient {
 
 
         }
+        return prod.getProductNameBold();
 
 
-        return null;
     }
 
 

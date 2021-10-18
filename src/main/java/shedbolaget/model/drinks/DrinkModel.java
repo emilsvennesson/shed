@@ -64,7 +64,7 @@ public class DrinkModel {
     //TODO add removeIngredirent()
 
 
-    public void reset(){
+    public void clear(){
         this.ingredients.clear();
     }
 
