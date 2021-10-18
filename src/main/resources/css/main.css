@@ -104,7 +104,18 @@
     -fx-text-fill: -grey;
 }
 
-/* --------- Navbar end --------- */
+.search-btn {
+    -fx-background-color: -primary_green;
+    -fx-border-radius: 8px;
+    -fx-text-fill: white;
+}
+
+.search-btn:hover {
+    -fx-background-color: -primary_green_variant;
+    -fx-cursor: hand;
+}
+
+    /* --------- Navbar end --------- */
 
 /* ------ Start page start ------ */
 

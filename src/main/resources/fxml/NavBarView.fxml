@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <styleClass>
         <String fx:value="navbar" />
         <String fx:value="shadow" />
@@ -41,6 +41,6 @@
             </font>
         </Button>
         <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="230.0" promptText="Sök efter produkter eller kategorier" styleClass="search-box" />
-      <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonOnClicked" prefHeight="25.0" prefWidth="73.0" text="Sök" />
+      <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonOnClicked" prefHeight="25.0" prefWidth="73.0" styleClass="search-btn" text="Sök" />
     </HBox>
 </fx:root>
