@@ -1,11 +1,13 @@
 package shedbolaget.model.drinks;
 
+import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DrinkHolder {
 
-    private final List<Drink> drinks = new ArrayList<>();
+    private final List<Drink> drinks = new DrinkJsonFileParser().load();
 
     private static final DrinkHolder instance = new DrinkHolder();
 

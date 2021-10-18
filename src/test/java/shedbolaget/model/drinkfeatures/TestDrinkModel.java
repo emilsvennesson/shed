@@ -34,9 +34,9 @@ public class TestDrinkModel {
     public void canFindGinDrinkWithEveryGinProduct(){
 
 
-        List<Product> prods = Filter.search(ProductsHolder.getInstance().getAllProducts(), "Whisky", 100);
+        List<Product> prods = Filter.search(ProductsHolder.getInstance().getAllProducts(), "Jameson", 100);
 
-        Assert.assertNotEquals(prods.size(), 3);
+        Assert.assertNotEquals(prods.size(), 0);
 
 
 

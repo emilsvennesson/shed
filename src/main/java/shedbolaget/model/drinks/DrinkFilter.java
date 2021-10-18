@@ -1,10 +1,10 @@
 package shedbolaget.model.drinks;
 
+import me.xdrop.fuzzywuzzy.FuzzySearch;
 import shedbolaget.model.drinks.parser.IDrinkParser;
+import shedbolaget.model.products.Product;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -37,7 +37,8 @@ public class DrinkFilter {
         
 
 
-        return null;
+
+        return new ArrayList<>(sortMap(hitMatch).keySet());
 
     }
 
@@ -46,12 +47,29 @@ public class DrinkFilter {
 
         for (Ingredient ingredient :
                 ingredients) {
-
-
+            for (Ingredient ingredient1:
+                 drink.getAlcoIngredients()) {
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name);
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle());
+            }
         }
-
-
         return score;
+    }
+
+    private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {
+        return pMap.entrySet().stream()
+                .sorted(Comparator.comparingInt(e -> -e.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> {
+                            throw new AssertionError();
+                        },
+                        LinkedHashMap::new
+                ));
     }
 
 }
