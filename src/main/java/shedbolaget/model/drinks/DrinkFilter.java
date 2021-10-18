@@ -36,6 +36,10 @@ public class DrinkFilter {
 
     }
 
+    /**
+     * <p>Gets all the drinks</p>
+     * @return
+     */
     public List<Drink> getAllDrinks() {
         return drinks;
     }
