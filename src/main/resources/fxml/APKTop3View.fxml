@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,10 +19,14 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text fx:id="secondPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                  <Text fx:id="secondPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="black-text" />
+                        <String fx:value="bold" />
+                     </styleClass>
                   </Text>
                </children>
                <padding>
@@ -35,10 +40,14 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text fx:id="firstPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                  <Text fx:id="firstPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="black-text" />
+                        <String fx:value="bold" />
+                     </styleClass>
                   </Text>
                </children>
             </VBox>
@@ -49,10 +58,14 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text fx:id="thirdPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                  <Text fx:id="thirdPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="black-text" />
+                        <String fx:value="bold" />
+                     </styleClass>
                   </Text>
                </children>
                <padding>
