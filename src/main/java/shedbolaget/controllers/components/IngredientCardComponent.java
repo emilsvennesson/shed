@@ -3,28 +3,23 @@ package shedbolaget.controllers.components;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.products.Product;
 
 public class IngredientCardComponent extends Component{
 
 
 
-    @FXML
-    private AnchorPane cardAnchorPane;
-
-    @FXML
-    private AnchorPane cardAnchorPane1;
 
     @FXML
     private ImageView imageView1;
 
-    @FXML
-    private VBox nameVBox1;
 
     @FXML
     private Text nameBoldText1;
@@ -35,17 +30,20 @@ public class IngredientCardComponent extends Component{
     @FXML
     private VBox addButton;
 
-    @FXML
-    private Button favoritesButton1;
+
 
     @FXML
     private VBox removeButton;
 
-    @FXML
-    private Button favoritesButton11;
+
+
+    Product product;
 
     protected IngredientCardComponent(Product product) {
         super("IngredientCardView");
+        this.product = product;
+        populateFields();
+
     }
     protected IngredientCardComponent() {
         super("IngredientCardView");
@@ -53,6 +51,9 @@ public class IngredientCardComponent extends Component{
 
     @FXML
     void addButtonOnClick(ActionEvent event) {
+        if(product == null) return;
+
+
 
     }
 
@@ -63,6 +64,16 @@ public class IngredientCardComponent extends Component{
 
     @FXML
     void removeButtonOnClick(ActionEvent event) {
+
+    }
+
+    private void populateFields(){
+        if(this.product == null)return;
+        this.nameBoldText1.setText(product.getProductNameBold());
+        this.nameThinText1.setText(product.getProductNameThin());
+        Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
+        this.imageView1.setImage(productImage);
+
 
     }
 
