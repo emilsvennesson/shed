@@ -5,6 +5,9 @@ import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.pages.Pages;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Emil Svensson
  * @author Samuel Kajava
@@ -51,10 +54,19 @@ public class ComponentFactory {
         return new PaginationComponent(pages).getPane();
     }
 
+    /*---------------------------------Drink Generator --------------------------------------------*/
     public static AnchorPane createDrinkGeneratorPage() {
         return new DrinkGeneratorPage().getPane();
     }
+
+    static Map<String, IngredientCardComponent> renderedIngredients = new HashMap<>();
+
     public static AnchorPane createIngredientCard(Ingredient ingredient){
-        return new IngredientCardComponent(ingredient).getPane();
+        IngredientCardComponent comp = renderedIngredients.get(ingredient.getProd().getProductId());
+        if(comp == null){
+            comp = new IngredientCardComponent(ingredient);
+            renderedIngredients.put(ingredient.getProd().getProductId(), comp);
+        }
+        return comp.getPane();
     }
 }

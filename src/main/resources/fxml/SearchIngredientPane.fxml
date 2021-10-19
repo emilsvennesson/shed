@@ -23,7 +23,7 @@
                </font>
             </Text>
             <TextField fx:id="SearchTextField" layoutX="364.0" layoutY="40.0" promptText="Search" />
-            <Button fx:id="SearchButton" layoutX="513.0" layoutY="40.0" mnemonicParsing="false" text="Search" />
+            <Button fx:id="SearchButton" layoutX="513.0" layoutY="40.0" mnemonicParsing="false" onAction="#searchForIngredients" text="Search" />
          </children>
       </AnchorPane>
    </children>
