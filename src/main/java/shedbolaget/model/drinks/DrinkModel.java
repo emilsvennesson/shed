@@ -67,10 +67,10 @@ public enum DrinkModel {
 
     /**
      * Removes a {@link Ingredient} from the ingredients list
-     * @param product the product that will be removed
+     * @param ingredient the ingredient that will be removed
      */
-    public static void removeIngredient(Product product){
-        List<Ingredient> in = ingredients.stream().filter(x -> x.prod.getProductNameBold().equals(product.getProductNameBold())).collect(Collectors.toList());
+    public static void removeIngredient(Ingredient ingredient){
+        List<Ingredient> in = ingredients.stream().filter(x -> x.getProd().getProductNameBold().equals(ingredient.getProd().getProductNameBold())).collect(Collectors.toList());
         ingredients.removeAll(in);
     }
 
