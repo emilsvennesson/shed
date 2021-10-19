@@ -3,6 +3,8 @@ package shedbolaget.controllers.components;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 
+import java.util.List;
+
 public class APKLeaderboardPage extends Component{
 
     @FXML
@@ -14,6 +16,8 @@ public class APKLeaderboardPage extends Component{
     }
 
     private void populateView() {
+        contentFlowPane.getChildren().add(ComponentFactory.createCategoryMenu());
+        contentFlowPane.getChildren().add(ComponentFactory.createBreadCrumbs());
         contentFlowPane.getChildren().add(ComponentFactory.createAPKTop3());
     }
 }
