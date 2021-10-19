@@ -2,11 +2,9 @@ package shedbolaget.controllers.components;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.model.drinks.DrinkModel;
@@ -44,11 +42,11 @@ public class IngredientCardComponent extends Component{
 
 
 
-    Product product;
+    Ingredient ingredient;
 
-    protected IngredientCardComponent(Product product) {
+    protected IngredientCardComponent(Ingredient ingredient) {
         super("IngredientCardView");
-        this.product = product;
+        this.ingredient = ingredient;
         populateFields();
 
     }
@@ -58,10 +56,10 @@ public class IngredientCardComponent extends Component{
 
     @FXML
     void addButtonOnClick(ActionEvent event) {
-        if(product == null) return;
-        DrinkModel.addIngredient(product);
-        List<Ingredient> ingredientList = DrinkModel.get;
-        EventManager.getInstance().fireEvent(new DrinkGeneratorEvent());
+        if(this.ingredient == null) return;
+        DrinkModel.addIngredient(ingredient);
+        List<Ingredient> ingredientList = DrinkModel.getIngredients();
+        EventManager.getInstance().fireEvent(new DrinkGeneratorEvent(ingredientList));
     }
 
     @FXML
@@ -72,13 +70,15 @@ public class IngredientCardComponent extends Component{
     @FXML
     void removeButtonOnClick(ActionEvent event) {
 
+        if(this.ingredient == null ) return;
+        DrinkModel.removeIngredient(ingredient);
     }
 
     private void populateFields(){
-        if(this.product == null)return;
-        this.nameBoldText1.setText(product.getProductNameBold());
-        this.nameThinText1.setText(product.getProductNameThin());
-        Image productImage = new Image(product.getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
+        if(this.ingredient == null)return;
+        this.nameBoldText1.setText(ingredient.getProd().getProductNameBold());
+        this.nameThinText1.setText(ingredient.getProd().getProductNameThin());
+        Image productImage = new Image(ingredient.getProd().getImageUrl(Product.ImageSize.MEDIUM), 0, 0, false, false, true);
         this.imageView1.setImage(productImage);
 
 
