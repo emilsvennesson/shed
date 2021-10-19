@@ -19,15 +19,13 @@ public class AddedIngredientsComponent extends Component{
 
     public void renderIngredients(List<Ingredient> ingredientList) {
 
+        IngredientFlowPane.getChildren().clear();
         for (Ingredient ingredient :
                 ingredientList) {
 
-            IngredientFlowPane.getChildren().add(new IngredientCardComponent(ingredient).getPane());
+            IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(ingredient, true));
         }
     }
 
-    public void testAdd(){
-        IngredientFlowPane.getChildren().add(new IngredientCardComponent().getPane());
-    }
 
 }

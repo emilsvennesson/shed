@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class SearchIngredientPaneComponent extends Component {
 
@@ -53,7 +55,7 @@ public class SearchIngredientPaneComponent extends Component {
     private void renderIngredient(Ingredient ingredient){
 
 
-        IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(ingredient));
+        IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(ingredient, false));
 
 
 
@@ -70,6 +72,17 @@ public class SearchIngredientPaneComponent extends Component {
     private void renderProductsAsIngredients(List<Product> products, int amount){
         List<Ingredient> ingredients = new ArrayList<>();
         for(int i = 0; i<products.size() && i < amount; i++){
+
+            // if the product is already in as an ingredient, don't show it
+            int finalI = i;
+            List<Ingredient> hasProductList = DrinkModel.getIngredients().stream().filter(
+                    x-> x.getProd().getProductId() == products.get(finalI).getProductId()
+            ).collect(Collectors.toList());
+            if(hasProductList.size() != 0){
+               continue;
+            }
+
+            // Show the product
             ingredients.add(new Ingredient(products.get(i)));
         }
 
@@ -83,6 +96,14 @@ public class SearchIngredientPaneComponent extends Component {
 
     @FXML
     void searchForIngredients(ActionEvent event) {
+
+        String searchQuery = SearchTextField.getText();
+        List<Product> products = Filter.search(ProductsHolder.getInstance().getAllProducts(), searchQuery, 80);
+
+        renderProductsAsIngredients(products, 30);
+
+
+
 
     }
 }

@@ -61,11 +61,14 @@ public class ComponentFactory {
 
     static Map<String, IngredientCardComponent> renderedIngredients = new HashMap<>();
 
-    public static AnchorPane createIngredientCard(Ingredient ingredient){
+    public static AnchorPane createIngredientCard(Ingredient ingredient, boolean added){
         IngredientCardComponent comp = renderedIngredients.get(ingredient.getProd().getProductId());
         if(comp == null){
             comp = new IngredientCardComponent(ingredient);
             renderedIngredients.put(ingredient.getProd().getProductId(), comp);
+        }
+        if(added){
+            comp.markAsAdded();
         }
         return comp.getPane();
     }

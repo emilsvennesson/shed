@@ -40,6 +40,7 @@ public class IngredientCardComponent extends Component{
     @FXML
     private VBox removeButton;
 
+    boolean added = false;
 
 
     Ingredient ingredient;
@@ -54,25 +55,32 @@ public class IngredientCardComponent extends Component{
         super("IngredientCardView");
     }
 
-    @FXML
-    void addButtonOnClick(ActionEvent event) {
-        if(this.ingredient == null) return;
-        DrinkModel.addIngredient(ingredient);
-        List<Ingredient> ingredientList = DrinkModel.getIngredients();
-        EventManager.getInstance().fireEvent(new DrinkGeneratorEvent(ingredientList));
+    public void markAsAdded(){
+        added = true;
     }
+    void markAsNotAdded(){
+        added = false;
+    }
+
 
     @FXML
     void cardOnClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void removeButtonOnClick(ActionEvent event) {
-
         if(this.ingredient == null ) return;
-        DrinkModel.removeIngredient(ingredient);
+        if(!added){
+
+            DrinkModel.addIngredient(ingredient);
+            List<Ingredient> ingredientList = DrinkModel.getIngredients();
+            EventManager.getInstance().fireEvent(new DrinkGeneratorEvent(ingredientList));
+        }else{
+
+            DrinkModel.removeIngredient(ingredient);
+            List<Ingredient> ingredientList = DrinkModel.getIngredients();
+            EventManager.getInstance().fireEvent(new DrinkGeneratorEvent(ingredientList));
+        }
+
+
     }
+
 
     private void populateFields(){
         if(this.ingredient == null)return;
