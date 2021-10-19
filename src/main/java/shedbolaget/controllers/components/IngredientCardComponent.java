@@ -52,9 +52,7 @@ public class IngredientCardComponent extends Component{
     @FXML
     void addButtonOnClick(ActionEvent event) {
         if(product == null) return;
-
-
-
+        DrinkModel.addIngredient(product);
     }
 
     @FXML
