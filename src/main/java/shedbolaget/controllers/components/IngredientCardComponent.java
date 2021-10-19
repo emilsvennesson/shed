@@ -10,8 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.model.drinks.DrinkModel;
+import shedbolaget.model.drinks.Ingredient;
+import shedbolaget.model.events.DrinkGeneratorEvent;
+import shedbolaget.model.events.EventManager;
 import shedbolaget.model.products.Product;
 
+import java.util.List;
+
+
+//TODO add Javadoc
 public class IngredientCardComponent extends Component{
 
 
@@ -53,6 +60,8 @@ public class IngredientCardComponent extends Component{
     void addButtonOnClick(ActionEvent event) {
         if(product == null) return;
         DrinkModel.addIngredient(product);
+        List<Ingredient> ingredientList = DrinkModel.get;
+        EventManager.getInstance().fireEvent(new DrinkGeneratorEvent());
     }
 
     @FXML
