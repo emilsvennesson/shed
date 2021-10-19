@@ -75,7 +75,7 @@ public enum DrinkModel {
     }
 
     public static List<Ingredient> getIngredients() {
-        return ingredients;
+        return new ArrayList<>(ingredients);
     }
 
     public static void clear(){
