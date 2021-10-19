@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TestDrinkModel {
 
-    DrinkModel dModel = new DrinkModel();
+
 
 
     @Test
@@ -40,9 +40,9 @@ public class TestDrinkModel {
 
 
 
-            dModel.clear();
-            dModel.addIngredient(prods.get(0));
-            List<Drink> din = dModel.loadDrinks();
+            DrinkModel.clear();
+            DrinkModel.addIngredient(prods.get(0));
+            List<Drink> din = DrinkModel.loadDrinks();
 
 
 
