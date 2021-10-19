@@ -41,16 +41,16 @@ public class CustomProduct {
 
     private static void writeProductsToJsonFile(List<Product> customProducts){
         try {
+            // Add existing products from the json file to the list
             for (Product product: ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts())
                     customProducts.add(product);
 
-
-            // create object mapper instance
+            // Create object mapper instance & use variables instead of getters
             ObjectMapper mapper = new ObjectMapper();
             mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
             mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
-            // convert book object to JSON file
+            // convert product list to JSON file
             mapper.writeValue(Paths.get("src", "main", "resources", CUSTOM_PRODUCTS_FILENAME).toFile(), customProducts);
         } catch (Exception ex) {
             ex.printStackTrace();
