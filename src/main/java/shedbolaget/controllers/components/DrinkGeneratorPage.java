@@ -2,6 +2,7 @@ package shedbolaget.controllers.components;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.events.DrinkGeneratorEvent;
@@ -18,13 +19,19 @@ import java.util.List;
 public class DrinkGeneratorPage extends Component{
 
 
-    @FXML
-    private FlowPane IngredientFlowPane;
 
+    @FXML
+    private SplitPane SplitPaneView;
+
+    private final SearchIngredientPaneComponent SearchComponent = new SearchIngredientPaneComponent();
+    private final AddedIngredientsComponent addedIngredientsComponent = new AddedIngredientsComponent();
     DrinkGeneratorPage(){
         super("DrinkGenerator");
 
-        IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(null));
+        SplitPaneView.getItems().add(SearchComponent.getPane());
+        SplitPaneView.getItems().add(addedIngredientsComponent.getPane());
+
+
         EventManager.getInstance().registerToEventBus(this);
 
     }
@@ -32,10 +39,7 @@ public class DrinkGeneratorPage extends Component{
 
     private void loadIngredients(List<Ingredient> ingredientList){
 
-        for (Ingredient in :
-                ingredientList) {
-            //IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(in));
-        }
+        addedIngredientsComponent.renderIngredients(ingredientList);
 
     }
 
@@ -43,9 +47,7 @@ public class DrinkGeneratorPage extends Component{
 
     @Subscribe
     public void actOnDrinkGeneratorEvent(DrinkGeneratorEvent event){
-
-
-
+        loadIngredients(event.getIngredients());
     }
 
 
