@@ -20,6 +20,7 @@ import java.util.List;
 public enum CustomProduct {
     ;
     public static final String CUSTOM_PRODUCTS_FILENAME = "customproducts.json";
+    public static final List<Product> customProducts = ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
 
     /**
      * Creates a custom product and writes it to the JSON file.
@@ -33,10 +34,13 @@ public enum CustomProduct {
     public static void createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage)
     {
         // create Product object
-        List<Product> customProducts = new ArrayList<>();
         Product newCustomProduct = new Product(name, category1, category2, price, volume, alcoholPercentage);
         customProducts.add(newCustomProduct);
-        CustomProductWriter.writeProductsToJsonFile(customProducts,CUSTOM_PRODUCTS_FILENAME);
+        CustomProductWriter.writeProductsToJsonFile(customProducts, CUSTOM_PRODUCTS_FILENAME);
         EventManager.getInstance().fireEvent(new CustomProductCreatedEvent(newCustomProduct));
+    }
+
+    public static List<Product> getCustomProducts(){
+        return new ArrayList<>(customProducts);
     }
 }

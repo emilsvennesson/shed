@@ -31,7 +31,7 @@ class CustomProductList implements IProductsCollection {
      */
     @Override
     public List<Product> getProducts() {
-        products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
+        products = CustomProduct.getCustomProducts();
         for(Product product : products)
             System.out.println("Loaded: " + product.getProductNameBold());
         return new ArrayList<>(products);
