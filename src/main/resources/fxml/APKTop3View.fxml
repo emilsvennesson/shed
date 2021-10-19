@@ -1,43 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="814.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="814.0" style="-fx-background-color: white;" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="100.0" prefWidth="814.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="814.0">
          <children>
-            <AnchorPane fx:id="secondPlaceAnchorPane" prefHeight="200.0" prefWidth="271.0">
+            <VBox fx:id="firstPlaceVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                <children>
-                  <Text layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="2" textAlignment="CENTER" wrappingWidth="271.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="2" textAlignment="CENTER" wrappingWidth="272.0">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
+                  <Text fx:id="secondPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="firstPlaceAnchorPane" prefHeight="200.0" prefWidth="272.0">
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="secondPlaceVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                <children>
-                  <Text layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="1" textAlignment="CENTER" wrappingWidth="272.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="1" textAlignment="CENTER" wrappingWidth="271.0">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
+                  <Text fx:id="firstPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="thirdPlaceAnchorPane" prefHeight="200.0" prefWidth="271.0">
+            </VBox>
+            <VBox fx:id="thirdPlaceVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                <children>
-                  <Text layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="3" textAlignment="CENTER" wrappingWidth="271.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="3" textAlignment="CENTER" wrappingWidth="271.0">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
+                  <Text fx:id="thirdPlaceInfoText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18px;" styleClass="black-text" text="APK: " textAlignment="CENTER" wrappingWidth="272.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
                </children>
-            </AnchorPane>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
          </children>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="20.0" top="10.0" />
+   </padding>
 </fx:root>
