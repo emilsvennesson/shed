@@ -74,7 +74,9 @@ public enum DrinkModel {
         ingredients.removeAll(in);
     }
 
-
+    public static List<Ingredient> getIngredients() {
+        return ingredients;
+    }
 
     public static void clear(){
         ingredients.clear();
