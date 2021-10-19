@@ -10,6 +10,11 @@ import shedbolaget.model.products.Product;
 
 import java.util.List;
 
+//TODO add Javadoc
+
+/**
+ * @author Daniel Rygaard
+ */
 public class DrinkGeneratorPage extends Component{
 
 
@@ -31,8 +36,6 @@ public class DrinkGeneratorPage extends Component{
                 ingredientList) {
             //IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(in));
         }
-
-
 
     }
 
