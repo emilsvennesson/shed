@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.pages.Pages;
 
 /**
@@ -24,7 +24,7 @@ public class MainPage extends Component {
     }
 
     private void initNewProducts() {
-        Pages pages = new Pages(ProductsHolder.getInstance().getAllProducts());
+        Pages pages = new Pages(ProductModel.getInstance().getAllProducts());
         for (Product product : pages.getProductsFromPage(1)) // replace with actual new products?
             newProductsFlowPane.getChildren().add(ComponentFactory.createBasicProductCard(product));
     }
