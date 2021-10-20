@@ -38,7 +38,7 @@ public class APKTop3Component extends Component {
 
     protected APKTop3Component() {
         super("APKTop3View");
-        List<Product> all = ProductModel.getInstance().getAllProducts();
+        List<Product> all = ProductModel.getInstance().getProducts();
         populateTop3(Sorter.getProductListSortedByApk(all));
         eventManager.registerToEventBus(this);
     }
@@ -70,7 +70,7 @@ public class APKTop3Component extends Component {
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
         ProductModel productsHolder = ProductModel.getInstance();
-        List<Product> filteredProducts = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(productsHolder.getAllProducts(), event.getActiveCategories()), true);
+        List<Product> filteredProducts = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(productsHolder.getProducts(), event.getActiveCategories()), true);
         if (!filteredProducts.isEmpty())
             loadTop3(filteredProducts.subList(0, 3));
     }
