@@ -48,5 +48,33 @@ public class Drink {
         return new ArrayList<>(noingredients);
     }
 
+    public double getAPK(){
+        double res = 0;
+        if(alcingredients.size() == 0) return 0;
+        for (Ingredient alcin :
+                alcingredients) {
+            res += alcin.getProd().getApk();
+
+        }
+        return res/alcingredients.size();
+    }
+    public int getVolume(){
+        int res = 0;
+
+        //TODO fix this
+        for (Ingredient alcIn:
+             alcingredients) {
+           // res += alcIn.getProd().getVolume();
+
+        }
+        for (Ingredient noIn:
+                noingredients) {
+            //res += noIn.getProd().getVolume();
+
+        }
+        return res;
+
+    }
+
 
 }

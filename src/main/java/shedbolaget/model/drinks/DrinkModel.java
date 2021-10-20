@@ -5,6 +5,7 @@ import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * model.drinkfeatures.DrinkModel
@@ -14,19 +15,21 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version %I%, %G%
  */
-public class DrinkModel {
+public enum DrinkModel {
+    ;
 
 
-    private List<Ingredient> ingredients = new ArrayList<>();
 
-    DrinkFilter dFilter = new DrinkFilter();
+    final static private List<Ingredient> ingredients = new ArrayList<>();
+
+    final static DrinkFilter dFilter = new DrinkFilter();
 
     /**
      * Gets all the {@link Drink}s with the set {@link Ingredient}s
      *
      * @return      a list of {@link Drink}
      */
-    public List<Drink> loadDrinks(){
+    public static List<Drink> loadDrinks(){
 
 
         return dFilter.getFilteredDrinks(ingredients);
@@ -37,7 +40,7 @@ public class DrinkModel {
      *
      * @return      a list of {@link Drink}
      */
-    public List<Drink> loadAllDrinks(){
+    public static List<Drink> loadAllDrinks(){
         return DrinkHolder.getInstance().getDrinks();
     }
 
@@ -47,7 +50,7 @@ public class DrinkModel {
      *
      * @param ingredient    {@link Ingredient} that will be added
      */
-    public void addIngredient(Ingredient ingredient){
+    public static void addIngredient(Ingredient ingredient){
         ingredients.add(ingredient);
     }
 
@@ -56,16 +59,29 @@ public class DrinkModel {
      *
      * @param product   the product that will be added
      */
-    public void addIngredient(Product product){
+    public static void addIngredient(Product product){
         Ingredient ing = new Ingredient(product);
-        this.addIngredient(ing);
+        addIngredient(ing);
     }
 
-    //TODO add removeIngredirent()
 
+    /**
+     * Removes a {@link Ingredient} from the ingredients list
+     * @param ingredient the ingredient that will be removed
+     */
+    public static void removeIngredient(Ingredient ingredient){
+        List<Ingredient> in = ingredients.stream().filter(x -> x.getProd().getProductNameBold().equals(ingredient.getProd().getProductNameBold())).collect(Collectors.toList());
 
-    public void clear(){
-        this.ingredients.clear();
+        ingredients.remove(in.get(0));
+
+    }
+
+    public static List<Ingredient> getIngredients() {
+        return new ArrayList<>(ingredients);
+    }
+
+    public static void clear(){
+        ingredients.clear();
     }
 
 }

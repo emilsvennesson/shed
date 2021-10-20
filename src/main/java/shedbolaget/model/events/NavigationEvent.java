@@ -1,5 +1,7 @@
 package shedbolaget.model.events;
 
+import shedbolaget.controllers.components.DrinkGenerator.DrinkListPage;
+
 /**
  * This event can be fired to notify listeners to change page.
  *
@@ -41,7 +43,20 @@ public class NavigationEvent {
         /**
          * Favorites navigation.
          */
-        FAVORITES
+        FAVORITES,
+        /**
+         * APK Leaderboard navigation.
+         */
+        APK,
+        /**
+         * DrinkGenerator
+         */
+        DRINKGENERATOR,
+
+        /**
+         * Drink List
+         */
+        DRINKlIST
     }
 
 
