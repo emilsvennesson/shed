@@ -1,11 +1,13 @@
-package shedbolaget.controllers.components;
+package shedbolaget.controllers.components.DrinkGenerator;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import shedbolaget.controllers.components.Component;
+import shedbolaget.controllers.components.ComponentFactory;
+import shedbolaget.controllers.components.DrinkGenerator.IngredientCardComponent;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
@@ -17,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class SearchIngredientPaneComponent extends Component {
@@ -43,11 +44,10 @@ public class SearchIngredientPaneComponent extends Component {
     }
 
     private void initPage() {
-        List<Category> list = new ArrayList<>();
-        list.add(new Category("Sprit", 1));
 
 
-        renderProductsAsIngredients(Filter.getFilteredProductsByCategory(ProductsHolder.getInstance().getAllProducts(), list), 30);
+        searchAndDisplay("Likör");
+
 
 
 
@@ -92,18 +92,28 @@ public class SearchIngredientPaneComponent extends Component {
 
     }
 
-
+    List<Product> products;
 
     @FXML
     void searchForIngredients(ActionEvent event) {
 
         String searchQuery = SearchTextField.getText();
-        List<Product> products = Filter.search(ProductsHolder.getInstance().getAllProducts(), searchQuery, 80);
-
-        renderProductsAsIngredients(products, 30);
+        searchAndDisplay(searchQuery);
 
 
 
 
     }
+
+    void searchAndDisplay(String searchQuery){
+        products = Filter.search(ProductsHolder.getInstance().getAllProducts(), searchQuery, 80);
+
+        renderProductsAsIngredients(products, 30);
+    }
+
+
+    void update(){
+        renderProductsAsIngredients(products, 30);
+    }
+
 }

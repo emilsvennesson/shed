@@ -71,7 +71,9 @@ public enum DrinkModel {
      */
     public static void removeIngredient(Ingredient ingredient){
         List<Ingredient> in = ingredients.stream().filter(x -> x.getProd().getProductNameBold().equals(ingredient.getProd().getProductNameBold())).collect(Collectors.toList());
-        ingredients.removeAll(in);
+
+        ingredients.remove(in.get(0));
+
     }
 
     public static List<Ingredient> getIngredients() {

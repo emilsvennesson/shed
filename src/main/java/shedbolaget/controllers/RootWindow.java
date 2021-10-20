@@ -3,9 +3,7 @@ package shedbolaget.controllers;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import shedbolaget.controllers.components.Component;
 import shedbolaget.controllers.components.ComponentFactory;
-import shedbolaget.controllers.components.DrinkGeneratorPage;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 
