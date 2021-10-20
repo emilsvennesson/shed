@@ -49,4 +49,8 @@ public class ComponentFactory {
     public static AnchorPane createPagination(Pages pages) {
         return new PaginationComponent(pages).getPane();
     }
+
+    public static AnchorPane createCustomProductPanel() {return new CustomProductPanelComponent().getPane(); }
+
+    public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {return new CustomProductAddComponent(anchorPane).getPane(); }
 }

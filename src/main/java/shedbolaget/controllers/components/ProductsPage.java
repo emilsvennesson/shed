@@ -26,6 +26,8 @@ public class ProductsPage extends Component {
     @FXML
     private AnchorPane navBarPane;
 
+    @FXML AnchorPane customProductPane;
+
     @FXML
     private FlowPane contentFlowPane;
 
@@ -43,8 +45,13 @@ public class ProductsPage extends Component {
     protected ProductsPage() {
         super("ProductsView");
         initProductsWrapper();
+        initCustomProductComponent();
         populateView();
         eventManager.registerToEventBus(this);
+    }
+    private void initProductsWrapper() {
+        productsWrapper = new FlowPane();
+        productsWrapper.setVgap(8);
     }
 
     private void populateView() {
@@ -52,6 +59,13 @@ public class ProductsPage extends Component {
         contentFlowPane.getChildren().add(ComponentFactory.createBreadCrumbs());
         contentFlowPane.getChildren().add(ComponentFactory.createCategoryMenu());
         contentFlowPane.getChildren().add(productsWrapper);
+        contentFlowPane.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
+    }
+
+    private void initCustomProductComponent(){
+        customProductPane = ComponentFactory.createCustomProductPanel();
+        this.getPane().getChildren().add(customProductPane);
+        customProductPane.toBack();
     }
 
     private void loadPaginationComponent(Pages pages) {
@@ -71,10 +85,6 @@ public class ProductsPage extends Component {
             productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(product));
     }
 
-    private void initProductsWrapper() {
-        productsWrapper = new FlowPane();
-        productsWrapper.setVgap(8);
-    }
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
