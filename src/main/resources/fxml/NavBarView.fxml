@@ -27,7 +27,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="161.0" styleClass="navbar-button" text="Drink Generator">
+        <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" onAction="#drinkGeneratorButtonOnClicked" prefHeight="62.0" prefWidth="161.0" styleClass="navbar-button" text="Drink Generator">
             <font>
                 <Font size="20.0" />
             </font>
