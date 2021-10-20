@@ -288,3 +288,7 @@
 .non-favorite-icon, .favorite-icon:hover {
     -fx-graphic: url("../icons/non_favorite.png");
 }
+
+.transparent-shadow {
+    -fx-background-color: rgba(0, 0, 0, 0.7)
+}
