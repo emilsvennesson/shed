@@ -19,7 +19,7 @@ public class TestProductListIO {
     IProductListIO io = new ProductListFileIO();
 
     private static Product getRandomUniqueProduct() {
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         Product prod;
         do {
             prod = products.get(rand.nextInt(products.size()));

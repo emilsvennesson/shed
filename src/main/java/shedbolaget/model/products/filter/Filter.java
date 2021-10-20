@@ -29,6 +29,7 @@ public enum Filter {
 
     /**
      * Gets filtered products based on a search string.
+     * The search will match on categories level 1, 2 & 3 as well as on the full product name.
      *
      * @param products         the products list
      * @param query            the search query

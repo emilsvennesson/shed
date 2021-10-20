@@ -22,7 +22,7 @@ class ProductList implements IProductsCollection {
     /**
      * @return the single instance of the object
      */
-    public static ProductList getInstance() {
+    static ProductList getInstance() {
         return instance;
     }
 

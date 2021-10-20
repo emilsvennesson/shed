@@ -13,7 +13,7 @@ public enum ProductsParserFactory {
     ;
 
     /**
-     * Creates an IProductsParser from a Data file. File directory in resources.
+     * Creates an IProductsCollection from a file name in the resources directory.
      *
      * @param fileName the file name to parse
      * @return the IProductsParser object
@@ -23,10 +23,10 @@ public enum ProductsParserFactory {
     }
 
     /**
-     * Creates an IProductsParser from a JSON InputStream.
+     * Creates an IProductsCollection from an InputStream object.
      *
      * @param inputStream the stream to parse
-     * @return the IProductsParser object
+     * @return the IProductsCollection object
      */
     public static IProductsCollection createJSONParser(InputStream inputStream) {
         return new ProductsJSONFileParser(inputStream);

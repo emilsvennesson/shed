@@ -15,7 +15,7 @@ public class TestFilter {
 
     @Before
     public void initProducts() {
-        products = ProductModel.getInstance().getAllProducts();
+        products = ProductModel.getInstance().getProducts();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class TestFilter {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Ale", 2));
         categories.add(new Category("Öl", 1));
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Ale", p.getCategoryLevel2().getName());
@@ -35,7 +35,7 @@ public class TestFilter {
     public void testFilteredProductsLevel2() {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Ale", 2));
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Ale", p.getCategoryLevel2().getName());
@@ -46,7 +46,7 @@ public class TestFilter {
     public void testGetFilteredProductsLevel1() {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Öl", 1));
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
         for (Product p : filteredProductsList) {
             Assert.assertEquals("Öl", p.getCategoryLevel1().getName());
@@ -55,7 +55,7 @@ public class TestFilter {
 
     @Test
     public void testSearchWithRatio100() {
-        for (Product p : Filter.search(ProductModel.getInstance().getAllProducts(), "Fruktigt & Smakrikt vin", 100))
+        for (Product p : Filter.search(ProductModel.getInstance().getProducts(), "Fruktigt & Smakrikt vin", 100))
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Fruktigt & Smakrikt vin");
         for (Product p : Filter.search(products, "Arboga 10,2", 100))
             Assert.assertEquals(p.getFullProductName(), "Arboga 10,2");
@@ -64,7 +64,7 @@ public class TestFilter {
     @Test
     public void testSearchWithRatio95() {
         int fuzzyRatio = 95;
-        for (Product p : Filter.search(ProductModel.getInstance().getAllProducts(), "fruktiGt Smakrikt vin", fuzzyRatio))
+        for (Product p : Filter.search(ProductModel.getInstance().getProducts(), "fruktiGt Smakrikt vin", fuzzyRatio))
             Assert.assertEquals(p.getCategoryLevel3().getName(), "Fruktigt & Smakrikt vin");
         for (Product p : Filter.search(products, "ArbogA 10.2", fuzzyRatio))
             Assert.assertEquals(p.getFullProductName(), "Arboga 10,2");

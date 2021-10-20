@@ -51,7 +51,7 @@ public class NavBarComponent extends Component {
 
     private void initDropdown() {
         MenuItem menuItem;
-        for (Category category : Categories.getLevel1Categories(ProductModel.getInstance().getAllProducts())) {
+        for (Category category : Categories.getLevel1Categories(ProductModel.getInstance().getProducts())) {
             menuItem = new MenuItem(category.getName());
             menuItem.setOnAction(e -> {
                 eventManager.fireEvent(new CategoryEvent(List.of(category)));

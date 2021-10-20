@@ -79,7 +79,7 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnCategoryEvent(CategoryEvent event) {
-        filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), event.getActiveCategories());
+        filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
             loadProducts(filteredProducts, true);
     }
@@ -97,6 +97,6 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void actOnSearchEvent(SearchEvent event) {
-        loadProducts(Filter.search(ProductModel.getInstance().getAllProducts(), event.getSearchString(), FUZZY_REQUIRED_HIT_RATE), true);
+        loadProducts(Filter.search(ProductModel.getInstance().getProducts(), event.getSearchString(), FUZZY_REQUIRED_HIT_RATE), true);
     }
 }

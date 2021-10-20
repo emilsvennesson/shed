@@ -24,7 +24,7 @@ public class MainPage extends Component {
     }
 
     private void initNewProducts() {
-        Pages pages = new Pages(ProductModel.getInstance().getAllProducts());
+        Pages pages = new Pages(ProductModel.getInstance().getProducts());
         for (Product product : pages.getProductsFromPage(1)) // replace with actual new products?
             newProductsFlowPane.getChildren().add(ComponentFactory.createBasicProductCard(product));
     }

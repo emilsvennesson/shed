@@ -21,7 +21,7 @@ class CustomProductList implements IProductsCollection {
     /**
      * @return the single instance of the object
      */
-    public static CustomProductList getInstance() {
+    static CustomProductList getInstance() {
         return instance;
     }
 
