@@ -12,7 +12,7 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
 
 import java.util.ArrayList;
@@ -106,7 +106,7 @@ public class SearchIngredientPaneComponent extends Component {
     }
 
     void searchAndDisplay(String searchQuery){
-        products = Filter.search(ProductsHolder.getInstance().getAllProducts(), searchQuery, 80);
+        products = Filter.search(ProductModel.getInstance().getAllProducts(), searchQuery, 80);
 
         renderProductsAsIngredients(products, 30);
     }
