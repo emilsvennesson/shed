@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * This class holds all products available in the products JSON file.
+ *
  * @author Pouya Shirin
  */
 class CustomProductList implements IProductsCollection {
@@ -18,7 +19,6 @@ class CustomProductList implements IProductsCollection {
     }
 
     /**
-     *
      * @return the single instance of the object
      */
     public static CustomProductList getInstance() {
@@ -26,13 +26,12 @@ class CustomProductList implements IProductsCollection {
     }
 
     /**
-     *
      * @return all products
      */
     @Override
     public List<Product> getProducts() {
         products = ProductsParserFactory.createJSONParser(CustomProduct.CUSTOM_PRODUCTS_FILENAME).getProducts();
-        for(Product product : products)
+        for (Product product : products)
             System.out.println("Loaded: " + product.getProductNameBold());
         return new ArrayList<>(products);
     }

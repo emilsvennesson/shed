@@ -28,4 +28,16 @@ public class TestPages {
         Assert.assertEquals(0, pages.getNumberOfProducts(-1));
         Assert.assertEquals(0, pages.getNumberOfProducts(pages.getNumberOfPages() + 1));
     }
+
+    @Test
+    public void testGetNumberOfProducts() {
+        Pages pages = new Pages(ProductModel.getInstance().getAllProducts(), 100);
+        Assert.assertEquals(100, pages.getNumberOfProducts(1));
+    }
+
+    @Test
+    public void testGetProductsFromPage() {
+        Pages pages = new Pages(ProductModel.getInstance().getAllProducts(), 100);
+        Assert.assertEquals(100, pages.getProductsFromPage(1).size());
+    }
 }

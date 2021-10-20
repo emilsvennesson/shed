@@ -1,6 +1,5 @@
 package shedbolaget.model.products;
 
-import shedbolaget.model.products.customproduct.CustomProduct;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ class ProductList implements IProductsCollection {
     }
 
     /**
-     *
      * @return the single instance of the object
      */
     public static ProductList getInstance() {
@@ -29,7 +27,6 @@ class ProductList implements IProductsCollection {
     }
 
     /**
-     *
      * @return all products
      */
     @Override

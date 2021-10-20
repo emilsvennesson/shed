@@ -10,7 +10,7 @@ import java.util.List;
  * @author Samuel Kajava
  * @author Pouya Shirin
  */
-public class ProductModel{
+public class ProductModel {
     private final List<IProductsCollection> collections = new ArrayList<>();
     private static final ProductModel instance = new ProductModel();
     private List<Product> products;
@@ -21,7 +21,6 @@ public class ProductModel{
     }
 
     /**
-     *
      * @return the single instance of the object
      */
     public static ProductModel getInstance() {
@@ -29,7 +28,6 @@ public class ProductModel{
     }
 
     /**
-     *
      * @return all products
      */
     public List<Product> getAllProducts() {
@@ -40,13 +38,13 @@ public class ProductModel{
     }
 
     public int getNumberOfProducts() {
-        return products.size();
+        return getAllProducts().size();
     }
 
     public List<Product> getProductsById(int id) {
         List<Product> matches = new ArrayList<>();
-        for(Product p : products) {
-            if(Integer.parseInt(p.getProductId())==id)
+        for (Product p : getAllProducts()) {
+            if (Integer.parseInt(p.getProductId()) == id)
                 matches.add(p);
         }
         return matches;
