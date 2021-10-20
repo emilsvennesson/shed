@@ -53,31 +53,7 @@ public class Ingredient {
     }
 
     public String getIngredientName(Product prod){
-        if(prod.getProductNameBold().equals("Jameson"))
-            System.out.println("hej");
-        if(prod.getCategoryLevel1().getName().equals("Sprit")){
-
-            if(prod.getCategoryLevel3().getName() == null)
-                return "Sprit";
-            if(prod.getCategoryLevel3().getName().equals("Mörk rom")){
-                return "Mörk rom";
-            }
-            if(prod.getCategoryLevel3().getName().equals("Ljus rom")){
-                return"Ljus rom";
-            }
-
-            if(prod.getCategoryLevel2().getName().equals("Whisky"))
-                return "Whisky";
-
-            if(prod.getCategoryLevel2().getName().equals("Vodka")){
-                return "Vodka";
-            }
-
-            return prod.getCategoryLevel3().getName();
-
-
-
-        }
+       
         return prod.getProductNameBold();
 
 

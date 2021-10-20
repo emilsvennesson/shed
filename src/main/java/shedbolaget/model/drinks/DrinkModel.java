@@ -72,6 +72,8 @@ public enum DrinkModel {
     public static void removeIngredient(Ingredient ingredient){
         List<Ingredient> in = ingredients.stream().filter(x -> x.getProd().getProductNameBold().equals(ingredient.getProd().getProductNameBold())).collect(Collectors.toList());
 
+        if(in.size() == 0)
+            return;
         ingredients.remove(in.get(0));
 
     }
@@ -80,7 +82,7 @@ public enum DrinkModel {
         return new ArrayList<>(ingredients);
     }
 
-    public static void clear(){
+    public static void clearIngredients(){
         ingredients.clear();
     }
 

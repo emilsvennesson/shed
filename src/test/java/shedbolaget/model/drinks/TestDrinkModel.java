@@ -1,6 +1,7 @@
 package shedbolaget.model.drinks;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.products.Product;
@@ -12,6 +13,7 @@ import shedbolaget.model.drinks.parser.IDrinkParser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TestDrinkModel {
 
@@ -21,64 +23,107 @@ public class TestDrinkModel {
     @Test
     public void parsing(){
         IDrinkParser parser = new DrinkJsonFileParser();
-        List<Drink> hej = parser.load();
+        List<Drink> parsedDrinks = parser.load();
 
-        for (Drink d :
-                hej) {
-            System.out.println(d.getName());
+        for (Drink drink :
+                parsedDrinks) {
+            Assert.assertNotNull(drink);
+
         }
+
+    }
+
+
+
+
+    @Test
+    public void testLoadDrinks(){
+
+        //TODO Fix
+
+    }
+
+    int amountOfDrinks = 0;
+    @Before
+    public void getAllDrinksFromParser(){
+        IDrinkParser parser = new DrinkJsonFileParser();
+        List<Drink> parsedDrinks = parser.load();
+
+        amountOfDrinks = parsedDrinks.size();
+    }
+    @Test
+    public void loadAllDrinks(){
+
+        List<Drink> drinks = DrinkModel.loadAllDrinks();
+
+        Assert.assertEquals(drinks.size(), amountOfDrinks);
 
     }
 
     @Test
-    public void canFindGinDrinkWithEveryGinProduct(){
+    public void testAddIngredient(){
+        int ingredients = DrinkModel.getIngredients().size();
+        DrinkModel.addIngredient(ProductModel.getInstance().getProducts().get(1));
+        ingredients++;
 
+        Assert.assertEquals(ingredients, DrinkModel.getIngredients().size());
 
-        List<Product> prods = Filter.search(ProductModel.getInstance().getProducts(), "Jameson", 100);
+    }
 
-        Assert.assertNotEquals(prods.size(), 0);
-
-
-
-            DrinkModel.clear();
-            DrinkModel.addIngredient(prods.get(0));
-            List<Drink> din = DrinkModel.loadDrinks();
-
-
-
-
-
-
-        ;
-        for (Drink d:
-             din) {
-            System.out.println(d.getName());
-
-
+    @Test
+    public void testAddIngredients(){
+        Random rand = new Random(1);
+        int ingredients = DrinkModel.getIngredients().size();
+        for (int i = 0; i<rand.nextInt(ProductModel.getInstance().getProducts().size()); i++ ){
+            DrinkModel.addIngredient(ProductModel.getInstance().getProducts().get(i));
+            ingredients++;
         }
-        System.out.println(din.size());
 
 
+        Assert.assertEquals(ingredients, DrinkModel.getIngredients().size());
+    }
 
 
+    @Test
+    public void testRemoveIngredients(){
+        Random rand = new Random(1);
+        int notADrinkAddedIndex = 0;
+        for (int i = 0; i<rand.nextInt(ProductModel.getInstance().getProducts().size()); i++ ){
+            DrinkModel.addIngredient(ProductModel.getInstance().getProducts().get(i));
+            notADrinkAddedIndex = i;
+        }
+
+
+        int ingredients = DrinkModel.getIngredients().size();
+        DrinkModel.removeIngredient(new Ingredient(ProductModel.getInstance().getProducts().get(notADrinkAddedIndex+5)));
+
+        Assert.assertEquals(ingredients, DrinkModel.getIngredients().size());
+
+
+        DrinkModel.removeIngredient(new Ingredient(ProductModel.getInstance().getProducts().get(rand.nextInt(DrinkModel.getIngredients().size()-1))));
+
+        Assert.assertEquals(ingredients-1, DrinkModel.getIngredients().size());
 
 
     }
 
 
+    @Test
+    public void testClearIngredients(){
 
-    public void addIngredient(){
-        List<Category> categories = new ArrayList<>();
-        categories.add(new Category("Tequila", 2));
-        List<Product> products = ProductModel.getInstance().getProducts();
-        List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
+        Random rand = new Random(1);
 
-        System.out.println(filteredProductsList.get(0).getProductNameBold());
+        for (int i = 0; i<rand.nextInt(ProductModel.getInstance().getProducts().size()); i++ ){
+            DrinkModel.addIngredient(ProductModel.getInstance().getProducts().get(i));
+        }
+
+        DrinkModel.clearIngredients();
+
+        Assert.assertEquals(DrinkModel.getIngredients().size(), 0);
+
 
 
     }
-
-
 
 
 }
