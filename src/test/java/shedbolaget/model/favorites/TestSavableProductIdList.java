@@ -151,7 +151,7 @@ public class TestSavableProductIdList {
 
         Product prod;
         do {
-            prod = ProductModel.getInstance().getAllProducts().get(rand.nextInt(ProductModel.getInstance().getAllProducts().size()));
+            prod = ProductModel.getInstance().getProducts().get(rand.nextInt(ProductModel.getInstance().getProducts().size()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);

@@ -42,7 +42,7 @@ public class CategoryComponent extends Component {
         categoryLevel2VBox.getChildren().clear();
         Category activeLevel1Category = Categories.getCategoriesByLevel(categories, 1).get(0);
         checkBoxes = new ArrayList<>();
-        for (Category level2Category : Categories.getAssociatedLevel2Categories(ProductModel.getInstance().getAllProducts(), activeLevel1Category)) {
+        for (Category level2Category : Categories.getAssociatedLevel2Categories(ProductModel.getInstance().getProducts(), activeLevel1Category)) {
             CheckBox checkBox = new CheckBox(level2Category.getName());
             checkBox.setOnAction(event -> {
                 if (checkBox.isSelected()) {

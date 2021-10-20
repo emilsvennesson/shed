@@ -5,6 +5,7 @@ import shedbolaget.model.products.IProductsCollection;
 import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -73,6 +74,8 @@ public class Pages {
      * @return the products from the specified page number
      */
     public List<Product> getProductsFromPage(int pageNumber) {
+        if (isOutOfBounds(pageNumber))
+            return Collections.emptyList();
         return productPages.get(pageNumber - 1).getProducts();
     }
 
@@ -92,7 +95,12 @@ public class Pages {
      * @return the number of products in the page
      */
     public int getNumberOfProducts(int pageNumber) {
-        // TODO needs boundary checks
+        if (isOutOfBounds(pageNumber))  // return 0 if pageNumber is out of bounds
+            return 0;
         return productPages.get(pageNumber - 1).getNumberOfProducts();
+    }
+
+    private boolean isOutOfBounds(int pageNumber) {
+        return (pageNumber <= 0 || pageNumber > productPages.size());
     }
 }

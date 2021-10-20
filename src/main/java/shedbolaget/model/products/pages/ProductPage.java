@@ -12,12 +12,7 @@ import java.util.List;
  * @author Emil Svensson
  * @author Pouya Shirin
  */
-class ProductPage implements IProductsCollection {
-    private final List<Product> products;
-
-    public ProductPage(List<Product> products) {
-        this.products = products;
-    }
+record ProductPage(List<Product> products) implements IProductsCollection {
 
     @Override
     public List<Product> getProducts() {

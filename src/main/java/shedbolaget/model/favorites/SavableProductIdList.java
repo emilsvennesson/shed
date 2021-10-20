@@ -105,14 +105,11 @@ public class SavableProductIdList {
         return this.products;
     }
 
-    public List<Product> getProducts(){
+    public List<Product> getProducts() {
         List<Product> prods = new ArrayList<>();
-
         for (Integer id : products) {
             prods.add(ProductModel.getInstance().getProductsById(id).get(0));
         }
-
-
         return prods;
     }
 
