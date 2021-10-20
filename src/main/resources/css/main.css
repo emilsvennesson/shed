@@ -128,7 +128,7 @@
 }
 
 .new-products-background {
-    -fx-background-color: -light_grey_background;
+    -fx-background-color: white;
 }
 
 .scroll-bar:vertical {
@@ -154,12 +154,7 @@
     -fx-border-radius: 2px;
     -fx-border-color: -light_grey;
     -fx-border-width: 1px;
-    -fx-background-color: white;
-}
-
-.basic-product-card:hover {
-    -fx-cursor: hand;
-    -fx-background-color: -light_grey;
+    -fx-background-color: -light_grey_background;
 }
 
 .basic-product-card-name {
@@ -287,4 +282,19 @@
 
 .non-favorite-icon, .favorite-icon:hover {
     -fx-graphic: url("../icons/non_favorite.png");
+}
+
+.apk-leaderboard-list-item {
+    -fx-border-color: -light_grey;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.grey-spacer {
+    -fx-border-color: -light_grey;
+    -fx-border-width: 0 0 6px 0;
+}
+
+.grey-spacer-thin {
+    -fx-border-color: linear-gradient(from 35% 35% to 92% 92%, #ECFFF0, #D2F4FF);
+    -fx-border-width: 0 0 1px 0;
 }
