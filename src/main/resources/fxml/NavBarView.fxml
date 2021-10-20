@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <styleClass>
         <String fx:value="navbar" />
         <String fx:value="shadow" />
@@ -27,7 +27,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="161.0" styleClass="navbar-button" text="Drink Generator">
+        <Button fx:id="drinkGeneratorButton" mnemonicParsing="false" onAction="#drinkGeneratorButtonOnClicked" prefHeight="62.0" prefWidth="161.0" styleClass="navbar-button" text="Drink Generator">
             <font>
                 <Font size="20.0" />
             </font>

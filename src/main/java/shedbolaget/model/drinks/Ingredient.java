@@ -84,7 +84,9 @@ public class Ingredient {
     }
 
 
-
+    public Product getProd() {
+        return prod;
+    }
 
     @Override
     public boolean equals(Object o) {
