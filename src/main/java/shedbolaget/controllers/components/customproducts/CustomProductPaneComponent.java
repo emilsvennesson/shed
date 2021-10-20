@@ -59,12 +59,17 @@ public class CustomProductPaneComponent extends Component {
     private void createCustomProduct(){
         CustomProduct.createProduct(productNameInput.getText(), category1Input.getText(),
                 category2Input.getText(), Integer.parseInt(priceInput.getText()), Integer.parseInt(volumeInput.getText()),
-                Integer.parseInt(alcoholPercentageInput.getText()), countryInput.getText());
+                Integer.parseInt(alcoholPercentageInput.getText()), countryInput.getText(), imgURLInput.getText());
     }
 
     private void closePane(){
         this.getPane().toBack();
         clearFields();
+    }
+
+    @FXML
+    private void onClose(){
+        closePane();
     }
 
     private void clearFields()
