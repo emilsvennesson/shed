@@ -30,7 +30,7 @@ public class TestCategories {
 
     @Test
     public void testGetLevel2Categories() {
-        List<Category> categories = Categories.getLevel2Categories(ProductsHolder.getInstance().getAllProducts());
+        List<Category> categories = Categories.getLevel2Categories(ProductModel.getInstance().getAllProducts());
         for (Category category : categories)
             Assert.assertEquals(category.getLevel(), 2);
 
@@ -38,8 +38,8 @@ public class TestCategories {
 
     @Test
     public void testGetCategoriesByLevel() {
-        List<Category> categories = Categories.getLevel2Categories(ProductsHolder.getInstance().getAllProducts());
-        categories.addAll(Categories.getLevel1Categories(ProductsHolder.getInstance().getAllProducts()));
+        List<Category> categories = Categories.getLevel2Categories(ProductModel.getInstance().getAllProducts());
+        categories.addAll(Categories.getLevel1Categories(ProductModel.getInstance().getAllProducts()));
         // merge all categories to one list
         for (Category category : Categories.getCategoriesByLevel(categories, 1))
             Assert.assertEquals(category.getLevel(), 1);
@@ -49,7 +49,7 @@ public class TestCategories {
 
     @Test
     public void testGetCategoriesAsMap() {
-        Map<Category, List<Category>> categoriesList = Categories.getCategoriesAsMap(ProductsHolder.getInstance().getAllProducts());
+        Map<Category, List<Category>> categoriesList = Categories.getCategoriesAsMap(ProductModel.getInstance().getAllProducts());
         for (Map.Entry<Category, List<Category>> entry : categoriesList.entrySet()) {
             Category key = entry.getKey();
             Assert.assertEquals(key.getLevel(), 1);

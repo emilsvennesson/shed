@@ -15,7 +15,7 @@ public class TestFilter {
 
     @Before
     public void initProducts() {
-        products = ProductsHolder.getInstance().getAllProducts();
+        products = ProductModel.getInstance().getAllProducts();
     }
 
     @Test

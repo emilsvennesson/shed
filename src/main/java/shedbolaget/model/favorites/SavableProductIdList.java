@@ -110,7 +110,7 @@ public class SavableProductIdList {
         for (Integer id : products) {
             prods.add(ProductModel.getInstance().getProductsById(id).get(0));
         }
-
+        return prods;
     }
 
     @Override
