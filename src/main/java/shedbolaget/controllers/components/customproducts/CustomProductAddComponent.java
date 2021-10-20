@@ -1,15 +1,15 @@
-package shedbolaget.controllers.components;
+package shedbolaget.controllers.components.customproducts;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.controllers.components.Component;
 
 /**
- * @author Emil Svensson
- * @author Samuel Kajava
+ * @author Pouya Shirin
  */
 public class CustomProductAddComponent extends Component {
     private final AnchorPane customProductPanel;
-    protected CustomProductAddComponent(AnchorPane customProductPanel) {
+    public CustomProductAddComponent(AnchorPane customProductPanel) {
         super("AddCustomProductView");
         this.customProductPanel = customProductPanel;
     }

@@ -1,6 +1,8 @@
 package shedbolaget.controllers.components;
 
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.controllers.components.customproducts.CustomProductAddComponent;
+import shedbolaget.controllers.components.customproducts.CustomProductPaneComponent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.pages.Pages;
 

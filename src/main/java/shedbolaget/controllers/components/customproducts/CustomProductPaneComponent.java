@@ -1,4 +1,4 @@
-package shedbolaget.controllers.components;
+package shedbolaget.controllers.components.customproducts;
 
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import org.w3c.dom.Text;
+import shedbolaget.controllers.components.Component;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.PagesEvent;
 import shedbolaget.model.events.SearchEvent;
@@ -20,8 +21,7 @@ import shedbolaget.model.products.pages.Pages;
 import java.util.List;
 
 /**
- * @author Emil Svensson
- * @author Samuel Kajava
+ * @author Pouya Shirin
  */
 public class CustomProductPaneComponent extends Component {
     @FXML
@@ -42,7 +42,7 @@ public class CustomProductPaneComponent extends Component {
     private TextField alcoholPercentageInput;
 
 
-    protected CustomProductPaneComponent() {
+    public CustomProductPaneComponent() {
         super("CustomProductPaneView");
     }
 
@@ -56,6 +56,19 @@ public class CustomProductPaneComponent extends Component {
         CustomProduct.createProduct(productNameInput.getText(), category1Input.getText(),
                 category2Input.getText(), Integer.parseInt(priceInput.getText()), Integer.parseInt(volumeInput.getText()),
                 Integer.parseInt(alcoholPercentageInput.getText()));
+    }
+
+    private void clearFields()
+    {
+        productNameInput.clear();
+        category1Input.clear();
+        category2Input.clear();
+        priceInput.clear();
+        volumeInput.clear();
+        tasteInput.clear();
+        alcoholPercentageInput.clear();
+        alcoholPercentageInput.clear();
+
     }
 }
 
