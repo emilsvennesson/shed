@@ -38,7 +38,8 @@ public class Product {
     this.volume = volume;
     this.alcoholPercentage = alcoholPercentage;
     this.country = country;
-    images = new ArrayList<>(Arrays.asList(new Image(imgUrl)));
+        // FIXME: 2021-10-20 image url doesn't work
+    //images = new ArrayList<>(Arrays.asList(new Image(imgUrl)));
     }
     public Product() {
     }

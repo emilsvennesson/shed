@@ -37,6 +37,8 @@ public class ComponentFactory {
         return new FavoritesPage().getPane();
     }
 
+    public static AnchorPane createAPKLeaderboard() { return new APKLeaderboardPage().getPane(); }
+
     public static AnchorPane createDetailedProductCard(Product product) {
         return new DetailedProductCardComponent(product).getPane();
     }
@@ -65,7 +67,10 @@ public class ComponentFactory {
 
     public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {return new CustomProductAddComponent(anchorPane).getPane(); }
 
+    public static AnchorPane createAPKTop3() {return new APKTop3Component().getPane();}
+
     /*---------------------------------Drink Generator --------------------------------------------*/
+    
     public static AnchorPane createDrinkGeneratorPage() {
         return new DrinkGeneratorPage().getPane();
     }

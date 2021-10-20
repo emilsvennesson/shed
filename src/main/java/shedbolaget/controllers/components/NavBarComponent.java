@@ -88,4 +88,9 @@ public class NavBarComponent extends Component {
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
         searchTextField.clear();
     }
+
+    @FXML
+    void apkLeaderboardButtonOnClicked(ActionEvent event) {
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.APK));
+    }
 }

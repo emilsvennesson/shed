@@ -45,6 +45,10 @@ public class NavigationEvent {
          */
         FAVORITES,
         /**
+         * APK Leaderboard navigation.
+         */
+        APK,
+        /**
          * DrinkGenerator
          */
         DRINKGENERATOR,
