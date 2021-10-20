@@ -13,11 +13,6 @@ enum CustomProductWriter {
     ;
      public static void writeProductsToJsonFile(List<Product> customProducts, String fileName){
         try {
-            // Add existing products from the json file to the list
-
-            for (Product product: ProductsParserFactory.createJSONParser(fileName).getProducts())
-                customProducts.add(product);
-
             // Create object mapper instance & use variables instead of getters
             ObjectMapper mapper = new ObjectMapper();
             mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);

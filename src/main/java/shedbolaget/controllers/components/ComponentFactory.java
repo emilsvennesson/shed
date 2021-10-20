@@ -1,6 +1,8 @@
 package shedbolaget.controllers.components;
 
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.controllers.components.customproducts.CustomProductAddComponent;
+import shedbolaget.controllers.components.customproducts.CustomProductPaneComponent;
 import shedbolaget.controllers.components.DrinkGenerator.DrinkCardComponent;
 import shedbolaget.controllers.components.DrinkGenerator.DrinkGeneratorPage;
 import shedbolaget.controllers.components.DrinkGenerator.DrinkListPage;
@@ -61,8 +63,13 @@ public class ComponentFactory {
         return new PaginationComponent(pages).getPane();
     }
 
+    public static AnchorPane createCustomProductPane() {return new CustomProductPaneComponent().getPane(); }
+
+    public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {return new CustomProductAddComponent(anchorPane).getPane(); }
 
     public static AnchorPane createAPKTop3() {return new APKTop3Component().getPane();}
+
+    /*---------------------------------Drink Generator --------------------------------------------*/
 
     public static AnchorPane createDrinkGeneratorPage() {
         return new DrinkGeneratorPage().getPane();
@@ -91,6 +98,5 @@ public class ComponentFactory {
     public static AnchorPane createDrinkCard(Drink drink){
         return new DrinkCardComponent(drink).getPane();
     }
-
 
 }

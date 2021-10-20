@@ -3,13 +3,18 @@ package shedbolaget.model.products;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import shedbolaget.model.categories.Category;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
     private String imageUrl;
-
+    Image(String imageUrl){
+        this.imageUrl = imageUrl;
+    }
     public String getImageUrl() {
         return imageUrl;
     }
@@ -25,13 +30,18 @@ class Image {
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
-    public Product(String name, String category1, String category2, double price, double volume, int alcoholPercentage) {
-    this.productNameBold = name;
+    public Product(int id, String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl)
+    {
+        this.productId = Integer.toString(id);
+        this.productNameBold = name;
     this.categoryLevel1 = category1;
     this.categoryLevel2 = category2;
     this.price = price;
     this.volume = volume;
     this.alcoholPercentage = alcoholPercentage;
+    this.country = country;
+        // FIXME: 2021-10-20 image url doesn't work
+    //images = new ArrayList<>(Arrays.asList(new Image(imgUrl)));
     }
     public Product() {
     }
