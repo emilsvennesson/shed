@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
 
 import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
@@ -34,7 +34,7 @@ public class TestDrinkModel {
     public void canFindGinDrinkWithEveryGinProduct(){
 
 
-        List<Product> prods = Filter.search(ProductsHolder.getInstance().getAllProducts(), "Jameson", 100);
+        List<Product> prods = Filter.search(ProductModel.getInstance().getAllProducts(), "Jameson", 100);
 
         Assert.assertNotEquals(prods.size(), 0);
 
@@ -70,7 +70,7 @@ public class TestDrinkModel {
     public void addIngredient(){
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("Tequila", 2));
-        List<Product> products = ProductsHolder.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getAllProducts();
         List<Product> filteredProductsList = Filter.getFilteredProductsByCategory(products, categories);
 
         System.out.println(filteredProductsList.get(0).getProductNameBold());

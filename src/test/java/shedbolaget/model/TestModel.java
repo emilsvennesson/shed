@@ -33,10 +33,10 @@ public class TestModel {
         dh.clearFavorites();
         Product prod = getRandomUniqueProduct();
 
-        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
+        Assert.assertEquals(dh.getFavoritesAsProducts().size(), 0);
         dh.addToFavorites(prod);
 
-        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
+        Assert.assertEquals(dh.getFavoritesAsProducts().size(), 1);
     }
 
     @Test
@@ -45,30 +45,33 @@ public class TestModel {
         dh.clearFavorites();
         Product prod = getRandomUniqueProduct();
 
-        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
+        Assert.assertEquals(dh.getFavoritesAsProducts().size(), 0);
         dh.addToFavorites(prod);
 
-        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 1);
+        Assert.assertEquals(dh.getFavoritesAsProducts().size(), 1);
         dh.removeFromFavorites(prod);
 
-        Assert.assertEquals(dh.getProductIdsFromFavorites().size(), 0);
+        Assert.assertEquals(dh.getFavoritesAsProducts().size(), 0);
     }
 
     @Test
     public void testGetFavorites() {
         Model dh = Model.getInstance();
-        List<String> prods = new ArrayList<>();
+        List<Product> prods = new ArrayList<>();
         dh.clearFavorites();
+
+        List<Product> favProdsTest = dh.getFavoritesAsProducts();
 
         for (int i = 0; i < 10; i++) {
             Product prod = getRandomUniqueProduct();
-            prods.add(prod.getProductId());
+            prods.add(prod);
             dh.addToFavorites(prod);
         }
 
-        List<Integer> favProds = dh.getProductIdsFromFavorites();
+        List<Product> favProds = dh.getFavoritesAsProducts();
+
         for (int i = 0; i < prods.size(); i++) {
-            Assert.assertEquals(prods.get(i), favProds.get(i).toString());
+            Assert.assertEquals(prods.get(i).getProductId(), favProds.get(i).getProductId());
         }
     }
 

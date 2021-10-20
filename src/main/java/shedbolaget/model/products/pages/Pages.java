@@ -73,7 +73,7 @@ public class Pages {
      * @return the products from the specified page number
      */
     public List<Product> getProductsFromPage(int pageNumber) {
-        return productPages.get(pageNumber - 1).getAllProducts();
+        return productPages.get(pageNumber - 1).getProducts();
     }
 
     /**
