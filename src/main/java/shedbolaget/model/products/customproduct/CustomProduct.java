@@ -31,10 +31,10 @@ public enum CustomProduct {
      * @param volume volume in ml
      * @param alcoholPercentage alcoholic percentage without decimals
      */
-    public static void createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage)
+    public static void createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country)
     {
         // create Product object
-        Product newCustomProduct = new Product(name, category1, category2, price, volume, alcoholPercentage);
+        Product newCustomProduct = new Product(name, category1, category2, price, volume, alcoholPercentage, country);
         customProducts.add(newCustomProduct);
         CustomProductWriter.writeProductsToJsonFile(customProducts, CUSTOM_PRODUCTS_FILENAME);
         EventManager.getInstance().fireEvent(new CustomProductCreatedEvent(newCustomProduct));

@@ -31,8 +31,6 @@ public class CustomProductPaneComponent extends Component {
     @FXML
     private TextField category2Input;
     @FXML
-    private TextField tasteInput;
-    @FXML
     private TextField countryInput;
     @FXML
     private TextField priceInput;
@@ -55,7 +53,7 @@ public class CustomProductPaneComponent extends Component {
     private void createCustomProduct(){
         CustomProduct.createProduct(productNameInput.getText(), category1Input.getText(),
                 category2Input.getText(), Integer.parseInt(priceInput.getText()), Integer.parseInt(volumeInput.getText()),
-                Integer.parseInt(alcoholPercentageInput.getText()));
+                Integer.parseInt(alcoholPercentageInput.getText()), countryInput.getText());
     }
 
     private void clearFields()
@@ -65,7 +63,6 @@ public class CustomProductPaneComponent extends Component {
         category2Input.clear();
         priceInput.clear();
         volumeInput.clear();
-        tasteInput.clear();
         alcoholPercentageInput.clear();
         alcoholPercentageInput.clear();
 

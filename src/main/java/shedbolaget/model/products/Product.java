@@ -25,13 +25,14 @@ class Image {
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
-    public Product(String name, String category1, String category2, double price, double volume, int alcoholPercentage) {
+    public Product(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country) {
     this.productNameBold = name;
     this.categoryLevel1 = category1;
     this.categoryLevel2 = category2;
     this.price = price;
     this.volume = volume;
     this.alcoholPercentage = alcoholPercentage;
+    this.country = country;
     }
     public Product() {
     }
