@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.products.Product;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
 import java.nio.file.Paths;
@@ -34,7 +35,7 @@ public enum CustomProduct {
     public static void createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl)
     {
         // create Product object
-        Product newCustomProduct = new Product(name, category1, category2, price, volume, alcoholPercentage, country, imgUrl);
+        Product newCustomProduct = new Product(ProductModel.getInstance().getAvailableId(), name, category1, category2, price, volume, alcoholPercentage, country, imgUrl);
         customProducts.add(newCustomProduct);
         CustomProductWriter.writeProductsToJsonFile(customProducts, CUSTOM_PRODUCTS_FILENAME);
         EventManager.getInstance().fireEvent(new CustomProductCreatedEvent(newCustomProduct));

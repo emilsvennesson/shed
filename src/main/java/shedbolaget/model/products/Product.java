@@ -30,8 +30,10 @@ class Image {
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product {
-    public Product(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl) {
-    this.productNameBold = name;
+    public Product(int id, String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl)
+    {
+        this.productId = Integer.toString(id);
+        this.productNameBold = name;
     this.categoryLevel1 = category1;
     this.categoryLevel2 = category2;
     this.price = price;

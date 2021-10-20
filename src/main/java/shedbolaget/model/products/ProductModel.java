@@ -53,4 +53,19 @@ public class ProductModel implements IProductsCollection {
         }
         return matches;
     }
+
+    /**
+     * Finds the first available id in products.
+     * @return id
+     */
+    public int getAvailableId(){
+        List<Integer> idList = new ArrayList<>();
+        for (Product product : getProducts())
+            idList.add((Integer.parseInt(product.getProductId())));
+
+        int index = 0;
+        while(idList.contains(index))
+            index++;
+        return index;
+    }
 }
