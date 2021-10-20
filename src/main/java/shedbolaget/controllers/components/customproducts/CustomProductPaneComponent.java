@@ -4,6 +4,7 @@ import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import org.w3c.dom.Text;
@@ -39,6 +40,11 @@ public class CustomProductPaneComponent extends Component {
     @FXML
     private TextField alcoholPercentageInput;
 
+    @FXML
+    private ImageView productImage;
+    @FXML
+    private TextField imgURLInput;
+
 
     public CustomProductPaneComponent() {
         super("CustomProductPaneView");
@@ -65,6 +71,10 @@ public class CustomProductPaneComponent extends Component {
         volumeInput.clear();
         alcoholPercentageInput.clear();
         alcoholPercentageInput.clear();
+    }
+
+    @FXML
+    private void onImageURLEdit(){
 
     }
 }

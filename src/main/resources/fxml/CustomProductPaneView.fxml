@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -31,13 +33,8 @@
                         <Text layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-name" text="Kategori 2" wrappingWidth="217.9999999999999" />
                      </children>
                   </Pane>
+                  <Pane layoutX="51.0" layoutY="225.0" />
                   <Pane layoutX="51.0" layoutY="225.0">
-                     <children>
-                        <Text layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-name" text="Smak" wrappingWidth="217.9999999999999" />
-                        <TextField fx:id="tasteInput" layoutY="33.0" prefHeight="36.0" prefWidth="218.0" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="281.0" layoutY="225.0">
                      <children>
                         <TextField fx:id="countryInput" layoutY="32.0" prefHeight="36.0" prefWidth="218.0" />
                         <Text layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-name" text="Land" wrappingWidth="217.9999999999999" />
@@ -66,6 +63,13 @@
                         <Font size="21.0" />
                      </font>
                   </Button>
+                  <ImageView fx:id="productImage" fitHeight="215.0" fitWidth="215.0" layoutX="610.0" layoutY="28.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/noalcoholsign.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="imgURLInput" layoutX="610.0" layoutY="279.0" onInputMethodTextChanged="#onImageURLEdit" prefHeight="36.0" prefWidth="215.0" />
+                  <Text layoutX="610.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="basic-product-card-name" text="Bild URL" />
                </children>
             </Pane>
          </children>
