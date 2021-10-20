@@ -9,7 +9,7 @@ import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
@@ -38,7 +38,7 @@ public class APKTop3Component extends Component {
 
     protected APKTop3Component() {
         super("APKTop3View");
-        List<Product> all = ProductsHolder.getInstance().getAllProducts();
+        List<Product> all = ProductModel.getInstance().getAllProducts();
         populateTop3(Sorter.getProductListSortedByApk(all));
         eventManager.registerToEventBus(this);
     }
@@ -69,7 +69,7 @@ public class APKTop3Component extends Component {
 
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
-        ProductsHolder productsHolder = ProductsHolder.getInstance();
+        ProductModel productsHolder = ProductModel.getInstance();
         List<Product> filteredProducts = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(productsHolder.getAllProducts(), event.getActiveCategories()), true);
         if (!filteredProducts.isEmpty())
             loadTop3(filteredProducts.subList(0, 3));
