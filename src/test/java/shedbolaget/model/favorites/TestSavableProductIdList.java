@@ -4,7 +4,7 @@ package shedbolaget.model.favorites;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +19,14 @@ public class TestSavableProductIdList {
         SavableProductIdList list = new SavableProductIdList("Favorites");
         Assert.assertEquals(0, list.getSize());
 
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         list.addProductId(prod);
 
 
         Assert.assertEquals(1, list.getSize());
 
-        Product prod2 = getRandomUnequeProduct();
+        Product prod2 = getRandomUniqueProduct();
 
         list.addProductId(prod2);
 
@@ -37,7 +37,7 @@ public class TestSavableProductIdList {
 
     @Test
     public void testAddProductWithProductId() {
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         SavableProductIdList list = new SavableProductIdList("Test");
 
@@ -55,7 +55,7 @@ public class TestSavableProductIdList {
 
         SavableProductIdList list = new SavableProductIdList("Favorites");
 
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         list.addProductId(prod);
 
@@ -79,7 +79,7 @@ public class TestSavableProductIdList {
     public void testRemoveProductViaProductObject() {
         SavableProductIdList list = new SavableProductIdList("Favorites");
         Assert.assertEquals(0, list.getSize());
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
 
         list.addProductId(prod);
@@ -99,7 +99,7 @@ public class TestSavableProductIdList {
 
         SavableProductIdList list = new SavableProductIdList("test");
 
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
         int id = Integer.parseInt(prod.getProductId());
 
         Assert.assertEquals(0, list.getSize());
@@ -121,7 +121,7 @@ public class TestSavableProductIdList {
 
         Assert.assertEquals(list.getSize(), list.getProductIds().size());
 
-        Product prod = getRandomUnequeProduct();
+        Product prod = getRandomUniqueProduct();
 
         Assert.assertEquals(list.getSize(), list.getProductIds().size());
 
@@ -146,12 +146,12 @@ public class TestSavableProductIdList {
     static Random rand = new Random();
     static List<Product> usedProducts = new ArrayList<>();
 
-    private static Product getRandomUnequeProduct() {
+    private static Product getRandomUniqueProduct() {
 
 
         Product prod;
         do {
-            prod = ProductsHolder.getInstance().getAllProducts().get(rand.nextInt(ProductsHolder.getInstance().getAllProducts().size()));
+            prod = ProductModel.getInstance().getAllProducts().get(rand.nextInt(ProductModel.getInstance().getAllProducts().size()));
         } while (usedProducts.contains(prod));
 
         usedProducts.add(prod);

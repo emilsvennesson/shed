@@ -1,7 +1,7 @@
 package shedbolaget.model.favorites;
 
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductsHolder;
+import shedbolaget.model.products.ProductModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +109,7 @@ public class SavableProductIdList {
         List<Product> prods = new ArrayList<>();
 
         for (Integer id : products) {
-            prods.add(ProductsHolder.getInstance().getProductById(id));
+            prods.add(ProductModel.getInstance().getProductsById(id).get(0));
         }
 
 

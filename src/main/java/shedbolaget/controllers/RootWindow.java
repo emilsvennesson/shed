@@ -17,6 +17,8 @@ public class RootWindow {
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
     AnchorPane apkLeaderboardPage = ComponentFactory.createAPKLeaderboard();
+    AnchorPane drinkGeneratorPage = ComponentFactory.createDrinkGeneratorPage();
+    AnchorPane drinkListPage = ComponentFactory.createDrinkListPage();
     @FXML
     private AnchorPane navBarPane;
     @FXML
@@ -38,6 +40,15 @@ public class RootWindow {
         contentWrapperAnchorPane.getChildren().clear();
         contentWrapperAnchorPane.getChildren().add(mainPage);
     }
+    public void openDrinkGenerator(){
+        contentWrapperAnchorPane.getChildren().clear();
+        contentWrapperAnchorPane.getChildren().add(drinkGeneratorPage);
+    }
+
+    public void openDrinkList(){
+        contentWrapperAnchorPane.getChildren().clear();
+        contentWrapperAnchorPane.getChildren().add(drinkListPage);
+    }
 
     public void openAPKLeaderboardPage() {
         contentWrapperAnchorPane.getChildren().clear();
@@ -50,6 +61,8 @@ public class RootWindow {
             case PRODUCTS -> openProductsPage();
             case MAIN -> openMainPage();
             case APK -> openAPKLeaderboardPage();
+            case DRINKGENERATOR -> openDrinkGenerator();
+            case DRINKlIST -> openDrinkList();
         }
     }
 }
