@@ -11,7 +11,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-public class ProductIdListsIOManager {
+ class ProductIdListsIOManager {
     private static final ProductIdListsIOManager instance = new ProductIdListsIOManager();
     IProductListIO handler;
     List<SavableProductIdList> list;

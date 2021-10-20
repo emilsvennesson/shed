@@ -12,7 +12,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-public class ProductListFileIO implements IProductListIO {
+class ProductListFileIO implements IProductListIO {
     String filePath = "SavedLists.txt";
     File file;
     BufferedWriter writer;

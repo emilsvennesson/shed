@@ -10,7 +10,7 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version 1.0
  */
-public interface IProductListIO {
+interface IProductListIO {
     /**
      * Saves a {@link SavableProductIdList} to a file
      *
