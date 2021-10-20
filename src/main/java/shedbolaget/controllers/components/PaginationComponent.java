@@ -29,6 +29,8 @@ public class PaginationComponent extends Component {
         this.pages = pages;
         totalPagesText.setText("/ " + pages.getNumberOfPages());
         currentPageText.setText("1");
+        if (pages.getNumberOfPages() == 0)  // hide pagination if there are no pages
+            this.getPane().setVisible(false);
     }
 
     @FXML
