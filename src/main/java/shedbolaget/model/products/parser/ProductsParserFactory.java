@@ -1,5 +1,7 @@
 package shedbolaget.model.products.parser;
 
+import shedbolaget.model.products.IProductsCollection;
+
 import java.io.InputStream;
 
 /**
@@ -16,7 +18,7 @@ public enum ProductsParserFactory {
      * @param fileName the file name to parse
      * @return the IProductsParser object
      */
-    public static IProductsParser createJSONParser(String fileName) {
+    public static IProductsCollection createJSONParser(String fileName) {
         return new ProductsJSONFileParser(ClassLoader.getSystemClassLoader().getResourceAsStream(fileName));
     }
 
@@ -26,7 +28,7 @@ public enum ProductsParserFactory {
      * @param inputStream the stream to parse
      * @return the IProductsParser object
      */
-    public static IProductsParser createJSONParser(InputStream inputStream) {
+    public static IProductsCollection createJSONParser(InputStream inputStream) {
         return new ProductsJSONFileParser(inputStream);
     }
 }

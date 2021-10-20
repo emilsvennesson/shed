@@ -2,6 +2,7 @@ package shedbolaget.model.products.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import shedbolaget.model.products.IProductsCollection;
 import shedbolaget.model.products.Product;
 
 import java.io.InputStream;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * @author Emil Svensson
  */
-class ProductsJSONFileParser implements IProductsParser {
+class ProductsJSONFileParser implements IProductsCollection {
     private List<Product> products;
     private final InputStream streamToParse;
 
@@ -37,6 +38,11 @@ class ProductsJSONFileParser implements IProductsParser {
     @Override
     public List<Product> getProducts() {
         return new ArrayList<>(products);
+    }
+
+    @Override
+    public int getNumberOfProducts() {
+        return getProducts().size();
     }
 }
 
