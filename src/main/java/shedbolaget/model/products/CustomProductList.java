@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * This class holds all products available in the products JSON file.
+ *
  * @author Pouya Shirin
  */
 class CustomProductList implements IProductsCollection {
@@ -18,15 +19,13 @@ class CustomProductList implements IProductsCollection {
     }
 
     /**
-     *
      * @return the single instance of the object
      */
-    public static CustomProductList getInstance() {
+    static CustomProductList getInstance() {
         return instance;
     }
 
     /**
-     *
      * @return all products
      */
     @Override

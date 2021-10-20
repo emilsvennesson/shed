@@ -66,17 +66,17 @@ public class SorterComponent extends Component {
     }
 
     private void sortByPrice() {
-        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByPrice(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByApk() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 
     private void sortByName() {
-        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), activeCategories));
+        List<Product> prods = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), activeCategories));
         eventManager.fireEvent(new SortEvent(prods));
     }
 

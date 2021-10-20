@@ -12,7 +12,7 @@ public class TestProductListSorter {
 
     @Test
     public void testGetProductsSortedByDouble() {
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         Product cheapestProduct = products.get(0);
         double cheapestPrice = cheapestProduct.getPrice();
         for (Product p : products) {
@@ -27,7 +27,7 @@ public class TestProductListSorter {
 
     @Test
     public void testGetProductsSortedByBoolean() {
-        List<Product> products = ProductModel.getInstance().getAllProducts();
+        List<Product> products = ProductModel.getInstance().getProducts();
         int len = 0;
         for (Product p : products) {
             if (p.getPrice() < 10)

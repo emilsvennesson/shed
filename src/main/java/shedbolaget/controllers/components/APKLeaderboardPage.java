@@ -57,7 +57,7 @@ public class APKLeaderboardPage extends Component {
     }
 
     private void initListItems() {
-        List<Product> products = Sorter.getProductListSortedByApk(ProductModel.getInstance().getAllProducts(), true);
+        List<Product> products = Sorter.getProductListSortedByApk(ProductModel.getInstance().getProducts(), true);
         for(Product product : products.subList(3, 100)) {
             contentVBox.getChildren().add(new APKCompactListItemComponent(product, products.indexOf(product)+1).getPane());
         }
@@ -65,7 +65,7 @@ public class APKLeaderboardPage extends Component {
 
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
-        List<Product> filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), event.getActiveCategories());
+        List<Product> filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), event.getActiveCategories());
         List<Product> sortedProducts = Sorter.getProductListSortedByApk(filteredProducts, true);
         contentVBox.getChildren().remove(3,contentVBox.getChildren().size());
         for(Product product : sortedProducts.subList(3, 100)) {
@@ -76,7 +76,7 @@ public class APKLeaderboardPage extends Component {
     @FXML
     void allProductsOnChecked(ActionEvent event) {
         if (allProductsCheckBox.isSelected() || activeCategories.isEmpty()) {
-            activeCategories.addAll(Categories.getLevel1Categories(ProductModel.getInstance().getAllProducts()));
+            activeCategories.addAll(Categories.getLevel1Categories(ProductModel.getInstance().getProducts()));
             allProductsCheckBox.setSelected(true);
             fireNewCategory();
         }
@@ -84,7 +84,7 @@ public class APKLeaderboardPage extends Component {
 
     @FXML
     void beerOnChecked(ActionEvent event) {
-        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), List.of(new Category("Öl", 1))));
+        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Öl", 1))));
         if (beerCheckBox.isSelected()) {
             activeCategories.addAll(categories);
         } else {
@@ -96,7 +96,7 @@ public class APKLeaderboardPage extends Component {
 
     @FXML
     void ciderOnChecked(ActionEvent event) {
-        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), List.of(new Category("Cider & blanddrycker", 1))));
+        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Cider & blanddrycker", 1))));
         if (ciderCheckBox.isSelected()) {
             activeCategories.addAll(categories);
         } else {
@@ -108,7 +108,7 @@ public class APKLeaderboardPage extends Component {
 
     @FXML
     void liquorOnChecked(ActionEvent event) {
-        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), List.of(new Category("Sprit", 1))));
+        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Sprit", 1))));
         if (liquorCheckBox.isSelected()) {
             activeCategories.addAll(categories);
         } else {
@@ -120,7 +120,7 @@ public class APKLeaderboardPage extends Component {
 
     @FXML
     void wineOnChecked(ActionEvent event) {
-        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getAllProducts(), List.of(new Category("Vin", 1))));
+        List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Vin", 1))));
         if (wineCheckBox.isSelected()) {
             activeCategories.addAll(categories);
         } else {

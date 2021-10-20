@@ -7,8 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import shedbolaget.controllers.components.Component;
 import shedbolaget.controllers.components.ComponentFactory;
-import shedbolaget.controllers.components.DrinkGenerator.IngredientCardComponent;
-import shedbolaget.model.categories.Category;
 import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.products.Product;
@@ -106,7 +104,7 @@ public class SearchIngredientPaneComponent extends Component {
     }
 
     void searchAndDisplay(String searchQuery){
-        products = Filter.search(ProductModel.getInstance().getAllProducts(), searchQuery, 80);
+        products = Filter.search(ProductModel.getInstance().getProducts(), searchQuery, 80);
 
         renderProductsAsIngredients(products, 30);
     }
