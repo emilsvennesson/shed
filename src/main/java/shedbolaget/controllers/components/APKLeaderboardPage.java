@@ -1,14 +1,18 @@
 package shedbolaget.controllers.components;
 
+import com.google.common.eventbus.Subscribe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
+import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductsHolder;
 import shedbolaget.model.products.filter.Filter;
+import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +22,6 @@ public class APKLeaderboardPage extends Component {
     @FXML
     private FlowPane contentFlowPane;
 
-    @FXML
-    private FlowPane productsWrapper;
 
     @FXML
     private CheckBox allProductsCheckBox;
@@ -36,25 +38,39 @@ public class APKLeaderboardPage extends Component {
     @FXML
     private CheckBox ciderCheckBox;
 
+    @FXML
+    private VBox contentVBox;
+
     List<Category> activeCategories = new ArrayList<>();
 
 
     protected APKLeaderboardPage() {
         super("APKLeaderboardView");
-        initProductsWrapper();
+        allProductsCheckBox.setSelected(true);
         populateView();
         eventManager.registerToEventBus(this);
     }
 
     private void populateView() {
-        contentFlowPane.getChildren().add(productsWrapper);
-        productsWrapper.getChildren().add(ComponentFactory.createBreadCrumbs());
-        productsWrapper.getChildren().add(ComponentFactory.createAPKTop3());
+        contentVBox.getChildren().add(1, ComponentFactory.createAPKTop3());
+        initListItems();
     }
 
-    private void initProductsWrapper() {
-        productsWrapper = new FlowPane();
-        productsWrapper.setVgap(8);
+    private void initListItems() {
+        List<Product> products = Sorter.getProductListSortedByApk(ProductsHolder.getInstance().getAllProducts(), true);
+        for(Product product : products.subList(3, 100)) {
+            contentVBox.getChildren().add(new APKCompactListItemComponent(product, products.indexOf(product)+1).getPane());
+        }
+    }
+
+    @Subscribe
+    private void actOnCategoryEvent(CategoryEvent event) {
+        List<Product> filteredProducts = Filter.getFilteredProductsByCategory(ProductsHolder.getInstance().getAllProducts(), event.getActiveCategories());
+        List<Product> sortedProducts = Sorter.getProductListSortedByApk(filteredProducts, true);
+        contentVBox.getChildren().remove(3,contentVBox.getChildren().size());
+        for(Product product : sortedProducts.subList(3, 100)) {
+            contentVBox.getChildren().add(new APKCompactListItemComponent(product, sortedProducts.indexOf(product)+1).getPane());
+        }
     }
 
     @FXML
@@ -75,6 +91,7 @@ public class APKLeaderboardPage extends Component {
             activeCategories.removeAll(categories);
         }
         fireNewCategory();
+        updateAllProductsCheckBox();
     }
 
     @FXML
@@ -86,6 +103,7 @@ public class APKLeaderboardPage extends Component {
             activeCategories.removeAll(categories);
         }
         fireNewCategory();
+        updateAllProductsCheckBox();
     }
 
     @FXML
@@ -97,6 +115,7 @@ public class APKLeaderboardPage extends Component {
             activeCategories.removeAll(categories);
         }
         fireNewCategory();
+        updateAllProductsCheckBox();
     }
 
     @FXML
@@ -108,9 +127,16 @@ public class APKLeaderboardPage extends Component {
             activeCategories.removeAll(categories);
         }
         fireNewCategory();
+        updateAllProductsCheckBox();
     }
 
     private void fireNewCategory() {
         eventManager.fireEvent(new CategoryEvent(activeCategories));
+    }
+
+    private void updateAllProductsCheckBox() {
+        boolean someAreSelected = (beerCheckBox.isSelected() || wineCheckBox.isSelected() || ciderCheckBox.isSelected() || liquorCheckBox.isSelected());
+        boolean allAreSelected = beerCheckBox.isSelected() && wineCheckBox.isSelected() && ciderCheckBox.isSelected() && liquorCheckBox.isSelected();
+        allProductsCheckBox.setSelected(!someAreSelected || allAreSelected);
     }
 }
