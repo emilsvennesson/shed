@@ -17,6 +17,7 @@ public class RootWindow {
     AnchorPane productsPage = ComponentFactory.createProductsPage();
     AnchorPane mainPage = ComponentFactory.createMainPage();
     AnchorPane drinkGeneratorPage = ComponentFactory.createDrinkGeneratorPage();
+    AnchorPane drinkListPage = ComponentFactory.createDrinkListPage();
     @FXML
     private AnchorPane navBarPane;
     @FXML
@@ -43,12 +44,18 @@ public class RootWindow {
         contentWrapperAnchorPane.getChildren().add(drinkGeneratorPage);
     }
 
+    public void openDrinkList(){
+        contentWrapperAnchorPane.getChildren().clear();
+        contentWrapperAnchorPane.getChildren().add(drinkListPage);
+    }
+
     @Subscribe
     public void onNavigationEvent(NavigationEvent event) {
         switch (event.getPageToNavigateTo()) {
             case PRODUCTS -> openProductsPage();
             case MAIN -> openMainPage();
             case DRINKGENERATOR -> openDrinkGenerator();
+            case DRINKlIST -> openDrinkList();
         }
     }
 }

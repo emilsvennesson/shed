@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <Button layoutX="960.0" layoutY="710.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="111.0" text="Generate Drinks" />
+   <Button layoutX="960.0" layoutY="710.0" mnemonicParsing="false" onAction="#onGenerateClicked" prefHeight="45.0" prefWidth="111.0" text="Generate Drinks" />
    <SplitPane fx:id="SplitPaneView" layoutY="105.0" prefHeight="604.0" prefWidth="1152.0" />
    <Text layoutX="47.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drink Generator">
       <font>
