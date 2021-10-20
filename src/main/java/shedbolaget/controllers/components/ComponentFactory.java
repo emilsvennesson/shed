@@ -50,7 +50,7 @@ public class ComponentFactory {
         return new PaginationComponent(pages).getPane();
     }
 
-    public static AnchorPane createCustomProductPanel() {return new CustomProductPanelComponent().getPane(); }
+    public static AnchorPane createCustomProductPane() {return new CustomProductPaneComponent().getPane(); }
 
     public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {return new CustomProductAddComponent(anchorPane).getPane(); }
 }

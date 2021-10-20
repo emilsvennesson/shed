@@ -23,7 +23,7 @@ import java.util.List;
  * @author Emil Svensson
  * @author Samuel Kajava
  */
-public class CustomProductPanelComponent extends Component {
+public class CustomProductPaneComponent extends Component {
     @FXML
     private TextField productNameInput;
     @FXML
@@ -42,8 +42,8 @@ public class CustomProductPanelComponent extends Component {
     private TextField alcoholPercentageInput;
 
 
-    protected CustomProductPanelComponent() {
-        super("CustomProductPanelView");
+    protected CustomProductPaneComponent() {
+        super("CustomProductPaneView");
     }
 
     @FXML

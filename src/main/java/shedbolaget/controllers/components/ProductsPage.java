@@ -63,7 +63,7 @@ public class ProductsPage extends Component {
     }
 
     private void initCustomProductComponent(){
-        customProductPane = ComponentFactory.createCustomProductPanel();
+        customProductPane = ComponentFactory.createCustomProductPane();
         this.getPane().getChildren().add(customProductPane);
         customProductPane.toBack();
     }
