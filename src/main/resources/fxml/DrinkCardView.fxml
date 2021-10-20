@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="cardAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardOnClick" prefWidth="814.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="cardAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#cardOnClick" prefWidth="900.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="4.0" />
     </padding>
@@ -40,96 +40,15 @@
             </children>
          </VBox>
             <HBox prefHeight="17.0" prefWidth="286.0" spacing="8.0">
-                <Text fx:id="alcoholPercentageText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="Alkoholhalt: 5 %" />
+                <Text fx:id="IngredientsCount" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="Alkoholhalt: 5 %" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="|" />
                 <Text fx:id="volumeText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="330 ml" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="|" />
                 <Text fx:id="apkText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" styleClass="black-text" text="APK: 0,92" />
             </HBox>
         </VBox>
-        <VBox fx:id="descriptionVBox" prefWidth="134.0" spacing="1.0">
-            <HBox prefWidth="200.0" spacing="5.0">
-                <padding>
-                    <Insets bottom="6.0" />
-                </padding>
-                <Text fx:id="categoryLevel2Text" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14;" styleClass="black-text" text="Witbier">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
-                <Text fx:id="countryText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14;" styleClass="black-text" text="Internationellt märke">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Text>
-            </HBox>
-            <HBox fx:id="expandedHBox" prefWidth="678.0" spacing="4.0" styleClass="detailed-product-card-hbox">
-                <padding>
-                    <Insets top="4.0" />
-                </padding>
-                <VBox prefWidth="300.0" spacing="3.0">
-                    <padding>
-                        <Insets bottom="3.0" />
-                    </padding>
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Producent">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                        <styleClass>
-                            <String fx:value="black-text" />
-                            <String fx:value="description-header" />
-                            <String fx:value="bold" />
-                        </styleClass>
-                    </Text>
-                    <Text fx:id="producerText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description-content" text="en god öl typ" />
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Färg">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                        <styleClass>
-                            <String fx:value="black-text" />
-                            <String fx:value="description-header" />
-                            <String fx:value="bold" />
-                        </styleClass>
-                    </Text>
-                    <Text fx:id="colorText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description-content" text="en god öl typ" />
-                </VBox>
-                <VBox prefWidth="300.0" spacing="3.0">
-                    <padding>
-                        <Insets bottom="3.0" />
-                    </padding>
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Smakbeskrivning">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                        <styleClass>
-                            <String fx:value="description-header" />
-                            <String fx:value="bold" />
-                        </styleClass>
-                    </Text>
-                    <Text fx:id="tasteText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description-content" text="den smakar gott" wrappingWidth="301.0" />
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Passar till">
-                        <font>
-                            <Font size="18.0" />
-                        </font>
-                        <styleClass>
-                            <String fx:value="black-text" />
-                            <String fx:value="description-header" />
-                            <String fx:value="bold" />
-                        </styleClass>
-                    </Text>
-                    <Text fx:id="usageText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description-content" text="den passar med öl typ" wrappingWidth="301.0" />
-                </VBox>
-            </HBox>
-        </VBox>
     </VBox>
-    <VBox alignment="TOP_RIGHT" layoutX="682.0" layoutY="18.0" prefHeight="97.0" prefWidth="118.0" spacing="24.0">
-        <Text fx:id="priceText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 28;" text="17:80:-" textAlignment="RIGHT" wrappingWidth="117.0462646484375">
-            <font>
-                <Font size="28.0" />
-            </font>
-        </Text>
-        <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#favoritesButtonOnClick" styleClass="add-favorite-btn" text="Spara som favorit" />
+    <VBox alignment="TOP_RIGHT" layoutX="785.0" layoutY="38.0" prefHeight="43.0" prefWidth="61.0" spacing="24.0">
+        <Button mnemonicParsing="false" onAction="#detailsButtonOnClick" prefHeight="51.0" prefWidth="58.0" styleClass="add-favorite-btn" text="Detaljer" />
     </VBox>
 </fx:root>
