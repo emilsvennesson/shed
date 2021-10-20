@@ -7,8 +7,10 @@ import javafx.scene.control.SplitPane;
 import shedbolaget.controllers.components.Component;
 import shedbolaget.controllers.components.DrinkGenerator.AddedIngredientsComponent;
 import shedbolaget.controllers.components.DrinkGenerator.SearchIngredientPaneComponent;
+import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.events.DrinkGeneratorEvent;
+import shedbolaget.model.events.DrinkListEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 
@@ -57,7 +59,7 @@ public class DrinkGeneratorPage extends Component {
     @FXML
     void onGenerateClicked(ActionEvent event) {
         EventManager.getInstance().fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.DRINKlIST));
-
+        EventManager.getInstance().fireEvent(new DrinkListEvent(DrinkModel.loadDrinks()));
 
     }
 
