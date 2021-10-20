@@ -1,9 +1,11 @@
 package shedbolaget.controllers.components;
 
 import javafx.scene.layout.AnchorPane;
+import shedbolaget.controllers.components.DrinkGenerator.DrinkCardComponent;
 import shedbolaget.controllers.components.DrinkGenerator.DrinkGeneratorPage;
 import shedbolaget.controllers.components.DrinkGenerator.DrinkListPage;
 import shedbolaget.controllers.components.DrinkGenerator.IngredientCardComponent;
+import shedbolaget.model.drinks.Drink;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.pages.Pages;
@@ -81,4 +83,10 @@ public class ComponentFactory {
 
         return new DrinkListPage().getPane();
     }
+
+    public static AnchorPane createDrinkCard(Drink drink){
+        return new DrinkCardComponent(drink).getPane();
+    }
+
+
 }
