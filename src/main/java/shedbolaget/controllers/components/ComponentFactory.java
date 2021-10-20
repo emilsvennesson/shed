@@ -70,7 +70,7 @@ public class ComponentFactory {
     public static AnchorPane createAPKTop3() {return new APKTop3Component().getPane();}
 
     /*---------------------------------Drink Generator --------------------------------------------*/
-    
+
     public static AnchorPane createDrinkGeneratorPage() {
         return new DrinkGeneratorPage().getPane();
     }

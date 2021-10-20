@@ -286,6 +286,7 @@
 
 .transparent-shadow {
     -fx-background-color: rgba(0, 0, 0, 0.7)
+ }
 
 .apk-leaderboard-list-item {
     -fx-border-color: -light_grey;
