@@ -56,7 +56,8 @@ public class DrinkFilter {
                 score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle());
             }
         }
-        return score;
+        if(drink.getAlcoIngredients().size() == 0) return 0;
+        return score/drink.getAlcoIngredients().size();
     }
 
     private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {
