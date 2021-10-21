@@ -3,15 +3,10 @@ package shedbolaget.model.drinks;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import shedbolaget.model.categories.Category;
-import shedbolaget.model.products.Product;
-import shedbolaget.model.products.ProductModel;
-import shedbolaget.model.products.filter.Filter;
-
 import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 import shedbolaget.model.drinks.parser.IDrinkParser;
+import shedbolaget.model.products.ProductModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

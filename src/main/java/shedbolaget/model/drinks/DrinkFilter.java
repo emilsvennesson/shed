@@ -1,8 +1,6 @@
 package shedbolaget.model.drinks;
 
 import me.xdrop.fuzzywuzzy.FuzzySearch;
-import shedbolaget.model.drinks.parser.IDrinkParser;
-import shedbolaget.model.products.Product;
 
 import java.util.*;
 import java.util.stream.Collectors;

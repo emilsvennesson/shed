@@ -1,7 +1,6 @@
 package shedbolaget.model.drinks;
 
 import shedbolaget.model.products.Product;
-import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 
 import java.util.ArrayList;
 import java.util.List;

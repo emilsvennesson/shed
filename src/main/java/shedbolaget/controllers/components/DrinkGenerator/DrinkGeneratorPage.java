@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
 import shedbolaget.controllers.components.Component;
-import shedbolaget.controllers.components.DrinkGenerator.AddedIngredientsComponent;
-import shedbolaget.controllers.components.DrinkGenerator.SearchIngredientPaneComponent;
 import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.events.DrinkGeneratorEvent;
