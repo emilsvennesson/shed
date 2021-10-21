@@ -16,10 +16,8 @@ import java.util.List;
 public class DrinkListPage extends Component {
 
 
-
     @FXML
     private FlowPane DrinkFlowPane;
-
 
 
     public DrinkListPage() {
@@ -35,24 +33,25 @@ public class DrinkListPage extends Component {
 
     }
 
-    void renderDrink(Drink drink){
+    void renderDrink(Drink drink) {
 
         DrinkFlowPane.getChildren().add(ComponentFactory.createDrinkCard(drink));
 
     }
 
-    void renderDrinks(List<Drink> drinks, int amount){
+    void renderDrinks(List<Drink> drinks, int amount) {
         DrinkFlowPane.getChildren().clear();
-        for(int i = 0; i< amount && i <drinks.size(); i++){
+        for (int i = 0; i < amount && i < drinks.size(); i++) {
             renderDrink(drinks.get(i));
 
         }
 
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnDrinkListEvent(DrinkListEvent event){
-        renderDrinks(event.getDrinks(),30);
+    public void actOnDrinkListEvent(DrinkListEvent event) {
+        renderDrinks(event.getDrinks(), 30);
     }
 
 

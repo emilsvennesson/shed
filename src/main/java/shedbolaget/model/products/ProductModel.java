@@ -56,15 +56,16 @@ public class ProductModel implements IProductsCollection {
 
     /**
      * Finds the first available id in products.
+     *
      * @return id
      */
-    public int getAvailableId(){
+    public int getAvailableId() {
         List<Integer> idList = new ArrayList<>();
         for (Product product : getProducts())
-            idList.add((Integer.parseInt(product.getProductId())));
+            idList.add(Integer.parseInt(product.getProductId()));
 
         int index = 0;
-        while(idList.contains(index))
+        while (idList.contains(index))
             index++;
         return index;
     }

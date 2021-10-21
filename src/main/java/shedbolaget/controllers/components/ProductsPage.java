@@ -27,7 +27,8 @@ public class ProductsPage extends Component {
     @FXML
     private AnchorPane navBarPane;
 
-    @FXML AnchorPane customProductPane;
+    @FXML
+    AnchorPane customProductPane;
 
     @FXML
     private FlowPane contentFlowPane;
@@ -50,6 +51,7 @@ public class ProductsPage extends Component {
         populateView();
         eventManager.registerToEventBus(this);
     }
+
     private void initProductsWrapper() {
         productsWrapper = new FlowPane();
         productsWrapper.setVgap(8);
@@ -63,7 +65,7 @@ public class ProductsPage extends Component {
         contentFlowPane.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
     }
 
-    private void initCustomProductComponent(){
+    private void initCustomProductComponent() {
         customProductPane = ComponentFactory.createCustomProductPane();
         this.getPane().getChildren().add(customProductPane);
         customProductPane.toBack();
@@ -86,27 +88,30 @@ public class ProductsPage extends Component {
             productsWrapper.getChildren().add(ComponentFactory.createDetailedProductCard(product));
     }
 
-
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnCategoryEvent(CategoryEvent event) {
+    private void actOnCategoryEvent(CategoryEvent event) {
         filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), event.getActiveCategories());
         if (!filteredProducts.isEmpty())
             loadProducts(filteredProducts, true);
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnSortEvent(SortEvent event) {
+    private void actOnSortEvent(SortEvent event) {
         loadProducts(event.getSortedProductList(), true);
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnPagesEvent(PagesEvent event) {
+    private void actOnPagesEvent(PagesEvent event) {
         loadProducts(event.getPageProducts(), false);
         scrollPane.setVvalue(0);
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnSearchEvent(SearchEvent event) {
+    private void actOnSearchEvent(SearchEvent event) {
         loadProducts(Filter.search(ProductModel.getInstance().getProducts(), event.getSearchString(), FUZZY_REQUIRED_HIT_RATE), true);
     }
 }

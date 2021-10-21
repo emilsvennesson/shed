@@ -33,23 +33,20 @@ public class PaginationComponent extends Component {
             this.getPane().setVisible(false);
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void backButtonClicked(ActionEvent event) {
-        if (currentPage == 1) {
-        } // apply greyed out css?
-        else {
+    private void backButtonClicked(ActionEvent event) {
+        if (currentPage != 1) {
             currentPage--;
             currentPageText.setText(String.valueOf(currentPage));
             eventManager.fireEvent(new PagesEvent(currentPage, pages.getProductsFromPage(currentPage)));
         }
-
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void nextButtonClicked(ActionEvent event) {
-        if (currentPage == pages.getNumberOfPages()) {
-        } // apply greyed out css?
-        else {
+    private void nextButtonClicked(ActionEvent event) {
+        if (currentPage != pages.getNumberOfPages()) {
             currentPage++;
             currentPageText.setText(String.valueOf(currentPage));
             eventManager.fireEvent(new PagesEvent(currentPage, pages.getProductsFromPage(currentPage)));
