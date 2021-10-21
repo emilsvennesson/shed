@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Image {
-    private String imageUrl;
+    private final String imageUrl;
     Image(String imageUrl){
         this.imageUrl = imageUrl;
     }

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class DrinkListEvent {
 
-    private List<Drink> drinks;
+    private final List<Drink> drinks;
 
 
     public DrinkListEvent(List<Drink> drinks){
