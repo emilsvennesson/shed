@@ -21,7 +21,7 @@ import java.util.List;
 public enum CustomProduct {
     ;
     public static final String CUSTOM_PRODUCTS_FILENAME = "customproducts.json";
-    public static final List<Product> customProducts = ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
+    private static final List<Product> customProducts = ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
 
     /**
      * Creates a custom product and writes it to the JSON file.
