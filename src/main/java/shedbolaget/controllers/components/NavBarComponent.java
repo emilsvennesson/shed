@@ -3,7 +3,6 @@ package shedbolaget.controllers.components;
 import com.google.common.eventbus.Subscribe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -41,8 +40,6 @@ public class NavBarComponent extends Component {
     @FXML
     private Button homeButton;
 
-    private Parent productsView;
-
     public NavBarComponent() {
         super("NavBarView");
         eventManager.registerToEventBus(this);
@@ -61,36 +58,42 @@ public class NavBarComponent extends Component {
         }
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @Subscribe
-    private void updateDropdown(CustomProductCreatedEvent event){
+    private void updateDropdown(CustomProductCreatedEvent event) {
         dropDownButton.getItems().clear();
         initDropdown();
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void homeButtonOnClicked(ActionEvent event) {
+    private void homeButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.MAIN));
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void favoritesButtonOnClicked(ActionEvent event) {
+    private void favoritesButtonOnClicked(ActionEvent event) {
         System.out.println("favorites button clicked");
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void drinkGeneratorButtonOnClicked(ActionEvent event){
+    private void drinkGeneratorButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.DRINKGENERATOR));
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void searchButtonOnClicked(ActionEvent event) {
+    private void searchButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
         searchTextField.clear();
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void apkLeaderboardButtonOnClicked(ActionEvent event) {
+    private void apkLeaderboardButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.APK));
     }
 }

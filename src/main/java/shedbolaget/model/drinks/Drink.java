@@ -30,10 +30,8 @@ public class Drink {
     //Image
     public String strImageSource;
 
-    public List<Ingredient> alcingredients = new ArrayList<>();
-    public List<Ingredient> noingredients = new ArrayList<>();
-
-
+    public List<Ingredient> alcIngredients = new ArrayList<>();
+    public List<Ingredient> noIngredients = new ArrayList<>();
 
 
     public String getName() {
@@ -41,40 +39,21 @@ public class Drink {
     }
 
     public List<Ingredient> getAlcoIngredients() {
-        return new ArrayList<>(alcingredients);
+        return new ArrayList<>(alcIngredients);
     }
 
-    public List<Ingredient> getNoingredients(){
-        return new ArrayList<>(noingredients);
+    public List<Ingredient> getNoIngredients() {
+        return new ArrayList<>(noIngredients);
     }
 
-    public double getAPK(){
+    public double getAPK() {
         double res = 0;
-        if(alcingredients.size() == 0) return 0;
+        if (alcIngredients.size() == 0) return 0;
         for (Ingredient alcin :
-                alcingredients) {
+                alcIngredients) {
             res += alcin.getProd().getApk();
 
         }
-        return res/alcingredients.size();
+        return res / alcIngredients.size();
     }
-    public int getVolume(){
-        int res = 0;
-
-        //TODO fix this
-        for (Ingredient alcIn:
-             alcingredients) {
-           // res += alcIn.getProd().getVolume();
-
-        }
-        for (Ingredient noIn:
-                noingredients) {
-            //res += noIn.getProd().getVolume();
-
-        }
-        return res;
-
-    }
-
-
 }

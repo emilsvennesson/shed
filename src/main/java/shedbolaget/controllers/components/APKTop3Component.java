@@ -64,6 +64,7 @@ public class APKTop3Component extends Component {
         thirdPlaceInfoText.setText(String.format("APK: %.2f", thirdPlaceProduct.getApk()));
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
         ProductModel productsHolder = ProductModel.getInstance();

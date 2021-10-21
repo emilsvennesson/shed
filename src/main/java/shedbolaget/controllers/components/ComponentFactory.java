@@ -37,7 +37,9 @@ public class ComponentFactory {
         return new FavoritesPage().getPane();
     }
 
-    public static AnchorPane createAPKLeaderboard() { return new APKLeaderboardPage().getPane(); }
+    public static AnchorPane createAPKLeaderboard() {
+        return new APKLeaderboardPage().getPane();
+    }
 
     public static AnchorPane createDetailedProductCard(Product product) {
         return new DetailedProductCardComponent(product).getPane();
@@ -63,11 +65,17 @@ public class ComponentFactory {
         return new PaginationComponent(pages).getPane();
     }
 
-    public static AnchorPane createCustomProductPane() {return new CustomProductPaneComponent().getPane(); }
+    public static AnchorPane createCustomProductPane() {
+        return new CustomProductPaneComponent().getPane();
+    }
 
-    public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {return new CustomProductAddComponent(anchorPane).getPane(); }
+    public static AnchorPane createCustomProductAdd(AnchorPane anchorPane) {
+        return new CustomProductAddComponent(anchorPane).getPane();
+    }
 
-    public static AnchorPane createAPKTop3() {return new APKTop3Component().getPane();}
+    public static AnchorPane createAPKTop3() {
+        return new APKTop3Component().getPane();
+    }
 
     /*---------------------------------Drink Generator --------------------------------------------*/
 
@@ -77,15 +85,15 @@ public class ComponentFactory {
 
     static Map<String, IngredientCardComponent> renderedIngredients = new HashMap<>();
 
-    public static AnchorPane createIngredientCard(Ingredient ingredient, boolean added){
+    public static AnchorPane createIngredientCard(Ingredient ingredient, boolean added) {
         IngredientCardComponent comp = renderedIngredients.get(ingredient.getProd().getProductId());
-        if(comp == null){
+        if (comp == null) {
             comp = new IngredientCardComponent(ingredient);
             renderedIngredients.put(ingredient.getProd().getProductId(), comp);
         }
-        if(added){
+        if (added) {
             comp.markAsAdded();
-        }else
+        } else
             comp.markAsNotAdded();
         return comp.getPane();
     }
@@ -95,7 +103,7 @@ public class ComponentFactory {
         return new DrinkListPage().getPane();
     }
 
-    public static AnchorPane createDrinkCard(Drink drink){
+    public static AnchorPane createDrinkCard(Drink drink) {
         return new DrinkCardComponent(drink).getPane();
     }
 

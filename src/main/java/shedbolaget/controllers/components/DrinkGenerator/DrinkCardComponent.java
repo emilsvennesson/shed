@@ -13,13 +13,12 @@ import shedbolaget.model.drinks.Drink;
 
 public class DrinkCardComponent extends Component {
     Drink drink;
+
     public DrinkCardComponent(Drink drink) {
         super("DrinkCardView");
         this.drink = drink;
         initFields();
     }
-
-
 
 
     @FXML
@@ -62,13 +61,12 @@ public class DrinkCardComponent extends Component {
     }
 
     /*----------------------------------- Private methods -----------------------------------*/
-    private void initFields(){
+    private void initFields() {
         this.nameBoldText.setText(drink.getName());
         this.nameThinText.setText(drink.strGlass);
 
         this.IngredientsCount.setText("Ingredients: " + drink.getAlcoIngredients().size());
-        //this.apkText.setText("APK: " + drink.getAPK());
-        this.volumeText.setText("Volume: "+drink.getVolume());
+        this.volumeText.setText("Volume: (placeholder text)");
 
         Image productImage = new Image(drink.strImageSource, 0, 0, false, false, true);
         this.imageView.setImage(productImage);

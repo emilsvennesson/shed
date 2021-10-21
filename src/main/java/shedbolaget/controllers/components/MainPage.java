@@ -15,9 +15,10 @@ import shedbolaget.model.products.pages.Pages;
 public class MainPage extends Component {
     @FXML
     private AnchorPane navBarPane;
+
     @FXML
     private FlowPane newProductsFlowPane;
-    private Pages productPages;
+
     @FXML
     private Text welcomeText;
 

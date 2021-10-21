@@ -37,8 +37,9 @@ public class BreadCrumbsComponent extends Component {
         return stringJoiner.toString();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnCategoryEvent(CategoryEvent event) {
+    private void actOnCategoryEvent(CategoryEvent event) {
         categoryLevel1Text.setText(getCategoryLevelText(event.getActiveCategories(), 1));
         if (!getCategoryLevelText(event.getActiveCategories(), 1).isEmpty()) {
             categoryLevel2Text.setText(getCategoryLevelText(event.getActiveCategories(), 2));
@@ -47,8 +48,9 @@ public class BreadCrumbsComponent extends Component {
             categoryLevel2Text.setVisible(false);
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnSearchEvent(SearchEvent event) {
+    private void actOnSearchEvent(SearchEvent event) {
         categoryLevel1Text.setText("Sökresultat för " + event.getSearchString());
         categoryLevel2Text.setVisible(false);
     }
