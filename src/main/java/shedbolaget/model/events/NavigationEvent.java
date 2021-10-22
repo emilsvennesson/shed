@@ -30,31 +30,13 @@ public class NavigationEvent {
      * This enum contains the available page to navigate to.
      */
     public enum NAVIGATION {
-        /**
-         * Main navigation.
-         */
         MAIN,
-        /**
-         * Products navigation.
-         */
         PRODUCTS,
-        /**
-         * Favorites navigation.
-         */
         FAVORITES,
-        /**
-         * APK Leaderboard navigation.
-         */
         APK,
-        /**
-         * DrinkGenerator
-         */
         DRINKGENERATOR,
-
-        /**
-         * Drink List
-         */
-        DRINKlIST
+        DRINKlIST,
+        SEARCH
     }
 
 
