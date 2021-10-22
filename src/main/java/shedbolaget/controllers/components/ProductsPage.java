@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.PagesEvent;
 import shedbolaget.model.events.SearchEvent;
@@ -23,15 +24,11 @@ import java.util.List;
 public class ProductsPage extends Component {
     static private final int PRODUCTS_PER_PAGE = 100;
     static private final int FUZZY_REQUIRED_HIT_RATE = 90;
-
-    @FXML
-    private AnchorPane navBarPane;
-
     @FXML
     AnchorPane customProductPane;
 
     @FXML
-    private FlowPane contentFlowPane;
+    private AnchorPane navBarPane;
 
     @FXML
     private ScrollPane scrollPane;
@@ -42,6 +39,12 @@ public class ProductsPage extends Component {
     private List<Product> filteredProducts;
 
     private AnchorPane paginationComponent;
+
+    @FXML
+    private VBox leftMenuVBox;
+
+    @FXML
+    private VBox contentVBox;
 
 
     protected ProductsPage() {
@@ -58,11 +61,11 @@ public class ProductsPage extends Component {
     }
 
     private void populateView() {
-        contentFlowPane.getChildren().add(ComponentFactory.createSorter());
-        contentFlowPane.getChildren().add(ComponentFactory.createBreadCrumbs());
-        contentFlowPane.getChildren().add(ComponentFactory.createCategoryMenu());
-        contentFlowPane.getChildren().add(productsWrapper);
-        contentFlowPane.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
+        leftMenuVBox.getChildren().add(ComponentFactory.createSorter());
+        contentVBox.getChildren().add(ComponentFactory.createBreadCrumbs());
+        leftMenuVBox.getChildren().add(ComponentFactory.createCategoryMenu());
+        leftMenuVBox.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
+        contentVBox.getChildren().add(productsWrapper);
     }
 
     private void initCustomProductComponent() {
@@ -72,9 +75,9 @@ public class ProductsPage extends Component {
     }
 
     private void loadPaginationComponent(Pages pages) {
-        contentFlowPane.getChildren().remove(paginationComponent);
+        contentVBox.getChildren().remove(paginationComponent);
         paginationComponent = new PaginationComponent(pages).getPane();
-        contentFlowPane.getChildren().add(paginationComponent);
+        contentVBox.getChildren().add(paginationComponent);
     }
 
     private void loadProducts(List<Product> products, boolean asPages) {
