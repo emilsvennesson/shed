@@ -28,7 +28,7 @@ public enum DrinkModel {
      *
      * @return      a list of {@link Drink}
      */
-    public static List<Drink> loadDrinks(){
+    public static List<Drink> loadFilteredDrinks(){
 
 
         return dFilter.getFilteredDrinks(ingredients);
