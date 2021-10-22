@@ -2,15 +2,11 @@ package shedbolaget.model.products.customproduct;
 
 import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.EventManager;
-import shedbolaget.model.products.IProductsCollection;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
-import java.io.File;
 import java.io.InputStream;
-import java.nio.file.Paths;
-import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 

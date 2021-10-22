@@ -5,11 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import shedbolaget.model.products.Product;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 enum CustomProductWriter {
