@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import shedbolaget.model.categories.Categories;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.products.ProductModel;
 
 import java.util.ArrayList;
@@ -68,11 +67,5 @@ public class CategoryComponent extends Component {
             initLevel2CheckBoxes(event.getActiveCategories());
         }
         categoryLevel1CheckBox.setText(activeLevel1Category.getName());
-    }
-
-    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
-    @Subscribe
-    private void actOnSearchEvent(SearchEvent event) {
-        this.getPane().setVisible(false);
     }
 }

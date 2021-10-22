@@ -6,6 +6,7 @@ import javafx.scene.text.Text;
 import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
+import shedbolaget.model.events.NavigationEvent;
 import shedbolaget.model.events.SearchEvent;
 
 import java.util.List;
@@ -53,5 +54,11 @@ public class BreadCrumbsComponent extends Component {
     private void actOnSearchEvent(SearchEvent event) {
         categoryLevel1Text.setText("Sökresultat för " + event.getSearchString());
         categoryLevel2Text.setVisible(false);
+    }
+
+    @Subscribe
+    public void onNavigationEvent(NavigationEvent event) {
+        if (event.getPageToNavigateTo() == NavigationEvent.NAVIGATION.FAVORITES)
+            categoryLevel1Text.setText("Favoriter");
     }
 }
