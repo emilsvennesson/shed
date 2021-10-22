@@ -51,6 +51,7 @@ public class APKTop3Component extends Component {
         updateInfoText();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     private void loadTop3(List<Product> products) {
         secondPlaceVBox.getChildren().remove(1);
         firstPlaceVBox.getChildren().remove(1);
@@ -63,16 +64,5 @@ public class APKTop3Component extends Component {
         secondPlaceInfoText.setText(String.format("APK: %.2f", secondPlaceProduct.getApk()));
         thirdPlaceInfoText.setText(String.format("APK: %.2f", thirdPlaceProduct.getApk()));
     }
-
-    @SuppressWarnings("PMD.UnusedPrivateMethod")
-    @Subscribe
-    private void actOnCategoryEvent(CategoryEvent event) {
-        ProductModel productsHolder = ProductModel.getInstance();
-        List<Product> filteredProducts = Sorter.getProductListSortedByApk(Filter.getFilteredProductsByCategory(productsHolder.getProducts(), event.getActiveCategories()), true);
-        if (!filteredProducts.isEmpty())
-            loadTop3(filteredProducts.subList(0, 3));
-    }
-
-
 }
 

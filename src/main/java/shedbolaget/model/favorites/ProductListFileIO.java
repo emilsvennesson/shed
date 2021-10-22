@@ -13,7 +13,7 @@ import java.util.List;
  * @version 1.0
  */
 class ProductListFileIO implements IProductListIO {
-    String filePath = "SavedLists.txt";
+    String filePath = "src/main/resources/SavedLists.txt";
     File file;
     BufferedWriter writer;
     BufferedReader reader;
