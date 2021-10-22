@@ -57,7 +57,7 @@ public class DrinkGeneratorPage extends Component {
     @FXML
     void onGenerateClicked(ActionEvent event) {
         EventManager.getInstance().fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.DRINKlIST));
-        EventManager.getInstance().fireEvent(new DrinkListEvent(DrinkModel.loadFilteredDrinks()));
+        EventManager.getInstance().fireEvent(new DrinkListEvent(DrinkModel.loadFilteredDrinks(470)));
 
     }
 
