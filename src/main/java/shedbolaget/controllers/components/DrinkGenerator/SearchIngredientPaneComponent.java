@@ -47,19 +47,17 @@ public class SearchIngredientPaneComponent extends Component {
         searchAndDisplay("Likör");
 
 
-
-
     }
-    private void renderIngredient(Ingredient ingredient){
+
+    private void renderIngredient(Ingredient ingredient) {
 
 
         IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(ingredient, false));
 
 
-
     }
 
-    private void renderIngredients(List<Ingredient> ingredients){
+    private void renderIngredients(List<Ingredient> ingredients) {
         IngredientFlowPane.getChildren().clear();
         for (Ingredient ingredient :
                 ingredients) {
@@ -67,23 +65,22 @@ public class SearchIngredientPaneComponent extends Component {
         }
     }
 
-    private void renderProductsAsIngredients(List<Product> products, int amount){
+    private void renderProductsAsIngredients(List<Product> products, int amount) {
         List<Ingredient> ingredients = new ArrayList<>();
-        for(int i = 0; i<products.size() && i < amount; i++){
+        for (int i = 0; i < products.size() && i < amount; i++) {
 
             // if the product is already in as an ingredient, don't show it
             int finalI = i;
             List<Ingredient> hasProductList = DrinkModel.getIngredients().stream().filter(
-                    x-> x.getProd().getProductId() == products.get(finalI).getProductId()
+                    x -> x.getProd().getProductId() == products.get(finalI).getProductId()
             ).collect(Collectors.toList());
-            if(hasProductList.size() != 0){
-               continue;
+            if (hasProductList.size() != 0) {
+                continue;
             }
 
             // Show the product
             ingredients.add(new Ingredient(products.get(i)));
         }
-
 
 
         renderIngredients(ingredients);
@@ -92,6 +89,7 @@ public class SearchIngredientPaneComponent extends Component {
 
     List<Product> products;
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void searchForIngredients(ActionEvent event) {
 
@@ -99,18 +97,16 @@ public class SearchIngredientPaneComponent extends Component {
         searchAndDisplay(searchQuery);
 
 
-
-
     }
 
-    void searchAndDisplay(String searchQuery){
+    void searchAndDisplay(String searchQuery) {
         products = Filter.search(ProductModel.getInstance().getProducts(), searchQuery, 80);
 
         renderProductsAsIngredients(products, 30);
     }
 
 
-    void update(){
+    void update() {
         renderProductsAsIngredients(products, 30);
     }
 

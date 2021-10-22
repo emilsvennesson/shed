@@ -29,7 +29,7 @@ public interface IDrinkParser {
      *
      * @return
      */
-    public List<Drink> load();
+    List<Drink> load();
 
 
 

@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import shedbolaget.model.products.Product;
-import shedbolaget.model.products.parser.ProductsParserFactory;
 
 import java.nio.file.Paths;
 import java.util.List;
 
 enum CustomProductWriter {
     ;
-     public static void writeProductsToJsonFile(List<Product> customProducts, String fileName){
+
+    public static void writeProductsToJsonFile(List<Product> customProducts, String fileName) {
         try {
             // Create object mapper instance & use variables instead of getters
             ObjectMapper mapper = new ObjectMapper();

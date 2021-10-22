@@ -58,21 +58,23 @@ public class APKLeaderboardPage extends Component {
 
     private void initListItems() {
         List<Product> products = Sorter.getProductListSortedByApk(ProductModel.getInstance().getProducts(), true);
-        for(Product product : products.subList(3, 100)) {
-            contentVBox.getChildren().add(new APKCompactListItemComponent(product, products.indexOf(product)+1).getPane());
+        for (Product product : products.subList(3, 100)) {
+            contentVBox.getChildren().add(new APKCompactListItemComponent(product, products.indexOf(product) + 1).getPane());
         }
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
         List<Product> filteredProducts = Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), event.getActiveCategories());
         List<Product> sortedProducts = Sorter.getProductListSortedByApk(filteredProducts, true);
-        contentVBox.getChildren().remove(3,contentVBox.getChildren().size());
-        for(Product product : sortedProducts.subList(3, 100)) {
-            contentVBox.getChildren().add(new APKCompactListItemComponent(product, sortedProducts.indexOf(product)+1).getPane());
+        contentVBox.getChildren().remove(3, contentVBox.getChildren().size());
+        for (Product product : sortedProducts.subList(3, 100)) {
+            contentVBox.getChildren().add(new APKCompactListItemComponent(product, sortedProducts.indexOf(product) + 1).getPane());
         }
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void allProductsOnChecked(ActionEvent event) {
         if (allProductsCheckBox.isSelected() || activeCategories.isEmpty()) {
@@ -82,6 +84,7 @@ public class APKLeaderboardPage extends Component {
         }
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void beerOnChecked(ActionEvent event) {
         List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Öl", 1))));
@@ -94,6 +97,7 @@ public class APKLeaderboardPage extends Component {
         updateAllProductsCheckBox();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void ciderOnChecked(ActionEvent event) {
         List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Cider & blanddrycker", 1))));
@@ -106,6 +110,7 @@ public class APKLeaderboardPage extends Component {
         updateAllProductsCheckBox();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void liquorOnChecked(ActionEvent event) {
         List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Sprit", 1))));
@@ -118,6 +123,7 @@ public class APKLeaderboardPage extends Component {
         updateAllProductsCheckBox();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void wineOnChecked(ActionEvent event) {
         List<Category> categories = Categories.getLevel1Categories(Filter.getFilteredProductsByCategory(ProductModel.getInstance().getProducts(), List.of(new Category("Vin", 1))));
@@ -135,7 +141,7 @@ public class APKLeaderboardPage extends Component {
     }
 
     private void updateAllProductsCheckBox() {
-        boolean someAreSelected = (beerCheckBox.isSelected() || wineCheckBox.isSelected() || ciderCheckBox.isSelected() || liquorCheckBox.isSelected());
+        boolean someAreSelected = beerCheckBox.isSelected() || wineCheckBox.isSelected() || ciderCheckBox.isSelected() || liquorCheckBox.isSelected();
         boolean allAreSelected = beerCheckBox.isSelected() && wineCheckBox.isSelected() && ciderCheckBox.isSelected() && liquorCheckBox.isSelected();
         allProductsCheckBox.setSelected(!someAreSelected || allAreSelected);
     }

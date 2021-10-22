@@ -4,10 +4,7 @@ import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import shedbolaget.model.categories.Categories;
-import shedbolaget.model.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.filter.Filter;
@@ -67,6 +64,7 @@ public class APKTop3Component extends Component {
         thirdPlaceInfoText.setText(String.format("APK: %.2f", thirdPlaceProduct.getApk()));
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
     private void actOnCategoryEvent(CategoryEvent event) {
         ProductModel productsHolder = ProductModel.getInstance();

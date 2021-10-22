@@ -45,20 +45,23 @@ public class SorterComponent extends Component {
         sortMenuButton.setText("Pris");
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void onSortByPriceClick(ActionEvent event) {
+    private void onSortByPriceClick(ActionEvent event) {
         sortByPrice();
         sortMenuButton.setText("Pris");
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void onSortByApkClick(ActionEvent event) {
+    private void onSortByApkClick(ActionEvent event) {
         sortMenuButton.setText("APK");
         sortByApk();
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
-    void onSortByNameClick(ActionEvent event) {
+    private void onSortByNameClick(ActionEvent event) {
         // TODO: implement sort by name, right now sorting by APk...
         System.out.println("Sorting by apk instead of name, fix me");
         sortByName();
@@ -80,9 +83,9 @@ public class SorterComponent extends Component {
         eventManager.fireEvent(new SortEvent(prods));
     }
 
-
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnCategoryEvent(CategoryEvent event) {
+    private void actOnCategoryEvent(CategoryEvent event) {
         activeCategories = event.getActiveCategories();
         String activeSortingMethod = sortMenuButton.getText();
         switch (activeSortingMethod) {

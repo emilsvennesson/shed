@@ -34,6 +34,7 @@ public class CategoryComponent extends Component {
         categoryLevel1CheckBox.setOnAction(this::onChecked);
     }
 
+    @SuppressWarnings("PMD.UnusedFormalParameter")
     private void onChecked(ActionEvent actionEvent) {
         categoryLevel1CheckBox.setSelected(true);
     }
@@ -57,8 +58,9 @@ public class CategoryComponent extends Component {
         }
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnCategoryEvent(CategoryEvent event) {
+    private void actOnCategoryEvent(CategoryEvent event) {
         this.getPane().setVisible(true);
         Category eventActiveLevel1Category = Categories.getCategoriesByLevel(event.getActiveCategories(), 1).get(0);
         if (eventActiveLevel1Category != activeLevel1Category) {
@@ -68,8 +70,9 @@ public class CategoryComponent extends Component {
         categoryLevel1CheckBox.setText(activeLevel1Category.getName());
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @Subscribe
-    public void actOnSearchEvent(SearchEvent event) {
+    private void actOnSearchEvent(SearchEvent event) {
         this.getPane().setVisible(false);
     }
 }

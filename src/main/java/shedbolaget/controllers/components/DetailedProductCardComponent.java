@@ -104,6 +104,7 @@ public class DetailedProductCardComponent extends Component {
         }
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void favoritesButtonOnClick(ActionEvent event) {
         if (isFavorite) {
@@ -123,11 +124,11 @@ public class DetailedProductCardComponent extends Component {
     }
 
     private String getFavoriteButtonText() {
-        return (isFavorite ? "Ta bort favorit" : "Lägg till favorit");
+        return isFavorite ? "Ta bort favorit" : "Lägg till favorit";
     }
 
     private String getFavoriteButtonClass() {
-        return (isFavorite ? "remove-favorite-btn" : "add-favorite-btn");
+        return isFavorite ? "remove-favorite-btn" : "add-favorite-btn";
     }
 
     private void initFavoriteButton() {
