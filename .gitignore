@@ -88,3 +88,5 @@ documents/assignments/.obsidian/appearance.json
 documents/assignments/.obsidian/hotkeys.json
 
 .idea/
+src/main/resources/customproducts.json
+src/main/resources/SavedLists.txt
