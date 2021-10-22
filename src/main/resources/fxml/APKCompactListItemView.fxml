@@ -7,17 +7,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="814.0" style="-fx-background-color: white;" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" minHeight="-Infinity" prefWidth="904.0" style="-fx-background-color: white;" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="814.0" spacing="8.0">
          <children>
-            <Text fx:id="placeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="#100" wrappingWidth="57.0">
+            <Text fx:id="placeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="1" wrappingWidth="45.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fx:id="productNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="Produktnamn" wrappingWidth="572.0">
+            <Text fx:id="productNameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="Produktnamn" wrappingWidth="648.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -37,7 +36,7 @@
             </Text>
          </children>
          <padding>
-            <Insets left="8.0" right="8.0" />
+            <Insets left="20.0" right="8.0" />
          </padding>
          <styleClass>
             <String fx:value="apk-leaderboard-list-item" />
