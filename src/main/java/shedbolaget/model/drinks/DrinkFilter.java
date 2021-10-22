@@ -33,7 +33,6 @@ public class DrinkFilter {
                 DrinkHolder.getInstance().getDrinks()) {
 
             int points =  matchPoints(drink, ingredients);
-            System.out.println(points);
             if(points < hitRatio)
                 continue;
             hitMatch.put(drink, points);
@@ -55,11 +54,11 @@ public class DrinkFilter {
                 ingredients) {
             for (Ingredient ingredient1:
                  drink.getAlcoIngredients()) {
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name )*4;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName())*3;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name )*5;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName())*1;
                 score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName())*2;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName())*1;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName())*3;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle())*1;
             }
         }
         if(drink.getAlcoIngredients().size() == 0 || ingredients.size() == 0) return 0;
