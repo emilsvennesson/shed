@@ -55,7 +55,7 @@ public class DrinkFilter {
             }
         }
         if(drink.getAlcoIngredients().size() == 0) return 0;
-        return score/drink.getAlcoIngredients().size();
+        return score/(drink.getAlcoIngredients().size()*ingredients.size());
     }
 
     private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {
