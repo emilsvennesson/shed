@@ -20,11 +20,13 @@ public class DrinkListPage extends Component {
     @FXML
     private FlowPane DrinkFlowPane;
 
-
+    final DetailedDrinkComponent detailedDrinkComponent = new DetailedDrinkComponent();
 
     public DrinkListPage() {
         super("DrinkListPage");
         EventManager.getInstance().registerToEventBus(this);
+        this.getPane().getChildren().add(detailedDrinkComponent.getPane());
+        detailedDrinkComponent.getPane().toBack();
     }
 
 
@@ -47,7 +49,6 @@ public class DrinkListPage extends Component {
             renderDrink(drinks.get(i));
 
         }
-
     }
 
     @Subscribe

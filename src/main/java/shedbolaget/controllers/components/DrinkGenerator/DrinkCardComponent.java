@@ -12,6 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.controllers.components.Component;
 import shedbolaget.model.drinks.Drink;
+import shedbolaget.model.events.EventManager;
+import shedbolaget.model.events.ShowDrinkEvent;
 import shedbolaget.model.products.Product;
 
 public class DrinkCardComponent extends Component {
@@ -55,12 +57,12 @@ public class DrinkCardComponent extends Component {
 
     @FXML
     void cardOnClick(MouseEvent event) {
-
+        EventManager.getInstance().fireEvent(new ShowDrinkEvent(this.drink));
     }
 
     @FXML
     void detailsButtonOnClick(ActionEvent event) {
-        //TODO open detailed view
+        EventManager.getInstance().fireEvent(new ShowDrinkEvent(this.drink));
 
     }
 

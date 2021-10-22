@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane onMouseClicked="#onClose" prefHeight="756.0" prefWidth="1152.0" styleClass="transparent-shadow" stylesheets="@../css/main.css" />
+      <Pane prefHeight="519.0" prefWidth="930.0" styleClass="white-background" stylesheets="@../css/main.css" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="110.0">
+         <children>
+            <Text fx:id="TitelText" layoutX="35.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radioactive Long Island Iced Tea">
+               <font>
+                  <Font size="49.0" />
+               </font>
+            </Text>
+            <Text layoutX="295.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Glass:">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="GlassText" layoutX="360.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Collins Glass">
+               <font>
+                  <Font name="System Italic" size="22.0" />
+               </font>
+            </Text>
+            <Text layoutX="295.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instruktioner">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="InstructionesText" layoutX="295.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gently warm 60g golden caster sugar in a pan with 30ml water and 1 tbsp allspice. Cook gently until the sugar has dissolved, then leave the mixture to cool. Strain through a sieve lined with a coffee filter (or a double layer of kitchen paper).Pour 60ml of the spiced syrup into a cocktail shaker along with 200ml rum and 90ml lime juice. Shake with ice and strain between six flute glasses. Top up with 600ml champagne and garnish each with an orange twist." wrappingWidth="400.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="DrinkImageView" fitHeight="275.0" fitWidth="270.0" layoutX="14.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/DrinkPlaceHolderImage.jpg" />
+               </image>
+            </ImageView>
+            <ListView fx:id="IngredientsListView" editable="true" layoutX="706.0" layoutY="120.0" prefHeight="381.0" prefWidth="200.0" />
+         </children>
+      </Pane>
+   </children>
+</fx:root>

@@ -34,7 +34,9 @@ public class Drink {
     public List<Ingredient> noingredients = new ArrayList<>();
 
 
-
+    public String getGlass() {
+        return strGlass;
+    }
 
     public String getName() {
         return strDrink;
@@ -46,6 +48,10 @@ public class Drink {
 
     public List<Ingredient> getNoingredients(){
         return new ArrayList<>(noingredients);
+    }
+
+    public String getInstructions() {
+        return strInstructions;
     }
 
     public double getAPK(){
@@ -77,4 +83,7 @@ public class Drink {
     }
 
 
+    public String getImageUrl() {
+        return strImageSource;
+    }
 }

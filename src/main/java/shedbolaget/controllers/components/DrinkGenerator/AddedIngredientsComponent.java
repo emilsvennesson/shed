@@ -15,6 +15,7 @@ public class AddedIngredientsComponent extends Component {
     private FlowPane IngredientFlowPane;
 
 
+
     protected AddedIngredientsComponent() {
 
         super("AddedIngredientsPane");
