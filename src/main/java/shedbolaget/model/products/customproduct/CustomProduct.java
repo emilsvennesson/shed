@@ -2,10 +2,15 @@ package shedbolaget.model.products.customproduct;
 
 import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.EventManager;
+import shedbolaget.model.products.IProductsCollection;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Paths;
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +24,8 @@ import java.util.List;
 public enum CustomProduct {
     ;
     public static final String CUSTOM_PRODUCTS_FILENAME = "customproducts.json";
-    private static final List<Product> customProducts = ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
+
+    private static final List<Product> customProducts = getCustomProductsFromJson();
 
     /**
      * Creates a custom product and writes it to the JSON file.
@@ -41,5 +47,13 @@ public enum CustomProduct {
 
     public static List<Product> getCustomProducts() {
         return new ArrayList<>(customProducts);
+    }
+
+    private static List<Product> getCustomProductsFromJson(){
+        InputStream stream = ClassLoader.getSystemResourceAsStream(CUSTOM_PRODUCTS_FILENAME);
+        if (stream != null)
+            return ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
+        else
+            return new ArrayList<>();
     }
 }

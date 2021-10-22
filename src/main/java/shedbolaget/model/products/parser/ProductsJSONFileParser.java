@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import shedbolaget.model.products.IProductsCollection;
 import shedbolaget.model.products.Product;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ class ProductsJSONFileParser implements IProductsCollection {
             products = mapper.readValue(streamToParse, new TypeReference<>() {
             });
 
-        } catch (Exception ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             System.out.println("Failed to read stream.");
             ex.printStackTrace();
         }
