@@ -26,6 +26,7 @@ public class DrinkFilter {
      * @since 1.0.0
      */
     List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
+
         Map<Drink, Integer> hitMatch = new HashMap<>();
 
         for (Drink drink :
@@ -47,14 +48,14 @@ public class DrinkFilter {
                 ingredients) {
             for (Ingredient ingredient1:
                  drink.getAlcoIngredients()) {
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name);
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName());
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName());
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name )*4;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName())*3;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName())*2;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName())*1;
                 score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle());
             }
         }
-        if(drink.getAlcoIngredients().size() == 0) return 0;
+        if(drink.getAlcoIngredients().size() == 0 || ingredients.size() == 0) return 0;
         return score/(drink.getAlcoIngredients().size()*ingredients.size());
     }
 
