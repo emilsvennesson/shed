@@ -4,23 +4,38 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1152.0" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <ScrollPane hbarPolicy="NEVER" layoutY="101.0" prefHeight="655.0" prefWidth="1152.0">
-      <content>
-         <FlowPane fx:id="DrinkFlowPane" prefHeight="586.0" prefWidth="1143.0" />
-      </content>
-   </ScrollPane>
-   <Text layoutX="47.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drinks">
-      <font>
-         <Font size="32.0" />
-      </font>
-   </Text>
-   <Button layoutX="231.0" layoutY="57.0" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="57.0" prefWidth="133.0" text="Back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0">
-      <font>
-         <Font size="39.0" />
-      </font>
-   </Button>
+   <AnchorPane prefHeight="756.0" prefWidth="1152.0" style="-fx-background-color: black;" />
+   <VBox prefHeight="756.0" prefWidth="1152.0">
+      <children>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <children>
+               <Text layoutX="36.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drinks">
+                  <font>
+                     <Font size="32.0" />
+                  </font>
+               </Text>
+            </children>
+         </Pane>
+         <ScrollPane hbarPolicy="NEVER" prefHeight="655.0" prefWidth="1152.0">
+            <content>
+               <FlowPane fx:id="DrinkFlowPane" prefHeight="586.0" prefWidth="1143.0" />
+            </content>
+         </ScrollPane>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
+            <children>
+               <Button layoutX="41.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="55.0" prefWidth="148.0" styleClass="search-btn" text="Back">
+                  <font>
+                     <Font size="19.0" />
+                  </font>
+               </Button>
+            </children>
+         </Pane>
+      </children>
+   </VBox>
 </fx:root>

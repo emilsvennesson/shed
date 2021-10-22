@@ -25,13 +25,20 @@ public class DrinkFilter {
      * @return a list of {@link Drink}s
      * @since 1.0.0
      */
-    List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
+    List<Drink> getFilteredDrinks(List<Ingredient> ingredients, int hitRatio){
+
         Map<Drink, Integer> hitMatch = new HashMap<>();
 
         for (Drink drink :
                 DrinkHolder.getInstance().getDrinks()) {
-            hitMatch.put(drink, matchPoints(drink, ingredients));
+
+            int points =  matchPoints(drink, ingredients);
+            if(points < hitRatio)
+                continue;
+            hitMatch.put(drink, points);
+
         }
+
         
 
 
@@ -47,15 +54,17 @@ public class DrinkFilter {
                 ingredients) {
             for (Ingredient ingredient1:
                  drink.getAlcoIngredients()) {
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name);
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName());
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName());
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName());
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle());
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.name )*5;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName())*1;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName())*2;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName())*3;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle())*1;
             }
         }
-        if(drink.getAlcoIngredients().size() == 0) return 0;
-        return score/drink.getAlcoIngredients().size();
+        if(drink.getAlcoIngredients().size() == 0 || ingredients.size() == 0) return 0;
+        score =score/(drink.getAlcoIngredients().size()*ingredients.size());
+
+        return score;
     }
 
     private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {

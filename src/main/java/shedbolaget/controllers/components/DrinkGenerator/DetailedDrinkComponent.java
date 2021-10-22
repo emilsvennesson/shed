@@ -14,6 +14,8 @@ import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.ShowDrinkEvent;
 
+import java.util.List;
+
 
 public class DetailedDrinkComponent extends Component {
 
@@ -44,19 +46,29 @@ public class DetailedDrinkComponent extends Component {
         GlassText.setText(event.getDrink().getGlass());
         InstructionesText.setText(event.getDrink().getInstructions());
         IngredientsListView.getItems().clear();
-        for (Ingredient ingredient :
-                event.getDrink().getAlcoIngredients()) {
-            IngredientsListView.getItems().add(ingredient.getName()+ " : " + ingredient.measure);
-        }
-        for (Ingredient ingredient :
-                event.getDrink().getNoingredients()) {
-            IngredientsListView.getItems().add(ingredient.getName()+ " : " + ingredient.measure);
-        }
+        addIngredients(event.getDrink().getAlcoIngredients());
+        addIngredients(event.getDrink().getNoingredients());
         DrinkImageView.setImage(new Image(event.getDrink().getImageUrl()));
         this.getPane().toFront();
 
         
     }
+    private void addIngredients(List<Ingredient> ingredientList){
+        for (Ingredient ingredient :
+                ingredientList) {
+            StringBuilder builder = new StringBuilder();
+            builder.append(ingredient.getName());
+
+            if(ingredient.measure != null){
+                builder.append(" : ");
+                builder.append(ingredient.measure);
+            }
+
+            IngredientsListView.getItems().add(builder.toString());
+        }
+
+    }
+
     @FXML
     void onClose(MouseEvent event) {
         this.getPane().toBack();

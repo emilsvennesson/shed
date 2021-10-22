@@ -28,10 +28,10 @@ public enum DrinkModel {
      *
      * @return      a list of {@link Drink}
      */
-    public static List<Drink> loadDrinks(){
+    public static List<Drink> loadFilteredDrinks(int hitRatio){
 
 
-        return dFilter.getFilteredDrinks(ingredients);
+        return dFilter.getFilteredDrinks(ingredients, hitRatio);
     }
 
     /**
