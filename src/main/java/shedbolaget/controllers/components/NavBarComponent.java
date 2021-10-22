@@ -87,7 +87,7 @@ public class NavBarComponent extends Component {
     @FXML
     private void searchButtonOnClicked(ActionEvent event) {
         eventManager.fireEvent(new SearchEvent(searchTextField.getText()));
-        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.PRODUCTS));
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.SEARCH));
         searchTextField.clear();
     }
 

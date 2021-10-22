@@ -22,6 +22,12 @@ import java.util.List;
 public class ProductsPage extends Component {
     static private final int PRODUCTS_PER_PAGE = 20;
     static private final int FUZZY_REQUIRED_HIT_RATE = 90;
+    private List<Product> filteredProducts;
+    private AnchorPane paginationComponent;
+    private final AnchorPane sorter = ComponentFactory.createSorter();
+    private final AnchorPane breadCrumbs = ComponentFactory.createBreadCrumbs();
+    private final AnchorPane categoryMenu = ComponentFactory.createCategoryMenu();
+
     @FXML
     AnchorPane customProductPane;
 
@@ -33,10 +39,6 @@ public class ProductsPage extends Component {
 
     @FXML
     private FlowPane productsWrapper;
-
-    private List<Product> filteredProducts;
-
-    private AnchorPane paginationComponent;
 
     @FXML
     private VBox leftMenuVBox;
@@ -59,10 +61,7 @@ public class ProductsPage extends Component {
     }
 
     private void populateView() {
-        leftMenuVBox.getChildren().add(ComponentFactory.createSorter());
-        contentVBox.getChildren().add(ComponentFactory.createBreadCrumbs());
-        leftMenuVBox.getChildren().add(ComponentFactory.createCategoryMenu());
-        leftMenuVBox.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
+        contentVBox.getChildren().add(breadCrumbs);
         contentVBox.getChildren().add(productsWrapper);
     }
 
@@ -118,9 +117,23 @@ public class ProductsPage extends Component {
 
     @Subscribe
     public void onNavigationEvent(NavigationEvent event) {
-        if (event.getPageToNavigateTo() == NavigationEvent.NAVIGATION.FAVORITES) {
-            loadProducts(Favorites.getInstance().getFavoriteProducts(), true);
-
+        // we want to show different components on the left menu vbox depending on which page we're loading
+        switch (event.getPageToNavigateTo()) {
+            case FAVORITES -> {
+                loadProducts(Favorites.getInstance().getFavoriteProducts(), true);
+                leftMenuVBox.getChildren().remove(sorter);
+                leftMenuVBox.getChildren().remove(categoryMenu);
+            }
+            case SEARCH -> {
+                leftMenuVBox.getChildren().remove(sorter);
+                leftMenuVBox.getChildren().remove(categoryMenu);
+            }
+            default -> {
+                leftMenuVBox.getChildren().clear();
+                leftMenuVBox.getChildren().add(sorter);
+                leftMenuVBox.getChildren().add(categoryMenu);
+                leftMenuVBox.getChildren().add(ComponentFactory.createCustomProductAdd(customProductPane));
+            }
         }
     }
 }
