@@ -31,7 +31,7 @@ public enum DrinkModel {
     public static List<Drink> loadFilteredDrinks(){
 
 
-        return dFilter.getFilteredDrinks(ingredients);
+        return dFilter.getFilteredDrinks(ingredients, 350);
     }
 
     /**

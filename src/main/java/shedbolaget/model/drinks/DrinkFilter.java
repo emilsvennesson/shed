@@ -25,14 +25,21 @@ public class DrinkFilter {
      * @return a list of {@link Drink}s
      * @since 1.0.0
      */
-    List<Drink> getFilteredDrinks(List<Ingredient> ingredients){
+    List<Drink> getFilteredDrinks(List<Ingredient> ingredients, int hitRatio){
 
         Map<Drink, Integer> hitMatch = new HashMap<>();
 
         for (Drink drink :
                 DrinkHolder.getInstance().getDrinks()) {
-            hitMatch.put(drink, matchPoints(drink, ingredients));
+
+            int points =  matchPoints(drink, ingredients);
+            System.out.println(points);
+            if(points < hitRatio)
+                continue;
+            hitMatch.put(drink, points);
+
         }
+
         
 
 
@@ -56,7 +63,9 @@ public class DrinkFilter {
             }
         }
         if(drink.getAlcoIngredients().size() == 0 || ingredients.size() == 0) return 0;
-        return score/(drink.getAlcoIngredients().size()*ingredients.size());
+        score =score/(drink.getAlcoIngredients().size()*ingredients.size());
+
+        return score;
     }
 
     private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {
