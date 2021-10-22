@@ -63,8 +63,8 @@ public class DetailedProductCardComponent extends Component {
         super("DetailedProductCardView");
         this.product = product;
         this.expanded = false;
-        initProductInfo();
         this.isFavorite = Favorites.getInstance().isFavorite(product);
+        initProductInfo();
     }
 
     public void initProductInfo() {

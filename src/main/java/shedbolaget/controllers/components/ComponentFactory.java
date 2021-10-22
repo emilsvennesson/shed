@@ -33,10 +33,6 @@ public class ComponentFactory {
         return new ProductsPage().getPane();
     }
 
-    public static AnchorPane createFavoritesPage() {
-        return new FavoritesPage().getPane();
-    }
-
     public static AnchorPane createAPKLeaderboard() {
         return new APKLeaderboardPage().getPane();
     }

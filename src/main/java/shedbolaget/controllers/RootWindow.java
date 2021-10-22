@@ -40,12 +40,13 @@ public class RootWindow {
         contentWrapperAnchorPane.getChildren().clear();
         contentWrapperAnchorPane.getChildren().add(mainPage);
     }
-    public void openDrinkGenerator(){
+
+    public void openDrinkGenerator() {
         contentWrapperAnchorPane.getChildren().clear();
         contentWrapperAnchorPane.getChildren().add(drinkGeneratorPage);
     }
 
-    public void openDrinkList(){
+    public void openDrinkList() {
         contentWrapperAnchorPane.getChildren().clear();
         contentWrapperAnchorPane.getChildren().add(drinkListPage);
     }
@@ -63,6 +64,7 @@ public class RootWindow {
             case APK -> openAPKLeaderboardPage();
             case DRINKGENERATOR -> openDrinkGenerator();
             case DRINKlIST -> openDrinkList();
+            case FAVORITES -> openProductsPage();
         }
     }
 }

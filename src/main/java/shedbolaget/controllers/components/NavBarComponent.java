@@ -74,7 +74,7 @@ public class NavBarComponent extends Component {
     @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @FXML
     private void favoritesButtonOnClicked(ActionEvent event) {
-        System.out.println("favorites button clicked");
+        eventManager.fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.FAVORITES));
     }
 
     @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
