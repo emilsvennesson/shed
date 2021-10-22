@@ -9,13 +9,15 @@ import shedbolaget.controllers.components.Component;
  */
 public class CustomProductAddComponent extends Component {
     private final AnchorPane customProductPanel;
+
     public CustomProductAddComponent(AnchorPane customProductPanel) {
         super("AddCustomProductView");
         this.customProductPanel = customProductPanel;
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
-    private void onClick(){
+    private void onClick() {
         customProductPanel.toFront();
     }
 }

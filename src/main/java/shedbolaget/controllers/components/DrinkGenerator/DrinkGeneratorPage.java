@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
 import shedbolaget.controllers.components.Component;
-import shedbolaget.controllers.components.DrinkGenerator.AddedIngredientsComponent;
-import shedbolaget.controllers.components.DrinkGenerator.SearchIngredientPaneComponent;
 import shedbolaget.model.drinks.DrinkModel;
 import shedbolaget.model.drinks.Ingredient;
 import shedbolaget.model.events.DrinkGeneratorEvent;
@@ -24,13 +22,12 @@ import java.util.List;
 public class DrinkGeneratorPage extends Component {
 
 
-
+    private final SearchIngredientPaneComponent SearchComponent = new SearchIngredientPaneComponent();
+    private final AddedIngredientsComponent addedIngredientsComponent = new AddedIngredientsComponent();
     @FXML
     private SplitPane SplitPaneView;
 
-    private final SearchIngredientPaneComponent SearchComponent = new SearchIngredientPaneComponent();
-    private final AddedIngredientsComponent addedIngredientsComponent = new AddedIngredientsComponent();
-    public DrinkGeneratorPage(){
+    public DrinkGeneratorPage() {
         super("DrinkGenerator");
 
         SplitPaneView.getItems().add(SearchComponent.getPane());
@@ -42,27 +39,27 @@ public class DrinkGeneratorPage extends Component {
     }
 
 
-    private void loadIngredients(List<Ingredient> ingredientList){
+    private void loadIngredients(List<Ingredient> ingredientList) {
 
         addedIngredientsComponent.renderIngredients(ingredientList);
 
     }
 
 
-
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @Subscribe
-    public void actOnDrinkGeneratorEvent(DrinkGeneratorEvent event){
+    public void actOnDrinkGeneratorEvent(DrinkGeneratorEvent event) {
         loadIngredients(event.getIngredients());
         SearchComponent.update();
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void onGenerateClicked(ActionEvent event) {
         EventManager.getInstance().fireEvent(new NavigationEvent(NavigationEvent.NAVIGATION.DRINKlIST));
         EventManager.getInstance().fireEvent(new DrinkListEvent(DrinkModel.loadDrinks()));
 
     }
-
 
 
 }

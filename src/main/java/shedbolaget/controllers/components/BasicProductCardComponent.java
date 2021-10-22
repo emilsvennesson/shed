@@ -39,6 +39,7 @@ public class BasicProductCardComponent extends Component {
         favoriteButton.getStyleClass().add(getFavoriteIconClass());
     }
 
+    @SuppressWarnings("PMD.UnusedPrivateMethod")
     @FXML
     void favoriteButtonOnClick(ActionEvent event) {
         if (isFavorite) {
@@ -53,6 +54,6 @@ public class BasicProductCardComponent extends Component {
     }
 
     private String getFavoriteIconClass() {
-        return isFavorite ?  "favorite-icon" : "non-favorite-icon";
+        return isFavorite ? "favorite-icon" : "non-favorite-icon";
     }
 }

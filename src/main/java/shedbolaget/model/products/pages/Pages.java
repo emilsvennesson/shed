@@ -101,6 +101,6 @@ public class Pages {
     }
 
     private boolean isOutOfBounds(int pageNumber) {
-        return (pageNumber <= 0 || pageNumber > productPages.size());
+        return pageNumber <= 0 || pageNumber > productPages.size();
     }
 }

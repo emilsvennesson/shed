@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import shedbolaget.model.drinks.Drink;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

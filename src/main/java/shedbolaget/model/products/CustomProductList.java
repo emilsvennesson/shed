@@ -1,7 +1,6 @@
 package shedbolaget.model.products;
 
 import shedbolaget.model.products.customproduct.CustomProduct;
-import shedbolaget.model.products.parser.ProductsParserFactory;
 
 import java.util.ArrayList;
 import java.util.List;

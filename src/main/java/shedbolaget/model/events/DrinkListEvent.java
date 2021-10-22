@@ -1,7 +1,6 @@
 package shedbolaget.model.events;
 
 import shedbolaget.model.drinks.Drink;
-import shedbolaget.model.drinks.Ingredient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  */
 public class DrinkListEvent {
 
-    private List<Drink> drinks;
+    private final List<Drink> drinks;
 
 
     public DrinkListEvent(List<Drink> drinks){

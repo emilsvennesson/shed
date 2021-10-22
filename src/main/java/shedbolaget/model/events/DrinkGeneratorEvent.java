@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class DrinkGeneratorEvent {
 
-    private List<Ingredient> ingredients;
+    private final List<Ingredient> ingredients;
 
 
     public DrinkGeneratorEvent(List<Ingredient> ingredients){

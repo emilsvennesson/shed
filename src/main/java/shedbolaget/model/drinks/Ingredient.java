@@ -1,7 +1,6 @@
 package shedbolaget.model.drinks;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import shedbolaget.model.products.Product;
 
