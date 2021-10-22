@@ -2,19 +2,16 @@ package shedbolaget.controllers.components.DrinkGenerator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import shedbolaget.controllers.components.Component;
 import shedbolaget.model.drinks.Drink;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.ShowDrinkEvent;
-import shedbolaget.model.products.Product;
 
 public class DrinkCardComponent extends Component {
     Drink drink;
