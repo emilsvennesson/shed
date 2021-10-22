@@ -1,13 +1,10 @@
 package shedbolaget.controllers.components;
 
-import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
-import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.List;
@@ -36,7 +33,7 @@ public class APKTop3Component extends Component {
     protected APKTop3Component() {
         super("APKTop3View");
         List<Product> all = ProductModel.getInstance().getProducts();
-        populateTop3(Sorter.getProductListSortedByApk(all));
+        populateTop3(Sorter.getProductListSortedByApk(all, true));
         eventManager.registerToEventBus(this);
     }
 

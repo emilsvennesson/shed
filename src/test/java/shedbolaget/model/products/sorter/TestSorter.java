@@ -13,13 +13,13 @@ public class TestSorter {
         List<Product> products = ProductModel.getInstance().getProducts();
         Product cheapestProduct = products.get(0);
         double cheapestPrice = cheapestProduct.getPrice();
-        for(Product p : products) {
-            if(cheapestPrice > p.getPrice()) {
+        for (Product p : products) {
+            if (cheapestPrice > p.getPrice()) {
                 cheapestPrice = p.getPrice();
                 cheapestProduct = p;
             }
         }
-        List<Product> sortedProducts = Sorter.getProductListSortedByPrice(products);
+        List<Product> sortedProducts = Sorter.getProductListSortedByPrice(products, false);
         Assert.assertEquals(cheapestProduct.getProductNameBold(), sortedProducts.get(0).getProductNameBold());
     }
 
@@ -28,13 +28,13 @@ public class TestSorter {
         List<Product> products = ProductModel.getInstance().getProducts();
         Product bestProduct = products.get(0);
         double bestApk = bestProduct.getApk();
-        for(Product p : products) {
-            if(bestApk < p.getApk()) {
+        for (Product p : products) {
+            if (bestApk < p.getApk()) {
                 bestApk = p.getApk();
                 bestProduct = p;
             }
         }
-        List<Product> sortedProducts = Sorter.getProductListSortedByApk(products);
+        List<Product> sortedProducts = Sorter.getProductListSortedByApk(products, true);
         Assert.assertEquals(bestProduct.getProductNameBold(), sortedProducts.get(0).getProductNameBold());
     }
 }

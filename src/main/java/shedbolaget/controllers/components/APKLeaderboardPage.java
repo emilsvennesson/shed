@@ -1,21 +1,12 @@
 package shedbolaget.controllers.components;
 
-import com.google.common.eventbus.Subscribe;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import shedbolaget.model.categories.Categories;
-import shedbolaget.model.categories.Category;
-import shedbolaget.model.events.CategoryEvent;
-import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
-import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class APKLeaderboardPage extends Component {

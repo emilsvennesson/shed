@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
 <fx:root maxHeight="-Infinity" minHeight="-Infinity" prefWidth="904.0" style="-fx-background-color: white;" stylesheets="@../css/main.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="814.0" spacing="8.0">
