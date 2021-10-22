@@ -1,8 +1,10 @@
 package shedbolaget.controllers.components;
 
+import com.google.common.eventbus.Subscribe;    
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.sorter.Sorter;
@@ -33,5 +35,16 @@ public class APKLeaderboardPage extends Component {
         for (Product product : products.subList(3, 100)) {
             contentVBox.getChildren().add(new APKCompactListItemComponent(product, products.indexOf(product) + 1).getPane());
         }
+    }
+
+    @Subscribe
+    private void onNewCustomEvent(CustomProductCreatedEvent event){
+        reloadToplist();
+    }
+
+    private void reloadToplist(){
+        contentVBox.getChildren().remove(1);
+        contentVBox.getChildren().remove(3, contentVBox.getChildren().size());
+        populateView();
     }
 }
