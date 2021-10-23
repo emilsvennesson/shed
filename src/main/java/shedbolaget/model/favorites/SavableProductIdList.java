@@ -5,6 +5,7 @@ import shedbolaget.model.products.ProductModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Favorites.SavableProductList
@@ -101,8 +102,8 @@ public class SavableProductIdList {
      * @return a generic List of the product ids
      */
     public List<Integer> getProductIds() {
-        //TODO Return a copy of the product list
-        return this.products;
+
+        return new ArrayList<>(this.products);
     }
 
     public List<Product> getProducts() {
@@ -113,17 +114,18 @@ public class SavableProductIdList {
         return prods;
     }
 
+
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof SavableProductIdList)) return false;
-        SavableProductIdList inList = (SavableProductIdList) object;
-        if (!inList.getName().equals(this.getName())) return false;
-        if (inList.getSize() != this.getSize()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SavableProductIdList that = (SavableProductIdList) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(products, that.products);
+    }
 
-        for (int i = 0; i < inList.getSize(); i++) {
-            if (!(inList.getProductIds().get(i).equals(this.getProductIds().get(i)))) return false;
-        }
-
-        return true;
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, products);
     }
 }
