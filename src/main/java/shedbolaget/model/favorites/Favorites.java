@@ -32,8 +32,8 @@ public class Favorites {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
         SavableProductIdList favList;
         try {
-            listIOManager.addList(new SavableProductIdList("Favorites"));
-            favList = listIOManager.getList("Favorites");
+            listIOManager.addList(new SavableProductIdList("favorites"));
+            favList = listIOManager.getList("favorites");
         } catch (NullPointerException e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -47,10 +47,10 @@ public class Favorites {
      */
     public void addToFavorites(Product product) {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
-        SavableProductIdList favList = listIOManager.getList("Favorites");
+        SavableProductIdList favList = listIOManager.getList("favorites");
 
         try {
-            listIOManager.addList(new SavableProductIdList("Favorites"));
+            listIOManager.addList(new SavableProductIdList("favorites"));
             favList.addProductId(product);
         } catch (NullPointerException e) {
             e.printStackTrace();
@@ -64,9 +64,9 @@ public class Favorites {
      */
     public void removeFromFavorites(Product product) {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
-        SavableProductIdList favList = listIOManager.getList("Favorites");
+        SavableProductIdList favList = listIOManager.getList("favorites");
         try {
-            listIOManager.addList(new SavableProductIdList("Favorites"));
+            listIOManager.addList(new SavableProductIdList("favorites"));
             favList.removeProductId(product);
         } catch (NullPointerException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class Favorites {
      */
     public void clearFavorites() {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
-        listIOManager.removeList("Favorites");
+        listIOManager.removeList("favorites");
     }
 
     /**
