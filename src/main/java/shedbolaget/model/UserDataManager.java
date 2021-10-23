@@ -16,7 +16,7 @@ public enum UserDataManager {
     ;
     static final String USERDATA_FOLDER_NAME = ".shedbolaget";
     static final String USERDATA_DIRECTORY = System.getProperty("user.home") + File.separator + USERDATA_FOLDER_NAME;
-    static final File USERDATA_FILE = new File(USERDATA_DIRECTORY);
+    private static final File USERDATA_FILE = new File(USERDATA_DIRECTORY);
 
 
     private static void createUserDataDirectory() {
