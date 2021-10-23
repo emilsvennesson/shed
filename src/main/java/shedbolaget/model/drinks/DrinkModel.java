@@ -77,10 +77,17 @@ public enum DrinkModel {
 
     }
 
+    /**
+     * Gets all the currently added ingredients
+     * @return, a list of {@link Ingredient}s
+     */
     public static List<Ingredient> getIngredients() {
         return new ArrayList<>(ingredients);
     }
 
+    /**
+     * Removes all the ingredients that have been added
+     */
     public static void clearIngredients(){
         ingredients.clear();
     }
