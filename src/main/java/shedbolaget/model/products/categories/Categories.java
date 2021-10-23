@@ -1,4 +1,4 @@
-package shedbolaget.model.categories;
+package shedbolaget.model.products.categories;
 
 import shedbolaget.model.products.Product;
 

@@ -3,7 +3,7 @@ package shedbolaget.model.products.filter;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 

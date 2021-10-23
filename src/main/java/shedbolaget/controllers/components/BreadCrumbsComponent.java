@@ -3,7 +3,7 @@ package shedbolaget.controllers.components;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;

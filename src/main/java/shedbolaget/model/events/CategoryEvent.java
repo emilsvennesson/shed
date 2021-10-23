@@ -1,6 +1,6 @@
 package shedbolaget.model.events;
 
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;

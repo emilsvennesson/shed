@@ -1,7 +1,7 @@
 package shedbolaget.model.products.filter;
 
-import shedbolaget.model.categories.Categories;
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Categories;
+import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.products.Product;
 
 import java.util.ArrayList;

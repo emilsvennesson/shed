@@ -1,4 +1,4 @@
-package shedbolaget.model.categories;
+package shedbolaget.model.products.categories;
 
 import java.util.Objects;
 
