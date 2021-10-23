@@ -1,6 +1,6 @@
 package shedbolaget.controllers.components;
 
-import com.google.common.eventbus.Subscribe;    
+import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;

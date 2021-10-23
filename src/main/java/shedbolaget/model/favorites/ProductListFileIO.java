@@ -1,6 +1,9 @@
 package shedbolaget.model.favorites;
 
+import shedbolaget.model.UserDataManager;
+
 import java.io.*;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +16,14 @@ import java.util.List;
  * @version 1.0
  */
 class ProductListFileIO implements IProductListIO {
-    String filePath = "src/main/resources/SavedLists.txt";
-    File file;
-    BufferedWriter writer;
-    BufferedReader reader;
+    private static final String FILE_NAME = "favorites.txt";
+    private static final Path FILE_PATH = Path.of(UserDataManager.getUserDataDirectory(), FILE_NAME);
+    private File file;
+    private BufferedWriter writer;
+    private BufferedReader reader;
 
     public ProductListFileIO() {
-        file = new File(filePath);
+        file = new File(FILE_PATH.toUri());
         try {
             if (!file.exists()) file.createNewFile();
 
@@ -33,7 +37,7 @@ class ProductListFileIO implements IProductListIO {
     public void save(SavableProductIdList list) {
         if (writer == null) {
             try {
-                this.writer = new BufferedWriter(new FileWriter(this.filePath));
+                this.writer = new BufferedWriter(new FileWriter(file));
             } catch (IOException e) {
                 genericFileError(e, "Creating a buffered writer");
             }
@@ -57,7 +61,7 @@ class ProductListFileIO implements IProductListIO {
     public List<SavableProductIdList> loadAll() {
         if (reader == null) {
             try {
-                reader = new BufferedReader(new FileReader(filePath));
+                reader = new BufferedReader(new FileReader(file));
             } catch (FileNotFoundException e) {
                 genericFileError(e, "Creating a buffered reader");
             }

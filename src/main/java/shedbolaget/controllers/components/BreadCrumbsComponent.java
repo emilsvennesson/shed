@@ -3,11 +3,11 @@ package shedbolaget.controllers.components;
 import com.google.common.eventbus.Subscribe;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.NavigationEvent;
 import shedbolaget.model.events.SearchEvent;
+import shedbolaget.model.products.categories.Category;
 
 import java.util.List;
 import java.util.StringJoiner;

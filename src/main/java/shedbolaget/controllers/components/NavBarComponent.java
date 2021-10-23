@@ -7,13 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import shedbolaget.model.products.categories.Categories;
-import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.NavigationEvent;
 import shedbolaget.model.events.SearchEvent;
 import shedbolaget.model.products.ProductModel;
+import shedbolaget.model.products.categories.Categories;
+import shedbolaget.model.products.categories.Category;
 
 import java.util.List;
 

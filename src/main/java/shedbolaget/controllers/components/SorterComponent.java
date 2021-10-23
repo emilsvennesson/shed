@@ -6,11 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.FlowPane;
-import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.events.SortEvent;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
+import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.products.filter.Filter;
 import shedbolaget.model.products.sorter.Sorter;
 
