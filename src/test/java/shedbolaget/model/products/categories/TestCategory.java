@@ -1,4 +1,4 @@
-package shedbolaget.model.categories;
+package shedbolaget.model.products.categories;
 
 import org.junit.Assert;
 import org.junit.Test;

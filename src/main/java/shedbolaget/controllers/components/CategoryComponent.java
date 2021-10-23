@@ -5,8 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
-import shedbolaget.model.categories.Categories;
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Categories;
+import shedbolaget.model.products.categories.Category;
 import shedbolaget.model.events.CategoryEvent;
 import shedbolaget.model.products.ProductModel;
 

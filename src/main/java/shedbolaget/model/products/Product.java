@@ -1,7 +1,7 @@
 package shedbolaget.model.products;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import shedbolaget.model.categories.Category;
+import shedbolaget.model.products.categories.Category;
 
 import java.util.List;
 import java.util.Objects;
