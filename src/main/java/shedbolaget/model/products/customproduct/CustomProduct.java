@@ -1,12 +1,16 @@
 package shedbolaget.model.products.customproduct;
 
+import shedbolaget.model.UserDataManager;
 import shedbolaget.model.events.CustomProductCreatedEvent;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 import shedbolaget.model.products.parser.ProductsParserFactory;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +23,7 @@ import java.util.List;
  */
 public enum CustomProduct {
     ;
-    public static final String CUSTOM_PRODUCTS_FILENAME = "customproducts.json";
+    private static final String CUSTOM_PRODUCTS_FILENAME = "customproducts.json";
 
     private static final List<Product> customProducts = getCustomProductsFromJson();
 
@@ -45,11 +49,13 @@ public enum CustomProduct {
         return new ArrayList<>(customProducts);
     }
 
-    private static List<Product> getCustomProductsFromJson(){
-        InputStream stream = ClassLoader.getSystemResourceAsStream(CUSTOM_PRODUCTS_FILENAME);
-        if (stream != null)
-            return ProductsParserFactory.createJSONParser(CUSTOM_PRODUCTS_FILENAME).getProducts();
-        else
+    private static List<Product> getCustomProductsFromJson() {
+        InputStream stream;
+        try {
+            stream = new FileInputStream(Path.of(UserDataManager.getUserDataDirectory(), CUSTOM_PRODUCTS_FILENAME).toFile());
+            return ProductsParserFactory.createJSONParser(stream).getProducts();
+        } catch (FileNotFoundException e) {  // no custom products exist, return empty list
             return new ArrayList<>();
+        }
     }
 }

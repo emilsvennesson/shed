@@ -3,6 +3,7 @@ package shedbolaget.model.products.customproduct;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import shedbolaget.model.UserDataManager;
 import shedbolaget.model.products.Product;
 
 import java.nio.file.Path;
@@ -17,9 +18,9 @@ enum CustomProductWriter {
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         try {
-            mapper.writeValue(Path.of("src", "main", "resources", fileName).toFile(), customProducts);
+            mapper.writeValue(Path.of(UserDataManager.getUserDataDirectory(), fileName).toFile(), customProducts);
         } catch (Exception ex) {
-          ex.printStackTrace();
+            ex.printStackTrace();
         }
     }
 }
