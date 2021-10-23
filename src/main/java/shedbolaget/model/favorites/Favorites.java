@@ -48,6 +48,7 @@ public class Favorites {
     public void addToFavorites(Product product) {
         ProductIdListsIOManager listIOManager = ProductIdListsIOManager.getInstance();
         SavableProductIdList favList = listIOManager.getList("Favorites");
+
         try {
             listIOManager.addList(new SavableProductIdList("Favorites"));
             favList.addProductId(product);

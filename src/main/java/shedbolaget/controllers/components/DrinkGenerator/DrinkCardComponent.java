@@ -70,7 +70,7 @@ public class DrinkCardComponent extends Component {
 
         this.IngredientsCount.setText("Ingredients: " + drink.getAlcoIngredients().size());
         //this.apkText.setText("APK: " + drink.getAPK());
-        this.volumeText.setText("Volume: "+drink.getVolume());
+
 
         Image productImage = new Image(drink.strImageSource, 0, 0, false, false, true);
         this.imageView.setImage(productImage);

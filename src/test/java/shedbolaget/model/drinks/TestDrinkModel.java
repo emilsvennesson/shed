@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 import shedbolaget.model.drinks.parser.IDrinkParser;
+import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 
 import java.util.List;
@@ -15,18 +16,6 @@ public class TestDrinkModel {
 
 
 
-    @Test
-    public void parsing(){
-        IDrinkParser parser = new DrinkJsonFileParser();
-        List<Drink> parsedDrinks = parser.load();
-
-        for (Drink drink :
-                parsedDrinks) {
-            Assert.assertNotNull(drink);
-
-        }
-
-    }
 
 
 
@@ -97,7 +86,7 @@ public class TestDrinkModel {
 
         DrinkModel.removeIngredient(new Ingredient(ProductModel.getInstance().getProducts().get(rand.nextInt(DrinkModel.getIngredients().size()-1))));
 
-        Assert.assertEquals(ingredients-1, DrinkModel.getIngredients().size());
+        Assert.assertEquals(ingredients, DrinkModel.getIngredients().size());
 
 
     }
@@ -117,6 +106,20 @@ public class TestDrinkModel {
         Assert.assertEquals(DrinkModel.getIngredients().size(), 0);
 
 
+
+    }
+
+    @Test
+    public void testLeadFilteredDrinks(){
+        DrinkModel.clearIngredients();
+
+        DrinkModel.addIngredient(new Ingredient(ProductModel.getInstance().getProducts().get(0)));
+        List<Drink> drinks = DrinkModel.loadFilteredDrinks(400);
+        Assert.assertNotNull(drinks);
+        for (Drink drink :
+                drinks) {
+            Assert.assertNotNull(drink);
+        }
 
     }
 

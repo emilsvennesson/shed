@@ -1,6 +1,7 @@
 package shedbolaget.model.favorites;
 
 
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Test;
 import shedbolaget.model.products.Product;
@@ -143,7 +144,36 @@ public class TestSavableProductIdList {
 
     }
 
-    static Random rand = new Random();
+
+    @Test
+    public void testGetProducts(){
+
+        SavableProductIdList list = new SavableProductIdList("TestLista");
+        List<Product> prodList = new ArrayList<>();
+
+        Random rand = new Random(1);
+        for (int i = 0; i< rand.nextInt(20); i++){
+            Product prod = getRandomUniqueProduct();
+            list.addProductId(prod);
+            prodList.add(prod);
+        }
+
+
+        List<Product> prodList2 = list.getProducts();
+
+        Assert.assertEquals(prodList.size(), prodList2.size());
+        for (Product product :
+                prodList) {
+            Assert.assertTrue(prodList2.contains(product));
+
+        }
+
+
+
+
+    }
+
+    static Random rand = new Random(1);
     static List<Product> usedProducts = new ArrayList<>();
 
     private static Product getRandomUniqueProduct() {
@@ -159,6 +189,9 @@ public class TestSavableProductIdList {
 
         return prod;
     }
+
+
+
 
 
 }
