@@ -11,6 +11,10 @@ public class DrinkHolder {
 
     private static final DrinkHolder instance = new DrinkHolder();
 
+    /**
+     * Gives all the drinks that exists in the program
+     * @return, a list of {@link Drink}s
+     */
     public List<Drink> getDrinks(){
         return new ArrayList<>(drinks);
     }

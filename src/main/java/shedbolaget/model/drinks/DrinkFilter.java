@@ -22,6 +22,7 @@ public class DrinkFilter {
     /**
      * <p>Gets drinks based on a list of {@link Ingredient} set in the parameter</p>
      * @param ingredients, the ingredients that need to be in the drinks
+     * @param hitRatio, how good of a match the ingredients need to be in order for the drink to be included
      * @return a list of {@link Drink}s
      * @since 1.0.0
      */
@@ -47,6 +48,12 @@ public class DrinkFilter {
 
     }
 
+    /**
+     * Calulate how great of a match the {@link Ingredient}s are
+     * @param drink
+     * @param ingredients
+     * @return
+     */
     private Integer matchPoints(Drink drink, List<Ingredient> ingredients) {
         Integer score = 0;
 
@@ -67,6 +74,11 @@ public class DrinkFilter {
         return score;
     }
 
+    /**
+     * Sorts the map from highest to lowest
+     * @param pMap
+     * @return The same map but sorted
+     */
     private static Map<Drink, Integer> sortMap(Map<Drink, Integer> pMap) {
         return pMap.entrySet().stream()
                 .sorted(Comparator.comparingInt(e -> -e.getValue()))

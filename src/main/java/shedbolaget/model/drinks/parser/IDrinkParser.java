@@ -12,9 +12,13 @@ import java.util.List;
  *      The attributes that will be read in are
  *      </p>
  *      <ul>
- *  *       <li>Name            String</li>
- *  *       <li>Ingredients     Multiple of Strings</li>
- *  *       <li>Steps           Multiple Strings</li>
+ *  *       <li>idDrink             String</li>
+ *          <li>strDrink            String</li>
+ *          <li>strGlass            String</li>
+ *          <li>strInstructions     String</li>
+ *          <li>strImageSource      String</li>
+ *  *       <li>AlcoIngredients     List<Ingredient></li>
+ *  *       <li>NoIngredient        List<Ingredient></li>
  *  *   </ul>
  *
  * @author Daniel Rygaard

@@ -7,6 +7,10 @@ import shedbolaget.model.drinks.Drink;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Reads all the drink information from a json file
+ * @author Daniel Rygaard
+ */
 public class DrinkJsonFileParser implements IDrinkParser {
     @Override
     public List<Drink> load() {
