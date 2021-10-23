@@ -14,8 +14,6 @@ import shedbolaget.model.events.NavigationEvent;
 
 import java.util.List;
 
-//TODO add Javadoc
-
 /**
  * @author Daniel Rygaard
  */

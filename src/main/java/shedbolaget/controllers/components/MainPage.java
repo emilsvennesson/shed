@@ -11,6 +11,7 @@ import shedbolaget.model.products.pages.Pages;
 /**
  * @author Emil Svensson
  * @author Samuel Kajava
+ * @author Pouya Shirin
  */
 public class MainPage extends Component {
     @FXML

@@ -8,6 +8,9 @@ import shedbolaget.model.drinks.Ingredient;
 
 import java.util.List;
 
+/**
+ * @author Daniel Rygaard
+ */
 public class AddedIngredientsComponent extends Component {
 
 

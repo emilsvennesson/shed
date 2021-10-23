@@ -14,7 +14,9 @@ import shedbolaget.model.events.ShowDrinkEvent;
 
 import java.util.List;
 
-
+/**
+ * @author Daniel Rygaard
+ */
 public class DetailedDrinkComponent extends Component {
 
     @FXML

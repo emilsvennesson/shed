@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author Daniel Rygaard
+ */
 public class SearchIngredientPaneComponent extends Component {
 
 
@@ -37,24 +40,14 @@ public class SearchIngredientPaneComponent extends Component {
     protected SearchIngredientPaneComponent() {
         super("SearchIngredientPane");
         initPage();
-
-
     }
 
     private void initPage() {
-
-
         searchAndDisplay("Likör");
-
-
     }
 
     private void renderIngredient(Ingredient ingredient) {
-
-
         IngredientFlowPane.getChildren().add(ComponentFactory.createIngredientCard(ingredient, false));
-
-
     }
 
     private void renderIngredients(List<Ingredient> ingredients) {

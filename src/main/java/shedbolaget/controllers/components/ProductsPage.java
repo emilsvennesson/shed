@@ -18,6 +18,7 @@ import java.util.List;
 /**
  * @author Emil Svensson
  * @author Samuel Kajava
+ * @author Pouya Shirin
  */
 public class ProductsPage extends Component {
     static private final int PRODUCTS_PER_PAGE = 20;

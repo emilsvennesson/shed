@@ -18,6 +18,8 @@ import java.util.Map;
 /**
  * @author Emil Svensson
  * @author Samuel Kajava
+ * @author Pouya Shirin
+ * @author Daniel Rygaard
  * @author OOPsie project :-)
  */
 public class ComponentFactory {

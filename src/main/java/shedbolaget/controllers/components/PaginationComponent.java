@@ -7,6 +7,9 @@ import javafx.scene.text.Text;
 import shedbolaget.model.events.PagesEvent;
 import shedbolaget.model.products.pages.Pages;
 
+/**
+ * @author Emil Svensson
+ */
 public class PaginationComponent extends Component {
     @FXML
     private Button backButton;

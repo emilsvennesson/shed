@@ -11,6 +11,10 @@ import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.List;
 
+/**
+ * @author Samuel Kajava
+ * @author Pouya Shirin
+ */
 public class APKLeaderboardPage extends Component {
 
     @FXML

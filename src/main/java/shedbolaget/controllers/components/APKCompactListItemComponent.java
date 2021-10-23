@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import shedbolaget.model.products.Product;
 
-
+/**
+ * @author Samuel Kajava
+ */
 public class APKCompactListItemComponent extends Component {
 
     @FXML

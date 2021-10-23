@@ -15,8 +15,9 @@ import shedbolaget.model.products.Product;
 
 import java.util.List;
 
-
-//TODO add Javadoc
+/**
+ * @author Daniel Rygaard
+ */
 public class IngredientCardComponent extends Component {
 
 

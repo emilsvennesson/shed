@@ -13,6 +13,9 @@ import shedbolaget.model.drinks.Drink;
 import shedbolaget.model.events.EventManager;
 import shedbolaget.model.events.ShowDrinkEvent;
 
+/**
+ * @author Daniel Rygaard
+ */
 public class DrinkCardComponent extends Component {
     Drink drink;
     public DrinkCardComponent(Drink drink) {

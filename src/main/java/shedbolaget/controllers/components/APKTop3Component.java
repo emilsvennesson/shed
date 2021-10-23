@@ -9,6 +9,9 @@ import shedbolaget.model.products.sorter.Sorter;
 
 import java.util.List;
 
+/**
+ * @author Samuel Kajava
+ */
 public class APKTop3Component extends Component {
 
     @FXML

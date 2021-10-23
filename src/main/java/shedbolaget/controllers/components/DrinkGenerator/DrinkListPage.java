@@ -13,6 +13,9 @@ import shedbolaget.model.events.NavigationEvent;
 
 import java.util.List;
 
+/**
+ * @author Daniel Rygaard
+ */
 public class DrinkListPage extends Component {
 
 
