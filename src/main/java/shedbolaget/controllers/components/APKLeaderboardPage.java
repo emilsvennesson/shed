@@ -44,7 +44,7 @@ public class APKLeaderboardPage extends Component {
 
     private void reloadToplist(){
         contentVBox.getChildren().remove(1);
-        contentVBox.getChildren().remove(3, contentVBox.getChildren().size());
+        contentVBox.getChildren().remove(2, contentVBox.getChildren().size());
         populateView();
     }
 }
