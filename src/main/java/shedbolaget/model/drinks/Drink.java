@@ -30,9 +30,7 @@ public class Drink {
     private List<Ingredient> alcingredients;
     private List<Ingredient> noingredients;
 
-
     public Drink(){}
-
 
     public String getIdDrink() {
         return idDrink;
