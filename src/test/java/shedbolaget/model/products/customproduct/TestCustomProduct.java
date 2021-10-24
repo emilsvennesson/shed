@@ -13,7 +13,7 @@ public class TestCustomProduct {
     public void testCreateAndRemoveCustomProduct()
     {
         Product product = CustomProduct.createProduct("Test", "Test", "Test",
-                50, 50, 50, "Test", "test");
+                50, 50, 50, "Test");
         Assert.assertEquals(1,
                 ProductModel.getInstance().getProductsById(Integer.parseInt(product.getProductId())).size());
         CustomProduct.removeCustomProduct(product);
