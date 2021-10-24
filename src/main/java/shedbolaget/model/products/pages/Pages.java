@@ -15,6 +15,7 @@ import java.util.List;
  * @author Pouya Shirin
  */
 public class Pages {
+    private final static int DEFAULT_PRODUCTS_PER_PAGE = 20;
     private final List<IProductsCollection> productPages;
     private final int productsLimitPerPage;
     private final int totalProducts;
@@ -25,7 +26,7 @@ public class Pages {
      * @param products the products list
      */
     public Pages(List<Product> products) {
-        this.productsLimitPerPage = 20;  // default page size
+        this.productsLimitPerPage = DEFAULT_PRODUCTS_PER_PAGE;
         this.totalProducts = products.size();
         this.productPages = splitIntoPages(products);
     }
