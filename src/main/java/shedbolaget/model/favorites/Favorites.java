@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Facade for using the favorites package.
- * @author Daniel Rygaard
+ *
  * @author Samuel Kajava
  */
 

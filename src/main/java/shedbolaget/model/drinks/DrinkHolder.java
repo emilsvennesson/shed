@@ -15,15 +15,13 @@ public class DrinkHolder {
      * Gives all the drinks that exists in the program
      * @return, a list of {@link Drink}s
      */
-    public List<Drink> getDrinks(){
+    List<Drink> getDrinks(){
         return new ArrayList<>(drinks);
     }
 
-    private DrinkHolder(){
+    private DrinkHolder(){}
 
-    }
-
-    public static DrinkHolder getInstance() {
+    static DrinkHolder getInstance() {
         return instance;
     }
 }

@@ -23,7 +23,6 @@ public class TestDrinkModel {
     @Test
     public void testLoadDrinks(){
 
-        //TODO Fix
 
     }
 

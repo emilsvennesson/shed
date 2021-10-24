@@ -59,9 +59,9 @@ public class DetailedDrinkComponent extends Component {
             StringBuilder builder = new StringBuilder();
             builder.append(ingredient.getName());
 
-            if(ingredient.measure != null){
+            if(ingredient.getMeasure() != null){
                 builder.append(" : ");
-                builder.append(ingredient.measure);
+                builder.append(ingredient.getMeasure());
             }
 
             IngredientsListView.getItems().add(builder.toString());

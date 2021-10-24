@@ -69,13 +69,13 @@ public class DrinkCardComponent extends Component {
     /*----------------------------------- Private methods -----------------------------------*/
     private void initFields(){
         this.nameBoldText.setText(drink.getName());
-        this.nameThinText.setText(drink.strGlass);
+        this.nameThinText.setText(drink.getGlass());
 
         this.IngredientsCount.setText("Ingredients: " + drink.getAlcoIngredients().size());
         //this.apkText.setText("APK: " + drink.getAPK());
 
 
-        Image productImage = new Image(drink.strImageSource, 0, 0, false, false, true);
+        Image productImage = new Image(drink.getImageUrl(), 0, 0, false, false, true);
         this.imageView.setImage(productImage);
 
     }

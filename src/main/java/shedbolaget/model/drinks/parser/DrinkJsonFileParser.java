@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Reads all the drink information from a json file
+ * Reads all the {@link Drink} information from a json file
  * @author Daniel Rygaard
  */
 public class DrinkJsonFileParser implements IDrinkParser {

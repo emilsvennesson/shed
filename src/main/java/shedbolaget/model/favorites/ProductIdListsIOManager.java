@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Favorites.ProductListIOManager
  *
- * <p> Used a a facade for the rest of the program to handle saving {@link SavableProductIdList}.</p>
+ * <p> Used as a Manager for the Favorites facade to handle saving and loading {@link SavableProductIdList}s.</p>
  *
  * @author Daniel Rygaard
  * @version 1.0
