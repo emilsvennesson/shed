@@ -14,6 +14,8 @@ public class DrinkParserTest {
         IDrinkParser parser = new DrinkJsonFileParser();
         List<Drink> parsedDrinks = parser.load();
 
+        Assert.assertNotEquals(0, parsedDrinks.size());
+
         for (Drink drink :
                 parsedDrinks) {
             Assert.assertNotNull(drink);

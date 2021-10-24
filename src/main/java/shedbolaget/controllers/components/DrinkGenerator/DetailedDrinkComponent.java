@@ -42,13 +42,13 @@ public class DetailedDrinkComponent extends Component {
 
     @Subscribe
     public void showDrink(ShowDrinkEvent event){
-        TitelText.setText(event.getDrink().getName());
-        GlassText.setText(event.getDrink().getGlass());
-        InstructionesText.setText(event.getDrink().getInstructions());
+        TitelText.setText(event.getDrink().getStrDrink());
+        GlassText.setText(event.getDrink().getStrGlass());
+        InstructionesText.setText(event.getDrink().getStrInstructions());
         IngredientsListView.getItems().clear();
-        addIngredients(event.getDrink().getAlcoIngredients());
+        addIngredients(event.getDrink().getAlcingredients());
         addIngredients(event.getDrink().getNoingredients());
-        DrinkImageView.setImage(new Image(event.getDrink().getImageUrl()));
+        DrinkImageView.setImage(new Image(event.getDrink().getStrImageSource()));
         this.getPane().toFront();
 
         

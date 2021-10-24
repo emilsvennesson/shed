@@ -13,48 +13,55 @@ import java.util.List;
  * @author Daniel Rygaard
  * @version %I%, %G%
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Drink {
     //Identifiers
-    public String idDrink;
-    public String strDrink;
+    private String idDrink;
+    private String strDrink;
 
     //Ingredients
 
 
     //Instructions
 
-    public String strGlass;
-    public String strInstructions;
+    private String strGlass;
+    private String strInstructions;
 
     //Image
-    public String strImageSource;
+    private String strImageSource;
 
-    public List<Ingredient> alcingredients = new ArrayList<>();
-    public List<Ingredient> noingredients = new ArrayList<>();
+    private List<Ingredient> alcingredients;
+    private List<Ingredient> noingredients;
 
 
-    public String getGlass() {
-        return strGlass;
+    public Drink(){}
+
+
+    public String getIdDrink() {
+        return idDrink;
     }
 
-    public String getName() {
+    public String getStrDrink() {
         return strDrink;
     }
 
-    public List<Ingredient> getAlcoIngredients() {
-        return new ArrayList<>(alcingredients);
+    public String getStrGlass() {
+        return strGlass;
     }
 
-    public List<Ingredient> getNoingredients(){
-        return new ArrayList<>(noingredients);
-    }
-
-    public String getInstructions() {
+    public String getStrInstructions() {
         return strInstructions;
     }
 
-    public String getImageUrl() {
+    public String getStrImageSource() {
         return strImageSource;
+    }
+
+    public List<Ingredient> getAlcingredients() {
+        return new ArrayList<>(alcingredients);
+
+    }
+
+    public List<Ingredient> getNoingredients() {
+        return new ArrayList<>(noingredients);
     }
 }

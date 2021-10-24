@@ -60,16 +60,16 @@ public class DrinkFilter {
         for (Ingredient ingredient :
                 ingredients) {
             for (Ingredient ingredient1:
-                 drink.getAlcoIngredients()) {
+                 drink.getAlcingredients()) {
                 score += FuzzySearch.ratio(ingredient1.getName(), ingredient.getName() )*5;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel1().getName())*1;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel2().getName())*2;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCategoryLevel3().getName())*3;
-                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.prod.getCustomCategoryTitle())*1;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.getProd().getCategoryLevel1().getName())*1;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.getProd().getCategoryLevel2().getName())*2;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.getProd().getCategoryLevel3().getName())*3;
+                score += FuzzySearch.ratio(ingredient1.getName(), ingredient.getProd().getCustomCategoryTitle())*1;
             }
         }
-        if(drink.getAlcoIngredients().size() == 0 || ingredients.size() == 0) return 0;
-        score =score/(drink.getAlcoIngredients().size()*ingredients.size());
+        if(drink.getAlcingredients().size() == 0 || ingredients.size() == 0) return 0;
+        score =score/(drink.getAlcingredients().size()*ingredients.size());
 
         return score;
     }

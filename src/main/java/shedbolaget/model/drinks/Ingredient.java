@@ -19,11 +19,11 @@ import java.util.Objects;
 public class Ingredient {
 
 
-    public String name;
-    public String measure = "0";
+    private String name;
+    private String measure = "0";
 
 
-    Product prod;
+    private Product prod;
 
 
 

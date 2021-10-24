@@ -15,7 +15,7 @@ public class DrinkJsonFileParser implements IDrinkParser {
     @Override
     public List<Drink> load() {
 
-        List<Drink> drinks = new ArrayList<>();
+        List<Drink> drinks = null;
         try {
             // create object mapper instance
             ObjectMapper mapper = new ObjectMapper();
