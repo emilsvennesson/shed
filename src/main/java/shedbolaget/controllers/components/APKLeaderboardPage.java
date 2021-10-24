@@ -41,12 +41,13 @@ public class APKLeaderboardPage extends Component {
         }
     }
 
+    @SuppressWarnings({"PMD.UnusedPrivateMethod", "PMD.UnusedFormalParameter"})
     @Subscribe
-    private void onNewCustomEvent(CustomProductCreatedEvent event){
+    private void onNewCustomEvent(CustomProductCreatedEvent event) {
         reloadToplist();
     }
 
-    private void reloadToplist(){
+    private void reloadToplist() {
         contentVBox.getChildren().remove(1);
         contentVBox.getChildren().remove(2, contentVBox.getChildren().size());
         populateView();

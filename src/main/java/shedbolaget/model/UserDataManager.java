@@ -23,7 +23,7 @@ public enum UserDataManager {
         USERDATA_FILE.mkdir();
     }
 
-    private static boolean homeDirectoryExists() {
+    private static boolean userDataDirectoryExists() {
         return USERDATA_FILE.exists();
     }
 
@@ -33,7 +33,7 @@ public enum UserDataManager {
      * @return the user data directory
      */
     public static String getUserDataDirectory() {
-        if (!homeDirectoryExists())
+        if (!userDataDirectoryExists())
             createUserDataDirectory();
         return USERDATA_DIRECTORY;
     }
