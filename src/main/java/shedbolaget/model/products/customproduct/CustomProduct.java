@@ -35,7 +35,6 @@ public enum CustomProduct {
      * @param alcoholPercentage alcoholic percentage without decimals
      */
     public static Product createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl) {
-        // create Product object
         Product newCustomProduct = new Product(ProductModel.getInstance().getAvailableId(), name, category1, category2, price, volume, alcoholPercentage, country, imgUrl);
         customProducts.add(newCustomProduct);
         fireNewCustomEvent();
@@ -77,7 +76,7 @@ public enum CustomProduct {
         try {
             stream = new FileInputStream(Path.of(UserDataManager.getUserDataDirectory(), CUSTOM_PRODUCTS_FILENAME).toFile());
             return ProductsParserFactory.createJSONParser(stream).getProducts();
-        } catch (FileNotFoundException e) {  // no custom products exist, return empty list
+        } catch (FileNotFoundException e) {  // If no custom products exist in user data home, return empty list
             return new ArrayList<>();
         }
     }

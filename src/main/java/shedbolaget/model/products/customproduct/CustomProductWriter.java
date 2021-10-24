@@ -25,7 +25,7 @@ enum CustomProductWriter { //TODO This class is best suited to be in JSON produc
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        try {
+        try { // Write list of products to userdata home with the given filename
             mapper.writeValue(Path.of(UserDataManager.getUserDataDirectory(), fileName).toFile(), customProducts);
         } catch (Exception ex) {
             ex.printStackTrace();
