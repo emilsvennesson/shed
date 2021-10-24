@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * <p> {@link DrinkFilter} class compares drinks and singles out different drinks with different properties</p>
  *
  * @author Daniel Rygaard
- * @version 1.0.0
+ * @version %I%, %G%
  */
 public class DrinkFilter {
 

@@ -5,6 +5,11 @@ import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * Holds all the {@link Drink} objects that are avilable in the program
+ * @author Daniel Rygaard
+ */
 public class DrinkHolder {
 
     private final List<Drink> drinks = new DrinkJsonFileParser().load();

@@ -9,6 +9,7 @@ import java.util.List;
  * Facade for using the favorites package.
  *
  * @author Samuel Kajava
+ * @version %I%, %G%
  */
 
 public class Favorites {

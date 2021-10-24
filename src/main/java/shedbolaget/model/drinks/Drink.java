@@ -54,7 +54,6 @@ public class Drink {
 
     public List<Ingredient> getAlcingredients() {
         return new ArrayList<>(alcingredients);
-
     }
 
     public List<Ingredient> getNoingredients() {

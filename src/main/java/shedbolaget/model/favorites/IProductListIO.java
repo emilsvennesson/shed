@@ -8,7 +8,7 @@ import java.util.List;
  * <p> Is an interface for file saving, input/outputs(IO).</p>
  *
  * @author Daniel Rygaard
- * @version 1.0
+ * @version %I%, %G%
  */
 interface IProductListIO {
     /**

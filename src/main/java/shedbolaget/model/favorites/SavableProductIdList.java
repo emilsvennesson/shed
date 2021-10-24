@@ -13,7 +13,7 @@ import java.util.Objects;
  * <p> Used as utility for the appropriate data to save a list of productIds</p>
  *
  * @author Daniel Rygaard
- * @version 1.0
+ * @version %I%, %G%
  */
 public class SavableProductIdList {
     private final String name;

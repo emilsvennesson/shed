@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Reads all the {@link Drink} information from a json file
  * @author Daniel Rygaard
+ * @version %I%, %G%
  */
 public class DrinkJsonFileParser implements IDrinkParser {
     @Override

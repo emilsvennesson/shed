@@ -13,7 +13,7 @@ import java.util.List;
  * <p> Inherits {@link IProductListIO}, used to save {@link SavableProductIdList} to a file.</p>
  *
  * @author Daniel Rygaard
- * @version 1.0
+ * @version %I%, %G%
  */
 class ProductListFileIO implements IProductListIO {
     private static final String FILE_NAME = "favorites.txt";

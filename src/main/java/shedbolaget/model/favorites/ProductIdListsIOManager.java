@@ -9,7 +9,7 @@ import java.util.List;
  * <p> Used as a Manager for the Favorites facade to handle saving and loading {@link SavableProductIdList}s.</p>
  *
  * @author Daniel Rygaard
- * @version 1.0
+ * @version %I%, %G%
  */
  class ProductIdListsIOManager {
     private static final ProductIdListsIOManager instance = new ProductIdListsIOManager();
