@@ -16,9 +16,6 @@ import java.util.stream.Collectors;
  */
 public enum DrinkModel {
     ;
-
-
-
     final static private List<Ingredient> ingredients = new ArrayList<>();
 
     final static DrinkFilter dFilter = new DrinkFilter();
@@ -41,7 +38,6 @@ public enum DrinkModel {
         return DrinkHolder.getInstance().getDrinks();
     }
 
-
     /**
      * Adds an {@link Ingredient} to the drink model, this ingredient will be used when getting the drinks
      *
@@ -60,7 +56,6 @@ public enum DrinkModel {
         Ingredient ing = new Ingredient(product);
         addIngredient(ing);
     }
-
 
     /**
      * Removes a {@link Ingredient} from the ingredients list

@@ -15,10 +15,6 @@ import java.util.stream.Collectors;
  */
 public class DrinkFilter {
 
-
-
-    
-
     /**
      * <p>Gets drinks based on a list of {@link Ingredient} set in the parameter</p>
      * @param ingredients, the ingredients that need to be in the drinks
@@ -39,13 +35,7 @@ public class DrinkFilter {
             hitMatch.put(drink, points);
 
         }
-
-        
-
-
-
         return new ArrayList<>(sortMap(hitMatch).keySet());
-
     }
 
     /**
@@ -91,5 +81,4 @@ public class DrinkFilter {
                         LinkedHashMap::new
                 ));
     }
-
 }

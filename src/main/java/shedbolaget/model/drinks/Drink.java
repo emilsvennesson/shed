@@ -18,9 +18,6 @@ public class Drink {
     private String idDrink;
     private String strDrink;
 
-    //Ingredients
-
-
     //Instructions
 
     private String strGlass;
@@ -29,6 +26,7 @@ public class Drink {
     //Image
     private String strImageSource;
 
+    //Ingredients
     private List<Ingredient> alcingredients;
     private List<Ingredient> noingredients;
 

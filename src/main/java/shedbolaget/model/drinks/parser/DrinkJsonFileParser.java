@@ -21,7 +21,6 @@ public class DrinkJsonFileParser implements IDrinkParser {
             ObjectMapper mapper = new ObjectMapper();
             drinks = mapper.readValue(ClassLoader.getSystemClassLoader().getResourceAsStream("drinksFormatted.json"), new TypeReference<>() {
             });
-
         } catch (Exception ex) {
             System.out.println("Failed to read data.json file.");
             ex.printStackTrace();

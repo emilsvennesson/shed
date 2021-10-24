@@ -18,46 +18,27 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Ingredient {
 
-
     private String name;
     private String measure = "0";
-
-
     private Product prod;
 
-
-
-
-    public Ingredient(){
-
-    }
-
-
+    public Ingredient(){ }
     public Ingredient(Product prod){
         //TODO turn the product into ingredient
         this.name = getIngredientName(prod);
         this.prod = prod;
-
-
     }
-
     public String getMeasure() {
         return measure;
     }
-
-
 
     public String getName() {
         return name;
     }
 
     public String getIngredientName(Product prod){
-       
         return prod.getProductNameBold();
-
-
     }
-
 
     public Product getProd() {
         return prod;
