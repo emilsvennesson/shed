@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import shedbolaget.model.drinks.parser.DrinkJsonFileParser;
 import shedbolaget.model.drinks.parser.IDrinkParser;
-import shedbolaget.model.products.Product;
 import shedbolaget.model.products.ProductModel;
 
 import java.util.List;

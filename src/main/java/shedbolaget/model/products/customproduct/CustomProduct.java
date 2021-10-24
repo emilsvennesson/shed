@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * This class creates a custom product and writes the products to the JSON file.
+ *
  * @author Pouya Shirin
  */
 public enum CustomProduct {
@@ -34,8 +35,8 @@ public enum CustomProduct {
      * @param volume            volume in ml
      * @param alcoholPercentage alcoholic percentage without decimals
      */
-    public static Product createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country, String imgUrl) {
-        Product newCustomProduct = new Product(ProductModel.getInstance().getAvailableId(), name, category1, category2, price, volume, alcoholPercentage, country, imgUrl);
+    public static Product createProduct(String name, String category1, String category2, double price, double volume, int alcoholPercentage, String country) {
+        Product newCustomProduct = new Product(ProductModel.getInstance().getAvailableId(), name, category1, category2, price, volume, alcoholPercentage, country);
         customProducts.add(newCustomProduct);
         fireNewCustomEvent();
         return newCustomProduct;
@@ -43,6 +44,7 @@ public enum CustomProduct {
 
     /**
      * Gets the Custom Product list.
+     *
      * @return custom product list
      */
     public static List<Product> getCustomProducts() {
@@ -51,9 +53,10 @@ public enum CustomProduct {
 
     /**
      * Removes the custom product from the custom product list.
+     *
      * @param product product
      */
-    static void removeCustomProduct(Product product){
+    static void removeCustomProduct(Product product) {
         customProducts.remove(product);
         fireNewCustomEvent();
     }
@@ -61,14 +64,14 @@ public enum CustomProduct {
     /**
      * Each time the custom product list gets changed, update the json data file and fire the events.
      */
-    private static void fireNewCustomEvent()
-    {
+    private static void fireNewCustomEvent() {
         CustomProductWriter.writeProductsToJsonFile(customProducts, CUSTOM_PRODUCTS_FILENAME);
         EventManager.getInstance().fireEvent(new CustomProductCreatedEvent());
     }
 
     /**
      * Gets a list of custom products from customproducts.json. If it doesn't exist, return an empty list.
+     *
      * @return custom product list
      */
     private static List<Product> getCustomProductsFromJson() {

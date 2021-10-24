@@ -45,7 +45,7 @@ public class CustomProductPaneComponent extends Component {
     private void createCustomProduct() {
         CustomProduct.createProduct(productNameInput.getText(), category1Input.getText(),
                 category2Input.getText(), Integer.parseInt(priceInput.getText()), Integer.parseInt(volumeInput.getText()),
-                Integer.parseInt(alcoholPercentageInput.getText()), countryInput.getText(), imgURLInput.getText());
+                Integer.parseInt(alcoholPercentageInput.getText()), countryInput.getText());
     }
 
     private void closePane() {
