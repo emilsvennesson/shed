@@ -2,7 +2,7 @@
 ![Shed image](https://i.ibb.co/tYYRXSP/shed.png)
 # Shed  [![Build Status](https://app.travis-ci.com/samkaj/shed.svg?token=tsNsyCSMsE6iGxWwHpDL&branch=main)](https://app.travis-ci.com/samkaj/shed)
 Group project for TDA367     
-Made by Samuel Kajava, Emil Svensson, Daniel Rygaard and Pouya Shirin
+Made by Samuel Kajava, Emil Svensson, Daniel Rygaard & Pouya Shirin
 
 ## Prerequisites
 - Java JDK 16
